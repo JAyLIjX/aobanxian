@@ -1,145 +1,136 @@
 use std::{
-    sync::atomic::{AtomicU64, Ordering},
+    sync::{Arc, Mutex},
     thread,
     time::Duration,
 };
 
-use tauri::{
-    menu::{CheckMenuItem, Menu, MenuItem, PredefinedMenuItem},
-    tray::TrayIconBuilder,
-    App, AppHandle, Manager, Runtime, WebviewWindow, WindowEvent,
-};
-use tauri_plugin_autostart::{MacosLauncher, ManagerExt};
-use tauri_plugin_window_state::{AppHandleExt, StateFlags};
+use serde::Deserialize;
+use tauri::{AppHandle, LogicalPosition, LogicalSize, Manager, Runtime, State, WebviewWindow};
+use tauri_plugin_autostart::MacosLauncher;
 
 const MAIN_WINDOW: &str = "main";
+/// 点穿检测的轮询间隔
+const HIT_POLL: Duration = Duration::from_millis(30);
 
-/// 每次窗口移动加一；停止移动一段时间后才写盘，避免拖动过程中频繁保存
-static MOVE_GENERATION: AtomicU64 = AtomicU64::new(0);
+/// 精灵图的不透明格（窗口内逻辑像素坐标）。rows 每行一个字符串，'1' 表示该格不透明
+#[derive(Deserialize, Clone)]
+struct HitMask {
+    x: f64,
+    y: f64,
+    cell: f64,
+    rows: Vec<String>,
+}
 
-fn save_position_when_settled<R: Runtime>(app: AppHandle<R>) {
-    let generation = MOVE_GENERATION.fetch_add(1, Ordering::SeqCst) + 1;
+/// 窗口里能接收鼠标的区域：精灵图的不透明像素 + 卷轴、弹窗、气泡等矩形
+#[derive(Deserialize, Clone, Default)]
+struct HitRegions {
+    /// 为 true 时整个窗口都接收鼠标（比如正在拖动）
+    #[serde(default)]
+    all: bool,
+    #[serde(default)]
+    rects: Vec<[f64; 4]>,
+    #[serde(default)]
+    masks: Vec<HitMask>,
+}
+
+impl HitRegions {
+    fn hit(&self, x: f64, y: f64) -> bool {
+        if self.all {
+            return true;
+        }
+        if self
+            .rects
+            .iter()
+            .any(|[rx, ry, rw, rh]| x >= *rx && y >= *ry && x < rx + rw && y < ry + rh)
+        {
+            return true;
+        }
+        self.masks.iter().any(|m| {
+            if x < m.x || y < m.y {
+                return false;
+            }
+            let cx = ((x - m.x) / m.cell) as usize;
+            let cy = ((y - m.y) / m.cell) as usize;
+            m.rows
+                .get(cy)
+                .and_then(|row| row.as_bytes().get(cx))
+                .is_some_and(|b| *b == b'1')
+        })
+    }
+}
+
+#[derive(Default)]
+struct HitState(Mutex<Option<Arc<HitRegions>>>);
+
+#[tauri::command]
+fn set_hit_regions(state: State<HitState>, regions: HitRegions) {
+    *state.0.lock().unwrap() = Some(Arc::new(regions));
+}
+
+/// 一次设好窗口的位置和大小（逻辑像素），减少分两次调用时的跳动
+#[tauri::command]
+fn set_window_rect<R: Runtime>(window: WebviewWindow<R>, x: f64, y: f64, w: f64, h: f64) -> Result<(), String> {
+    window
+        .set_size(LogicalSize::new(w, h))
+        .and_then(|_| window.set_position(LogicalPosition::new(x, y)))
+        .map_err(|e| e.to_string())
+}
+
+#[tauri::command]
+fn quit_app<R: Runtime>(app: AppHandle<R>) {
+    app.exit(0);
+}
+
+/// 透明点穿：光标不在可点击区域时让窗口忽略鼠标，点击直接落到桌面或下面的窗口。
+/// 只用跨平台接口（cursor_position + set_ignore_cursor_events），macOS 和 Windows 一致。
+fn spawn_click_through<R: Runtime>(app: AppHandle<R>) {
     thread::spawn(move || {
-        thread::sleep(Duration::from_millis(500));
-        if MOVE_GENERATION.load(Ordering::SeqCst) == generation {
-            let _ = app.save_window_state(StateFlags::POSITION);
+        let mut ignoring: Option<bool> = None;
+        loop {
+            thread::sleep(HIT_POLL);
+            let Some(window) = app.get_webview_window(MAIN_WINDOW) else {
+                continue;
+            };
+            let regions = app.state::<HitState>().0.lock().unwrap().clone();
+            // 前端还没报告可点击区域时，整窗都接收鼠标
+            let Some(regions) = regions else { continue };
+            let hit = match (app.cursor_position(), window.outer_position(), window.scale_factor()) {
+                (Ok(cursor), Ok(pos), Ok(scale)) => {
+                    let x = (cursor.x - pos.x as f64) / scale;
+                    let y = (cursor.y - pos.y as f64) / scale;
+                    regions.hit(x, y)
+                }
+                _ => true,
+            };
+            let ignore = !hit;
+            if ignoring != Some(ignore) && window.set_ignore_cursor_events(ignore).is_ok() {
+                ignoring = Some(ignore);
+            }
         }
     });
-}
-
-fn main_window<R: Runtime>(app: &AppHandle<R>) -> Option<WebviewWindow<R>> {
-    app.get_webview_window(MAIN_WINDOW)
-}
-
-/// 窗口层级：置顶，或像桌面小组件一样置底。两者互斥，先取消一个再设另一个。
-fn set_on_top<R: Runtime>(window: &WebviewWindow<R>, on_top: bool) {
-    if on_top {
-        let _ = window.set_always_on_bottom(false);
-        let _ = window.set_always_on_top(true);
-    } else {
-        let _ = window.set_always_on_top(false);
-        let _ = window.set_always_on_bottom(true);
-    }
-}
-
-fn build_tray(app: &App) -> tauri::Result<()> {
-    let handle = app.handle();
-
-    let toggle = MenuItem::with_id(handle, "toggle", "隐藏", true, None::<&str>)?;
-    let on_top = CheckMenuItem::with_id(handle, "on_top", "置顶", true, false, None::<&str>)?;
-    let autostart_enabled = handle.autolaunch().is_enabled().unwrap_or(false);
-    let autostart = CheckMenuItem::with_id(
-        handle,
-        "autostart",
-        "开机启动",
-        true,
-        autostart_enabled,
-        None::<&str>,
-    )?;
-    let quit = MenuItem::with_id(handle, "quit", "退出", true, None::<&str>)?;
-    let menu = Menu::with_items(
-        handle,
-        &[
-            &toggle,
-            &on_top,
-            &autostart,
-            &PredefinedMenuItem::separator(handle)?,
-            &quit,
-        ],
-    )?;
-
-    let mut tray = TrayIconBuilder::with_id("main-tray")
-        .tooltip("奥半仙")
-        .menu(&menu)
-        .show_menu_on_left_click(true)
-        .on_menu_event(move |app, event| match event.id().as_ref() {
-            "toggle" => {
-                let Some(window) = main_window(app) else { return };
-                if window.is_visible().unwrap_or(true) {
-                    let _ = window.hide();
-                    let _ = toggle.set_text("显示");
-                } else {
-                    let _ = window.show();
-                    // 重新显示后恢复原来的层级
-                    set_on_top(&window, on_top.is_checked().unwrap_or(false));
-                    let _ = toggle.set_text("隐藏");
-                }
-            }
-            "on_top" => {
-                // 勾选框点击后已自动切换，读出来的就是新状态
-                if let Some(window) = main_window(app) {
-                    set_on_top(&window, on_top.is_checked().unwrap_or(false));
-                }
-            }
-            "autostart" => {
-                let launcher = app.autolaunch();
-                let want = autostart.is_checked().unwrap_or(false);
-                let result = if want { launcher.enable() } else { launcher.disable() };
-                if let Err(err) = result {
-                    eprintln!("切换开机启动失败：{err}");
-                }
-                // 以系统里的实际状态为准
-                let _ = autostart.set_checked(launcher.is_enabled().unwrap_or(false));
-            }
-            "quit" => {
-                let _ = app.save_window_state(StateFlags::POSITION);
-                app.exit(0);
-            }
-            _ => {}
-        });
-    if let Some(icon) = app.default_window_icon() {
-        tray = tray.icon(icon.clone());
-    }
-    tray.build(app)?;
-    Ok(())
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        // 只记住位置；窗口大小由前端按展开状态决定
-        .plugin(
-            tauri_plugin_window_state::Builder::default()
-                .with_state_flags(StateFlags::POSITION)
-                .build(),
-        )
+        .plugin(tauri_plugin_store::Builder::default().build())
         .plugin(tauri_plugin_autostart::init(MacosLauncher::LaunchAgent, None))
-        .on_window_event(|window, event| {
-            if let WindowEvent::Moved(_) = event {
-                save_position_when_settled(window.app_handle().clone());
-            }
-        })
+        .plugin(tauri_plugin_opener::init())
+        .manage(HitState::default())
+        .invoke_handler(tauri::generate_handler![set_hit_regions, set_window_rect, quit_app])
         .setup(|app| {
             // macOS 不在 Dock 显示（Windows 由窗口配置里的 skipTaskbar 处理）
             #[cfg(target_os = "macos")]
             app.set_activation_policy(tauri::ActivationPolicy::Accessory);
 
-            // 配置里的 alwaysOnBottom 在 macOS 上创建窗口时不一定生效，启动后再显式设一次
-            if let Some(window) = main_window(app.handle()) {
-                set_on_top(&window, false);
+            // 配置里的 alwaysOnBottom 在 macOS 上创建窗口时不一定生效，启动后再显式设一次；
+            // 之后的置顶 / 置底由前端按设置切换
+            if let Some(window) = app.get_webview_window(MAIN_WINDOW) {
+                let _ = window.set_always_on_top(false);
+                let _ = window.set_always_on_bottom(true);
             }
 
-            build_tray(app)?;
+            spawn_click_through(app.handle().clone());
             Ok(())
         })
         .run(tauri::generate_context!())

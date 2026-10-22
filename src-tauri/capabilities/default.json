@@ -1,14 +1,43 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
-  "description": "Capability for the main window",
+  "description": "主窗口、设置窗口和关于窗口的权限",
   "windows": [
-    "main"
+    "main",
+    "settings",
+    "about"
   ],
   "permissions": [
     "core:default",
     "core:window:allow-start-dragging",
     "core:window:allow-set-size",
-    "core:window:allow-set-focus"
+    "core:window:allow-set-position",
+    "core:window:allow-set-focus",
+    "core:window:allow-show",
+    "core:window:allow-hide",
+    "core:window:allow-close",
+    "core:window:allow-set-always-on-top",
+    "core:window:allow-set-always-on-bottom",
+    "core:window:allow-set-title",
+    "core:window:allow-current-monitor",
+    "core:window:allow-primary-monitor",
+    "core:window:allow-available-monitors",
+    "core:window:allow-monitor-from-point",
+    "core:webview:allow-create-webview-window",
+    "core:menu:default",
+    "core:tray:default",
+    "core:app:default",
+    "core:app:allow-default-window-icon",
+    "store:default",
+    "autostart:default",
+    "opener:default",
+    {
+      "identifier": "opener:allow-open-url",
+      "allow": [
+        {
+          "url": "https://github.com/*"
+        }
+      ]
+    }
   ]
 }

@@ -14,8 +14,8 @@
       {
         "label": "main",
         "title": "奥半仙",
-        "width": 420,
-        "height": 210,
+        "width": 400,
+        "height": 360,
         "resizable": false,
         "maximizable": false,
         "minimizable": false,
@@ -26,7 +26,8 @@
         "alwaysOnBottom": true,
         "acceptFirstMouse": true,
         "visibleOnAllWorkspaces": true,
-        "focus": false
+        "focus": false,
+        "visible": false
       }
     ],
     "security": {
