@@ -306,9 +306,10 @@ export function MainApp() {
   const knock = useCallback(() => {
     showMuyu();
     setMuyuStrike((n) => n + 1);
-    // 木槌落到木鱼上时出声、飘字
+    // 木槌落下那一刻响（Rust 那边延后 110ms 播放）
+    if (settings.muyuSound) playWoodBlock(0.11);
+    // 木槌落到木鱼上时飘字
     setTimeout(() => {
-      if (settings.muyuSound) playWoodBlock();
       const id = Date.now() + Math.random();
       setMeritFloats((list) => [...list, id]);
       setTimeout(() => setMeritFloats((list) => list.filter((x) => x !== id)), 1200);
@@ -394,6 +395,14 @@ export function MainApp() {
     window.addEventListener("aobanxian:menu", onMenu);
     return () => window.removeEventListener("aobanxian:menu", onMenu);
   }, []);
+
+  // 开发版自测：VITE_TEST_KNOCK=1 npm run tauri dev，启动 3 秒后自动执行一次菜单第一项（小和尚就是敲木鱼），
+  // 不用点鼠标就能检查「菜单 → 敲木鱼 → 系统音频」整条路
+  useEffect(() => {
+    if (!import.meta.env.DEV || !import.meta.env.VITE_TEST_KNOCK || !loaded) return;
+    const timer = setTimeout(() => menuRef.current.actions.divine(), 3000);
+    return () => clearTimeout(timer);
+  }, [loaded]);
 
   // 择日、纪念日窗口里点某一天：在主窗口打开那天的详情
   useEffect(() => onOpenDetailRequest((ymd) => setDetailDay(ymd)), []);
@@ -605,6 +614,7 @@ export function MainApp() {
   }, [detailDay]);
 
   if (!layout) return <main className="stage" />;
+
 
   // ── 气泡位置：头顶，向左长 ──
   const headX = layout.sprite.x + sprite.width * 0.3 * cell;

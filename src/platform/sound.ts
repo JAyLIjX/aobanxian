@@ -1,20 +1,32 @@
 /**
- * 敲木鱼的声音：用 Web Audio 现场合成一个短促的木头声（不用音频文件）。
- * 木头声 = 几个很快衰减的正弦（木腔共鸣）+ 一下极短的带通噪声（敲击的「嗒」）。
+ * 敲木鱼的声音。
+ * 桌面版（Tauri）：交给 Rust 用系统音频播放（src-tauri/src/woodblock.rs，代码现场合成，不用音频文件）。
+ * v0.3.0 在网页里用 Web Audio 合成，正式版里听不到，所以改成原生播放。
+ * 浏览器里（npm run dev 调界面）退回 Web Audio，合成参数和 Rust 那边一样。
  */
+import { invoke } from "@tauri-apps/api/core";
+import { inTauri } from "./window";
+
 let ctx: AudioContext | null = null;
 
-function audio(): AudioContext | null {
-  if (typeof window === "undefined" || !("AudioContext" in window)) return null;
-  ctx ??= new AudioContext();
-  if (ctx.state === "suspended") void ctx.resume();
+function context(): AudioContext | null {
+  if (typeof window === "undefined") return null;
+  const Ctor = window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+  if (!Ctor) return null;
+  ctx ??= new Ctor();
   return ctx;
 }
 
-export function playWoodBlock(volume = 0.6): void {
-  const ac = audio();
+/** 敲一下木鱼：delay 秒后响 */
+export function playWoodBlock(delay = 0, volume = 0.6): void {
+  if (inTauri) {
+    void invoke("play_woodblock", { delayMs: Math.round(delay * 1000) }).catch((err) => console.error("木鱼声播放失败", err));
+    return;
+  }
+  const ac = context();
   if (!ac) return;
-  const t = ac.currentTime + 0.005;
+  if (ac.state !== "running") void ac.resume().catch(() => {});
+  const t = ac.currentTime + 0.005 + delay;
   const out = ac.createGain();
   out.gain.value = volume;
   out.connect(ac.destination);
@@ -38,7 +50,7 @@ export function playWoodBlock(volume = 0.6): void {
     osc.stop(t + decay + 0.02);
   }
 
-  // 敲击：10ms 的噪声过带通
+  // 敲击：12ms 的噪声过带通
   const len = Math.floor(ac.sampleRate * 0.012);
   const buf = ac.createBuffer(1, len, ac.sampleRate);
   const data = buf.getChannelData(0);

@@ -8,6 +8,8 @@ use serde::Deserialize;
 use tauri::{AppHandle, LogicalPosition, LogicalSize, Manager, Runtime, State, WebviewWindow, WindowEvent};
 use tauri_plugin_autostart::MacosLauncher;
 
+mod woodblock;
+
 const MAIN_WINDOW: &str = "main";
 /// 点穿检测的轮询间隔
 const HIT_POLL: Duration = Duration::from_millis(16);
@@ -96,6 +98,12 @@ fn set_window_rect<R: Runtime>(window: WebviewWindow<R>, x: f64, y: f64, w: f64,
         .map_err(|e| e.to_string())
 }
 
+/// 小和尚敲木鱼：delay_ms 毫秒后用系统音频放一声木头声
+#[tauri::command]
+fn play_woodblock(delay_ms: u64) {
+    woodblock::play(Duration::from_millis(delay_ms));
+}
+
 #[tauri::command]
 fn quit_app<R: Runtime>(app: AppHandle<R>) {
     app.exit(0);
@@ -140,7 +148,7 @@ pub fn run() {
         .plugin(tauri_plugin_clipboard_manager::init())
         .manage(HitState::default())
         .manage(GeomState::default())
-        .invoke_handler(tauri::generate_handler![set_hit_regions, set_window_rect, quit_app])
+        .invoke_handler(tauri::generate_handler![set_hit_regions, set_window_rect, play_woodblock, quit_app])
         .on_window_event(|window, event| {
             if window.label() != MAIN_WINDOW {
                 return;
