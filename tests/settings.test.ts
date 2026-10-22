@@ -50,6 +50,8 @@ describe("设置", () => {
       openingEnabled: false,
       effectsEnabled: false,
       bubbleSeconds: 3,
+      annivNotify: false,
+      annivNotifyDays: 7,
     };
     expect(Object.keys(alt).sort()).toEqual(Object.keys(DEFAULT_SETTINGS).sort());
     const merged = mergeSettings(alt);

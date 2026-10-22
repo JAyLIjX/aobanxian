@@ -4,18 +4,20 @@ import "./i18n";
 import "./fonts.css";
 import "./App.css";
 import { AboutApp } from "./windows/AboutApp";
+import { AnniversariesApp } from "./windows/AnniversariesApp";
 import { MainApp } from "./windows/MainApp";
 import { PreviewApp } from "./windows/PreviewApp";
 import { SettingsApp } from "./windows/SettingsApp";
 import { ZeriApp } from "./windows/ZeriApp";
 
-// 三个窗口共用同一个页面，用地址参数区分：主窗口（道士）、设置、关于
+// 所有窗口共用同一个页面，用地址参数区分：主窗口（道士）、设置、关于、择日、纪念日……
 const view = new URLSearchParams(location.search).get("view");
 document.documentElement.dataset.view = view ?? "main";
 const VIEWS: Record<string, () => React.JSX.Element> = {
   settings: SettingsApp,
   about: AboutApp,
   zeri: ZeriApp,
+  anniversaries: AnniversariesApp,
 };
 const App = (view && VIEWS[view]) || (view === "preview" && import.meta.env.DEV ? PreviewApp : MainApp);
 

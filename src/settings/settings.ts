@@ -34,6 +34,10 @@ export interface Settings {
   openingEnabled: boolean;
   effectsEnabled: boolean;
   bubbleSeconds: 3 | 5 | 8;
+  /** 纪念日用系统通知提醒 */
+  annivNotify: boolean;
+  /** 提前几天提醒（当天总会再提醒一次） */
+  annivNotifyDays: 0 | 1 | 3 | 7;
 }
 
 export type SettingsPage = "general" | "appearance" | "rules" | "reminders";
@@ -43,7 +47,7 @@ export const SETTINGS_PAGES: Record<SettingsPage, (keyof Settings)[]> = {
   general: ["autostart", "onTop", "size", "language", "myZodiac", "expandOnLaunch", "collapseOnBlur"],
   appearance: ["displayFont", "bannerFont", "bannerText"],
   rules: ["elementSource", "topPriority", "dayBoundary"],
-  reminders: ["openingEnabled", "effectsEnabled", "bubbleSeconds"],
+  reminders: ["openingEnabled", "effectsEnabled", "bubbleSeconds", "annivNotify", "annivNotifyDays"],
 };
 
 // 去掉 JSON 里 "$comment" 这类注释字段
@@ -70,6 +74,7 @@ const CHOICES: Partial<Record<keyof Settings, readonly unknown[]>> = {
   topPriority: ["xiang", "wang"],
   dayBoundary: ["midnight", "zi"],
   bubbleSeconds: [3, 5, 8],
+  annivNotifyDays: [0, 1, 3, 7],
   myZodiac: MY_ZODIAC_OPTIONS,
 };
 

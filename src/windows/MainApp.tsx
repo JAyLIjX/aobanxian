@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 import branding from "../../config/branding.json";
+import { dueReminders, todays } from "../calendar/anniversary";
+import { nextCountdown } from "../calendar/countdown";
 import { getDayDetail } from "../calendar/day";
 import { getAlmanac } from "../calendar/special";
 import { DetailPanel } from "../components/DetailPanel";
@@ -17,9 +19,11 @@ import { placePanel, toLocal, union, windowRect, type Chrome, type Rect } from "
 import { openingFor, specialBannerText } from "../core/opening";
 import { personalRelation, ZODIAC, zodiacRelations, type Branch } from "../core/zodiac";
 import { setLanguage, type Lang } from "../i18n";
+import { anniversaryTitle, fmtDate } from "../i18n/format";
 import { term, translate } from "../i18n/terms";
 import { useToday } from "../hooks/useToday";
 import { popupContextMenu, syncTray, type MenuModel } from "../platform/menu";
+import { notify } from "../platform/notify";
 import { onOpenDetailRequest, openView } from "../platform/windows";
 import {
   focusWindow,
@@ -34,6 +38,7 @@ import {
   type HitMask,
 } from "../platform/window";
 import { rulesWith, SIZE_SCALE } from "../settings/settings";
+import { useAnniversaries } from "../settings/anniversaries";
 import { getState, setState } from "../settings/store";
 import { useSettings } from "../settings/useSettings";
 import { Daoshi } from "../sprite/Daoshi";
@@ -166,15 +171,62 @@ export function MainApp() {
     [lang, t, almanac],
   );
 
+  // ── 纪念日 ──
+  const { list: anniversaries, loaded: annivLoaded } = useAnniversaries();
+  const todayAnniversary = useMemo(() => {
+    const list = todays(anniversaries, today);
+    return list.length ? list.map((a) => anniversaryTitle(a, t)).join(lang === "en" ? " & " : "、") : null;
+  }, [anniversaries, today, t, lang]);
+  const countdownText = useMemo(() => {
+    const c = nextCountdown(today, anniversaries);
+    if (!c) return null;
+    const name =
+      c.kind === "anniversary"
+        ? anniversaryTitle(c.anniversary, t)
+        : lang === "en"
+          ? translate(c.kind, c.name, lang)
+          : term(c.kind, c.name, lang);
+    return c.daysLeft === 1 ? t("card.countdownTomorrow", { name }) : t("card.countdown", { name, n: c.daysLeft });
+  }, [today, anniversaries, t, lang]);
+
+  // 系统通知：当天一次、提前 N 天一次；提醒过的记在 store 里，不重复
+  useEffect(() => {
+    if (!loaded || !settings.annivNotify || anniversaries.length === 0) return;
+    const due = dueReminders(anniversaries, today, settings.annivNotifyDays);
+    if (due.length === 0) return;
+    void (async () => {
+      const sent = new Set((await getState<string[]>("annivNotified")) ?? []);
+      let changed = false;
+      for (const r of due) {
+        if (sent.has(r.key)) continue;
+        const title = anniversaryTitle(r.anniversary, t);
+        const body =
+          r.daysLeft === 0
+            ? t("anniv.notifyToday", { title })
+            : r.daysLeft === 1
+              ? t("anniv.notifyTomorrow", { title })
+              : t("anniv.notifyAhead", { title, n: r.daysLeft, date: fmtDate(r.date, lang, t) });
+        if (await notify(t("app.name"), body)) {
+          sent.add(r.key);
+          changed = true;
+        }
+      }
+      // 只留最近的 200 条
+      if (changed) void setState("annivNotified", [...sent].slice(-200));
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaded, today, anniversaries, settings.annivNotify, settings.annivNotifyDays]);
+
   // ── 开场白 ──
   const openingText = useMemo(() => {
-    const o = openingFor(almanac, personal);
+    const o = openingFor(almanac, personal, todayAnniversary);
+    if (o.key === "anniversary") return t("opening.anniversary", { name: o.name });
     const name = o.name ? term(o.key === "festival" ? "festival" : "jieqi", o.name, lang) : undefined;
     return t(`opening.${o.key}`, {
       name: lang === "en" && name ? translate(o.key === "festival" ? "festival" : "jieqi", o.name!, lang) : name,
       animal: o.animal ? translate("zodiac", o.animal, lang) : undefined,
     });
-  }, [almanac, lang, t, personal]);
+  }, [almanac, lang, t, personal, todayAnniversary]);
 
   const sayOpening = useCallback(() => {
     bubbleCtl.show(openingText, settings.bubbleSeconds);
@@ -182,7 +234,7 @@ export function MainApp() {
 
   // 每天第一次显示（含跨过午夜、睡眠唤醒后进入新的一天）说一次
   useEffect(() => {
-    if (!loaded || !layout || !settings.openingEnabled) return;
+    if (!loaded || !annivLoaded || !layout || !settings.openingEnabled) return;
     const key = ymdKey(today);
     void getState<string>("lastOpening").then((last) => {
       if (last === key) return;
@@ -190,7 +242,7 @@ export function MainApp() {
       void setState("lastOpening", key);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loaded, !!layout, today, settings.openingEnabled]);
+  }, [loaded, annivLoaded, !!layout, today, settings.openingEnabled]);
 
   // ── 展开 / 收起 ──
   const collapse = useCallback(() => {
@@ -492,11 +544,12 @@ export function MainApp() {
               detail={detail}
               rules={rules}
               personal={personal?.relation ?? null}
+              countdown={countdownText}
               monthOpen={monthOpen}
               onOpenDetail={() => setDetailDay(today)}
               onToggleMonth={() => setMonthOpen((v) => !v)}
             />
-            {monthOpen && <MonthView today={today} onPick={setDetailDay} />}
+            {monthOpen && <MonthView today={today} anniversaries={anniversaries} onPick={setDetailDay} />}
           </Scroll>
         </div>
       )}
@@ -512,6 +565,7 @@ export function MainApp() {
             ymd={detailDay}
             rules={rules}
             myZodiac={settings.myZodiac}
+            anniversaries={anniversaries}
             onChange={setDetailDay}
             onClose={() => setDetailDay(null)}
           />

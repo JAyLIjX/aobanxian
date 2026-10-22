@@ -11,5 +11,7 @@
   "bannerFont": "pixel",
   "openingEnabled": true,
   "effectsEnabled": true,
-  "bubbleSeconds": 5
+  "bubbleSeconds": 5,
+  "annivNotify": true,
+  "annivNotifyDays": 1
 }

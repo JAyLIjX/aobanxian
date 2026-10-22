@@ -464,6 +464,7 @@ select {
   justify-content: center;
   cursor: pointer;
   min-width: 0;
+  position: relative;
 }
 .month__cell:hover {
   background: var(--ink-wash);
@@ -1012,4 +1013,106 @@ select {
   align-items: center;
   gap: 4px;
   font-size: 12px;
+}
+
+.btn {
+  border: 2px solid var(--cinnabar);
+  border-radius: 2px;
+  background: var(--cinnabar);
+  color: var(--paper);
+  padding: 3px 14px;
+  cursor: pointer;
+  font: inherit;
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.btn--ghost {
+  background: none;
+  color: var(--cinnabar);
+}
+
+/* ── 纪念日 ── */
+.anniv__bar {
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.anniv__bar .tool__summary {
+  margin: 0;
+}
+.anniv__item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px dashed var(--line);
+}
+.anniv__item .zeri__day {
+  flex: 1;
+  border-bottom: none;
+}
+.anniv__item .zeri__day:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+.anniv__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  padding-right: 8px;
+}
+.anniv__form {
+  padding: 18px 22px;
+  overflow-y: auto;
+}
+.anniv__form .tool__row {
+  align-items: center;
+  margin-bottom: 12px;
+}
+.anniv__date {
+  display: flex;
+  gap: 6px;
+}
+.anniv__year {
+  width: 5.5em;
+}
+.anniv__check {
+  align-items: flex-start !important;
+  cursor: pointer;
+}
+.anniv__check input {
+  margin-top: 4px;
+}
+.anniv__check .set-row__hint {
+  display: block;
+}
+.anniv__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 18px;
+}
+.tool__foot {
+  margin: 0;
+  padding: 6px 20px 10px;
+  font-size: 12px;
+}
+.today__countdown {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--cinnabar);
+}
+.month__cell.has-anniv::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 4px;
+  height: 4px;
+  background: var(--cinnabar);
+}
+.set-row__buttons {
+  display: flex;
+  gap: 6px;
 }

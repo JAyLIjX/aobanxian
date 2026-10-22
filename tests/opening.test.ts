@@ -44,6 +44,15 @@ describe("每日开场白", () => {
     expect(openingFor(getAlmanac(ymd("2026-10-23")), { relation: "clash", animal: "鼠" })).toEqual({ key: "jieqi", name: "霜降" });
   });
 
+  it("优先级：纪念日最高", () => {
+    // 2026-10-1 天赦日 + 生肖相冲，纪念日仍然压过它们
+    const tianshe = getAlmanac(ymd("2026-10-1"));
+    expect(openingFor(tianshe, { relation: "clash", animal: "猪" }, "妈妈的农历生日")).toEqual({ key: "anniversary", name: "妈妈的农历生日" });
+    expect(openingFor(getAlmanac(ymd("2026-10-22")), { relation: "clash", animal: "猪" }, "结婚纪念日")).toEqual({ key: "anniversary", name: "结婚纪念日" });
+    // 没有纪念日时回到原来的顺序
+    expect(openingFor(tianshe, { relation: "clash", animal: "猪" }, null)).toEqual({ key: "tianshe" });
+  });
+
   it("「掐指一算」重播的和当天第一次的一致", () => {
     for (const day of ["2026-10-22", "2026-10-1", "2026-9-25", "2026-3-5"]) {
       expect(openingFor(getAlmanac(ymd(day)))).toEqual(openingFor(getAlmanac(ymd(day))));

@@ -55,10 +55,26 @@ declare module "lunar-javascript" {
     toFullString(): string;
   }
 
+  export class LunarYear {
+    static fromYear(year: number): LunarYear;
+    /** 闰几月，没有闰月为 0 */
+    getLeapMonth(): number;
+  }
+
+  export class LunarMonth {
+    /** month 为负数表示闰月 */
+    static fromYm(year: number, month: number): LunarMonth | null;
+    getDayCount(): number;
+  }
+
   export const LunarUtil: {
     WU_XING_GAN: Record<string, string>;
     WU_XING_ZHI: Record<string, string>;
     JIA_ZI: string[];
     NAYIN: Record<string, string>;
+    /** 下标 1–12：正 二 … 冬 腊 */
+    MONTH: string[];
+    /** 下标 1–30：初一 … 三十 */
+    DAY: string[];
   };
 }

@@ -4,6 +4,8 @@
  * 其他语言用语言文件里的 rulesText。
  */
 import type { TFunction } from "i18next";
+import { LunarUtil } from "lunar-javascript";
+import type { Anniversary } from "../calendar/anniversary";
 import type { DayDetail, DayInfo } from "../calendar/day";
 import type { Ymd } from "../core/dayBoundary";
 import type { Element } from "../core/elements";
@@ -136,4 +138,36 @@ export function xiuName(detail: DayDetail, lang: Lang): string {
     return en === detail.xiu.name ? detail.xiu.fullName : `${detail.xiu.fullName} · ${en}`;
   }
   return lang === "zh-TW" ? toTW(detail.xiu.fullName) : detail.xiu.fullName;
+}
+
+/** 纪念日标题：「妈妈的农历生日」「妈妈的生日」，其他类型就是名称 */
+export function anniversaryTitle(a: Anniversary, t: TFunction): string {
+  if (a.type !== "birthday") return a.name;
+  return t(a.calendar === "lunar" ? "anniv.lunarBirthdayOf" : "anniv.birthdayOf", { name: a.name });
+}
+
+/** 纪念日的日期写法：「每年 3月5日」「农历闰六月初一」 */
+export function anniversaryDate(a: Anniversary, lang: Lang, t: TFunction): string {
+  const year = a.repeat ? "" : t("date.year", { year: a.year ?? "" });
+  if (a.calendar === "solar") {
+    if (!a.repeat) return fmtDate({ year: a.year ?? 0, month: a.month, day: a.day }, lang, t);
+    return t("anniv.everyYear", { date: t("anniv.solarMonthDay", { month: a.month, day: a.day, monthName: monthName(a.month, lang) }) });
+  }
+  let text: string;
+  if (lang === "en") {
+    text = t("date.lunar", { month: `${a.leap ? t("date.leap") : ""}${ordinal(a.month)} month`, day: a.day });
+  } else {
+    text = t("date.lunar", { month: `${a.leap ? t("date.leap") : ""}${lunarMonthName(a.month)}`, day: LunarUtil.DAY[a.day] });
+    if (lang === "zh-TW") text = toTW(text);
+  }
+  return a.repeat ? text : `${year}${lang === "en" ? " " : ""}${text}`;
+}
+
+/** 农历月名：正月 … 冬月 腊月 */
+export function lunarMonthName(m: number): string {
+  return `${LunarUtil.MONTH[m]}月`;
+}
+
+export function lunarDayName(d: number, lang: Lang): string {
+  return lang === "zh-TW" ? toTW(LunarUtil.DAY[d]) : LunarUtil.DAY[d];
 }

@@ -28,7 +28,9 @@
     "withYou": "今日与你：{{relation}}",
     "hint": "点纸面看今日详情",
     "month": "月历",
-    "closeMonth": "收起月历"
+    "closeMonth": "收起月历",
+    "countdown": "距{{name}}还有 {{n}} 天",
+    "countdownTomorrow": "明天就是{{name}}"
   },
   "relation": {
     "harmony": "相合",
@@ -82,7 +84,8 @@
     "festival": "掐指一算，今日{{name}}",
     "jieqi": "今日{{name}}，顺时而行",
     "personalClash": "属{{animal}}的施主，今日冲你，凡事低调些",
-    "personalHarmony": "属{{animal}}的施主，今日与你相合"
+    "personalHarmony": "属{{animal}}的施主，今日与你相合",
+    "anniversary": "今日是{{name}}"
   },
   "specialTag": {
     "tianshe": "天赦日",
@@ -200,7 +203,23 @@
     "effectsEnabled": "特殊日子特效",
     "effectsEnabledHint": "天赦日和春节，道士周围闪光",
     "bubbleSeconds": "气泡停留时间",
-    "seconds": "{{n}} 秒"
+    "seconds": "{{n}} 秒",
+    "annivNotify": "纪念日系统通知",
+    "annivNotifyHint": "到日子前用系统通知提醒，当天也会再提醒一次",
+    "annivNotifyDays": "提前几天",
+    "annivNotifyDaysOptions": {
+      "0": "当天",
+      "1": "1 天",
+      "3": "3 天",
+      "7": "7 天"
+    },
+    "annivData": "纪念日数据",
+    "annivDataHint": "导出成 JSON 文件备份，或从文件导入（同一条会被覆盖）",
+    "export": "导出",
+    "import": "导入",
+    "exported": "已导出 {{n}} 条",
+    "imported": "已导入 {{n}} 条",
+    "importFailed": "文件读不出来，没有导入"
   },
   "about": {
     "title": "关于奥半仙",
@@ -234,5 +253,48 @@
       "bed": "安床",
       "worship": "祭祀"
     }
+  },
+  "anniv": {
+    "title": "纪念日",
+    "add": "添加",
+    "empty": "还没有纪念日，点「添加」记下第一个",
+    "hint": "点某一行看那天的详情",
+    "local": "只存在这台电脑上",
+    "name": "名称",
+    "namePlaceholder": "如：妈妈",
+    "type": "类型",
+    "types": {
+      "birthday": "生日",
+      "anniversary": "纪念日",
+      "other": "其他"
+    },
+    "calendar": "日期按",
+    "calendars": {
+      "solar": "公历",
+      "lunar": "农历"
+    },
+    "date": "日期",
+    "year": "年份",
+    "leap": "按闰月过",
+    "leapHint": "那一年没有这个闰月时按正常月份过",
+    "day30Hint": "某年这个月没有三十时按廿九过",
+    "repeat": "每年重复",
+    "save": "保存",
+    "cancel": "取消",
+    "edit": "编辑",
+    "delete": "删除",
+    "confirmDelete": "再点一次删除",
+    "next": "下次：{{date}} {{weekday}}",
+    "daysLeft": "还有 {{n}} 天",
+    "today": "就是今天",
+    "tomorrow": "就是明天",
+    "past": "已过",
+    "birthdayOf": "{{name}}的生日",
+    "lunarBirthdayOf": "{{name}}的农历生日",
+    "solarMonthDay": "{{month}}月{{day}}日",
+    "everyYear": "每年{{date}}",
+    "notifyToday": "今日是{{title}}",
+    "notifyTomorrow": "明天就是{{title}}",
+    "notifyAhead": "还有 {{n}} 天就是{{title}}（{{date}}）"
   }
 }

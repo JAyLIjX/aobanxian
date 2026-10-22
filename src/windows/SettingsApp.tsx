@@ -1,5 +1,7 @@
 import { disable as disableAutostart, enable as enableAutostart, isEnabled as autostartEnabled } from "@tauri-apps/plugin-autostart";
 import { getCurrentWindow } from "@tauri-apps/api/window";
+import { open as openDialog, save as saveDialog } from "@tauri-apps/plugin-dialog";
+import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs";
 import { useEffect, useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { setLanguage } from "../i18n";
@@ -9,6 +11,7 @@ import { ZODIAC, type Branch } from "../core/zodiac";
 import { term } from "../i18n/terms";
 import type { Lang } from "../i18n";
 import { useSettings } from "../settings/useSettings";
+import { exportPayload, mergeImported, useAnniversaries } from "../settings/anniversaries";
 
 const PAGES: SettingsPage[] = ["general", "appearance", "rules", "reminders"];
 
@@ -50,6 +53,8 @@ export function SettingsApp() {
   const { settings, loaded, update } = useSettings();
   const [page, setPage] = useState<SettingsPage>("general");
   const [bannerDraft, setBannerDraft] = useState(settings.bannerText);
+  const anniv = useAnniversaries();
+  const [dataMsg, setDataMsg] = useState<string | null>(null);
 
   useEffect(() => setLanguage(settings.language), [settings.language]);
   useEffect(() => setBannerDraft(settings.bannerText), [settings.bannerText]);
@@ -84,6 +89,48 @@ export function SettingsApp() {
       await (next.autostart ? enableAutostart() : disableAutostart()).catch(() => {});
     }
     await update(next);
+  };
+
+  // 纪念日导出 / 导入（JSON 文件）。浏览器里退回下载 / 文件选择
+  const exportAnniversaries = async () => {
+    const text = JSON.stringify(exportPayload(anniv.list), null, 2);
+    try {
+      if (inTauri) {
+        const path = await saveDialog({ defaultPath: "aobanxian-anniversaries.json", filters: [{ name: "JSON", extensions: ["json"] }] });
+        if (!path) return;
+        await writeTextFile(path, text);
+      } else {
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(new Blob([text], { type: "application/json" }));
+        a.download = "aobanxian-anniversaries.json";
+        a.click();
+      }
+      setDataMsg(t("settings.exported", { n: anniv.list.length }));
+    } catch (err) {
+      console.error("导出纪念日失败", err);
+    }
+  };
+  const importFrom = async (text: string) => {
+    try {
+      const { list, count } = mergeImported(anniv.list, JSON.parse(text));
+      await anniv.save(list);
+      setDataMsg(t("settings.imported", { n: count }));
+    } catch {
+      setDataMsg(t("settings.importFailed"));
+    }
+  };
+  const importAnniversaries = async () => {
+    if (inTauri) {
+      const path = await openDialog({ multiple: false, directory: false, filters: [{ name: "JSON", extensions: ["json"] }] });
+      if (typeof path !== "string") return;
+      await importFrom(await readTextFile(path).catch(() => ""));
+      return;
+    }
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "application/json,.json";
+    input.onchange = () => void input.files?.[0]?.text().then(importFrom);
+    input.click();
   };
 
   const opts = <T extends string | number>(values: readonly T[], labelKey: string) =>
@@ -191,6 +238,24 @@ export function SettingsApp() {
                 options={([3, 5, 8] as const).map((n) => ({ value: n, label: t("settings.seconds", { n }) }))}
                 onChange={(v) => set("bubbleSeconds", v)}
               />
+            </Row>
+            <Row label={t("settings.annivNotify")} hint={t("settings.annivNotifyHint")}>
+              <Toggle checked={settings.annivNotify} onChange={(v) => set("annivNotify", v)} label={t("settings.annivNotify")} />
+            </Row>
+            {settings.annivNotify && (
+              <Row label={t("settings.annivNotifyDays")}>
+                <Segmented value={settings.annivNotifyDays} options={opts([0, 1, 3, 7] as const, "settings.annivNotifyDaysOptions")} onChange={(v) => set("annivNotifyDays", v)} />
+              </Row>
+            )}
+            <Row label={t("settings.annivData")} hint={dataMsg ?? t("settings.annivDataHint")}>
+              <div className="set-row__buttons">
+                <button type="button" className="btn btn--ghost" onClick={() => void exportAnniversaries()}>
+                  {t("settings.export")}
+                </button>
+                <button type="button" className="btn btn--ghost" onClick={() => void importAnniversaries()}>
+                  {t("settings.import")}
+                </button>
+              </div>
             </Row>
           </>
         )}

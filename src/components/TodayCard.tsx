@@ -13,13 +13,15 @@ interface Props {
   rules: Rules;
   /** 今天和我的生肖的关系；没设置生肖时为 null */
   personal: PersonalRelation | null;
+  /** 卡片底部的倒计时文字（「距春节还有 107 天」） */
+  countdown: string | null;
   monthOpen: boolean;
   onOpenDetail: () => void;
   onToggleMonth: () => void;
 }
 
 /** 卷轴上的今日卡片：点纸面看当天详情，点「月历」展开月历 */
-export function TodayCard({ detail, rules, personal, monthOpen, onOpenDetail, onToggleMonth }: Props) {
+export function TodayCard({ detail, rules, personal, countdown, monthOpen, onOpenDetail, onToggleMonth }: Props) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as Lang;
   const { ymd, outfit } = detail;
@@ -84,6 +86,7 @@ export function TodayCard({ detail, rules, personal, monthOpen, onOpenDetail, on
         </div>
       )}
       {tip && <div className="today__tip">{tip}</div>}
+      {countdown && <div className="today__countdown">{countdown}</div>}
 
       <div className="today__foot">
         <span className="today__hint">{t("card.hint")}</span>

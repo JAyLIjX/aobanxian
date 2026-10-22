@@ -13,21 +13,27 @@ export type OpeningKey =
   | "festival"
   | "jieqi"
   | "personalClash"
-  | "personalHarmony";
+  | "personalHarmony"
+  | "anniversary";
 
 export interface Opening {
   key: OpeningKey;
-  /** 节日 / 节气名（文案里的 {{name}}） */
+  /** 节日 / 节气名、纪念日标题（文案里的 {{name}}） */
   name?: string;
   /** 我的生肖（文案里的 {{animal}}） */
   animal?: string;
 }
 
 /**
- * 优先级（从高到低）：特殊日子（天赦日、传统节日、节气、杨公忌日）> 生肖相冲、相合 > 黄道日、黑道日。
- * （纪念日比这些都高，在 anniversary.ts 里处理。）
+ * 优先级（从高到低）：纪念日 > 特殊日子（天赦日、传统节日、节气、杨公忌日）> 生肖相冲、相合 > 黄道日、黑道日。
+ * anniversary 是今天的纪念日标题（如「妈妈的农历生日」），已按界面语言写好。
  */
-export function openingFor(almanac: DayAlmanac, personal?: { relation: PersonalRelation; animal: string } | null): Opening {
+export function openingFor(
+  almanac: DayAlmanac,
+  personal?: { relation: PersonalRelation; animal: string } | null,
+  anniversary?: string | null,
+): Opening {
+  if (anniversary) return { key: "anniversary", name: anniversary };
   const s = almanac.special;
   if (s) return s.name ? { key: s.kind, name: s.name } : { key: s.kind };
   if (personal?.relation === "clash") return { key: "personalClash", animal: personal.animal };

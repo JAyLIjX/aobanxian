@@ -28,7 +28,9 @@
     "withYou": "Today and you: {{relation}}",
     "hint": "Click the paper for today's details",
     "month": "Month",
-    "closeMonth": "Hide month"
+    "closeMonth": "Hide month",
+    "countdown": "{{n}} days until {{name}}",
+    "countdownTomorrow": "{{name}} is tomorrow"
   },
   "relation": {
     "harmony": "Harmony",
@@ -82,7 +84,8 @@
     "festival": "Happy {{name}}!",
     "jieqi": "It's {{name}} — go with the season.",
     "personalClash": "Dear {{animal}}, today clashes with you — keep a low profile.",
-    "personalHarmony": "Dear {{animal}}, today is in harmony with you."
+    "personalHarmony": "Dear {{animal}}, today is in harmony with you.",
+    "anniversary": "Today is {{name}}!"
   },
   "specialTag": {
     "tianshe": "天赦日 · Day of Heavenly Pardon",
@@ -200,7 +203,23 @@
     "effectsEnabled": "Special-day sparkles",
     "effectsEnabledHint": "Sparkles on the Day of Heavenly Pardon and Spring Festival",
     "bubbleSeconds": "Bubble duration",
-    "seconds": "{{n}} s"
+    "seconds": "{{n}} s",
+    "annivNotify": "Anniversary notifications",
+    "annivNotifyHint": "A system notification before the day, and again on the day itself",
+    "annivNotifyDays": "Remind me ahead",
+    "annivNotifyDaysOptions": {
+      "0": "On the day",
+      "1": "1 day",
+      "3": "3 days",
+      "7": "7 days"
+    },
+    "annivData": "Anniversary data",
+    "annivDataHint": "Export to a JSON file as a backup, or import from one (matching entries are replaced)",
+    "export": "Export",
+    "import": "Import",
+    "exported": "Exported {{n}}",
+    "imported": "Imported {{n}}",
+    "importFailed": "Couldn't read that file — nothing imported"
   },
   "about": {
     "title": "About Ao Banxian",
@@ -279,5 +298,48 @@
       "bed": "Placing a bed",
       "worship": "Ancestral offerings"
     }
+  },
+  "anniv": {
+    "title": "Anniversaries",
+    "add": "Add",
+    "empty": "No anniversaries yet — click “Add” to record one.",
+    "hint": "Click a row to see that day's details",
+    "local": "Stored only on this computer",
+    "name": "Name",
+    "namePlaceholder": "e.g. Mom",
+    "type": "Type",
+    "types": {
+      "birthday": "Birthday",
+      "anniversary": "Anniversary",
+      "other": "Other"
+    },
+    "calendar": "Calendar",
+    "calendars": {
+      "solar": "Gregorian",
+      "lunar": "Lunar"
+    },
+    "date": "Date",
+    "year": "Year",
+    "leap": "Observe in the leap month",
+    "leapHint": "In years without that leap month, the regular month is used",
+    "day30Hint": "If that month has only 29 days in a year, the 29th is used",
+    "repeat": "Repeat every year",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirmDelete": "Click again to delete",
+    "next": "Next: {{weekday}}, {{date}}",
+    "daysLeft": "{{n}} days left",
+    "today": "Today!",
+    "tomorrow": "Tomorrow",
+    "past": "Passed",
+    "birthdayOf": "{{name}}'s birthday",
+    "lunarBirthdayOf": "{{name}}'s lunar birthday",
+    "solarMonthDay": "{{monthName}} {{day}}",
+    "everyYear": "Every year on {{date}}",
+    "notifyToday": "Today is {{title}}!",
+    "notifyTomorrow": "{{title}} is tomorrow",
+    "notifyAhead": "{{title}} is in {{n}} days ({{date}})"
   }
 }

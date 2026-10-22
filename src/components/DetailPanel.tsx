@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { todays, type Anniversary } from "../calendar/anniversary";
 import { getDayDetail } from "../calendar/day";
 import { getAlmanac } from "../calendar/special";
 import type { Ymd } from "../core/dayBoundary";
@@ -8,6 +9,7 @@ import { personalRelation, ZODIAC, type Branch } from "../core/zodiac";
 import type { MyZodiac } from "../settings/settings";
 import type { Lang } from "../i18n";
 import {
+  anniversaryTitle,
   dayLabel,
   explanation,
   familyWithElement,
@@ -27,6 +29,7 @@ interface Props {
   ymd: Ymd;
   rules: Rules;
   myZodiac: MyZodiac;
+  anniversaries: Anniversary[];
   onChange: (ymd: Ymd) => void;
   onClose: () => void;
 }
@@ -36,7 +39,7 @@ function addDays(ymd: Ymd, delta: number): Ymd {
   return { year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate() };
 }
 
-export function DetailPanel({ ymd, rules, myZodiac, onChange, onClose }: Props) {
+export function DetailPanel({ ymd, rules, myZodiac, anniversaries, onChange, onClose }: Props) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as Lang;
   const d = useMemo(() => getDayDetail(ymd, rules), [ymd, rules]);
@@ -75,6 +78,11 @@ export function DetailPanel({ ymd, rules, myZodiac, onChange, onClose }: Props) 
         <div className="detail__title">
           <div className="detail__tags">
             <span className={`tag ${almanac.tianShenType === "黄道" ? "tag--red" : "tag--ink"}`}>{tianShenTag}</span>
+            {todays(anniversaries, ymd).map((a) => (
+              <span key={a.id} className="tag tag--red">
+                {anniversaryTitle(a, t)}
+              </span>
+            ))}
             {specialTag && <span className="tag tag--red">{specialTag}</span>}
           </div>
           <h2 className="display">{fmtDate(d.ymd, lang, t)}</h2>

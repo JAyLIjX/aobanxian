@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { daysWithAnniversary, type Anniversary } from "../calendar/anniversary";
 import { getMonthGrid } from "../calendar/day";
 import { sameYmd, type Ymd } from "../core/dayBoundary";
 import type { Lang } from "../i18n";
@@ -7,6 +8,7 @@ import { cellText, fmtDate, lunarText, monthName } from "../i18n/format";
 
 interface Props {
   today: Ymd;
+  anniversaries: Anniversary[];
   onPick: (ymd: Ymd) => void;
 }
 
@@ -15,11 +17,20 @@ const MAX_YEAR = 2099;
 const YEARS = Array.from({ length: MAX_YEAR - MIN_YEAR + 1 }, (_, i) => MIN_YEAR + i);
 const MONTHS = Array.from({ length: 12 }, (_, i) => i + 1);
 
-export function MonthView({ today, onPick }: Props) {
+export function MonthView({ today, anniversaries, onPick }: Props) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as Lang;
   const [view, setView] = useState({ year: today.year, month: today.month });
   const grid = useMemo(() => getMonthGrid(view.year, view.month), [view]);
+  // 有纪念日的格子右上角一个小红点；前后月份露出来的格子也要算
+  const marked = useMemo(() => {
+    const keys = new Set<string>();
+    for (const delta of [-1, 0, 1]) {
+      const d = new Date(view.year, view.month - 1 + delta, 1);
+      for (const k of daysWithAnniversary(anniversaries, d.getFullYear(), d.getMonth() + 1)) keys.add(k);
+    }
+    return keys;
+  }, [view, anniversaries]);
   const weekHead = t("date.weekHead", { returnObjects: true }) as string[];
 
   const shift = (delta: number) => {
@@ -76,6 +87,7 @@ export function MonthView({ today, onPick }: Props) {
             inMonth ? "" : "is-other",
             info.weekIndex === 0 || info.weekIndex === 6 ? "is-weekend" : "",
             sameYmd(info.ymd, today) ? "is-today" : "",
+            marked.has(`${info.ymd.year}-${info.ymd.month}-${info.ymd.day}`) ? "has-anniv" : "",
           ].join(" ");
           return (
             <button
