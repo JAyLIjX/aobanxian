@@ -1264,3 +1264,96 @@ select {
   font-size: 11px;
   line-height: 1.5;
 }
+
+/* ── 每日一卦 ── */
+.gua__date {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.gua__date b {
+  font-size: 15px;
+}
+.gua__date .muted {
+  font-size: 12px;
+}
+.gua__block {
+  padding: 4px 0 12px;
+  border-bottom: 1px dashed var(--line);
+  margin-bottom: 10px;
+}
+.gua__label {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--cinnabar);
+}
+.gua__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+.gua__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.gua__title b {
+  font-size: 28px;
+  margin-right: 8px;
+}
+.gua__symbol {
+  font-size: 34px;
+  line-height: 1;
+  color: var(--ink-2);
+  font-family: "Apple Symbols", "Segoe UI Symbol", "Noto Sans Symbols 2", sans-serif;
+}
+.gua__full {
+  color: var(--ink-2);
+}
+.gua__en {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.gua__classic {
+  margin: 4px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.gua__extra {
+  font-size: 13px;
+}
+.gua__plain {
+  margin: 4px 0 0;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.gua-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 56px;
+  flex: none;
+}
+.gua-line {
+  display: flex;
+  justify-content: space-between;
+  height: 7px;
+}
+.gua-line i {
+  display: block;
+  height: 100%;
+  background: var(--ink);
+}
+.gua-line.is-yang i {
+  width: 100%;
+}
+.gua-line.is-yin i {
+  width: 42%;
+}
+.gua-line.is-moving i {
+  background: var(--cinnabar);
+}

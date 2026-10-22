@@ -320,5 +320,16 @@
       "下": "Poor",
       "下下": "Very poor"
     }
+  },
+  "gua": {
+    "title": "每日一卦",
+    "castAt": "起卦时辰：{{hour}}",
+    "hourRange": "{{from}}–{{to}} 点",
+    "note": "以你今天第一次起卦的时辰为准，一天一卦",
+    "main": "本卦",
+    "movingLine": "动爻：第 {{n}} 爻",
+    "changed": "变卦",
+    "extraNote": "六爻全动时才用{{tag}}，这里附上原文",
+    "source": "卦辞、爻辞出自《{{title}}》，录自维基文库，保持原文。白话为奥半仙自撰。"
   }
 }

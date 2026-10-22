@@ -1,0 +1,3602 @@
+{
+ "$comment": "卦名、卦辭、爻辭、用九、用六来自维基文库《周易》，公有领域，保持原文繁体。en、reading、lineReadings 是奥半仙自己写的英文卦名、白话解读和英文大意，不是古籍原文。",
+ "source": {
+  "title": "周易",
+  "url": "https://zh.wikisource.org/wiki/%E5%91%A8%E6%98%93",
+  "site": "維基文庫"
+ },
+ "hexagrams": [
+  {
+   "kingWen": 1,
+   "name": "乾",
+   "symbol": "䷀",
+   "lower": "乾",
+   "upper": "乾",
+   "judgment": "元亨。利貞。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "九三",
+    "九四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "潛龍勿用。",
+    "見龍在田，利見大人。",
+    "君子終日乾乾，夕惕若；厲，无咎。",
+    "或躍在淵，无咎。",
+    "飛龍在天，利見大人。",
+    "亢龍，有悔。"
+   ],
+   "extra": {
+    "tag": "用九",
+    "text": "見羣龍无首，吉。"
+   },
+   "en": "Heaven",
+   "reading": {
+    "zh-CN": "六爻全阳，像天一样刚健运行、从不停歇。今天精力充沛，适合主动推进重要的事，但要守住正道、按部就班。成长有它的节奏：时机未到先蓄力，到了顶点要懂得收，别把力气一次用尽。",
+    "zh-TW": "六爻全陽，像天一樣剛健執行、從不停歇。今天精力充沛，適合主動推進重要的事，但要守住正道、按部就班。成長有它的節奏：時機未到先蓄力，到了頂點要懂得收，別把力氣一次用盡。",
+    "en": "Six solid lines picture the sky's tireless motion. Your energy is strong today, so move important work forward, but keep it honest and steady. Growth has stages: build quietly while it's early, act boldly when it's ripe, and ease off before you overreach."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "龙还潜在深水里，时机未到，先沉住气积累实力，不宜张扬行动。",
+     "龙出现在田野上，才能开始显露，适合去拜访能提携你的人。",
+     "整天勤勉不懈，夜里还要自我反省，处境虽紧张却不会出错。",
+     "或跃起或退回深渊，进退都可以试探，灵活拿捏就没有过失。",
+     "龙飞上天空，正是大展身手的高峰，宜与有德有才的人合作。",
+     "龙飞得过高，物极必反，会留下遗憾；懂得适可而止更好。"
+    ],
+    "zh-TW": [
+     "龍還潛在深水裡，時機未到，先沉住氣積累實力，不宜張揚行動。",
+     "龍出現在田野上，才能開始顯露，適合去拜訪能提攜你的人。",
+     "整天勤勉不懈，夜裡還要自我反省，處境雖緊張卻不會出錯。",
+     "或躍起或退回深淵，進退都可以試探，靈活拿捏就沒有過失。",
+     "龍飛上天空，正是大展身手的高峰，宜與有德有才的人合作。",
+     "龍飛得過高，物極必反，會留下遺憾；懂得適可而止更好。"
+    ],
+    "en": [
+     "The dragon is still hidden in deep water; it's too early, so gather strength quietly instead of acting.",
+     "The dragon appears in the field; your ability starts to show, a good time to meet a mentor.",
+     "Work hard all day and reflect at night; the pressure is real, but diligence keeps you clear of mistakes.",
+     "Leap up or drop back into the deep; testing both ways is fine as long as you stay flexible.",
+     "The dragon soars in the sky; this is your peak, so join forces with capable, worthy people.",
+     "The dragon flies too high; pushing past the peak brings regret, so learn when to stop."
+    ]
+   }
+  },
+  {
+   "kingWen": 2,
+   "name": "坤",
+   "symbol": "䷁",
+   "lower": "坤",
+   "upper": "坤",
+   "judgment": "元亨。利牝馬之貞。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "六三",
+    "六四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "履霜，堅冰至。",
+    "直方大，不習无不利。",
+    "含章，可貞。或從王事，无成有終。",
+    "括囊，无咎无譽。",
+    "黃裳，元吉。",
+    "龍戰于野，其血玄黃。"
+   ],
+   "extra": {
+    "tag": "用六",
+    "text": "利永貞。"
+   },
+   "en": "Earth",
+   "reading": {
+    "zh-CN": "六爻全阴，像大地一样承载万物、柔顺包容。今天适合配合、支持与耐心经营，不必抢着领头，跟随对的方向反而更有收获。像母马一样温和而有韧性，稳稳走下去就好。",
+    "zh-TW": "六爻全陰，像大地一樣承載萬物、柔順包容。今天適合配合、支援與耐心經營，不必搶著領頭，跟隨對的方向反而更有收穫。像母馬一樣溫和而有韌性，穩穩走下去就好。",
+    "en": "Six broken lines picture the open, receptive earth. Today favors supporting, cooperating and patient tending rather than taking the lead. Follow a good direction instead of forcing your own, and stay gentle yet tireless, like a mare that just keeps walking."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "踩到薄霜，就知道坚冰快来了；留意细微的征兆，及早做准备。",
+     "正直、端方、宽厚，不刻意修饰也处处顺利，本色就是力量。",
+     "把才华收在心里，守正待时；替人做事不居功，终会有好结果。",
+     "像扎紧袋口一样谨言慎行，不求称赞，也不会招来过失。",
+     "穿着黄色的下裳，谦和守中，内在的美德最受尊重，大吉。",
+     "阴柔走到极点与刚强相争，两败俱伤；别硬碰硬，及时回归柔顺。"
+    ],
+    "zh-TW": [
+     "踩到薄霜，就知道堅冰快來了；留意細微的徵兆，及早做準備。",
+     "正直、端方、寬厚，不刻意修飾也處處順利，本色就是力量。",
+     "把才華收在心裡，守正待時；替人做事不居功，終會有好結果。",
+     "像紮緊袋口一樣謹言慎行，不求稱讚，也不會招來過失。",
+     "穿著黃色的下裳，謙和守中，內在的美德最受尊重，大吉。",
+     "陰柔走到極點與剛強相爭，兩敗俱傷；別硬碰硬，及時迴歸柔順。"
+    ],
+    "en": [
+     "Frost underfoot means hard ice is coming; notice small signs early and get ready.",
+     "Be straight, square and generous; even without polish, being genuine makes everything work.",
+     "Keep your talents tucked away; serve without claiming credit, and things will end well.",
+     "Tie the sack shut: speak and act with care; no praise, but no blame either.",
+     "Wearing a yellow skirt: modest, centered virtue earns the deepest respect and great good fortune.",
+     "Dragons clash in the wild and both are hurt; avoid head-on fights and return to gentleness."
+    ]
+   }
+  },
+  {
+   "kingWen": 3,
+   "name": "屯",
+   "symbol": "䷂",
+   "lower": "震",
+   "upper": "坎",
+   "judgment": "元亨，利貞。勿用有攸往，利建侯。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "六三",
+    "六四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "磐桓，利居貞，利建侯。",
+    "屯如邅如，乘馬班如，匪寇婚媾，女子貞不字，十年乃字。",
+    "即鹿无虞，惟入于林中，君子幾不如舍，往吝。",
+    "乘馬班如，求婚媾，往，吉无不利。",
+    "屯其膏；小貞吉，大貞凶。",
+    "乘馬班如，泣血漣如。"
+   ],
+   "en": "Early Struggle",
+   "reading": {
+    "zh-CN": "雷在水下，草木刚刚破土，万事起头难。今天事情可能显得杂乱、推进缓慢，不必急着冒进，先把基础和帮手安排好。困难本身就是成长的开端，稳住阵脚，局面会慢慢理顺。",
+    "zh-TW": "雷在水下，草木剛剛破土，萬事起頭難。今天事情可能顯得雜亂、推進緩慢，不必急著冒進，先把基礎和幫手安排好。困難本身就是成長的開端，穩住陣腳，局面會慢慢理順。",
+    "en": "Thunder under water: a sprout pushing through hard ground. Beginnings are messy, and today things may feel tangled or slow. Don't rush ahead; set up your foundation and find helpers first. The struggle is part of the start, and steadiness will untangle it."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "徘徊难进，不如安守正道，先把根基和人手打点好。",
+     "处境纠结，来者并非敌人而是求亲；别急着答应，等时机成熟再定。",
+     "追鹿却没有向导，只会闯进深林迷路；明智的人懂得及时放手。",
+     "车马徘徊时主动去结交、寻求合作，此时前往会很顺利。",
+     "资源被囤住、流通不畅，小事可以守成，大事硬推则不顺。",
+     "进退两难，伤心落泪；困局不会永久，要及时换个方向。"
+    ],
+    "zh-TW": [
+     "徘徊難進，不如安守正道，先把根基和人手打點好。",
+     "處境糾結，來者並非敵人而是求親；別急著答應，等時機成熟再定。",
+     "追鹿卻沒有嚮導，只會闖進深林迷路；明智的人懂得及時放手。",
+     "車馬徘徊時主動去結交、尋求合作，此時前往會很順利。",
+     "資源被囤住、流通不暢，小事可以守成，大事硬推則不順。",
+     "進退兩難，傷心落淚；困局不會永久，要及時換個方向。"
+    ],
+    "en": [
+     "Hesitating at the start is fine; hold steady and build your base and team first.",
+     "Things feel stuck, and the visitor is a suitor, not a foe; wait patiently before committing.",
+     "Chasing a deer without a guide only gets you lost in the woods; wise people know when to let go.",
+     "When stalled, reach out and propose a partnership; moving forward now works out well.",
+     "Resources are bottled up; small steady steps are fine, but forcing big moves won't go well.",
+     "Stuck and in tears; the impasse won't last forever, so change direction soon."
+    ]
+   }
+  },
+  {
+   "kingWen": 4,
+   "name": "蒙",
+   "symbol": "䷃",
+   "lower": "坎",
+   "upper": "艮",
+   "judgment": "亨。匪我求童蒙，童蒙求我。初筮告，再三瀆，瀆則不告。利貞。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "六三",
+    "六四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "發蒙，利用刑人，用說桎梏，以往吝。",
+    "包蒙吉，納婦吉，子克家。",
+    "勿用取女，見金夫，不有躬，无攸利。",
+    "困蒙，吝。",
+    "童蒙，吉。",
+    "擊蒙，不利為寇，利禦寇。"
+   ],
+   "en": "Inexperience",
+   "reading": {
+    "zh-CN": "山下有泉，水还浑浊未开。今天适合虚心求教或耐心教人：真诚地问一次，比反复试探更有用。学习需要一点规矩和专注，别贪快，把基本功打扎实，迷雾会逐渐散去。",
+    "zh-TW": "山下有泉，水還渾濁未開。今天適合虛心求教或耐心教人：真誠地問一次，比反覆試探更有用。學習需要一點規矩和專注，別貪快，把基本功打紮實，迷霧會逐漸散去。",
+    "en": "A spring at the foot of a mountain, its water still cloudy. Today is good for learning humbly or teaching patiently. Ask sincerely once rather than poking at the same question again and again. A bit of discipline helps; build the basics and the fog will lift."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "启蒙要立规矩，但适度即可；约束过严，反而让人难以前行。",
+     "包容懵懂的人是好事，能宽厚待人，就能担起一家之责。",
+     "见到利益就失去自我的人不可托付，别被表面的光鲜吸引。",
+     "困在无知里又不肯求教，只会处处受阻，试着主动打开自己。",
+     "像孩子一样单纯好学、虚心受教，自然吉利。",
+     "纠正愚昧要讲方法，用来防范问题，而不是去攻击别人。"
+    ],
+    "zh-TW": [
+     "啟蒙要立規矩，但適度即可；約束過嚴，反而讓人難以前行。",
+     "包容懵懂的人是好事，能寬厚待人，就能擔起一家之責。",
+     "見到利益就失去自我的人不可託付，別被表面的光鮮吸引。",
+     "困在無知裡又不肯求教，只會處處受阻，試著主動開啟自己。",
+     "像孩子一樣單純好學、虛心受教，自然吉利。",
+     "糾正愚昧要講方法，用來防範問題，而不是去攻擊別人。"
+    ],
+    "en": [
+     "Teaching needs some rules, but keep them light; too much restraint makes progress hard.",
+     "Being patient with the inexperienced is good; tolerance lets you carry real responsibility.",
+     "Someone who loses themselves at the sight of money isn't reliable; don't be dazzled by surfaces.",
+     "Stuck in not knowing and refusing to ask leads to frustration; open yourself up.",
+     "Learning with a child's openness and humility brings good fortune.",
+     "Correct confusion wisely: use firmness to guard against harm, not to attack others."
+    ]
+   }
+  },
+  {
+   "kingWen": 5,
+   "name": "需",
+   "symbol": "䷄",
+   "lower": "乾",
+   "upper": "坎",
+   "judgment": "有孚，光亨。貞吉，利涉大川。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "九三",
+    "六四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "需于郊，利用恆，无咎。",
+    "需于沙，小有言，終吉。",
+    "需于泥，致寇至。",
+    "需于血，出自穴。",
+    "需于酒食，貞吉。",
+    "入于穴，有不速之客三人來，敬之終吉。"
+   ],
+   "en": "Waiting",
+   "reading": {
+    "zh-CN": "云在天上还没落雨，时候未到。今天适合耐心等待、做好准备，不必焦躁。心怀诚意、守住正道，时机成熟时自然能跨过难关。等待期间照常吃饭休息，养足精神比瞎忙更重要。",
+    "zh-TW": "雲在天上還沒落雨，時候未到。今天適合耐心等待、做好準備，不必焦躁。心懷誠意、守住正道，時機成熟時自然能跨過難關。等待期間照常吃飯休息，養足精神比瞎忙更重要。",
+    "en": "Clouds gather but the rain hasn't fallen yet. Today asks for patience and preparation, not anxiety. Stay sincere and keep to what's right, and you'll cross the river when the moment comes. While you wait, eat well and rest; being ready beats busy fretting."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "在远郊等候，离危险还远，保持平常心、持之以恒就无过失。",
+     "在沙滩上等，会有些闲言碎语，不必在意，终究顺利。",
+     "在泥地里等，离险境太近，反而招来麻烦，要及早抽身。",
+     "已经陷入困境，冷静沉着，就能从险处脱身出来。",
+     "在酒食中安然等待，从容守正，结果吉利。",
+     "落入困境时有不请自来的客人，以礼相待，终会得到帮助。"
+    ],
+    "zh-TW": [
+     "在遠郊等候，離危險還遠，保持平常心、持之以恆就無過失。",
+     "在沙灘上等，會有些閒言碎語，不必在意，終究順利。",
+     "在泥地裡等，離險境太近，反而招來麻煩，要及早抽身。",
+     "已經陷入困境，冷靜沉著，就能從險處脫身出來。",
+     "在酒食中安然等待，從容守正，結果吉利。",
+     "落入困境時有不請自來的客人，以禮相待，終會得到幫助。"
+    ],
+    "en": [
+     "Waiting far out in the open country; danger is distant, so keep your routine steady.",
+     "Waiting on the sand brings a little gossip; ignore it, and things end well.",
+     "Waiting in the mud is too close to trouble; it invites problems, so step back early.",
+     "Already in a tough spot; stay calm and collected and you can climb out of the pit.",
+     "Waiting over food and drink, relaxed and steady, brings good fortune.",
+     "In the pit, uninvited guests arrive; treat them with respect and they'll end up helping you."
+    ]
+   }
+  },
+  {
+   "kingWen": 6,
+   "name": "訟",
+   "symbol": "䷅",
+   "lower": "坎",
+   "upper": "乾",
+   "judgment": "有孚，窒，惕，中吉，終凶。利見大人，不利涉大川。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "六三",
+    "九四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "不永所事，小有言，終吉。",
+    "不克訟，歸而逋，其邑人三百戶无眚。",
+    "食舊德，貞厲，終吉。或從王事，无成。",
+    "不克訟，復即命渝，安貞吉。",
+    "訟，元吉。",
+    "或錫之鞶帶，終朝三褫之。"
+   ],
+   "en": "Dispute",
+   "reading": {
+    "zh-CN": "天往上走，水往下流，两股力量背道而驰，容易起争执。今天遇到分歧，有理也要适可而止，争到底往往得不偿失。可以请公正的人居中调停，暂缓冒险的大决定，以和为贵。",
+    "zh-TW": "天往上走，水往下流，兩股力量背道而馳，容易起爭執。今天遇到分歧，有理也要適可而止，爭到底往往得不償失。可以請公正的人居中調停，暫緩冒險的大決定，以和為貴。",
+    "en": "Sky rises and water sinks, pulling in opposite directions, so friction comes easily. If a disagreement surfaces today, stop once your point is made; fighting to the end rarely pays. Ask a fair third party to mediate, and hold off on risky big decisions for now."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "争端别拖长，虽有几句口角，及早收手终究吉利。",
+     "争不过就退回去，低调自保，身边的人也能平安无事。",
+     "靠原有的本分和积累过日子，虽有压力，终能安稳；不必争功。",
+     "争不赢就回心转意，接受现实、安守正道，反而吉利。",
+     "遇到公正的裁决，纷争得以妥善解决，大吉。",
+     "靠争讼赢来的荣誉，一天里被收回好几次，并不牢靠。"
+    ],
+    "zh-TW": [
+     "爭端別拖長，雖有幾句口角，及早收手終究吉利。",
+     "爭不過就退回去，低調自保，身邊的人也能平安無事。",
+     "靠原有的本分和積累過日子，雖有壓力，終能安穩；不必爭功。",
+     "爭不贏就回心轉意，接受現實、安守正道，反而吉利。",
+     "遇到公正的裁決，紛爭得以妥善解決，大吉。",
+     "靠爭訟贏來的榮譽，一天裡被收回好幾次，並不牢靠。"
+    ],
+    "en": [
+     "Don't drag out the dispute; a few sharp words are exchanged, but stopping early ends well.",
+     "If you can't win, withdraw quietly; lying low keeps you and those around you safe.",
+     "Live on what you have already earned; it's tense, but steady in the end. Don't chase credit.",
+     "Losing the argument, change your mind and accept things; settling down brings good fortune.",
+     "A fair judge settles the dispute properly; great good fortune.",
+     "Honors won by fighting are taken back again and again in a single day; they don't last."
+    ]
+   }
+  },
+  {
+   "kingWen": 7,
+   "name": "師",
+   "symbol": "䷆",
+   "lower": "坎",
+   "upper": "坤",
+   "judgment": "貞丈人吉，无咎。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "六三",
+    "六四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "師出以律，否臧，凶。",
+    "在師中吉，无咎；王三錫命。",
+    "師或輿尸，凶。",
+    "師左次，无咎。",
+    "田有禽，利執言，无咎。長子帥師，弟子輿尸，貞凶。",
+    "大君有命，開國承家，小人勿用。"
+   ],
+   "en": "Troops",
+   "reading": {
+    "zh-CN": "地下藏水，象征聚众成军。今天做团队或大型项目，关键在于有清楚的规则和值得信赖的带头人。名正言顺、纪律分明才能成事；也要懂得该退则退，别让不合适的人掌握关键。",
+    "zh-TW": "地下藏水，象徵聚眾成軍。今天做團隊或大型專案，關鍵在於有清楚的規則和值得信賴的帶頭人。名正言順、紀律分明才能成事；也要懂得該退則退，別讓不合適的人掌握關鍵。",
+    "en": "Water hidden under the earth: many people gathered into one force. For teamwork or big projects today, what matters is clear rules and a trustworthy leader. Act with good reason and discipline, retreat when it's wise, and don't hand key roles to the wrong people."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "出发前要有纪律章法，规矩不严，再好的开局也会不顺。",
+     "身处团队中心、处事得中，得到上级多次嘉奖，没有过失。",
+     "号令不一、多人插手指挥，容易遭受挫败，要当心。",
+     "暂时退守、扎营休整，是明智的选择，没有过失。",
+     "有正当理由才出手；让有经验的人带队，用错了人会出问题。",
+     "论功行赏、分配成果时，要选德才兼备的人，别重用小人。"
+    ],
+    "zh-TW": [
+     "出發前要有紀律章法，規矩不嚴，再好的開局也會不順。",
+     "身處團隊中心、處事得中，得到上級多次嘉獎，沒有過失。",
+     "號令不一、多人插手指揮，容易遭受挫敗，要當心。",
+     "暫時退守、紮營休整，是明智的選擇，沒有過失。",
+     "有正當理由才出手；讓有經驗的人帶隊，用錯了人會出問題。",
+     "論功行賞、分配成果時，要選德才兼備的人，別重用小人。"
+    ],
+    "en": [
+     "Set out with discipline; without solid rules, even a good start goes wrong.",
+     "At the center of the team and well balanced, you earn repeated recognition from above.",
+     "Too many people giving orders leads to setbacks; be careful about divided command.",
+     "Pulling back to camp and regroup is a sensible choice, with no blame.",
+     "Act only with just cause; let the experienced lead, because the wrong leader brings trouble.",
+     "When rewarding success, give lasting roles to people of character, not petty ones."
+    ]
+   }
+  },
+  {
+   "kingWen": 8,
+   "name": "比",
+   "symbol": "䷇",
+   "lower": "坤",
+   "upper": "坎",
+   "judgment": "吉。原筮元永貞，无咎。不寧方來，後夫凶。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "六三",
+    "六四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "有孚，比之，无咎。有孚盈缶，終來有它，吉。",
+    "比之自內，貞吉。",
+    "比之匪人。",
+    "外比之，貞吉。",
+    "顯比。王用三敺，失前禽，邑人不誡，吉。",
+    "比之无首，凶。"
+   ],
+   "en": "Closeness",
+   "reading": {
+    "zh-CN": "水在地上，紧密相依。今天适合拉近关系、找到值得依靠的伙伴或团体。真诚是彼此亲近的根本，先审视自己的动机是否端正。犹豫观望太久会错失机会，想靠近就主动一点。",
+    "zh-TW": "水在地上，緊密相依。今天適合拉近關係、找到值得依靠的夥伴或團體。真誠是彼此親近的根本，先審視自己的動機是否端正。猶豫觀望太久會錯失機會，想靠近就主動一點。",
+    "en": "Water resting on the earth, close and connected. Today favors building ties and finding a group or partner worth relying on. Sincerity is the root of closeness, so check that your motives are clean. Hang back too long and the moment passes; if you want to connect, reach out."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "怀着诚信去亲近他人，诚意像装满的瓦罐，终会带来意外之喜。",
+     "发自内心地亲近他人，守住本心，吉利。",
+     "所亲近的人并不合适，要保持警觉，及早拉开距离。",
+     "向外亲近贤能之人，同时坚持正道，吉利。",
+     "光明正大地团结人，来去随意不强求，人心自然归附。",
+     "想亲近却没有好的开头，错过了时机，后面会不顺。"
+    ],
+    "zh-TW": [
+     "懷著誠信去親近他人，誠意像裝滿的瓦罐，終會帶來意外之喜。",
+     "發自內心地親近他人，守住本心，吉利。",
+     "所親近的人並不合適，要保持警覺，及早拉開距離。",
+     "向外親近賢能之人，同時堅持正道，吉利。",
+     "光明正大地團結人，來去隨意不強求，人心自然歸附。",
+     "想親近卻沒有好的開頭，錯過了時機，後面會不順。"
+    ],
+    "en": [
+     "Approach others with sincerity, a jar filled to the brim, and unexpected good things follow.",
+     "Closeness that comes from within and stays true to itself brings good fortune.",
+     "You're getting close to the wrong people; notice it and step back early.",
+     "Reaching out to capable people beyond your circle while staying upright is fortunate.",
+     "Unite people openly and let them come or go freely; hearts gather naturally.",
+     "Seeking closeness without a proper start means missed timing and a rough road afterward."
+    ]
+   }
+  },
+  {
+   "kingWen": 9,
+   "name": "小畜",
+   "symbol": "䷈",
+   "lower": "乾",
+   "upper": "巽",
+   "judgment": "亨。密雲不雨，自我西郊。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "九三",
+    "六四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "復自道，何其咎，吉。",
+    "牽復，吉。",
+    "車說輹，夫妻反目。",
+    "有孚，血去惕出，无咎。",
+    "有孚攣如，富以其鄰。",
+    "既雨既處，尚得載，婦貞厲，月幾望，君子征凶。"
+   ],
+   "en": "Gentle Restraint",
+   "reading": {
+    "zh-CN": "风行天上，云层密布却还没下雨。今天的力量还小，适合小规模积累、慢慢蓄势，不急于求成。有些事被暂时拦住也无妨，用温和的方式化解阻力，耐心等条件成熟。",
+    "zh-TW": "風行天上，雲層密佈卻還沒下雨。今天的力量還小，適合小規模積累、慢慢蓄勢，不急於求成。有些事被暫時攔住也無妨，用溫和的方式化解阻力，耐心等條件成熟。",
+    "en": "Wind across the sky: thick clouds, but no rain yet. Your strength is modest today, so build up in small amounts rather than pushing for big results. Being held back a little is fine; soften the resistance gently and wait for conditions to ripen."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "回到自己的正路上，又有什么过错呢？吉利。",
+     "被同伴牵引着一起回到正途，吉利。",
+     "车轮脱落、夫妻反目，关系里的摩擦让事情卡住，先去修补。",
+     "以诚相待，忧虑和危险都会消散，没有过失。",
+     "诚意彼此相连，与邻里分享所得，一起变得充实。",
+     "雨已落下，蓄积已满，该停下来了；见好就收，别再冒进。"
+    ],
+    "zh-TW": [
+     "回到自己的正路上，又有什麼過錯呢？吉利。",
+     "被同伴牽引著一起回到正途，吉利。",
+     "車輪脫落、夫妻反目，關係裡的摩擦讓事情卡住，先去修補。",
+     "以誠相待，憂慮和危險都會消散，沒有過失。",
+     "誠意彼此相連，與鄰里分享所得，一起變得充實。",
+     "雨已落下，蓄積已滿，該停下來了；見好就收，別再冒進。"
+    ],
+    "en": [
+     "Return to your own path; what fault could there be in that? Good fortune.",
+     "Drawn back onto the right road together with companions; good fortune.",
+     "The wheel falls off and partners quarrel; friction stalls things, so mend it first.",
+     "Treat others with sincerity, and worry and danger both fade away; no blame.",
+     "Linked by trust, share what you have with neighbors and grow richer together.",
+     "The rain has come and the store is full; stop here, since pushing on now goes poorly."
+    ]
+   }
+  },
+  {
+   "kingWen": 10,
+   "name": "履",
+   "symbol": "䷉",
+   "lower": "兌",
+   "upper": "乾",
+   "judgment": "履虎尾，不咥人，亨。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "六三",
+    "九四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "素履，往无咎。",
+    "履道坦坦，幽人貞吉。",
+    "眇能視，跛能履，履虎尾，咥人，凶。武人為于大君。",
+    "履虎尾，愬愬終吉。",
+    "夬履，貞厲。",
+    "視履考詳，其旋元吉。"
+   ],
+   "en": "Careful Steps",
+   "reading": {
+    "zh-CN": "踩着老虎尾巴走路，老虎却没有咬人。今天可能要面对强势的人或棘手的局面，只要言行有礼、步步谨慎，就能平安通过。守住本分、保持低调，比逞强更管用。",
+    "zh-TW": "踩著老虎尾巴走路，老虎卻沒有咬人。今天可能要面對強勢的人或棘手的局面，只要言行有禮、步步謹慎，就能平安通過。守住本分、保持低調，比逞強更管用。",
+    "en": "Stepping on a tiger's tail without getting bitten. Today you may face a forceful person or a delicate situation. Courtesy and careful steps will get you through safely. Staying modest and in your own lane works better than showing off your strength."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "朴素本色地前行，按自己的节奏走，没有过失。",
+     "道路平坦，心境淡泊安静的人坚守正道就吉利。",
+     "看不清还硬看，脚跛还硬走，高估自己会被咬，要当心。",
+     "踩到虎尾时小心戒惧，步步谨慎，终会平安。",
+     "行事果断坚决，但要清楚其中的风险，不可大意。",
+     "回顾走过的路，仔细检查得失，能圆满收尾，大吉。"
+    ],
+    "zh-TW": [
+     "樸素本色地前行，按自己的節奏走，沒有過失。",
+     "道路平坦，心境淡泊安靜的人堅守正道就吉利。",
+     "看不清還硬看，腳跛還硬走，高估自己會被咬，要當心。",
+     "踩到虎尾時小心戒懼，步步謹慎，終會平安。",
+     "行事果斷堅決，但要清楚其中的風險，不可大意。",
+     "回顧走過的路，仔細檢查得失，能圓滿收尾，大吉。"
+    ],
+    "en": [
+     "Walk forward plainly and at your own pace; no blame.",
+     "The road is smooth; a calm, unhurried person who stays steady does well.",
+     "Squinting and limping yet pushing ahead, you overrate yourself and get bitten; be careful.",
+     "On the tiger's tail, move with careful caution and it ends well.",
+     "Step decisively, but stay aware of the risk involved; don't get careless.",
+     "Look back over your path and review it carefully; coming full circle brings great fortune."
+    ]
+   }
+  },
+  {
+   "kingWen": 11,
+   "name": "泰",
+   "symbol": "䷊",
+   "lower": "乾",
+   "upper": "坤",
+   "judgment": "小往大來，吉亨。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "九三",
+    "六四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "拔茅茹以其彙，征吉。",
+    "包荒。用馮河，不遐遺；朋亡。得尚于中行。",
+    "无平不陂，无往不復，艱貞无咎。勿恤其孚，于食有福。",
+    "翩翩，不富以其鄰；不戒以孚。",
+    "帝乙歸妹，以祉，元吉。",
+    "城復于隍，勿用師，自邑告命，貞吝。"
+   ],
+   "en": "Flourishing",
+   "reading": {
+    "zh-CN": "地气下降、天气上升，上下交流顺畅，是通达和顺的局面。今天付出小、回报大，适合沟通合作、推进计划。顺境里也要居安思危，保持开放包容，好运才能长久。",
+    "zh-TW": "地氣下降、天氣上升，上下交流順暢，是通達和順的局面。今天付出小、回報大，適合溝通合作、推進計劃。順境裡也要居安思危，保持開放包容，好運才能長久。",
+    "en": "Earth above, heaven below, their energies meeting and mingling. It's a time of smooth flow, where small efforts bring big returns. Talk, collaborate and move plans forward. Still, stay alert in good times and keep an open heart so the good stretch lasts."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "拔起茅草连根带出一片，与同道一起出发，吉利。",
+     "胸怀宽广，敢于涉险也不忘远方，不拉帮结派，行事得中。",
+     "没有永远的平坦，有去必有回；艰难中守正，自有福气。",
+     "轻松谦和地与邻相处，不靠财力，彼此真诚无需戒备。",
+     "像帝王嫁妹结亲，以诚意结合，带来福气，大吉。",
+     "城墙倒回护城河里，盛极转衰，别硬撑，收缩自守为宜。"
+    ],
+    "zh-TW": [
+     "拔起茅草連根帶出一片，與同道一起出發，吉利。",
+     "胸懷寬廣，敢於涉險也不忘遠方，不拉幫結派，行事得中。",
+     "沒有永遠的平坦，有去必有回；艱難中守正，自有福氣。",
+     "輕鬆謙和地與鄰相處，不靠財力，彼此真誠無需戒備。",
+     "像帝王嫁妹結親，以誠意結合，帶來福氣，大吉。",
+     "城牆倒回護城河裡，盛極轉衰，別硬撐，收縮自守為宜。"
+    ],
+    "en": [
+     "Pull up one reed and the whole clump comes with it; set out together with allies.",
+     "Be broad-minded and bold, don't forget the distant, avoid cliques, and walk the middle way.",
+     "No flat ground without slopes, no going without returning; stay steady through hardship and blessings follow.",
+     "Mix lightly and humbly with neighbors, not through wealth; mutual trust needs no guard.",
+     "Like a royal marriage alliance, a sincere union brings blessings and great fortune.",
+     "The city wall collapses into the moat; the peak has passed, so pull in and protect what's yours."
+    ]
+   }
+  },
+  {
+   "kingWen": 12,
+   "name": "否",
+   "symbol": "䷋",
+   "lower": "坤",
+   "upper": "乾",
+   "judgment": "否之匪人，不利君子貞，大往小來。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "六三",
+    "九四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "拔茅茹以其彙，貞吉。亨。",
+    "包承，小人吉，大人否。亨。",
+    "包羞。",
+    "有命，无咎，疇離祉。",
+    "休否，大人吉。其亡其亡，繫于包桑。",
+    "傾否，先否後喜。"
+   ],
+   "en": "Blocked",
+   "reading": {
+    "zh-CN": "天在上、地在下，各走各的，不相往来，局面闭塞不通。今天沟通可能卡住、付出多回报少，不宜强推大事。守住原则、低调自处，把力气留给日后；阻塞终会过去。",
+    "zh-TW": "天在上、地在下，各走各的，不相往來，局面閉塞不通。今天溝通可能卡住、付出多回報少，不宜強推大事。守住原則、低調自處，把力氣留給日後；阻塞終會過去。",
+    "en": "Heaven pulls up, earth sinks down, and the two stop meeting. Things feel blocked today; communication may stall and effort may outrun results. Don't force big moves. Hold to your principles, keep a low profile and save your strength. Blockages pass."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "像拔茅草时连根一起，与同道一起守正，吉利通达。",
+     "一味包容顺从对一般人有利；有志者宁可守困也不苟合。",
+     "心里包藏的念头并不光彩，自觉有愧，要好好自我检讨。",
+     "顺应正当的使命行事，没有过失，同伴也一同得福。",
+     "闭塞即将结束，仍要时时警醒，像把根牢牢系在桑树上。",
+     "闭塞被推倒，先苦后甜，转机终于来了。"
+    ],
+    "zh-TW": [
+     "像拔茅草時連根一起，與同道一起守正，吉利通達。",
+     "一味包容順從對一般人有利；有志者寧可守困也不苟合。",
+     "心裡包藏的念頭並不光彩，自覺有愧，要好好自我檢討。",
+     "順應正當的使命行事，沒有過失，同伴也一同得福。",
+     "閉塞即將結束，仍要時時警醒，像把根牢牢系在桑樹上。",
+     "閉塞被推倒，先苦後甜，轉機終於來了。"
+    ],
+    "en": [
+     "Like reeds pulled up together, stick with your allies and stay upright.",
+     "Simply going along suits ordinary aims; a person of purpose would rather endure than compromise.",
+     "What's being hidden isn't honorable; feel the shame and reconsider your course.",
+     "Following a rightful mandate brings no blame, and your companions share the blessing.",
+     "The blockage is ending; stay watchful, as if tied firmly to a mulberry's roots.",
+     "The blockage topples; first hardship, then joy as things finally turn around."
+    ]
+   }
+  },
+  {
+   "kingWen": 13,
+   "name": "同人",
+   "symbol": "䷌",
+   "lower": "離",
+   "upper": "乾",
+   "judgment": "同人于野，亨。 利涉大川，利君子貞。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "九三",
+    "九四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "同人于門，無咎。",
+    "同人于宗，吝。",
+    "伏戎于莽，升其高陵，三歲不興。",
+    "乘其庸，弗克攻，吉。",
+    "同人，先號啕而後笑。大師克相遇。",
+    "同人于郊，無悔。"
+   ],
+   "en": "Uniting People",
+   "reading": {
+    "zh-CN": "天下有火，光明照亮众人，象征志同道合。今天适合与人敞开交流、广结善缘，在开阔处结伴比关起门来抱团更好。放下小圈子的偏见，以公心待人，就能一起把难事做成。",
+    "zh-TW": "天下有火，光明照亮眾人，象徵志同道合。今天適合與人敞開交流、廣結善緣，在開闊處結伴比關起門來抱團更好。放下小圈子的偏見，以公心待人，就能一起把難事做成。",
+    "en": "Fire beneath the sky, its light shared by all: a picture of people coming together. Today favors open, honest connection with many rather than a closed clique. Set aside small-group bias and treat people fairly, and together you can accomplish something hard."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "一出门就与人和同，心胸开阔，没有过失。",
+     "只在宗族小圈子里抱团，格局太窄，会留下遗憾。",
+     "埋伏在草丛里、登高窥探，心存戒备，多年也难成事。",
+     "登上城墙却没有进攻，懂得收手反而吉利。",
+     "先哭后笑，经过一番波折，志同道合者终于相会。",
+     "在郊外与人和同，虽不算深交，也没有悔恨。"
+    ],
+    "zh-TW": [
+     "一齣門就與人和同，心胸開闊，沒有過失。",
+     "只在宗族小圈子裡抱團，格局太窄，會留下遺憾。",
+     "埋伏在草叢裡、登高窺探，心存戒備，多年也難成事。",
+     "登上城牆卻沒有進攻，懂得收手反而吉利。",
+     "先哭後笑，經過一番波折，志同道合者終於相會。",
+     "在郊外與人和同，雖不算深交，也沒有悔恨。"
+    ],
+    "en": [
+     "Joining with others right at the gate, open-hearted, brings no blame.",
+     "Bonding only within your own clan is too narrow and leaves regret.",
+     "Hiding in the brush and watching from a hill, suspicion keeps anything from happening for years.",
+     "Climbing the wall but choosing not to attack; restraint brings good fortune.",
+     "First tears, then laughter; after a struggle, true allies finally meet.",
+     "Joining others out in the countryside; not a deep bond, but no regrets."
+    ]
+   }
+  },
+  {
+   "kingWen": 14,
+   "name": "大有",
+   "symbol": "䷍",
+   "lower": "乾",
+   "upper": "離",
+   "judgment": "元亨。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "九三",
+    "九四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "无交害，匪咎，艱則无咎。",
+    "大轝以載，有攸往，无咎。",
+    "公用亨于天子，小人弗克。",
+    "匪其尫，无咎。",
+    "厥孚交如，威如；吉。",
+    "自天佑之，吉无不利。"
+   ],
+   "en": "Great Bounty",
+   "reading": {
+    "zh-CN": "火在天上，光照万物，象征丰收和拥有。今天资源和机会都比较充足，适合把手头的好东西用起来、与人分享。越是丰盛越要谦虚守礼、扬善抑恶，才能让好运持续。",
+    "zh-TW": "火在天上，光照萬物，象徵豐收和擁有。今天資源和機會都比較充足，適合把手頭的好東西用起來、與人分享。越是豐盛越要謙虛守禮、揚善抑惡，才能讓好運持續。",
+    "en": "Fire high in the sky, lighting everything below: a picture of abundance. Resources and chances are relatively plentiful today, so put good things to use and share them. The more you have, the more humility and decency matter for keeping it."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "不与有害的事牵扯就没有过错；时刻记得艰难，才能无咎。",
+     "大车满载，有所前往，能担起重任，没有过失。",
+     "把成果奉献给更高的目标，格局小的人做不到这一点。",
+     "不炫耀自己的盛大，收敛锋芒，没有过失。",
+     "以诚信与人交往，又不失威严，吉利。",
+     "像有上天护佑一样，顺应正道而行，诸事皆宜。"
+    ],
+    "zh-TW": [
+     "不與有害的事牽扯就沒有過錯；時刻記得艱難，才能無咎。",
+     "大車滿載，有所前往，能擔起重任，沒有過失。",
+     "把成果奉獻給更高的目標，格局小的人做不到這一點。",
+     "不炫耀自己的盛大，收斂鋒芒，沒有過失。",
+     "以誠信與人交往，又不失威嚴，吉利。",
+     "像有上天護佑一樣，順應正道而行，諸事皆宜。"
+    ],
+    "en": [
+     "Avoid entanglements that could harm you; remembering hard times keeps you blameless.",
+     "A big cart loaded up and on the move; you can carry the load, no blame.",
+     "Offering your gains to something greater than yourself; small-minded people can't do this.",
+     "Don't flaunt your abundance; keeping a low profile brings no blame.",
+     "Deal with people through sincerity, balanced with dignity; good fortune.",
+     "As if blessed from above; aligning with what is right makes everything favorable."
+    ]
+   }
+  },
+  {
+   "kingWen": 15,
+   "name": "謙",
+   "symbol": "䷎",
+   "lower": "艮",
+   "upper": "坤",
+   "judgment": "亨，君子有終。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "九三",
+    "六四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "謙謙君子，用涉大川，吉。",
+    "鳴謙，貞吉。",
+    "勞謙君子，有終吉。",
+    "无不利，撝謙。",
+    "不富，以其鄰，利用侵伐，无不利。",
+    "鳴謙，利用行師，征邑國。"
+   ],
+   "en": "Humility",
+   "reading": {
+    "zh-CN": "高山藏在地下，有本事却不张扬。今天适合放低姿态、多听少说，把功劳分给别人。谦虚不是退缩，而是让事情走得更远的方式；保持这份分寸，最后往往有好结果。",
+    "zh-TW": "高山藏在地下，有本事卻不張揚。今天適合放低姿態、多聽少說，把功勞分給別人。謙虛不是退縮，而是讓事情走得更遠的方式；保持這份分寸，最後往往有好結果。",
+    "en": "A mountain hidden beneath the earth: real substance without showing off. Today, lower your stance, listen more than you talk and share credit freely. Humility isn't retreat; it's how things go further. Keep that balance and things tend to end well."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "谦而又谦，用这份态度去面对难关，吉利。",
+     "谦虚的名声传开，内外一致、坚守正道就吉利。",
+     "有功劳仍然谦虚，勤勉坚持到底，会有好结果。",
+     "处处发挥谦虚的美德，待人做事都有分寸，无所不利。",
+     "不靠财富也能团结邻里，必要时也可以坚定出手。",
+     "谦名在外，可以着手整顿身边的事，把自己的地盘管好。"
+    ],
+    "zh-TW": [
+     "謙而又謙，用這份態度去面對難關，吉利。",
+     "謙虛的名聲傳開，內外一致、堅守正道就吉利。",
+     "有功勞仍然謙虛，勤勉堅持到底，會有好結果。",
+     "處處發揮謙虛的美德，待人做事都有分寸，無所不利。",
+     "不靠財富也能團結鄰里，必要時也可以堅定出手。",
+     "謙名在外，可以著手整頓身邊的事，把自己的地盤管好。"
+    ],
+    "en": [
+     "Doubly humble, you can face even big challenges; good fortune.",
+     "Your humility becomes known; staying sincere inside and out brings good fortune.",
+     "Hardworking yet humble, keep it up to the end and it finishes well.",
+     "Let humility show in everything you do, with a sense of measure, and nothing goes wrong.",
+     "You win people over without relying on wealth, and can act firmly when needed.",
+     "Known for humility, you can now set your own house in order with firmness."
+    ]
+   }
+  },
+  {
+   "kingWen": 16,
+   "name": "豫",
+   "symbol": "䷏",
+   "lower": "坤",
+   "upper": "震",
+   "judgment": "利建侯行師。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "六三",
+    "九四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "鳴豫，凶。",
+    "介于石，不終日，貞吉。",
+    "盱豫，悔。遲有悔。",
+    "由豫，大有得。勿疑。朋盍戠。",
+    "貞疾，恆不死。",
+    "冥豫，成有渝，无咎。"
+   ],
+   "en": "Delight",
+   "reading": {
+    "zh-CN": "雷出地上，万物振奋，象征喜悦和顺势而动。今天心情不错，适合鼓舞团队、筹备计划。但快乐要有节制，别因为得意忘形而松懈；顺着人心与时势去做，事情会更顺。",
+    "zh-TW": "雷出地上，萬物振奮，象徵喜悅和順勢而動。今天心情不錯，適合鼓舞團隊、籌備計劃。但快樂要有節制，別因為得意忘形而鬆懈；順著人心與時勢去做，事情會更順。",
+    "en": "Thunder bursting from the earth, everything stirring awake. Today brings good spirits and momentum, nice for rallying people and planning ahead. Just keep joy in proportion; don't get so pleased that you slack off. Move with people's mood and the timing, and things flow."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "得意忘形地四处张扬自己的快乐，会不顺。",
+     "像石头一样坚定，发现苗头不对当天就抽身，守正吉利。",
+     "仰视讨好、迟疑不决，都会后悔；该决断时就决断。",
+     "众人因你而欢聚，大有收获；不必猜疑，朋友自会聚拢。",
+     "长期承受压力但始终撑得住，保持节制就能持久。",
+     "沉迷享乐到了昏暗的地步，及时改正就没有过失。"
+    ],
+    "zh-TW": [
+     "得意忘形地四處張揚自己的快樂，會不順。",
+     "像石頭一樣堅定，發現苗頭不對當天就抽身，守正吉利。",
+     "仰視討好、遲疑不決，都會後悔；該決斷時就決斷。",
+     "眾人因你而歡聚，大有收穫；不必猜疑，朋友自會聚攏。",
+     "長期承受壓力但始終撐得住，保持節制就能持久。",
+     "沉迷享樂到了昏暗的地步，及時改正就沒有過失。"
+    ],
+    "en": [
+     "Loudly showing off your happiness to everyone around you invites trouble.",
+     "Firm as a rock, step away the same day things look wrong; steady and fortunate.",
+     "Fawning upward and hesitating both bring regret; decide when it's time to decide.",
+     "People rally joyfully around you with great results; don't doubt, friends gather.",
+     "Under long-term strain, you still hold steady; moderation keeps you going.",
+     "Lost in pleasure to the point of fog; changing course in time brings no blame."
+    ]
+   }
+  },
+  {
+   "kingWen": 17,
+   "name": "隨",
+   "symbol": "䷐",
+   "lower": "震",
+   "upper": "兌",
+   "judgment": "元亨。利貞。无咎。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "六三",
+    "九四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "官有渝，貞吉。出門交有功。",
+    "係小子，失丈夫。",
+    "係丈夫，失小子。隨，有求得利，居貞。",
+    "隨有獲，貞凶。有孚在道，以明，何咎。",
+    "孚于嘉，吉。",
+    "拘係之，乃從維之。王用亨于西山。"
+   ],
+   "en": "Adapting",
+   "reading": {
+    "zh-CN": "泽中有雷，雷声隐入水中，象征顺时而随。今天适合灵活变通，跟随正确的人和趋势，而不是固执己见。随从也要有选择，跟对方向、守住正道，才能顺利无过。",
+    "zh-TW": "澤中有雷，雷聲隱入水中，象徵順時而隨。今天適合靈活變通，跟隨正確的人和趨勢，而不是固執己見。隨從也要有選擇，跟對方向、守住正道，才能順利無過。",
+    "en": "Thunder within the lake, quieting down: a picture of moving with the season. Today favors flexibility, following good people and trends rather than clinging to your own view. Choose carefully whom you follow; with the right direction and integrity, things go smoothly."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "原有的想法可以改变，守正吉利；出门交往会有收获。",
+     "跟着小处走，却失去了大方向，要分清主次。",
+     "抓住大方向，舍弃小事，有求可得，安守本分为宜。",
+     "随众而有所获却怀私心就会不顺；诚信光明则无过失。",
+     "诚心追随美好善良的人和事，心有所归，吉利。",
+     "紧紧维系着人心，诚意之深可以感通神明。"
+    ],
+    "zh-TW": [
+     "原有的想法可以改變，守正吉利；出門交往會有收穫。",
+     "跟著小處走，卻失去了大方向，要分清主次。",
+     "抓住大方向，捨棄小事，有求可得，安守本分為宜。",
+     "隨眾而有所獲卻懷私心就會不順；誠信光明則無過失。",
+     "誠心追隨美好善良的人和事，心有所歸，吉利。",
+     "緊緊維繫著人心，誠意之深可以感通神明。"
+    ],
+    "en": [
+     "It's fine to change your position; going out and connecting with people brings results.",
+     "Clinging to the small, you lose the big; know what matters most.",
+     "Hold to the big picture and let small things go; you'll get what you seek.",
+     "Gaining followers with selfish aims goes poorly; honesty and openness keep you clear.",
+     "Sincerely following what is good and beautiful brings good fortune.",
+     "Hearts held tightly together, with a sincerity so deep it reaches the divine."
+    ]
+   }
+  },
+  {
+   "kingWen": 18,
+   "name": "蠱",
+   "symbol": "䷑",
+   "lower": "巽",
+   "upper": "艮",
+   "judgment": "元亨。利涉大川。先甲三日，後甲三日。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "九三",
+    "六四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "幹父之蠱，有子考，无咎，厲終吉。",
+    "幹母之蠱，不可貞。",
+    "幹父之蠱，小有悔，无大咎。",
+    "裕父之蠱，往見吝。",
+    "幹父之蠱，用譽。",
+    "不事王侯，高尚其事。"
+   ],
+   "en": "Repairing Decay",
+   "reading": {
+    "zh-CN": "山下有风，器物久置生虫，象征积弊需要整治。今天适合处理拖了很久的老问题、修复前人留下的漏洞。动手前先想清楚来龙去脉，事后再复盘巩固，大刀阔斧也要有条不紊。",
+    "zh-TW": "山下有風，器物久置生蟲，象徵積弊需要整治。今天適合處理拖了很久的老問題、修復前人留下的漏洞。動手前先想清楚來龍去脈，事後再復盤鞏固，大刀闊斧也要有條不紊。",
+    "en": "Wind beneath a mountain, a bowl left so long that worms appear: old problems that need fixing. Today is good for tackling long-postponed issues and repairing what was left broken. Think through the causes before you start and review afterward; be bold, but orderly."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "整顿前辈留下的问题，有子能担当，虽有风险终会吉利。",
+     "处理母辈留下的问题，宜温和委婉，不可过于刚硬。",
+     "整治父辈遗留的问题，用力稍过会有小悔，但无大错。",
+     "对积弊放任宽纵，继续拖下去会让人遗憾。",
+     "整顿父辈旧事，做得得体周到，赢得称誉。",
+     "不追逐权位名利，专注于自己认为高尚的事。"
+    ],
+    "zh-TW": [
+     "整頓前輩留下的問題，有子能擔當，雖有風險終會吉利。",
+     "處理母輩留下的問題，宜溫和委婉，不可過於剛硬。",
+     "整治父輩遺留的問題，用力稍過會有小悔，但無大錯。",
+     "對積弊放任寬縱，繼續拖下去會讓人遺憾。",
+     "整頓父輩舊事，做得得體周到，贏得稱譽。",
+     "不追逐權位名利，專注於自己認為高尚的事。"
+    ],
+    "en": [
+     "Fixing what your elders left behind; a capable heir makes it end well despite the risk.",
+     "Fixing what your mother left needs gentleness and tact, not rigid force.",
+     "Fixing your father's problems a bit too hard brings small regrets, but no big fault.",
+     "Tolerating old problems and letting them slide will lead to regret.",
+     "Fixing the old family matters with grace and care earns you praise.",
+     "Not serving kings or lords, you devote yourself to what you find truly worthy."
+    ]
+   }
+  },
+  {
+   "kingWen": 19,
+   "name": "臨",
+   "symbol": "䷒",
+   "lower": "兌",
+   "upper": "坤",
+   "judgment": "元亨。利貞。至于八月有凶。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "六三",
+    "六四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "咸臨，貞吉。",
+    "咸臨，吉无不利。",
+    "甘臨，无攸利。既憂之，无咎。",
+    "至臨，无咎。",
+    "知臨，大君之宜，吉。",
+    "敦臨，吉无咎。"
+   ],
+   "en": "Drawing Near",
+   "reading": {
+    "zh-CN": "泽上有地，居高临下，象征亲近与照看。今天适合主动关心他人、带领团队，以真诚和智慧去影响人。顺境正在展开，但要记得盛衰会转换，趁好时机未雨绸缪。",
+    "zh-TW": "澤上有地，居高臨下，象徵親近與照看。今天適合主動關心他人、帶領團隊，以真誠和智慧去影響人。順境正在展開，但要記得盛衰會轉換，趁好時機未雨綢繆。",
+    "en": "Earth above the lake: overseeing and drawing near. Today favors reaching out, caring for others and leading with sincerity and wisdom. Good momentum is building, but seasons turn, so use this good stretch to prepare for the changes that will come later."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "以感化之心去亲近和带领他人，守正吉利。",
+     "以真情去感召他人，吉利，无所不利。",
+     "用甜言蜜语去笼络人没有好处；意识到并改正就无过失。",
+     "亲自到场、身体力行地照顾他人，没有过失。",
+     "以智慧来领导众人，正适合当领导者，吉利。",
+     "以敦厚宽和之心待人，吉利而无过失。"
+    ],
+    "zh-TW": [
+     "以感化之心去親近和帶領他人，守正吉利。",
+     "以真情去感召他人，吉利，無所不利。",
+     "用甜言蜜語去籠絡人沒有好處；意識到並改正就無過失。",
+     "親自到場、身體力行地照顧他人，沒有過失。",
+     "以智慧來領導眾人，正適合當領導者，吉利。",
+     "以敦厚寬和之心待人，吉利而無過失。"
+    ],
+    "en": [
+     "Lead by moving people's hearts; staying upright brings good fortune.",
+     "Inspiring others with genuine feeling brings good fortune; everything is favorable.",
+     "Winning people with sweet talk gets you nothing; once you see it and change, no blame.",
+     "Showing up in person to care for others brings no blame.",
+     "Leading with wisdom is what a true leader does; good fortune.",
+     "Leading with warmth and generosity brings good fortune and no blame."
+    ]
+   }
+  },
+  {
+   "kingWen": 20,
+   "name": "觀",
+   "symbol": "䷓",
+   "lower": "坤",
+   "upper": "巽",
+   "judgment": "盥而不薦，有孚顒若。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "六三",
+    "六四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "童觀，小人无咎，君子吝。",
+    "窺觀，利女貞。",
+    "觀我生，進退。",
+    "觀國之光，利用賓于王。",
+    "觀我生，君子无咎。",
+    "觀其生，君子无咎。"
+   ],
+   "en": "Looking Closely",
+   "reading": {
+    "zh-CN": "风行地上，吹拂万物，象征观察与被观察。今天适合放慢脚步，多看、多想、少下结论，也留意自己的言行会被人看在眼里。心怀敬意、表里如一，自然让人信服。",
+    "zh-TW": "風行地上，吹拂萬物，象徵觀察與被觀察。今天適合放慢腳步，多看、多想、少下結論，也留意自己的言行會被人看在眼裡。心懷敬意、表裡如一，自然讓人信服。",
+    "en": "Wind moving over the earth, touching everything: watching and being watched. Today, slow down, observe more and jump to conclusions less. Remember that others are watching how you act, too. Sincerity and consistency, inside and out, naturally earn trust."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "像孩子一样只看表面，普通人无妨，有担当的人则不够。",
+     "从门缝里往外窥看，视野太窄，要试着看得更宽更远。",
+     "观察自己的所作所为，以此来决定该进还是该退。",
+     "观察一地的风气与光彩，适合去拜访、结交有影响力的人。",
+     "反观自身的言行，确认自己站得正，就没有过失。",
+     "观察他人的生活，也借此反省自身，没有过失。"
+    ],
+    "zh-TW": [
+     "像孩子一樣只看表面，普通人無妨，有擔當的人則不夠。",
+     "從門縫裡往外窺看，視野太窄，要試著看得更寬更遠。",
+     "觀察自己的所作所為，以此來決定該進還是該退。",
+     "觀察一地的風氣與光彩，適合去拜訪、結交有影響力的人。",
+     "反觀自身的言行，確認自己站得正，就沒有過失。",
+     "觀察他人的生活，也藉此反省自身，沒有過失。"
+    ],
+    "en": [
+     "Seeing like a child, only the surface; fine for some, but not enough if you lead.",
+     "Peeking out through a crack in the door; your view is narrow, so try to widen it.",
+     "Look at your own life and actions to decide whether to advance or retreat.",
+     "Observing the brilliance of a place; a good time to visit people of influence.",
+     "Examine your own conduct; if it's upright, there's no blame.",
+     "Watching how others live, and reflecting on yourself through it, brings no blame."
+    ]
+   }
+  },
+  {
+   "kingWen": 21,
+   "name": "噬嗑",
+   "symbol": "䷔",
+   "lower": "震",
+   "upper": "離",
+   "judgment": "亨。利用獄。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "六三",
+    "九四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "屨校滅趾，无咎。",
+    "噬膚滅鼻，无咎。",
+    "噬昔肉，遇毒；小吝，无咎。",
+    "噬乾胏，得金矢，利艱貞，吉。",
+    "噬乾肉，得黃金，貞厲，无咎。",
+    "何校滅耳，凶。"
+   ],
+   "en": "Chewing Through",
+   "reading": {
+    "zh-CN": "雷电交加，像上下牙咬合，把中间的硬物咬碎。今天如果有障碍横在中间，要果断处理、把规矩讲清楚。该说清的话说清，该定的规则定下，问题解决了，事情才能通畅。",
+    "zh-TW": "雷電交加，像上下牙咬合，把中間的硬物咬碎。今天如果有障礙橫在中間，要果斷處理、把規矩講清楚。該說清的話說清，該定的規則定下，問題解決了，事情才能通暢。",
+    "en": "Thunder and lightning together, like jaws biting through something hard. If an obstacle sits in the middle today, deal with it decisively and make the rules clear. Say what needs saying and settle what needs settling; once it's bitten through, things flow again."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "脚被刑具遮住，用小惩戒来阻止大错，没有过失。",
+     "咬软肉咬到鼻子没入，用力稍过，但并无大碍。",
+     "咬干硬的腊肉却遇到变质，碰上小麻烦，但无大错。",
+     "咬带骨的干肉，得到坚硬的箭头，艰难中守正吉利。",
+     "咬干肉得到黄金，有所收获，但要保持警惕。",
+     "肩扛重枷遮住了耳朵，听不进劝告，后果不顺。"
+    ],
+    "zh-TW": [
+     "腳被刑具遮住，用小懲戒來阻止大錯，沒有過失。",
+     "咬軟肉咬到鼻子沒入，用力稍過，但並無大礙。",
+     "咬乾硬的臘肉卻遇到變質，碰上小麻煩，但無大錯。",
+     "咬帶骨的乾肉，得到堅硬的箭頭，艱難中守正吉利。",
+     "咬乾肉得到黃金，有所收穫，但要保持警惕。",
+     "肩扛重枷遮住了耳朵，聽不進勸告，後果不順。"
+    ],
+    "en": [
+     "Feet locked in stocks: a small penalty prevents bigger mistakes; no blame.",
+     "Biting soft meat so deep the nose disappears; a bit much, but no harm done.",
+     "Biting tough dried meat and finding it spoiled; minor trouble, no serious fault.",
+     "Biting dried meat on the bone and finding an arrowhead; perseverance in difficulty pays.",
+     "Biting dried meat and finding gold; you gain something, but stay alert.",
+     "A heavy wooden collar covers the ears; refusing to listen leads to poor outcomes."
+    ]
+   }
+  },
+  {
+   "kingWen": 22,
+   "name": "賁",
+   "symbol": "䷕",
+   "lower": "離",
+   "upper": "艮",
+   "judgment": "亨。小利有攸往。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "九三",
+    "六四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "賁其趾，舍車而徒。",
+    "賁其須。",
+    "賁如濡如，永貞吉。",
+    "賁如皤如，白馬翰如，匪寇婚媾。",
+    "賁於丘園，束帛戔戔，吝，終吉。",
+    "白賁，无咎。"
+   ],
+   "en": "Adornment",
+   "reading": {
+    "zh-CN": "山下有火，照亮山石草木，象征修饰与美化。今天适合整理仪表、打磨作品，让事情更有条理、更好看。但装饰只能锦上添花，本质才是根本；小事可以借形式出彩，大事还要看实力。",
+    "zh-TW": "山下有火，照亮山石草木，象徵修飾與美化。今天適合整理儀表、打磨作品，讓事情更有條理、更好看。但裝飾只能錦上添花，本質才是根本；小事可以借形式出彩，大事還要看實力。",
+    "en": "Fire at the foot of a mountain, lighting up rocks and trees: adornment and beauty. Today is good for polishing your look and refining your work. But decoration only enhances; substance matters most. Style helps small things shine, while big things need real strength."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "修饰脚趾，宁愿舍车步行，安守本分、脚踏实地。",
+     "修饰胡须，装饰依附于本体，跟着有实力的人走。",
+     "光彩润泽，长久守正才吉利，别沉迷在华美之中。",
+     "素白朴实，白马飞奔而来，来者是求亲而不是敌人。",
+     "装点田园，礼物虽然微薄，起初显得寒酸，终会吉利。",
+     "以朴素为美，返璞归真，没有过失。"
+    ],
+    "zh-TW": [
+     "修飾腳趾，寧願舍車步行，安守本分、腳踏實地。",
+     "修飾鬍鬚，裝飾依附於本體，跟著有實力的人走。",
+     "光彩潤澤，長久守正才吉利，別沉迷在華美之中。",
+     "素白樸實，白馬飛奔而來，來者是求親而不是敵人。",
+     "裝點田園，禮物雖然微薄，起初顯得寒酸，終會吉利。",
+     "以樸素為美，返璞歸真，沒有過失。"
+    ],
+    "en": [
+     "Decorating your toes, you leave the carriage and walk; stay grounded and humble.",
+     "Grooming the beard; decoration follows substance, so align with those who have it.",
+     "Glossy and gleaming; lasting steadiness is key, so don't get lost in the luster.",
+     "Plain and white, a white horse rushes up; it's a suitor, not an enemy.",
+     "Adorning the garden with modest gifts; a little humble at first, but it ends well.",
+     "Simple white beauty, a return to plainness, brings no blame."
+    ]
+   }
+  },
+  {
+   "kingWen": 23,
+   "name": "剝",
+   "symbol": "䷖",
+   "lower": "坤",
+   "upper": "艮",
+   "judgment": "不利。有攸往。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "六三",
+    "六四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "剝牀以足，蔑貞凶。",
+    "剝牀以辨，蔑貞凶。",
+    "剝之，无咎。",
+    "剝牀以膚，凶。",
+    "貫魚，以宮人寵，无不利。",
+    "碩果不食，君子德車，小人剝廬。"
+   ],
+   "en": "Stripping Away",
+   "reading": {
+    "zh-CN": "山附着在地上，从高处一层层剥落，象征衰退与侵蚀。今天不宜冒进开新局，要守住根本、减少消耗。顺势暂停、静待转机才是明智之举，剥落到尽头，新的生机也会出现。",
+    "zh-TW": "山附著在地上，從高處一層層剝落，象徵衰退與侵蝕。今天不宜冒進開新局，要守住根本、減少消耗。順勢暫停、靜待轉機才是明智之舉，剝落到盡頭，新的生機也會出現。",
+    "en": "A mountain resting on the earth, eroding layer by layer: a time of decline. Today isn't for bold new ventures; protect your core and stop wasting energy. Pausing and waiting is the wise move, because once the stripping away ends, new life begins."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "床脚被侵蚀，根基开始受损，忽视正道会不顺，要当心。",
+     "床板也开始剥落，损伤逐渐往上蔓延，更要提高警惕。",
+     "在剥落的局势中选择站在正道一边，没有过失。",
+     "剥落已经触及肌肤，切身受到影响，要及时止损。",
+     "像串起的鱼一样有序地带领众人，得到宠信，无所不利。",
+     "最后一颗硕果没被吃掉，留下希望；君子得到拥戴，小人失去庇护。"
+    ],
+    "zh-TW": [
+     "床腳被侵蝕，根基開始受損，忽視正道會不順，要當心。",
+     "床板也開始剝落，損傷逐漸往上蔓延，更要提高警惕。",
+     "在剝落的局勢中選擇站在正道一邊，沒有過失。",
+     "剝落已經觸及肌膚，切身受到影響，要及時止損。",
+     "像串起的魚一樣有序地帶領眾人，得到寵信，無所不利。",
+     "最後一顆碩果沒被吃掉，留下希望；君子得到擁戴，小人失去庇護。"
+    ],
+    "en": [
+     "The bed's legs are eroding; foundations weaken, so be careful not to neglect what's right.",
+     "Now the bed frame starts to go; the damage creeps upward, so stay watchful.",
+     "Choosing to stand on the right side amid the erosion brings no blame.",
+     "The erosion reaches the skin; it's personal now, so limit the damage quickly.",
+     "Leading people in good order, like fish on a string, wins favor; everything goes well.",
+     "The last big fruit remains uneaten; the worthy gain support while the petty lose shelter."
+    ]
+   }
+  },
+  {
+   "kingWen": 24,
+   "name": "復",
+   "symbol": "䷗",
+   "lower": "震",
+   "upper": "坤",
+   "judgment": "亨。出入无疾，朋來无咎。反復其道，七日來復，利有攸往。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "六三",
+    "六四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "不遠復，无祇悔，元吉。",
+    "休復，吉。",
+    "頻復，厲无咎。",
+    "中行獨復。",
+    "敦復，无悔。",
+    "迷復，凶，有災眚。用行師，終有大敗，以其國君，凶；至于十年，不克征。"
+   ],
+   "en": "Coming Back",
+   "reading": {
+    "zh-CN": "雷在地下，阳气重新萌动，象征回归与重新开始。今天适合回到正轨、重拾被搁下的好习惯或计划。走错了不要紧，及早回头最可贵；按自己的节奏一步步来，朋友也会陆续回来。",
+    "zh-TW": "雷在地下，陽氣重新萌動，象徵迴歸與重新開始。今天適合回到正軌、重拾被擱下的好習慣或計劃。走錯了不要緊，及早回頭最可貴；按自己的節奏一步步來，朋友也會陸續回來。",
+    "en": "Thunder stirring under the earth: the light begins to return. Today is good for getting back on track and picking up dropped habits or plans. Taking a wrong turn is okay; turning back early is what counts. Go step by step, and friends will come back too."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "走得不远就回头，不至于后悔，大吉。",
+     "心平气和地回归，向身边的好榜样看齐，吉利。",
+     "屡次走偏又屡次回头，虽有风险，终究没有大错。",
+     "在众人之中独自回归正道，坚持自己的选择。",
+     "诚恳踏实地回到正路上，心安理得，没有悔恨。",
+     "迷失方向不知回头，会带来接连的麻烦，长期难以振作。"
+    ],
+    "zh-TW": [
+     "走得不遠就回頭，不至於後悔，大吉。",
+     "心平氣和地迴歸，向身邊的好榜樣看齊，吉利。",
+     "屢次走偏又屢次回頭，雖有風險，終究沒有大錯。",
+     "在眾人之中獨自迴歸正道，堅持自己的選擇。",
+     "誠懇踏實地回到正路上，心安理得，沒有悔恨。",
+     "迷失方向不知回頭，會帶來接連的麻煩，長期難以振作。"
+    ],
+    "en": [
+     "Turning back before going far means no regret; great good fortune.",
+     "Returning calmly and following good examples around you brings good fortune.",
+     "Straying and returning again and again is risky, but not a serious fault.",
+     "Walking along with the crowd, you alone turn back to the right path.",
+     "Returning sincerely and steadily to the right road, with a clear conscience and no regret.",
+     "Lost and refusing to turn back, trouble piles up and recovery takes a long time."
+    ]
+   }
+  },
+  {
+   "kingWen": 25,
+   "name": "无妄",
+   "symbol": "䷘",
+   "lower": "震",
+   "upper": "乾",
+   "judgment": "元亨。利貞。其匪正有眚，不利有攸往。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "六三",
+    "九四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "无妄，往吉。",
+    "不耕穫，不菑畬，則利有攸往。",
+    "无妄之災，或繫之牛，行人之得，邑人之災。",
+    "可貞，无咎。",
+    "无妄之疾，勿藥有喜。",
+    "无妄，行有眚，无攸利。"
+   ],
+   "en": "No Pretense",
+   "reading": {
+    "zh-CN": "雷在天下运行，万物顺其本性，不妄为。今天做事讲真诚、不投机、不耍小聪明，顺着本心和常理走就顺。若动机不正或刻意强求，反而容易出岔子；意外之事来了，也别慌乱。",
+    "zh-TW": "雷在天下執行，萬物順其本性，不妄為。今天做事講真誠、不投機、不耍小聰明，順著本心和常理走就順。若動機不正或刻意強求，反而容易出岔子；意外之事來了，也別慌亂。",
+    "en": "Thunder rolling under heaven, everything acting by its true nature. Today, be genuine; skip shortcuts and clever tricks, and follow common sense and honest intent. Forcing things or hidden motives cause trouble. If something unexpected happens, don't panic."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "真诚做事、不存妄念，此时前往吉利。",
+     "不急着盯收获，专注于做好眼前的事，前往有利。",
+     "飞来横祸：路人牵走了牛，村里人却受牵连，要坦然面对。",
+     "守住本心、不随波逐流，就没有过失。",
+     "突如其来的小麻烦不必乱用猛招，静一静往往会自己消解。",
+     "即使出于真诚，时机不对也不宜行动，否则会出问题。"
+    ],
+    "zh-TW": [
+     "真誠做事、不存妄念，此時前往吉利。",
+     "不急著盯收穫，專注於做好眼前的事，前往有利。",
+     "飛來橫禍：路人牽走了牛，村裡人卻受牽連，要坦然面對。",
+     "守住本心、不隨波逐流，就沒有過失。",
+     "突如其來的小麻煩不必亂用猛招，靜一靜往往會自己消解。",
+     "即使出於真誠，時機不對也不宜行動，否則會出問題。"
+    ],
+    "en": [
+     "Acting genuinely and without pretense, moving forward now is fortunate.",
+     "Don't fixate on the harvest; focus on the work at hand and progress follows.",
+     "Unexpected misfortune: a passerby takes the ox and the villagers are blamed; face it calmly.",
+     "Stay true to yourself and don't drift with the crowd, and there's no blame.",
+     "An unexpected small trouble doesn't need drastic fixes; given time, it often fades by itself.",
+     "Even with good intentions, the wrong timing makes action unwise; wait it out."
+    ]
+   }
+  },
+  {
+   "kingWen": 26,
+   "name": "大畜",
+   "symbol": "䷙",
+   "lower": "乾",
+   "upper": "艮",
+   "judgment": "利貞，不家食吉，利涉大川。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "九三",
+    "六四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "有厲利已。",
+    "輿說輹。",
+    "良馬逐，利艱貞，吉。日閑輿衛，利有攸往。",
+    "童牛之告，元吉。",
+    "豶豕之牙，吉。",
+    "何天之衢，亨。"
+   ],
+   "en": "Great Storing",
+   "reading": {
+    "zh-CN": "天被山蓄藏在内，象征大量积累与蓄养。今天适合沉下心学习、储备能量，把实力养厚。积累到位后不要只守在家里，可以走出去承担更大的挑战，但要循序渐进、量力而行。",
+    "zh-TW": "天被山蓄藏在內，象徵大量積累與蓄養。今天適合沉下心學習、儲備能量，把實力養厚。積累到位後不要只守在家裡，可以走出去承擔更大的挑戰，但要循序漸進、量力而行。",
+    "en": "Heaven held within a mountain: great stores of strength and knowledge. Today is good for deep study and building reserves. Once you've gathered enough, don't just stay home; step out and take on bigger challenges, but go gradually and within your means."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "前方有危险，暂时停下来、按兵不动更有利。",
+     "车轴脱落了，就暂时停下，不必勉强前进。",
+     "良马奔驰，艰难中守正吉利；每天练习驾驭和防护，就能前进。",
+     "在小牛角上绑横木，防患于未然，大吉。",
+     "去势之猪的牙齿不再伤人，从根源上化解冲突，吉利。",
+     "畅行在通天大道上，四通八达，毫无阻碍。"
+    ],
+    "zh-TW": [
+     "前方有危險，暫時停下來、按兵不動更有利。",
+     "車軸脫落了，就暫時停下，不必勉強前進。",
+     "良馬賓士，艱難中守正吉利；每天練習駕馭和防護，就能前進。",
+     "在小牛角上綁橫木，防患於未然，大吉。",
+     "去勢之豬的牙齒不再傷人，從根源上化解沖突，吉利。",
+     "暢行在通天大道上，四通八達，毫無阻礙。"
+    ],
+    "en": [
+     "Danger lies ahead; it's better to stop and hold your position for now.",
+     "The axle comes off the cart; pause for a while rather than forcing it forward.",
+     "Fine horses gallop; train daily in driving and defense, and you can move forward.",
+     "A guard board on a young bull's horns; preventing trouble early is very fortunate.",
+     "A gelded boar's tusks are harmless; resolving conflict at the root is fortunate.",
+     "Moving freely on heaven's wide road, open in every direction and clear."
+    ]
+   }
+  },
+  {
+   "kingWen": 27,
+   "name": "頤",
+   "symbol": "䷚",
+   "lower": "震",
+   "upper": "艮",
+   "judgment": "貞吉。觀頤，自求口實。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "六三",
+    "六四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "舍爾靈龜，觀我朵頤，凶。",
+    "顛頤，拂經，于丘頤，征凶。",
+    "拂頤，貞凶，十年勿用，无攸利。",
+    "顛頤吉，虎視眈眈，其欲逐逐，无咎。",
+    "拂經，居貞吉，不可涉大川。",
+    "由頤，厲吉，利涉大川。"
+   ],
+   "en": "Nourishing",
+   "reading": {
+    "zh-CN": "山下有雷，像人张口咀嚼，象征养育与饮食。今天留意自己吃进去的东西，也留意说出去的话；照顾好身心，同时想想自己在滋养什么样的人和事。靠自己求得所需，比羡慕别人更踏实。",
+    "zh-TW": "山下有雷，像人張口咀嚼，象徵養育與飲食。今天留意自己吃進去的東西，也留意說出去的話；照顧好身心，同時想想自己在滋養什麼樣的人和事。靠自己求得所需，比羨慕別人更踏實。",
+    "en": "Thunder beneath a mountain, like a mouth chewing: nourishment. Today, mind what you take in and what comes out of your mouth. Look after body and mind, and consider what you're nourishing in others. Providing for yourself beats envying someone else's plate."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "放下自己手中的宝贵之物，眼馋别人的，会不顺。",
+     "颠倒求养，向不该求的人求助，前往不顺。",
+     "违背养身养心的正道，长期都没有好处，要当心。",
+     "向下求助来养护众人，目光专注如虎，也无过失。",
+     "不按常规行事，安守正道吉利，暂时不宜冒大险。",
+     "众人依赖你的养护，责任重大但吉利，可以担当大事。"
+    ],
+    "zh-TW": [
+     "放下自己手中的寶貴之物，眼饞別人的，會不順。",
+     "顛倒求養，向不該求的人求助，前往不順。",
+     "違背養身養心的正道，長期都沒有好處，要當心。",
+     "向下求助來養護眾人，目光專注如虎，也無過失。",
+     "不按常規行事，安守正道吉利，暫時不宜冒大險。",
+     "眾人依賴你的養護，責任重大但吉利，可以擔當大事。"
+    ],
+    "en": [
+     "Abandoning your own treasure to stare at someone else's meal goes badly.",
+     "Seeking support the wrong way round, from the wrong source, leads to trouble.",
+     "Going against proper nourishment brings no benefit for a long time; be careful.",
+     "Seeking help in order to nourish others, eager and focused like a tiger; no blame.",
+     "Departing from the usual way; staying steady is fortunate, but avoid big risks for now.",
+     "Others rely on you for support; it's heavy but fortunate, and you can take on big tasks."
+    ]
+   }
+  },
+  {
+   "kingWen": 28,
+   "name": "大過",
+   "symbol": "䷛",
+   "lower": "巽",
+   "upper": "兌",
+   "judgment": "棟橈，利有攸往，亨。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "九三",
+    "九四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "藉用白茅，无咎。",
+    "枯楊生稊，老夫得其女妻，无不利。",
+    "棟橈，凶。",
+    "棟隆，吉。有它吝。",
+    "枯楊生華，老婦得其士夫，无咎无譽。",
+    "過涉滅頂，凶，无咎。"
+   ],
+   "en": "Overloaded",
+   "reading": {
+    "zh-CN": "泽水漫过树木，像房梁被压弯，象征负担过重、超出常规。今天可能事情太多、压力太大，要找到支点重新分配，别硬扛到底。非常时期可以用非常方法，但要稳当，勇于担当也要量力。",
+    "zh-TW": "澤水漫過樹木，像房梁被壓彎，象徵負擔過重、超出常規。今天可能事情太多、壓力太大，要找到支點重新分配，別硬扛到底。非常時期可以用非常方法，但要穩當，勇於擔當也要量力。",
+    "en": "The lake rises over the trees, like a roof beam bending under too much weight. Today you may be overloaded; find support and redistribute the load instead of grinding on alone. Unusual times allow unusual measures, but stay sure-footed: be brave, within limits."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "用洁白的茅草垫着放东西，格外小心谨慎，没有过失。",
+     "枯杨发出新芽，年长者得到年轻伴侣，焕发生机，无所不利。",
+     "房梁弯曲，已经承受不住，硬撑下去会出问题。",
+     "房梁隆起，支撑稳固，吉利；但别另生枝节。",
+     "枯杨开花，年长妇人得到年轻丈夫，不算坏也不值得夸。",
+     "涉水过深没过头顶，为担当而冒险，处境危险但不算过错。"
+    ],
+    "zh-TW": [
+     "用潔白的茅草墊著放東西，格外小心謹慎，沒有過失。",
+     "枯楊發出新芽，年長者得到年輕伴侶，煥發生機，無所不利。",
+     "房梁彎曲，已經承受不住，硬撐下去會出問題。",
+     "房梁隆起，支撐穩固，吉利；但別另生枝節。",
+     "枯楊開花，年長婦人得到年輕丈夫，不算壞也不值得誇。",
+     "涉水過深沒過頭頂，為擔當而冒險，處境危險但不算過錯。"
+    ],
+    "en": [
+     "Laying things down on white reeds, being extra careful; no blame.",
+     "A withered willow sprouts; an older man finds a young partner, new life, all favorable.",
+     "The beam bends and can no longer hold; forcing it further brings trouble.",
+     "The beam holds firm and rises; fortunate, but avoid getting sidetracked.",
+     "A withered willow blooms; an older woman weds a young man, earning neither blame nor praise.",
+     "Wading so deep the water closes overhead; a brave risk taken for duty, dangerous but not a fault."
+    ]
+   }
+  },
+  {
+   "kingWen": 29,
+   "name": "坎",
+   "symbol": "䷜",
+   "lower": "坎",
+   "upper": "坎",
+   "judgment": "習坎：有孚，維心亨。行有尚。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "六三",
+    "六四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "習坎，入于坎窞，凶。",
+    "坎有險，求小得。",
+    "來之坎坎，險且枕，入于坎窞，勿用。",
+    "尊酒簋，貳用缶。内約自牖，終无咎。",
+    "坎不盈，禔既平，无咎。",
+    "係用徽纆，寘于叢棘，三歲不得，凶。"
+   ],
+   "en": "Pitfalls",
+   "reading": {
+    "zh-CN": "两重水相叠，险中有险，象征重重难关。今天可能遇到接连的困难，关键是守住内心的信念、保持冷静。像水一样不断流动、不轻言放弃，就能找到出路；越是艰难，越要稳步而行。",
+    "zh-TW": "兩重水相疊，險中有險，象徵重重難關。今天可能遇到接連的困難，關鍵是守住內心的信念、保持冷靜。像水一樣不斷流動、不輕言放棄，就能找到出路；越是艱難，越要穩步而行。",
+    "en": "Water upon water, danger after danger: a time of repeated obstacles. Today you may meet one difficulty after another; the key is to hold on to your inner confidence and stay calm. Like water, keep flowing and don't give up, and you'll find the way out."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "层层险境，越陷越深，要当心别一错再错。",
+     "身处险境之中，求得小的收获就好，别贪图大的。",
+     "进退都是险地，先停下来，别轻举妄动。",
+     "一樽酒、两盘菜，用简朴的方式真诚交流，终无过失。",
+     "水还没有溢满，局面渐渐趋于平稳，没有过失。",
+     "被绳索捆住、困在荆棘之中，长期难以脱身，要格外当心。"
+    ],
+    "zh-TW": [
+     "層層險境，越陷越深，要當心別一錯再錯。",
+     "身處險境之中，求得小的收穫就好，別貪圖大的。",
+     "進退都是險地，先停下來，別輕舉妄動。",
+     "一樽酒、兩盤菜，用簡樸的方式真誠交流，終無過失。",
+     "水還沒有溢滿，局面漸漸趨於平穩，沒有過失。",
+     "被繩索捆住、困在荊棘之中，長期難以脫身，要格外當心。"
+    ],
+    "en": [
+     "Danger upon danger, sinking deeper; be careful not to compound your mistakes.",
+     "In the middle of danger, aim for small gains rather than reaching for big ones.",
+     "Danger in every direction; stop where you are and don't make any rash moves yet.",
+     "A jug of wine, a bowl of grain, sincerity passed through a simple window; no blame in the end.",
+     "The water hasn't overflowed yet and is gradually leveling off; no blame.",
+     "Bound with ropes and placed among thorns for a long time; be especially careful."
+    ]
+   }
+  },
+  {
+   "kingWen": 30,
+   "name": "離",
+   "symbol": "䷝",
+   "lower": "離",
+   "upper": "離",
+   "judgment": "利貞。亨。畜牝牛，吉。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "九三",
+    "九四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "履錯然，敬之无咎。",
+    "黃離，元吉。",
+    "日昃之離，不鼓缶而歌，則大耋之差，凶。",
+    "突如其來如，焚如，死如，棄如。",
+    "出涕沱若，戚嗟若，吉。",
+    "王用出征，有嘉折首，獲匪其醜，无咎。"
+   ],
+   "en": "Radiance",
+   "reading": {
+    "zh-CN": "两重火相叠，光明接连，象征依附与照亮。火要附着在柴上才能燃烧，人也要依托正确的方向与伙伴。今天适合把注意力放在清楚明亮的目标上，温和守正，像照料母牛一样耐心。",
+    "zh-TW": "兩重火相疊，光明接連，象徵依附與照亮。火要附著在柴上才能燃燒，人也要依託正確的方向與夥伴。今天適合把注意力放在清楚明亮的目標上，溫和守正，像照料母牛一樣耐心。",
+    "en": "Fire upon fire, light following light: radiance that depends on something to cling to. A flame needs fuel, and people need the right direction and companions. Today, focus on clear, bright goals, stay gentle and upright, and be patient, as if tending a gentle cow."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "脚步错杂，开头有些慌乱，保持恭敬谨慎就没有过失。",
+     "黄色的光芒，中正而温和，像正午的阳光，大吉。",
+     "夕阳西下，不及时享受当下，就只会哀叹年华老去。",
+     "来势太猛，像火一样烧得快灭得也快，容易被人疏远。",
+     "流泪叹息、真心悔悟，反而迎来吉利。",
+     "出征平定乱局，只惩首恶，不追究随从，没有过失。"
+    ],
+    "zh-TW": [
+     "腳步錯雜，開頭有些慌亂，保持恭敬謹慎就沒有過失。",
+     "黃色的光芒，中正而溫和，像正午的陽光，大吉。",
+     "夕陽西下，不及時享受當下，就只會哀嘆年華老去。",
+     "來勢太猛，像火一樣燒得快滅得也快，容易被人疏遠。",
+     "流淚嘆息、真心悔悟，反而迎來吉利。",
+     "出征平定亂局，只懲首惡，不追究隨從，沒有過失。"
+    ],
+    "en": [
+     "Footsteps crisscross at the start; stay respectful and careful, and there's no blame.",
+     "Yellow light, centered and balanced like warm midday sun, brings great good fortune.",
+     "The sun is setting; if you don't enjoy the present, you'll only lament your passing years.",
+     "Coming on too strong burns fast and dies fast, leaving you isolated from others.",
+     "Tears and sighs of true remorse turn things around and lead to good fortune.",
+     "Setting out to restore order, punishing only the ringleaders and sparing followers; no blame."
+    ]
+   }
+  },
+  {
+   "kingWen": 31,
+   "name": "咸",
+   "symbol": "䷞",
+   "lower": "艮",
+   "upper": "兌",
+   "judgment": "亨。利貞。取女吉。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "九三",
+    "九四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "咸其拇。",
+    "咸其腓，凶，居吉。",
+    "咸其股，執其隨，往吝。",
+    "貞吉悔亡，憧憧往來，朋從爾思。",
+    "咸其脢，无悔。",
+    "咸其輔，頰，舌。"
+   ],
+   "en": "Mutual Feeling",
+   "reading": {
+    "zh-CN": "山上有泽，山泽气息相通，象征感应与心意相投。今天适合用真心去感受和回应他人，人际与感情都容易有共鸣。感应要自然而不刻意，别用心机操控，也别瞻前顾后、患得患失。",
+    "zh-TW": "山上有澤，山澤氣息相通，象徵感應與心意相投。今天適合用真心去感受和回應他人，人際與感情都容易有共鳴。感應要自然而不刻意，別用心機操控，也別瞻前顧後、患得患失。",
+    "en": "A lake atop a mountain, their energies meeting: mutual feeling and attraction. Today, respond to others with an open heart, and connections resonate easily. Let it happen naturally; don't manipulate, and don't second-guess yourself into knots."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "感应刚刚到达脚趾，念头初起，还没有成形。",
+     "感应到了小腿，急于行动会不顺，安静不动才吉利。",
+     "感应到了大腿，只是盲目跟随别人，前往会有遗憾。",
+     "守正则吉，悔恨消失；心神不定时，只有同道会追随你的想法。",
+     "感应到了背脊，虽然不够深入，但也没有后悔。",
+     "感应只停留在嘴上，空谈无用，要用行动来说话。"
+    ],
+    "zh-TW": [
+     "感應剛剛到達腳趾，念頭初起，還沒有成形。",
+     "感應到了小腿，急於行動會不順，安靜不動才吉利。",
+     "感應到了大腿，只是盲目跟隨別人，前往會有遺憾。",
+     "守正則吉，悔恨消失；心神不定時，只有同道會追隨你的想法。",
+     "感應到了背脊，雖然不夠深入，但也沒有後悔。",
+     "感應只停留在嘴上，空談無用，要用行動來說話。"
+    ],
+    "en": [
+     "The feeling stirs only in the big toe; an impulse that hasn't taken shape yet.",
+     "The feeling reaches the calves; rushing into action goes poorly, staying still is better.",
+     "The feeling reaches the thighs; blindly following others leads to regret.",
+     "Stay steady and regret fades; when your mind wavers back and forth, only like-minded friends follow.",
+     "The feeling reaches the back; it's not deep, but it brings no regret.",
+     "The feeling stays in the jaw and tongue; talk is cheap, so let action speak."
+    ]
+   }
+  },
+  {
+   "kingWen": 32,
+   "name": "恒",
+   "symbol": "䷟",
+   "lower": "巽",
+   "upper": "震",
+   "judgment": "恆：亨，无咎。利貞，利有攸往。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "九三",
+    "九四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "浚恆，貞凶，无攸利。",
+    "悔亡。",
+    "不恆其德，或承之羞，貞吝。",
+    "田无禽。",
+    "恆其德，貞，婦人吉，夫子凶。",
+    "震恆，凶。"
+   ],
+   "en": "Constancy",
+   "reading": {
+    "zh-CN": "雷风相伴，互相助长，象征持久与恒常。今天适合坚持既定的方向、培养长期习惯，不必频繁换跑道。恒心不是死守，而是在不变的原则中灵活调整；慢慢来，日积月累自有收获。",
+    "zh-TW": "雷風相伴，互相助長，象徵持久與恆常。今天適合堅持既定的方向、培養長期習慣，不必頻繁換跑道。恆心不是死守，而是在不變的原則中靈活調整；慢慢來，日積月累自有收穫。",
+    "en": "Thunder and wind working together, each strengthening the other: endurance. Today, stick with your chosen path and build long-term habits instead of switching lanes often. Constancy isn't rigidity; it's adjusting within steady principles. Go slowly, and steady effort adds up."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "一开始就求深求久，操之过急反而不顺，没有好处。",
+     "悔恨消失，只要守住中道、不偏不倚就好。",
+     "品德不能坚持如一，难免蒙羞，固执下去会很难堪。",
+     "田里没有猎物，方向不对，坚持再久也是徒劳。",
+     "坚守一种德行，适合辅助的角色，主事者则需要随机应变。",
+     "动荡不安、无法持久，频繁折腾会不顺，要当心。"
+    ],
+    "zh-TW": [
+     "一開始就求深求久，操之過急反而不順，沒有好處。",
+     "悔恨消失，只要守住中道、不偏不倚就好。",
+     "品德不能堅持如一，難免蒙羞，固執下去會很難堪。",
+     "田裡沒有獵物，方向不對，堅持再久也是徒勞。",
+     "堅守一種德行，適合輔助的角色，主事者則需要隨機應變。",
+     "動盪不安、無法持久，頻繁折騰會不順，要當心。"
+    ],
+    "en": [
+     "Demanding depth and permanence right from the start is too hasty; it won't work.",
+     "Regret disappears; just stay balanced and keep to the middle way.",
+     "Without consistent character, disgrace follows; stubbornly persisting this way is embarrassing.",
+     "No game in the field; it's the wrong place, so persistence here is wasted.",
+     "Steady, unchanging virtue suits a supporting role; those in charge must adapt to circumstances.",
+     "Restless and shaking, nothing lasts; constant upheaval goes poorly, so be careful."
+    ]
+   }
+  },
+  {
+   "kingWen": 33,
+   "name": "遯",
+   "symbol": "䷠",
+   "lower": "艮",
+   "upper": "乾",
+   "judgment": "亨。小利貞。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "九三",
+    "九四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "遯尾，厲，勿用有攸往。",
+    "執之用黃牛之革，莫之勝說。",
+    "係遯，有疾厲，畜臣妾吉。",
+    "好遯君子吉，小人否。",
+    "嘉遯，貞吉。",
+    "肥遯，无不利。"
+   ],
+   "en": "Stepping Back",
+   "reading": {
+    "zh-CN": "下艮上乾，山静止于下，天越退越远，象征适时退避。今天不宜和人硬碰硬，小事可以坚持，大事先放一放。主动后退一步、保存实力，局面反而更容易保持顺畅。",
+    "zh-TW": "下艮上乾，山靜止於下，天越退越遠，象徵適時退避。今天不宜和人硬碰硬，小事可以堅持，大事先放一放。主動後退一步、儲存實力，局面反而更容易保持順暢。",
+    "en": "Mountain below, sky above: heaven draws away while the mountain stays put. Today favors a tactful step back rather than a head-on clash. Small things can move forward, but big pushes can wait. Saving your energy now keeps things running smoothly."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "退在队伍最后，处境危险，暂时别往前走，按兵不动为好。",
+     "像用黄牛皮牢牢绑住，心意坚定，谁也拉不走你。",
+     "想退却被琐事牵绊，难免烦恼；先照顾好身边依靠你的人。",
+     "心甘情愿地放手离开，有修养的人做得到，斤斤计较的人难以做到。",
+     "退得恰到好处又体面，坚持正道就会顺利。",
+     "从容远退、心宽自在，无牵无挂，没有什么不利。"
+    ],
+    "zh-TW": [
+     "退在隊伍最後，處境危險，暫時別往前走，按兵不動為好。",
+     "像用黃牛皮牢牢綁住，心意堅定，誰也拉不走你。",
+     "想退卻被瑣事牽絆，難免煩惱；先照顧好身邊依靠你的人。",
+     "心甘情願地放手離開，有修養的人做得到，斤斤計較的人難以做到。",
+     "退得恰到好處又體面，堅持正道就會順利。",
+     "從容遠退、心寬自在，無牽無掛，沒有什麼不利。"
+    ],
+    "en": [
+     "Lagging at the tail of a retreat is risky; hold still rather than pushing forward.",
+     "Bound as if with strong ox hide, your resolve holds firm and no one can pull you away.",
+     "Tied down while trying to leave brings strain; caring for those who rely on you still goes well.",
+     "Letting go gracefully works for the wise; those who cling to small gains find it hard.",
+     "A well-timed, dignified exit; stay true to your course and things turn out well.",
+     "Withdrawing freely and at ease, with nothing holding you back; everything is favorable."
+    ]
+   }
+  },
+  {
+   "kingWen": 34,
+   "name": "大壯",
+   "symbol": "䷡",
+   "lower": "乾",
+   "upper": "震",
+   "judgment": "利貞。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "九三",
+    "九四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "壯于趾，征凶，有孚。",
+    "貞吉。",
+    "小人用壯，君子用罔，貞厲。羝羊觸藩，羸其角。",
+    "貞吉悔亡，藩決不羸，壯于大轝之腹。",
+    "喪羊于易，无悔。",
+    "羝羊觸藩，不能退，不能遂，无攸利，艱則吉。"
+   ],
+   "en": "Great Strength",
+   "reading": {
+    "zh-CN": "雷在天上，声势浩大，象征力量正盛。今天你精力充沛、底气十足，但越是强大越要守正，别凭一股冲劲横冲直撞。把力气用在对的地方，比显示力气更重要。",
+    "zh-TW": "雷在天上，聲勢浩大，象徵力量正盛。今天你精力充沛、底氣十足，但越是強大越要守正，別憑一股沖勁橫沖直撞。把力氣用在對的地方，比顯示力氣更重要。",
+    "en": "Thunder rolls across the sky: power is at its peak. You may feel energetic and confident today, which is exactly when to stay principled. Rather than charging at every obstacle, aim your strength where it truly matters. Using power wisely beats showing it off."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "力量只在脚趾，贸然出发不会顺利，要先认清自己的分量。",
+     "守住中正的位置，稳稳地坚持下去就会吉利。",
+     "逞强的人一味用力，明白人懂得收敛；像公羊撞篱笆，角反被缠住。",
+     "坚持正道，烦恼消散，篱笆被冲开，像结实的大车一样稳步前行。",
+     "在平坦处丢了羊，也就放下了倔强，没什么可后悔的。",
+     "公羊撞进篱笆，进退两难；肯正视困难、耐心应对，反而会好转。"
+    ],
+    "zh-TW": [
+     "力量只在腳趾，貿然出發不會順利，要先認清自己的分量。",
+     "守住中正的位置，穩穩地堅持下去就會吉利。",
+     "逞強的人一味用力，明白人懂得收斂；像公羊撞籬笆，角反被纏住。",
+     "堅持正道，煩惱消散，籬笆被沖開，像結實的大車一樣穩步前行。",
+     "在平坦處丟了羊，也就放下了倔強，沒什麼可後悔的。",
+     "公羊撞進籬笆，進退兩難；肯正視困難、耐心應對，反而會好轉。"
+    ],
+    "en": [
+     "Strength only in the toes; charging ahead now goes badly, so know your limits first.",
+     "Keep to the steady middle position, and patient persistence brings good results.",
+     "The brash push with force while the wise hold back; a ram butting a fence only gets its horns stuck.",
+     "Staying upright clears regret; the fence gives way and you roll forward like a sturdy cart.",
+     "Losing the goat on easy ground means letting go of stubbornness, and there is nothing to regret.",
+     "The ram is stuck, unable to go forward or back; facing the hardship patiently is what turns it around."
+    ]
+   }
+  },
+  {
+   "kingWen": 35,
+   "name": "晉",
+   "symbol": "䷢",
+   "lower": "坤",
+   "upper": "離",
+   "judgment": "康侯用錫馬蕃庶，晝日三接。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "六三",
+    "九四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "晉如，摧如，貞吉。罔孚，裕无咎。",
+    "晉如，愁如，貞吉。受茲介福，于其王母。",
+    "眾允，悔亡。",
+    "晉如鼫鼠，貞厲。",
+    "悔亡，矢得勿恤，往吉无不利。",
+    "晉其角，維用伐邑，厲吉无咎，貞吝。"
+   ],
+   "en": "Advancing",
+   "reading": {
+    "zh-CN": "太阳从地面升起，光明逐渐盛大，象征晋升与进展。今天适合展示自己、争取认可，你的努力容易被人看见。保持谦和与诚意，好消息可能会接二连三地到来。",
+    "zh-TW": "太陽從地面升起，光明逐漸盛大，象徵晉升與進展。今天適合展示自己、爭取認可，你的努力容易被人看見。保持謙和與誠意，好訊息可能會接二連三地到來。",
+    "en": "The sun rises above the earth and its light keeps growing. Today is a good time to step forward, show your work, and seek recognition, since your efforts are easy to notice. Stay modest and sincere, and good news may arrive more than once."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "想前进却受挫，守正就好；一时不被信任也别急，放宽心慢慢来。",
+     "前进中带着忧虑，坚持下去终会得到如长辈般的厚爱与福气。",
+     "得到众人的认同和信任，先前的懊悔自然消失。",
+     "像鼫鼠一样贪多又没真本事地往上钻，这样下去很危险。",
+     "不必计较一时得失，放下担忧向前走，事事顺利。",
+     "冲到了最前端，只宜用来整顿自身；虽有风险但无大碍，太固执则会遗憾。"
+    ],
+    "zh-TW": [
+     "想前進卻受挫，守正就好；一時不被信任也別急，放寬心慢慢來。",
+     "前進中帶著憂慮，堅持下去終會得到如長輩般的厚愛與福氣。",
+     "得到眾人的認同和信任，先前的懊悔自然消失。",
+     "像鼫鼠一樣貪多又沒真本事地往上鑽，這樣下去很危險。",
+     "不必計較一時得失，放下擔憂向前走，事事順利。",
+     "沖到了最前端，只宜用來整頓自身；雖有風險但無大礙，太固執則會遺憾。"
+    ],
+    "en": [
+     "Advancing yet held back; stay true, and if trust is lacking, be patient and easygoing.",
+     "Moving forward with worry; keep going and great blessing comes, as if from a kind elder.",
+     "People come to trust and support you, and earlier regrets fade away.",
+     "Climbing like a greedy rodent that grabs without real skill is a risky path to stay on.",
+     "Do not fret over gains and losses; move ahead without worry and all goes well.",
+     "Pushing to the very tip; use that force only to set your own house in order, and avoid rigidity."
+    ]
+   }
+  },
+  {
+   "kingWen": 36,
+   "name": "明夷",
+   "symbol": "䷣",
+   "lower": "離",
+   "upper": "坤",
+   "judgment": "利艱貞。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "九三",
+    "六四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "明夷于飛，垂其翼。君子于行，三日不食，有攸往，主人有言。",
+    "明夷，夷于左股，用拯馬壯，吉。",
+    "明夷于南狩，得其大首，不可疾貞。",
+    "入于左腹，獲明夷之心，于出門庭。",
+    "箕子之明夷，利貞。",
+    "不明晦，初登于天，後入于地。"
+   ],
+   "en": "Hidden Light",
+   "reading": {
+    "zh-CN": "太阳沉入地下，光明受损，象征处境昏暗、才能不易施展。今天宜收敛锋芒，在不顺利的环境里守住本心。外表低调，内心保持明亮，耐心等待天色重新亮起来。",
+    "zh-TW": "太陽沉入地下，光明受損，象徵處境昏暗、才能不易施展。今天宜收斂鋒芒，在不順利的環境裡守住本心。外表低調，內心保持明亮，耐心等待天色重新亮起來。",
+    "en": "The sun has sunk below the earth, and its light is hidden. Today may feel dim, with your talents hard to use or little appreciated. Keep a low profile and protect your inner clarity. Quiet persistence through a hard patch prepares you for brighter days."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "光明受伤，像鸟垂下翅膀；匆忙赶路忍饥挨饿，去哪儿都会惹来闲话。",
+     "左腿受了伤，但借助强壮的马得到救援，仍然吉利。",
+     "在南方的征途中擒获首恶，但纠正积弊不可操之过急。",
+     "深入内部，看清了黑暗的根源，于是果断地走出门去。",
+     "像箕子那样在昏暗中隐藏才智、守住节操，坚持正道有利。",
+     "不发光反而昏暗，起初登上高天，最后跌落地面。"
+    ],
+    "zh-TW": [
+     "光明受傷，像鳥垂下翅膀；匆忙趕路忍飢挨餓，去哪兒都會惹來閒話。",
+     "左腿受了傷，但藉助強壯的馬得到救援，仍然吉利。",
+     "在南方的征途中擒獲首惡，但糾正積弊不可操之過急。",
+     "深入內部，看清了黑暗的根源，於是果斷地走出門去。",
+     "像箕子那樣在昏暗中隱藏才智、守住節操，堅持正道有利。",
+     "不發光反而昏暗，起初登上高天，最後跌落地面。"
+    ],
+    "en": [
+     "Light is wounded, like a bird drooping its wings; rushing off brings hunger and gossip.",
+     "Hurt in the left leg, yet rescued by a strong horse; help arrives and things still go well.",
+     "Catching the ringleader on a southern hunt; still, fix deep problems gradually rather than in haste.",
+     "Getting to the heart of the darkness, you see it clearly and decide to walk out the door.",
+     "Like Jizi hiding his brilliance under a tyrant, endure quietly and stay principled.",
+     "No light, only darkness: what first rose to the sky ends up falling back to earth."
+    ]
+   }
+  },
+  {
+   "kingWen": 37,
+   "name": "家人",
+   "symbol": "䷤",
+   "lower": "離",
+   "upper": "巽",
+   "judgment": "利女貞。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "九三",
+    "六四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "閑有家，悔亡。",
+    "无攸遂，在中饋，貞吉。",
+    "家人嗃嗃，悔厲吉；婦子嘻嘻，終吝。",
+    "富家，大吉。",
+    "王假有家，勿恤。吉。",
+    "有孚威如，終吉。"
+   ],
+   "en": "Household",
+   "reading": {
+    "zh-CN": "风从火中生出，由内而外，象征家庭和身边的小圈子。今天把心思放回家里和亲近的人身上，各守本分、互相体贴。家里和顺了，外面的事情也更容易理顺。",
+    "zh-TW": "風從火中生出，由內而外，象徵家庭和身邊的小圈子。今天把心思放回家裡和親近的人身上，各守本分、互相體貼。家裡和順了，外面的事情也更容易理順。",
+    "en": "Wind rises from fire, spreading from the inside out. This image points to home and your closest circle. Today, give attention to family and the people nearest you, each doing their part with care. When things are harmonious at home, the rest of life tends to follow."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "一开始就把家里的规矩立好，日后的懊悔自然不会发生。",
+     "不贪求外面的成就，把家中饮食起居照顾好，坚持就吉利。",
+     "治家严格虽有懊悔但终究是好事；一味嬉笑放纵，最后会有遗憾。",
+     "让家道兴旺富足，是大吉之象，用心经营会有回报。",
+     "主事者以德行感化家人，不必忧虑，自然吉利。",
+     "既真诚又有威信，赢得家人的尊重，最终吉利。"
+    ],
+    "zh-TW": [
+     "一開始就把家裡的規矩立好，日後的懊悔自然不會發生。",
+     "不貪求外面的成就，把家中飲食起居照顧好，堅持就吉利。",
+     "治家嚴格雖有懊悔但終究是好事；一味嬉笑放縱，最後會有遺憾。",
+     "讓家道興旺富足，是大吉之象，用心經營會有回報。",
+     "主事者以德行感化家人，不必憂慮，自然吉利。",
+     "既真誠又有威信，贏得家人的尊重，最終吉利。"
+    ],
+    "en": [
+     "Set clear house rules from the start, and regrets have no room to grow later.",
+     "Not chasing outside success, but tending meals and home; steady care brings good fortune.",
+     "Strictness may sting but works out in the end; constant giggling and laxity ends in regret.",
+     "Making the household prosperous brings great fortune; your care at home pays off.",
+     "A leader who wins the family over by example; there is no need to worry, it goes well.",
+     "Sincere and dignified, you earn the respect of those around you, and things end well."
+    ]
+   }
+  },
+  {
+   "kingWen": 38,
+   "name": "睽",
+   "symbol": "䷥",
+   "lower": "兌",
+   "upper": "離",
+   "judgment": "小事吉。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "六三",
+    "九四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "悔亡，喪馬勿逐，自復；見惡人无咎。",
+    "遇主于巷，无咎。",
+    "見輿曳，其牛𧤊，其人天且劓，无初有終。",
+    "睽孤，遇元夫，交孚，厲无咎。",
+    "悔亡，厥宗噬膚，往何咎。",
+    "睽孤， 見豕負涂，載鬼一車， 先張之弧，後說之弧，匪寇婚媾，往遇雨則吉。"
+   ],
+   "en": "Divergence",
+   "reading": {
+    "zh-CN": "火往上烧，泽水往下流，两者方向相背，象征分歧与隔阂。今天大事难以齐心，小事却仍能办成。求同存异，从细微处慢慢沟通，不必急着让所有人意见一致。",
+    "zh-TW": "火往上燒，澤水往下流，兩者方向相背，象徵分歧與隔閡。今天大事難以齊心，小事卻仍能辦成。求同存異，從細微處慢慢溝通，不必急著讓所有人意見一致。",
+    "en": "Fire rises while the lake sinks: two forces pulling in opposite directions. Today, big group decisions may stall over differences, but small tasks can still succeed. Accept that people see things differently, look for common ground, and build understanding one small step at a time."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "懊悔消失；走失的马不用去追，自己会回来；见到不喜欢的人也无妨。",
+     "在小巷里不期而遇遇见对的人，私下沟通并无过错。",
+     "车被拖住、牛被拦下、人也受了伤，开头不顺但结局会好。",
+     "孤立无援时遇到志同道合的人，彼此信任，虽有风险终无过错。",
+     "懊悔消失，同道之人很容易亲近，前去又有什么不好？",
+     "疑心重重把对方看成怪物，先拉弓又放下；原来是亲友而非敌人，雨过天晴便好。"
+    ],
+    "zh-TW": [
+     "懊悔消失；走失的馬不用去追，自己會回來；見到不喜歡的人也無妨。",
+     "在小巷裡不期而遇遇見對的人，私下溝通並無過錯。",
+     "車被拖住、牛被攔下、人也受了傷，開頭不順但結局會好。",
+     "孤立無援時遇到志同道合的人，彼此信任，雖有風險終無過錯。",
+     "懊悔消失，同道之人很容易親近，前去又有什麼不好？",
+     "疑心重重把對方看成怪物，先拉弓又放下；原來是親友而非敵人，雨過天晴便好。"
+    ],
+    "en": [
+     "Regret fades; the lost horse returns on its own, and meeting someone unpleasant does no harm.",
+     "Bumping into the right person in a side alley; an informal meeting is perfectly fine.",
+     "The cart stalls, the ox balks, the driver is hurt; a rough start but a good ending.",
+     "Isolated, you meet a kindred spirit; mutual trust carries you safely through the risk.",
+     "Regret fades; your own people connect with you easily, so why hesitate to go?",
+     "Suspicion makes you see monsters; you draw the bow, then lower it. They are friends, and rain clears the air."
+    ]
+   }
+  },
+  {
+   "kingWen": 39,
+   "name": "蹇",
+   "symbol": "䷦",
+   "lower": "艮",
+   "upper": "坎",
+   "judgment": "利西南，不利東北；利見大人，貞吉。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "九三",
+    "六四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "往蹇，來譽。",
+    "王臣蹇蹇，匪躬之故。",
+    "往蹇來反。",
+    "往蹇來連。",
+    "大蹇朋來。",
+    "往蹇來碩，吉；利見大人。"
+   ],
+   "en": "Hardship",
+   "reading": {
+    "zh-CN": "山上有水，前有险阻、后有高山，象征行路艰难。今天遇到阻碍不宜硬闯，退回稳妥处、向有经验的人请教会更好。困难只是暂时的，守住正道，路会慢慢打开。",
+    "zh-TW": "山上有水，前有險阻、後有高山，象徵行路艱難。今天遇到阻礙不宜硬闖，退回穩妥處、向有經驗的人請教會更好。困難只是暫時的，守住正道，路會慢慢開啟。",
+    "en": "Water on a mountain: danger ahead and a steep climb behind. When you hit obstacles today, do not force your way through. Pause, return to firm ground, and seek advice from someone experienced. The difficulty is temporary, and patience will slowly open the path."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "往前走遇到困难，退回来反而得到称赞。",
+     "历尽一重又一重艰难，并不是为了自己，而是为了责任。",
+     "前方有险阻，不如先回到原来的位置。",
+     "前进困难，回过头来与他人联合，力量更大。",
+     "身处大难之中，朋友们纷纷前来相助。",
+     "前进艰难，回来却能成就大事，吉利；宜向有德行的人求教。"
+    ],
+    "zh-TW": [
+     "往前走遇到困難，退回來反而得到稱讚。",
+     "歷盡一重又一重艱難，並不是為了自己，而是為了責任。",
+     "前方有險阻，不如先回到原來的位置。",
+     "前進困難，回過頭來與他人聯合，力量更大。",
+     "身處大難之中，朋友們紛紛前來相助。",
+     "前進艱難，回來卻能成就大事，吉利；宜向有德行的人求教。"
+    ],
+    "en": [
+     "Going forward is hard; turning back now actually earns you praise.",
+     "Struggling through hardship after hardship, not for yourself but for a larger duty.",
+     "Trouble lies ahead; it is better to return to where you belong for now.",
+     "The way ahead is blocked; come back and join forces with others.",
+     "In the middle of great difficulty, friends arrive to lend a hand.",
+     "Going is hard, but returning brings something great; seek out wise and trusted counsel."
+    ]
+   }
+  },
+  {
+   "kingWen": 40,
+   "name": "解",
+   "symbol": "䷧",
+   "lower": "坎",
+   "upper": "震",
+   "judgment": "利西南，无所往，其來復吉。有攸往，夙吉。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "六三",
+    "九四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "无咎。",
+    "田獲三狐，得黃矢，貞吉。",
+    "負且乘，致寇至，貞吝。",
+    "解而拇，朋至斯孚。",
+    "君子惟有解，吉；有孚于小人。",
+    "公用射隼，于高墉之上，獲之，无不利。"
+   ],
+   "en": "Release",
+   "reading": {
+    "zh-CN": "雷雨交加之后冰雪消融，象征困境得以解除。今天适合把拖延已久的问题处理掉，能早办就早办。事情了结之后不必再折腾，回到平常的节奏就是最好的结果。",
+    "zh-TW": "雷雨交加之後冰雪消融，象徵困境得以解除。今天適合把拖延已久的問題處理掉，能早辦就早辦。事情了結之後不必再折騰，回到平常的節奏就是最好的結果。",
+    "en": "Thunder and rain break the winter freeze: tension is released. Today is good for resolving lingering problems, and the sooner the better. Once something is settled, resist stirring it up again. Returning to a calm, normal rhythm is the real reward."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "紧张局面刚刚缓解，顺其自然就没有过错，好好休整即可。",
+     "田猎捕获三只狐狸，又得到黄色的箭，正直坚持就吉利。",
+     "背着重物还坐着车，招来盗贼；炫耀自己守不住的东西会有遗憾。",
+     "解开缠在脚趾上的牵绊，真正的朋友才会来信任你。",
+     "君子能自己解开困局就吉利，连心存疑虑的人也会信服。",
+     "王公在高墙上射中鹰隼，除掉最后的障碍，没有不利。"
+    ],
+    "zh-TW": [
+     "緊張局面剛剛緩解，順其自然就沒有過錯，好好休整即可。",
+     "田獵捕獲三隻狐狸，又得到黃色的箭，正直堅持就吉利。",
+     "揹著重物還坐著車，招來盜賊；炫耀自己守不住的東西會有遺憾。",
+     "解開纏在腳趾上的牽絆，真正的朋友才會來信任你。",
+     "君子能自己解開困局就吉利，連心存疑慮的人也會信服。",
+     "王公在高牆上射中鷹隼，除掉最後的障礙，沒有不利。"
+    ],
+    "en": [
+     "The tension has just eased; go with the flow, rest well, and there is no blame.",
+     "Catching three foxes and finding a golden arrow; honesty and steadiness pay off.",
+     "Carrying a heavy load while riding a carriage invites thieves; flaunting what you cannot hold brings regret.",
+     "Shake off what clings to your feet, and true friends will come and trust you.",
+     "When you untangle the knot yourself, things go well and even doubters are won over.",
+     "Shooting down the hawk from the high wall removes the last obstacle; everything is favorable."
+    ]
+   }
+  },
+  {
+   "kingWen": 41,
+   "name": "損",
+   "symbol": "䷨",
+   "lower": "兌",
+   "upper": "艮",
+   "judgment": "有孚，元吉。无咎，可貞，利有攸往。曷之用？二簋可用享。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "六三",
+    "六四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "祀事遄往，无咎，酌損之。",
+    "利貞，征凶，弗損益之。",
+    "三人行，則損一人；一人行，則得其友。",
+    "損其疾，使遄有喜，无咎。",
+    "或益之，十朋之龜弗克違，元吉。",
+    "弗損益之，无咎，貞吉，利有攸往，得臣无家。"
+   ],
+   "en": "Decrease",
+   "reading": {
+    "zh-CN": "山下有泽，泽水减少而山显得更高，象征减损自己、成全大局。今天适合做减法：少花一点、少说一点、少要一点。只要心意真诚，简单朴素的付出也足以打动人。",
+    "zh-TW": "山下有澤，澤水減少而山顯得更高，象徵減損自己、成全大局。今天適合做減法：少花一點、少說一點、少要一點。只要心意真誠，簡單樸素的付出也足以打動人。",
+    "en": "A lake at the foot of a mountain: the lake gives up water and the mountain looks taller. Today is a good day for subtraction—spend less, say less, want less. When your intention is sincere, even a simple and modest gesture means a lot."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "做完手头的事赶紧去帮忙，没有过错，但要斟酌付出多少。",
+     "守正有利，贸然出击不顺；不必亏损自己也能帮到别人。",
+     "三人同行会少一人，一人独行会得到朋友，凡事自有平衡。",
+     "减少自己的坏习惯，很快就会有喜事，没有过错。",
+     "有人送来珍贵的宝物，想推辞都推不掉，大吉。",
+     "不损自己又能增益他人，守正吉利，前往有利，得到的支持远超自家范围。"
+    ],
+    "zh-TW": [
+     "做完手頭的事趕緊去幫忙，沒有過錯，但要斟酌付出多少。",
+     "守正有利，貿然出擊不順；不必虧損自己也能幫到別人。",
+     "三人同行會少一人，一人獨行會得到朋友，凡事自有平衡。",
+     "減少自己的壞習慣，很快就會有喜事，沒有過錯。",
+     "有人送來珍貴的寶物，想推辭都推不掉，大吉。",
+     "不損自己又能增益他人，守正吉利，前往有利，得到的支援遠超自家範圍。"
+    ],
+    "en": [
+     "Finish your own work and go help quickly, but weigh carefully how much you can give.",
+     "Staying put is wise and rushing out goes badly; you can help others without depleting yourself.",
+     "Three travelers lose one, one traveler finds a companion; things find their own balance.",
+     "Cut back on your own bad habits, and good news follows quickly.",
+     "Someone offers a precious treasure that cannot be refused; a very lucky turn.",
+     "Helping others without loss to yourself; go ahead, and you gain supporters far beyond your own circle."
+    ]
+   }
+  },
+  {
+   "kingWen": 42,
+   "name": "益",
+   "symbol": "䷩",
+   "lower": "震",
+   "upper": "巽",
+   "judgment": "利有攸往。利涉大川。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "六三",
+    "六四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "利用為大作，元吉，无咎。",
+    "或益之，十朋之龜弗克違，永貞吉。王用享于帝，吉。",
+    "益之用凶事，无咎。有孚中行，告公用圭。",
+    "中行，告公從。利用為依遷國。",
+    "有孚惠心，勿問元吉。有孚惠我德。",
+    "莫益之，或擊之，立心勿恆，凶。"
+   ],
+   "en": "Increase",
+   "reading": {
+    "zh-CN": "风雷相助，彼此增强声势，象征增益与收获。今天适合做有建设性的事，敢于迈出一步，挑战稍大一点的目标。也别忘了把好处分给身边的人，帮助别人也是在帮自己。",
+    "zh-TW": "風雷相助，彼此增強聲勢，象徵增益與收穫。今天適合做有建設性的事，敢於邁出一步，挑戰稍大一點的目標。也別忘了把好處分給身邊的人，幫助別人也是在幫自己。",
+    "en": "Wind and thunder strengthen each other: a time of growth and gain. Today favors constructive work and taking a bold step toward a bigger goal. Share the benefits with the people around you, since lifting others up also lifts you."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "适合着手做一番大事业，大吉，没有过错。",
+     "有人送来厚礼推辞不掉，长久守正吉利；怀着感恩之心也吉。",
+     "在困难的事情中得到帮助也无过错；诚心守中，如实向上汇报。",
+     "行事中正，向上建议会被采纳，适合借助大局做出迁移等重大调整。",
+     "怀着善意施惠于人，不用问也知大吉，别人也会感念你的德行。",
+     "没人帮你反而有人攻击你，心意摇摆不定，要当心不顺。"
+    ],
+    "zh-TW": [
+     "適合著手做一番大事業，大吉，沒有過錯。",
+     "有人送來厚禮推辭不掉，長久守正吉利；懷著感恩之心也吉。",
+     "在困難的事情中得到幫助也無過錯；誠心守中，如實向上彙報。",
+     "行事中正，向上建議會被採納，適合藉助大局做出遷移等重大調整。",
+     "懷著善意施惠於人，不用問也知大吉，別人也會感念你的德行。",
+     "沒人幫你反而有人攻擊你，心意搖擺不定，要當心不順。"
+    ],
+    "en": [
+     "A good moment to launch a big undertaking; great fortune and no blame.",
+     "Unexpected gifts that cannot be refused; stay steady over time and keep a grateful heart.",
+     "Help received during hard times is fine; be sincere, stay balanced, and report honestly.",
+     "Walking the middle path, your advice is heeded; a good time for major moves with backing.",
+     "Give with a kind heart; there is no need to ask, it goes very well and others honor your goodness.",
+     "No one helps and someone attacks; an unsteady heart invites trouble, so be careful."
+    ]
+   }
+  },
+  {
+   "kingWen": 43,
+   "name": "夬",
+   "symbol": "䷪",
+   "lower": "乾",
+   "upper": "兌",
+   "judgment": "揚于王庭，孚號，有厲，告自邑，不利即戎，利有攸往。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "九三",
+    "九四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "壯于前趾，往不勝為咎。",
+    "惕號，莫夜有戎，勿恤。",
+    "壯于頄，有凶。君子夬夬，獨行遇雨，若濡有慍，无咎。",
+    "臀无膚，其行次且。牽羊悔亡，聞言不信。",
+    "莧陸夬夬，中行无咎。",
+    "无號，終有凶。"
+   ],
+   "en": "Breakthrough",
+   "reading": {
+    "zh-CN": "泽水涨到天上，即将决堤而下，象征果断地处理问题。今天要把该说的话公开讲清楚，但态度要诚恳，避免用强硬对抗的方式。先整顿好自己这边，再坚定地往前推进。",
+    "zh-TW": "澤水漲到天上，即將決堤而下，象徵果斷地處理問題。今天要把該說的話公開講清楚，但態度要誠懇，避免用強硬對抗的方式。先整頓好自己這邊，再堅定地往前推進。",
+    "en": "A lake rising up to the sky, ready to burst: it is time for decisive action. Today, speak openly about what needs addressing, but do it honestly and without picking a fight. Get your own side in order first, then move forward with steady resolve."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "只靠脚趾往前冲，力量不足以取胜，反而会成为过错。",
+     "保持警惕、及时示警，即使夜里有变故也不必担忧。",
+     "怒气写在脸上不顺；独自果断前行，即使淋雨遭怨，终无过错。",
+     "坐立不安、步履迟疑；顺势而行本可免悔，可惜听到劝告却不相信。",
+     "像拔除野草一样果断，同时坚守中道，便没有过错。",
+     "没有人呼喊示警，最终会不顺，要提前防备。"
+    ],
+    "zh-TW": [
+     "只靠腳趾往前沖，力量不足以取勝，反而會成為過錯。",
+     "保持警惕、及時示警，即使夜裡有變故也不必擔憂。",
+     "怒氣寫在臉上不順；獨自果斷前行，即使淋雨遭怨，終無過錯。",
+     "坐立不安、步履遲疑；順勢而行本可免悔，可惜聽到勸告卻不相信。",
+     "像拔除野草一樣果斷，同時堅守中道，便沒有過錯。",
+     "沒有人呼喊示警，最終會不順，要提前防備。"
+    ],
+    "en": [
+     "Pushing forward on your toes alone; without enough strength, the effort becomes a mistake.",
+     "Stay alert and sound the alarm; even if trouble comes at night, you will be ready.",
+     "Showing anger openly backfires; walk on resolutely, endure the rain and the grumbling, and you are blameless.",
+     "Restless and halting; going along would ease regret, but you hear good advice and do not believe it.",
+     "Decisive like clearing weeds, yet staying in the middle way keeps you blameless.",
+     "No one raises the alarm, and in the end things go badly; prepare in advance."
+    ]
+   }
+  },
+  {
+   "kingWen": 44,
+   "name": "姤",
+   "symbol": "䷫",
+   "lower": "巽",
+   "upper": "乾",
+   "judgment": "女壯，勿用取女。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "九三",
+    "九四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "系于金柅，貞吉，有攸往，見凶，羸豕，孚，蹢躅。",
+    "包有魚，无咎，不利賓。",
+    "臀无膚，其行次且，厲，无大咎。",
+    "包无魚，起凶。",
+    "以杞包瓜，含章，有隕自天。",
+    "姤其角，吝，无咎。"
+   ],
+   "en": "Encounter",
+   "reading": {
+    "zh-CN": "天下有风，吹遍四方，象征不期而遇。今天可能碰到意料之外的人或机会，相遇本身不是坏事，但别被一时的强势吸引而轻易许诺。保持分寸，先观察清楚再决定。",
+    "zh-TW": "天下有風，吹遍四方，象徵不期而遇。今天可能碰到意料之外的人或機會，相遇本身不是壞事，但別被一時的強勢吸引而輕易許諾。保持分寸，先觀察清楚再決定。",
+    "en": "Wind blows everywhere under heaven: an image of unexpected meetings. Today you may run into a surprising person or opportunity. The encounter itself is fine, but do not rush into commitments just because something seems strong or appealing. Keep your balance and observe before deciding."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "用金属制动器把车刹住，守正吉利；贸然前往不顺，像瘦猪一样躁动不安。",
+     "厨房里有鱼，自己留着无妨，但不宜拿去招待外人。",
+     "坐立难安、行走迟疑，有些危险，但没有大的过错。",
+     "厨房里没了鱼，失去根基，此时起来争执不会顺利。",
+     "用杞柳叶包住瓜，把美德藏在心里，好运自天而降。",
+     "用角去迎接对方，处境尴尬，但不会有大问题。"
+    ],
+    "zh-TW": [
+     "用金屬製動器把車剎住，守正吉利；貿然前往不順，像瘦豬一樣躁動不安。",
+     "廚房裡有魚，自己留著無妨，但不宜拿去招待外人。",
+     "坐立難安、行走遲疑，有些危險，但沒有大的過錯。",
+     "廚房裡沒了魚，失去根基，此時起來爭執不會順利。",
+     "用杞柳葉包住瓜，把美德藏在心裡，好運自天而降。",
+     "用角去迎接對方，處境尷尬，但不會有大問題。"
+    ],
+    "en": [
+     "Brake the cart firmly and staying put is good; rushing out brings trouble, restless as a scrawny pig.",
+     "There is fish in the kitchen; keep it for yourself rather than serving it to guests.",
+     "Restless and hesitant; there is some risk, but no major mistake.",
+     "The fish is gone and your base is lost; starting a quarrel now goes badly.",
+     "Wrapping a melon in willow leaves, keeping your gifts hidden; good fortune falls from the sky.",
+     "Meeting someone with horns lowered is awkward, but no real harm is done."
+    ]
+   }
+  },
+  {
+   "kingWen": 45,
+   "name": "萃",
+   "symbol": "䷬",
+   "lower": "坤",
+   "upper": "兌",
+   "judgment": "王假有廟，利見大人，亨。利貞。用大牲吉，利有攸往。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "六三",
+    "九四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "有孚不終，乃亂乃萃，若號一握為笑，勿恤，往无咎。",
+    "引吉，无咎，孚乃利用禴。",
+    "萃如，嗟如，无攸利，往无咎，小吝。",
+    "大吉，无咎。",
+    "萃有位，无咎。匪孚，元永貞，悔亡。",
+    "齎資涕洟，无咎。"
+   ],
+   "en": "Gathering",
+   "reading": {
+    "zh-CN": "泽水汇聚在大地上，象征人与物的聚集。今天适合参加聚会、团队协作或探望长辈，大家凝聚在一起更容易成事。真诚是聚拢人心的关键，适度表达心意会很有帮助。",
+    "zh-TW": "澤水匯聚在大地上，象徵人與物的聚集。今天適合參加聚會、團隊協作或探望長輩，大家凝聚在一起更容易成事。真誠是聚攏人心的關鍵，適度表達心意會很有幫助。",
+    "en": "A lake gathers on the earth: people and resources coming together. Today suits meetings, teamwork, or visiting elders, as things get done more easily when people unite. Sincerity is what holds a group together, so a thoughtful gesture can go a long way."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "诚意未能坚持，心乱而聚；只要伸手示好，便能破涕为笑，前往无错。",
+     "被人引荐而来，吉利无过错；只要心诚，简单的礼节也足够。",
+     "想要融入却连声叹气，暂无好处；但前去无错，只是有点小尴尬。",
+     "大吉，没有过错；顺势团结众人，事情会做得很好。",
+     "凭自己的位置聚拢众人无过错；若有人还不信服，长期守正，懊悔会消失。",
+     "叹息流泪，表达真情，但并无过错，难过终会过去。"
+    ],
+    "zh-TW": [
+     "誠意未能堅持，心亂而聚；只要伸手示好，便能破涕為笑，前往無錯。",
+     "被人引薦而來，吉利無過錯；只要心誠，簡單的禮節也足夠。",
+     "想要融入卻連聲嘆氣，暫無好處；但前去無錯，只是有點小尷尬。",
+     "大吉，沒有過錯；順勢團結眾人，事情會做得很好。",
+     "憑自己的位置聚攏眾人無過錯；若有人還不信服，長期守正，懊悔會消失。",
+     "嘆息流淚，表達真情，但並無過錯，難過終會過去。"
+    ],
+    "en": [
+     "Sincerity wavers and things get messy; reach out, and tears turn to laughter, so go ahead without worry.",
+     "Being drawn in by others is good; with sincerity, even a modest offering is enough.",
+     "Wanting to join yet sighing about it; go anyway, with only a small awkwardness.",
+     "Great fortune and no blame; uniting people now helps everything go very well.",
+     "Gathering people from your position is fine; if some still doubt, stay steady and regret fades.",
+     "Sighs and tears express true feeling, yet there is no blame; the sorrow will pass."
+    ]
+   }
+  },
+  {
+   "kingWen": 46,
+   "name": "升",
+   "symbol": "䷭",
+   "lower": "巽",
+   "upper": "坤",
+   "judgment": "元亨，用見大人，勿恤，南征吉。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "九三",
+    "六四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "允升，大吉。",
+    "孚乃利用禴，无咎。",
+    "升虛邑。",
+    "王用享于岐山，吉无咎。",
+    "貞吉，升階。",
+    "冥升，利于不息之貞。"
+   ],
+   "en": "Rising",
+   "reading": {
+    "zh-CN": "大地中生出树木，一点一点向上生长，象征稳步上升。今天适合积极进取，主动拜访能帮助你的人，不必过多担忧。像树苗成长那样按部就班地往上走就好。",
+    "zh-TW": "大地中生出樹木，一點一點向上生長，象徵穩步上升。今天適合積極進取，主動拜訪能幫助你的人，不必過多擔憂。像樹苗成長那樣按部就班地往上走就好。",
+    "en": "A tree grows up out of the earth, little by little: steady ascent. Today favors ambition and reaching out to people who can help you, without too much worry. Like a young tree, keep growing step by step and you will rise naturally."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "得到信任和支持，真诚地向上发展，大吉。",
+     "只要心意真诚，简单的礼节也行，没有过错。",
+     "上升非常顺利，好像走进一座没有阻挡的空城。",
+     "像王在岐山祭祀一样恭敬行事，吉利，没有过错。",
+     "守正吉利，像登台阶一样一级一级稳步上升。",
+     "在昏暗中仍要往上，此时只有不停歇地坚持才有利。"
+    ],
+    "zh-TW": [
+     "得到信任和支援，真誠地向上發展，大吉。",
+     "只要心意真誠，簡單的禮節也行，沒有過錯。",
+     "上升非常順利，好像走進一座沒有阻擋的空城。",
+     "像王在岐山祭祀一樣恭敬行事，吉利，沒有過錯。",
+     "守正吉利，像登臺階一樣一級一級穩步上升。",
+     "在昏暗中仍要往上，此時只有不停歇地堅持才有利。"
+    ],
+    "en": [
+     "Rising with trust and support, sincerely moving upward; great fortune.",
+     "With a sincere heart, even a simple offering is enough; there is no blame.",
+     "Rising as if into an empty town, with no resistance ahead.",
+     "Acting with reverence, like a king honoring the sacred mountain; good fortune and no blame.",
+     "Steady and upright, you climb the stairs one step at a time.",
+     "Climbing in the dark; only tireless, steady persistence helps now."
+    ]
+   }
+  },
+  {
+   "kingWen": 47,
+   "name": "困",
+   "symbol": "䷮",
+   "lower": "坎",
+   "upper": "兌",
+   "judgment": "亨，貞大人吉，无咎，有言不信。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "六三",
+    "九四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "臀困于株木，入于幽谷，三歲不覿。",
+    "困于酒食，朱紱方來，利用亨祀，征凶，无咎。",
+    "困于石，據于蒺蔾，入于其宮，不見其妻，凶。",
+    "來荼荼，困于金轝，吝，有終。",
+    "劓刖，困于赤紱，乃徐有說，利用祭祀。",
+    "困于葛藟，于臲卼，曰動悔。有悔，征吉。"
+   ],
+   "en": "Confinement",
+   "reading": {
+    "zh-CN": "泽中无水，水都漏到下面去了，象征困顿受限。今天可能感到处处受阻，说的话也不太被人相信，那就少说多做。守住内心的从容，困境往往正是磨炼人的时候。",
+    "zh-TW": "澤中無水，水都漏到下面去了，象徵困頓受限。今天可能感到處處受阻，說的話也不太被人相信，那就少說多做。守住內心的從容，困境往往正是磨鍊人的時候。",
+    "en": "A lake with its water drained away: a time of being boxed in. Today you may feel blocked at every turn, and your words may not carry much weight. Talk less and act more. Keep your inner calm, since hard times are often what shape and strengthen us."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "困坐在树桩上，又陷入幽暗山谷，很久见不到人，要耐心等待。",
+     "被应酬酒食所困，但荣誉即将到来；宜虔诚守礼，贸然出击不顺。",
+     "被石头挡住，又靠在蒺藜上，回到家也不见亲人，很不顺利。",
+     "来得迟缓，被困在华丽的车中，有些难堪，但最终会有结果。",
+     "受伤又被权贵所困，转机会慢慢到来，宜保持虔敬与耐心。",
+     "被藤蔓缠住、站在摇晃之处，若能从懊悔中吸取教训，继续前行反而吉。"
+    ],
+    "zh-TW": [
+     "困坐在樹樁上，又陷入幽暗山谷，很久見不到人，要耐心等待。",
+     "被應酬酒食所困，但榮譽即將到來；宜虔誠守禮，貿然出擊不順。",
+     "被石頭擋住，又靠在蒺藜上，回到家也不見親人，很不順利。",
+     "來得遲緩，被困在華麗的車中，有些難堪，但最終會有結果。",
+     "受傷又被權貴所困，轉機會慢慢到來，宜保持虔敬與耐心。",
+     "被藤蔓纏住、站在搖晃之處，若能從懊悔中吸取教訓，繼續前行反而吉。"
+    ],
+    "en": [
+     "Stuck on a stump and lost in a dark valley, unseen for a long time; wait patiently.",
+     "Weighed down by feasting, yet recognition is coming; stay reverent rather than charging out.",
+     "Blocked by stone, leaning on thorns, coming home to an empty house; a hard stretch.",
+     "Arriving slowly, held up in a golden carriage; awkward, but it works out in the end.",
+     "Hurt and hemmed in by people in power; relief comes slowly, so stay devoted and patient.",
+     "Tangled in vines on shaky ground; if you learn from regret, moving on brings good fortune."
+    ]
+   }
+  },
+  {
+   "kingWen": 48,
+   "name": "井",
+   "symbol": "䷯",
+   "lower": "巽",
+   "upper": "坎",
+   "judgment": "改邑不改井，无喪无得，往來井井。汔至亦未繘井。羸其瓶，凶。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "九三",
+    "六四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "井泥不食，舊井无禽。",
+    "井谷射鮒，瓮敝漏。",
+    "井渫不食，為我心惻，可用汲，王明，並受其福。",
+    "井甃，无咎。",
+    "井冽，寒泉食。",
+    "井收勿幕，有孚元吉。"
+   ],
+   "en": "The Well",
+   "reading": {
+    "zh-CN": "木桶下到水中把水提上来，象征水井：村庄可以搬迁，水井却始终在那里供人取用。今天适合打牢根基，维护身边那些长期有用的东西。做事要善始善终，别在最后一步功亏一篑。",
+    "zh-TW": "木桶下到水中把水提上來，象徵水井：村莊可以搬遷，水井卻始終在那裡供人取用。今天適合打牢根基，維護身邊那些長期有用的東西。做事要善始善終，別在最後一步功虧一簣。",
+    "en": "A bucket lowered into water and drawn back up: the well. Towns may move, but the well stays and keeps serving everyone. Today, focus on foundations and maintain the things that serve you over the long run. Finish what you start—do not drop the bucket just before it reaches the top."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "井底满是淤泥不能喝，荒废的旧井连鸟兽都不来，该清理了。",
+     "井水只够养小鱼，水瓮又破了在漏，资源被白白浪费。",
+     "井已淘净却没人来喝，令人惋惜；若被明眼人赏识，大家都会受益。",
+     "用砖石修砌井壁，好好维护，没有过错。",
+     "井水清澈甘冽，冰凉的泉水可以供人饮用。",
+     "井口敞开不加盖，人人都能取用，心怀诚信则大吉。"
+    ],
+    "zh-TW": [
+     "井底滿是淤泥不能喝，荒廢的舊井連鳥獸都不來，該清理了。",
+     "井水只夠養小魚，水甕又破了在漏，資源被白白浪費。",
+     "井已淘淨卻沒人來喝，令人惋惜；若被明眼人賞識，大家都會受益。",
+     "用磚石修砌井壁，好好維護，沒有過錯。",
+     "井水清澈甘冽，冰涼的泉水可以供人飲用。",
+     "井口敞開不加蓋，人人都能取用，心懷誠信則大吉。"
+    ],
+    "en": [
+     "A muddy well no one drinks from; even animals avoid the old well, so it is time to clean up.",
+     "The well only feeds tiny fish and the jar leaks; resources are being wasted.",
+     "A clean well left unused is a pity; if someone wise recognizes it, everyone benefits.",
+     "Lining the well with bricks; maintenance work is time well spent, with no blame.",
+     "The well water is clear and cold, a fresh spring for everyone to drink.",
+     "The well stays open and uncovered for all; sincerity brings great fortune."
+    ]
+   }
+  },
+  {
+   "kingWen": 49,
+   "name": "革",
+   "symbol": "䷰",
+   "lower": "離",
+   "upper": "兌",
+   "judgment": "已日乃孚，元亨。利貞。悔亡。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "九三",
+    "九四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "鞏用黃牛之革。",
+    "已日乃革之，征吉，无咎。",
+    "征凶，貞厲，革言三就，有孚。",
+    "悔亡，有孚改命，吉。",
+    "大人虎變，未占有孚。",
+    "君子豹變，小人革面，征凶，居貞吉。"
+   ],
+   "en": "Change",
+   "reading": {
+    "zh-CN": "泽中有火，水火相争，象征变革。今天如果想改变什么，先把时机和理由准备充分，等大家信服了再动手。变革成功的关键不在于快，而在于真诚和顺势而为。",
+    "zh-TW": "澤中有火，水火相爭，象徵變革。今天如果想改變什麼，先把時機和理由準備充分，等大家信服了再動手。變革成功的關鍵不在於快，而在於真誠和順勢而為。",
+    "en": "Fire within the lake: two elements clash, and change becomes necessary. If you want to change something today, prepare your timing and reasons first, and act once others are on board. Successful change depends less on speed and more on sincerity and good timing."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "用黄牛皮牢牢捆住，时机未到，暂时不宜变动。",
+     "时机成熟再进行变革，前往吉利，没有过错。",
+     "急于求进不顺，死守也有危险；改革方案反复商议几次，才能取信于人。",
+     "懊悔消失，心怀诚信去改变旧的局面，吉利。",
+     "大人物像老虎换毛般焕然一新，不用占卜也能让人信服。",
+     "君子像豹纹一样变得美好，旁人也改换面貌；此时不宜再折腾，安守为吉。"
+    ],
+    "zh-TW": [
+     "用黃牛皮牢牢捆住，時機未到，暫時不宜變動。",
+     "時機成熟再進行變革，前往吉利，沒有過錯。",
+     "急於求進不順，死守也有危險；改革方案反覆商議幾次，才能取信於人。",
+     "懊悔消失，心懷誠信去改變舊的局面，吉利。",
+     "大人物像老虎換毛般煥然一新，不用占卜也能讓人信服。",
+     "君子像豹紋一樣變得美好，旁人也改換面貌；此時不宜再折騰，安守為吉。"
+    ],
+    "en": [
+     "Bound tight with ox hide; the time for change has not yet come, so hold steady.",
+     "When the day is ripe, make the change; going ahead brings good fortune and no blame.",
+     "Rushing goes badly and standing still is risky; talk the plan through several times to earn trust.",
+     "Regret fades; change the old order with sincerity, and it goes well.",
+     "A great person transforms boldly like a tiger's fresh coat, trusted without needing an oracle.",
+     "The wise change like a leopard's coat and others at least change their faces; now settle down rather than push further."
+    ]
+   }
+  },
+  {
+   "kingWen": 50,
+   "name": "鼎",
+   "symbol": "䷱",
+   "lower": "巽",
+   "upper": "離",
+   "judgment": "元吉，亨。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "九三",
+    "九四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "鼎顛趾，利出否，得妾以其子，无咎。",
+    "鼎有實，我仇有疾，不我能即，吉。",
+    "鼎耳革，其行塞，雉膏不食，方雨虧悔，終吉。",
+    "鼎折足，覆公餗，其刑渥，凶。",
+    "鼎黃耳金鉉，利貞。",
+    "鼎玉鉉，大吉，无不利。"
+   ],
+   "en": "The Cauldron",
+   "reading": {
+    "zh-CN": "木上燃火，烹煮食物，象征鼎器与新秩序的确立。今天适合把手头的好材料慢慢炖熟：整合资源、培养人才、完善成果。稳住根基、用心经营，会有很好的收获。",
+    "zh-TW": "木上燃火，烹煮食物，象徵鼎器與新秩序的確立。今天適合把手頭的好材料慢慢燉熟：整合資源、培養人才、完善成果。穩住根基、用心經營，會有很好的收穫。",
+    "en": "Fire burning over wood, cooking food in a vessel: the cauldron, a symbol of nourishment and a new order. Today is good for bringing things to maturity—combining resources, developing people, and polishing your results. With a steady base and careful effort, rewards come."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "鼎翻倒脚朝天，正好倒出陈旧的残渣；开头有些尴尬，却为新事物腾出空间。",
+     "鼎里装满了食物，对手虽然嫉妒，却无法靠近我，吉利。",
+     "鼎耳脱落，难以搬动，美味的野鸡汤吃不到；等雨水降下，懊悔减少，终究吉利。",
+     "鼎足折断，打翻了王公的美食，弄得狼狈不堪；不要承担超出能力的重任。",
+     "鼎配上黄色的耳和金属的提杠，稳固可靠，守正有利。",
+     "鼎配上玉制的提杠，刚柔相济，大吉，无所不利。"
+    ],
+    "zh-TW": [
+     "鼎翻倒腳朝天，正好倒出陳舊的殘渣；開頭有些尷尬，卻為新事物騰出空間。",
+     "鼎裡裝滿了食物，對手雖然嫉妒，卻無法靠近我，吉利。",
+     "鼎耳脫落，難以搬動，美味的野雞湯吃不到；等雨水降下，懊悔減少，終究吉利。",
+     "鼎足折斷，打翻了王公的美食，弄得狼狽不堪；不要承擔超出能力的重任。",
+     "鼎配上黃色的耳和金屬的提槓，穩固可靠，守正有利。",
+     "鼎配上玉製的提槓，剛柔相濟，大吉，無所不利。"
+    ],
+    "en": [
+     "The cauldron tips over and spills out old residue; an awkward start that clears space for the new.",
+     "The cauldron is full; rivals may be envious, but they cannot reach you.",
+     "The handles come loose and it cannot be moved, so good food goes uneaten; once rain falls, things improve.",
+     "A leg snaps and the meal spills; taking on more than you can carry leads to a messy failure.",
+     "Golden handles and a metal carrying bar; the vessel is sturdy and steady effort pays off.",
+     "A jade carrying bar crowns the cauldron, firm yet gentle; great fortune in everything."
+    ]
+   }
+  },
+  {
+   "kingWen": 51,
+   "name": "震",
+   "symbol": "䷲",
+   "lower": "震",
+   "upper": "震",
+   "judgment": "亨。震來虩虩，笑言啞啞。震驚百里，不喪匕鬯。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "六三",
+    "九四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "震來虩虩，後笑言啞啞，吉。",
+    "震來厲，億喪貝，躋于九陵，勿逐，七日得。",
+    "震蘇蘇，震行无眚。",
+    "震遂泥。",
+    "震往來厲，億无喪，有事。",
+    "震索索，視矍矍，征凶。震不于其躬，于其鄰，无咎。婚媾有言。"
+   ],
+   "en": "Thunder",
+   "reading": {
+    "zh-CN": "雷声一阵接着一阵，象征突发的震动与惊醒。今天遇到意外先别慌，受惊之后往往能一笑了之。只要守住手中最重要的事、保持镇定，这份震动反而会让你更清醒。",
+    "zh-TW": "雷聲一陣接著一陣，象徵突發的震動與驚醒。今天遇到意外先別慌，受驚之後往往能一笑了之。只要守住手中最重要的事、保持鎮定，這份震動反而會讓你更清醒。",
+    "en": "Thunder rolls again and again: sudden shocks that wake us up. If something unexpected happens today, do not panic—after the fright, you may well laugh about it. Hold on to what matters most and stay composed, and the jolt can leave you clearer and more alert."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "雷声袭来令人惶恐，过后却能谈笑自若，吉利。",
+     "雷势猛烈，可能损失钱财；先登上高处避开，不必追，过几天会失而复得。",
+     "雷声让人心神不宁，借这份惊醒谨慎行事，就不会有灾祸。",
+     "雷声陷进泥里，有劲使不出，暂时停滞不前。",
+     "震动来来去去，有些危险，但不会有损失，手头的事照常做。",
+     "吓得发抖慌乱，别贸然行动；雷先落在邻家时及早防备便无过错，难免有些闲话。"
+    ],
+    "zh-TW": [
+     "雷聲襲來令人惶恐，過後卻能談笑自若，吉利。",
+     "雷勢猛烈，可能損失錢財；先登上高處避開，不必追，過幾天會失而復得。",
+     "雷聲讓人心神不寧，借這份驚醒謹慎行事，就不會有災禍。",
+     "雷聲陷進泥裡，有勁使不出，暫時停滯不前。",
+     "震動來來去去，有些危險，但不會有損失，手頭的事照常做。",
+     "嚇得發抖慌亂，別貿然行動；雷先落在鄰家時及早防備便無過錯，難免有些閒話。"
+    ],
+    "en": [
+     "Thunder strikes and you tremble, but afterwards you laugh it off; good fortune.",
+     "A violent shock may cost you; climb to safety and do not chase, and what is lost returns in days.",
+     "Unsettled by thunder; let the shock spur careful action, and you avoid harm.",
+     "Thunder bogged down in mud; energy stalls and cannot break through for now.",
+     "Shocks come and go and there is some danger, but nothing is lost; keep doing your work.",
+     "Shaking and wide-eyed, do not act rashly; if the storm hits your neighbor first, prepare, though some will grumble."
+    ]
+   }
+  },
+  {
+   "kingWen": 52,
+   "name": "艮",
+   "symbol": "䷳",
+   "lower": "艮",
+   "upper": "艮",
+   "judgment": "艮其背，不獲其身，行其庭，不見其人，无咎。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "九三",
+    "六四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "艮其趾，无咎，利永貞。",
+    "艮其腓，不拯其隨，其心不快。",
+    "艮其限，裂其夤，厲閽心。",
+    "艮其身，无咎。",
+    "艮其輔，言有孚，悔亡。",
+    "敦艮，吉。"
+   ],
+   "en": "Stillness",
+   "reading": {
+    "zh-CN": "两座山重叠在一起，静止不动，象征适时停下。今天适合放慢节奏，该停的地方就停下来，少被外界牵着走。专注当下，让心安静下来，反而不容易出错。",
+    "zh-TW": "兩座山重疊在一起，靜止不動，象徵適時停下。今天適合放慢節奏，該停的地方就停下來，少被外界牽著走。專注當下，讓心安靜下來，反而不容易出錯。",
+    "en": "Mountain upon mountain: perfect stillness. Today invites you to slow down and stop where stopping is right, without being pulled around by everything outside. Focus on the present and let your mind settle. In that calm, mistakes become far less likely."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "在起步时就止住脚趾，不贸然行动，没有过错，宜长久守正。",
+     "止住了小腿，却拦不住自己所跟随的人，心里不痛快。",
+     "硬在腰间止住，僵得像脊背被撕裂，过度压抑会令人焦灼不安。",
+     "让整个身体安定下来，克制自己，没有过错。",
+     "管住嘴巴，说话有条理、有分寸，懊悔自然消失。",
+     "以敦厚踏实的心安然止住，吉利。"
+    ],
+    "zh-TW": [
+     "在起步時就止住腳趾，不貿然行動，沒有過錯，宜長久守正。",
+     "止住了小腿，卻攔不住自己所跟隨的人，心裡不痛快。",
+     "硬在腰間止住，僵得像脊背被撕裂，過度壓抑會令人焦灼不安。",
+     "讓整個身體安定下來，剋制自己，沒有過錯。",
+     "管住嘴巴，說話有條理、有分寸，懊悔自然消失。",
+     "以敦厚踏實的心安然止住，吉利。"
+    ],
+    "en": [
+     "Stop at the toes before setting out; restraint from the start avoids mistakes over the long run.",
+     "Your calves stop, but you cannot stop the person you follow; it leaves you uneasy.",
+     "Forcing a halt at the waist, stiff as a strained back; rigid self-suppression breeds anxiety.",
+     "Stilling the whole body with calm self-control; there is no blame.",
+     "Stilling the jaw so words become orderly and measured; regrets fade away.",
+     "Steady, wholehearted, grounded stillness that comes from a settled heart brings good fortune."
+    ]
+   }
+  },
+  {
+   "kingWen": 53,
+   "name": "漸",
+   "symbol": "䷴",
+   "lower": "艮",
+   "upper": "巽",
+   "judgment": "女歸吉，利貞。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "九三",
+    "六四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "鴻漸于干，小子厲，有言，无咎。",
+    "鴻漸于磐，飲食衎衎，吉。",
+    "鴻漸于陸，夫征不復，婦孕不育，凶；利禦寇。",
+    "鴻漸于木，或得其桷，无咎。",
+    "鴻漸于陵，婦三歲不孕，終莫之勝，吉。",
+    "鴻漸于陸，其羽可用為儀，吉。"
+   ],
+   "en": "Gradual Progress",
+   "reading": {
+    "zh-CN": "山上有树，一年一年慢慢长高，象征循序渐进。今天适合一步一步推进计划，不求快、只求稳。像大雁按次序飞行一样，你最终会到达理想的位置。",
+    "zh-TW": "山上有樹，一年一年慢慢長高，象徵循序漸進。今天適合一步一步推進計劃，不求快、只求穩。像大雁按次序飛行一樣，你最終會到達理想的位置。",
+    "en": "A tree on a mountain grows taller year by year: progress that comes gradually. Today, move your plans forward one step at a time, valuing steadiness over speed. Like geese flying in orderly formation, you will reach where you want to be in due course."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "大雁渐渐飞到水边，新手会有危险和闲话，但没有过错。",
+     "大雁渐渐落到磐石上，安心地吃喝，和乐吉利。",
+     "大雁渐渐来到高地，出行者不归、事情难成，不顺；此时宜加强防范。",
+     "大雁渐渐落到树上，若找到平直的枝干就能安稳，没有过错。",
+     "大雁渐渐飞上山丘，长久未能如愿，但最终谁也挡不住，吉利。",
+     "大雁渐渐飞向高处，羽毛可作仪仗的装饰，吉利。"
+    ],
+    "zh-TW": [
+     "大雁漸漸飛到水邊，新手會有危險和閒話，但沒有過錯。",
+     "大雁漸漸落到磐石上，安心地吃喝，和樂吉利。",
+     "大雁漸漸來到高地，出行者不歸、事情難成，不順；此時宜加強防範。",
+     "大雁漸漸落到樹上，若找到平直的枝幹就能安穩，沒有過錯。",
+     "大雁漸漸飛上山丘，長久未能如願，但最終誰也擋不住，吉利。",
+     "大雁漸漸飛向高處，羽毛可作儀仗的裝飾，吉利。"
+    ],
+    "en": [
+     "The goose reaches the shore; newcomers face risk and chatter, but there is no real fault.",
+     "The goose rests on a rock, eating and drinking contentedly; good fortune.",
+     "The goose strays onto the dry plateau; ventures go astray, so focus on guarding against threats.",
+     "The goose lands in a tree; if it finds a flat branch, it settles safely without blame.",
+     "The goose reaches the hilltop; long delays, but in the end nothing can stop you.",
+     "The goose soars high, and its feathers become an emblem of grace; good fortune."
+    ]
+   }
+  },
+  {
+   "kingWen": 54,
+   "name": "歸妹",
+   "symbol": "䷵",
+   "lower": "兌",
+   "upper": "震",
+   "judgment": "征凶，无攸利。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "六三",
+    "九四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "歸妹以娣，跛能履，征吉。",
+    "眇能視，利幽人之貞。",
+    "歸妹以須，反歸以娣。",
+    "歸妹愆期，遲歸有時。",
+    "帝乙歸妹，其君之袂，不如其娣之袂良，月幾望，吉。",
+    "女承筐无實，士刲羊无血，无攸利。"
+   ],
+   "en": "Young Bride",
+   "reading": {
+    "zh-CN": "泽上有雷，少女随长者而动，象征婚嫁与依从。今天你可能处在并非主导的位置，急于求成不顺利，宜安守本分。看清自己的角色，耐心等待，比强行争取更有好处。",
+    "zh-TW": "澤上有雷，少女隨長者而動，象徵婚嫁與依從。今天你可能處在並非主導的位置，急於求成不順利，宜安守本分。看清自己的角色，耐心等待，比強行爭取更有好處。",
+    "en": "Thunder over the lake: the younger one follows the elder's movement. Today you may not be the one in charge, and forcing things is unlikely to work. Accept your current role with grace and wait patiently. Knowing your place for now serves you better than pushing for more."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "以陪嫁的身份出嫁，像跛脚也能走路，身份虽低，前往仍然吉利。",
+     "像一只眼睛也能看清，适合安静守正、不事张扬的人。",
+     "本想以较高的身份出嫁，结果只能以陪嫁身份回来，要调整期望。",
+     "婚期延误，晚一点出嫁也会等到合适的时机。",
+     "公主出嫁，衣饰反不如陪嫁者华美，谦逊朴素，月近圆满，吉利。",
+     "女子捧着空筐，男子宰羊不见血，只走形式没有实质，毫无益处。"
+    ],
+    "zh-TW": [
+     "以陪嫁的身份出嫁，像跛腳也能走路，身份雖低，前往仍然吉利。",
+     "像一隻眼睛也能看清，適合安靜守正、不事張揚的人。",
+     "本想以較高的身份出嫁，結果只能以陪嫁身份回來，要調整期望。",
+     "婚期延誤，晚一點出嫁也會等到合適的時機。",
+     "公主出嫁，衣飾反不如陪嫁者華美，謙遜樸素，月近圓滿，吉利。",
+     "女子捧著空筐，男子宰羊不見血，只走形式沒有實質，毫無益處。"
+    ],
+    "en": [
+     "Going as a secondary bride, like walking with a limp; a modest role still works out.",
+     "Seeing with only one eye still works; quiet, steady, low-key persistence suits you.",
+     "Hoping for a higher role, you return in a lesser one; time to adjust your expectations.",
+     "The wedding is delayed, but a later and better time will come.",
+     "The princess dresses more plainly than her attendant; modesty near the full moon brings fortune.",
+     "An empty basket and a bloodless sacrifice; going through the motions without substance yields nothing."
+    ]
+   }
+  },
+  {
+   "kingWen": 55,
+   "name": "豐",
+   "symbol": "䷶",
+   "lower": "離",
+   "upper": "震",
+   "judgment": "亨。王假之，勿憂，宜日中。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "九三",
+    "九四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "遇其配主，雖旬无咎，往有尚。",
+    "豐其蔀，日中見斗，往得疑疾，有孚發若，吉。",
+    "豐其沛，日中見沬，折其右肱，无咎。",
+    "豐其蔀，日中見斗，遇其夷主，吉。",
+    "來章，有慶譽，吉。",
+    "豐其屋，蔀其家，窺其戶，闃其无人，三歲不觌，凶。"
+   ],
+   "en": "Abundance",
+   "reading": {
+    "zh-CN": "雷电交加，光明盛大，象征丰盛与鼎盛。今天事情可能很充实、成果显著，不必忧虑，像正午的阳光一样大方地做事。同时记住盛极而衰的道理，趁着好时机把事情做好。",
+    "zh-TW": "雷電交加，光明盛大，象徵豐盛與鼎盛。今天事情可能很充實、成果顯著，不必憂慮，像正午的陽光一樣大方地做事。同時記住盛極而衰的道理，趁著好時機把事情做好。",
+    "en": "Thunder and lightning together: a time of fullness and peak energy. Today may be busy and productive, so act openly and generously, like the midday sun, without worry. Also remember that every peak passes, so make the most of the good moment while it lasts."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "遇到相配的伙伴，即使相处多日也无过错，前往会受到敬重。",
+     "帘幕遮得很厚，正午竟见北斗；前去会被猜疑，以诚心打动对方则吉。",
+     "帘幕更厚，正午见到小星，折断了右臂，但没有过错。",
+     "帘幕遮蔽，正午见斗，却遇到志同道合的主人，吉利。",
+     "招来有才华的人，带来喜庆和美誉，吉利。",
+     "房屋高大，家中却幽暗，从门缝窥看寂静无人，长久孤立，很不顺。"
+    ],
+    "zh-TW": [
+     "遇到相配的夥伴，即使相處多日也無過錯，前往會受到敬重。",
+     "簾幕遮得很厚，正午竟見北斗；前去會被猜疑，以誠心打動對方則吉。",
+     "簾幕更厚，正午見到小星，折斷了右臂，但沒有過錯。",
+     "簾幕遮蔽，正午見鬥，卻遇到志同道合的主人，吉利。",
+     "招來有才華的人，帶來喜慶和美譽，吉利。",
+     "房屋高大，家中卻幽暗，從門縫窺看寂靜無人，長久孤立，很不順。"
+    ],
+    "en": [
+     "Meeting a well-matched partner; even many days together is fine, and going forward earns respect.",
+     "Heavy curtains darken noon until stars appear; going brings suspicion, but sincerity clears it.",
+     "Even thicker shade, with tiny stars at noon; you lose your right arm, yet are not to blame.",
+     "Darkness at noon again, but you meet a like-minded leader; good fortune.",
+     "Bringing in talented people brings celebration and praise; good fortune.",
+     "A grand house with a darkened interior; peek inside and no one is there, isolation born of excess."
+    ]
+   }
+  },
+  {
+   "kingWen": 56,
+   "name": "旅",
+   "symbol": "䷷",
+   "lower": "艮",
+   "upper": "離",
+   "judgment": "小亨，旅貞吉。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "九三",
+    "九四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "旅瑣瑣，斯其所取災。",
+    "旅即次，懷其資，得僮僕貞。",
+    "旅焚其次，喪其僮僕，貞厲。",
+    "旅于處，得其資斧，我心不快。",
+    "射雉一矢亡，終以譽命。",
+    "鳥焚其巢，旅人先笑後號咷。喪牛于易，凶。"
+   ],
+   "en": "Traveler",
+   "reading": {
+    "zh-CN": "山上有火，火势随风游走而不停留，象征旅行与客居。今天你可能身处陌生的环境或临时的状态，小事可以顺利，宜谦逊低调、守规矩。做客之道在于有礼有节，少惹是非。",
+    "zh-TW": "山上有火，火勢隨風遊走而不停留，象徵旅行與客居。今天你可能身處陌生的環境或臨時的狀態，小事可以順利，宜謙遜低調、守規矩。做客之道在於有禮有節，少惹是非。",
+    "en": "Fire on a mountain moves on and never stays: the image of a traveler. Today you may be somewhere unfamiliar or in a temporary situation. Small matters can go smoothly if you stay humble and follow local customs. A good guest is polite, careful, and stays out of trouble."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "旅途中为琐碎小事斤斤计较，是自找麻烦。",
+     "旅途中找到住处，带着盘缠，还得到忠实的帮手，安稳可靠。",
+     "旅舍失火，帮手离去，这时固执己见会有危险。",
+     "在某处暂居，得到了钱财和工具，心里却仍不踏实。",
+     "射野鸡丢了一支箭，最终却赢得了名誉和赏识。",
+     "鸟巢被烧，旅人先笑后哭；在轻忽之间丢了牛，很不顺。"
+    ],
+    "zh-TW": [
+     "旅途中為瑣碎小事斤斤計較，是自找麻煩。",
+     "旅途中找到住處，帶著盤纏，還得到忠實的幫手，安穩可靠。",
+     "旅舍失火，幫手離去，這時固執己見會有危險。",
+     "在某處暫居，得到了錢財和工具，心裡卻仍不踏實。",
+     "射野雞丟了一支箭，最終卻贏得了名譽和賞識。",
+     "鳥巢被燒，旅人先笑後哭；在輕忽之間丟了牛，很不順。"
+    ],
+    "en": [
+     "Fussing over petty details on the road only invites trouble.",
+     "Finding lodging with money in hand and a loyal helper; a secure stop on the journey.",
+     "The inn burns and helpers leave; stubbornness at this point is dangerous.",
+     "Settled somewhere with money and tools, yet still not feeling at ease.",
+     "Losing one arrow while shooting a pheasant, yet ending up honored and recognized.",
+     "The nest burns; the traveler laughs, then wails, losing the ox through carelessness."
+    ]
+   }
+  },
+  {
+   "kingWen": 57,
+   "name": "巽",
+   "symbol": "䷸",
+   "lower": "巽",
+   "upper": "巽",
+   "judgment": "小亨。利有攸往。利見大人。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "九三",
+    "六四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "進退，利武人之貞。",
+    "巽在牀下，用史巫紛若，吉无咎。",
+    "頻巽，吝。",
+    "悔亡，田獲三品。",
+    "貞吉悔亡，无不利。无初有終，先庚三日，後庚三日，吉。",
+    "巽在牀下，喪其資斧，貞凶。"
+   ],
+   "en": "Gentle Wind",
+   "reading": {
+    "zh-CN": "风接连吹来，无孔不入，象征柔顺与渗透。今天适合用温和的方式推动事情，多倾听、多沟通，向有经验的人请教。小事顺利，但做决定时要干脆，不要反复犹豫。",
+    "zh-TW": "風接連吹來，無孔不入，象徵柔順與滲透。今天適合用溫和的方式推動事情，多傾聽、多溝通，向有經驗的人請教。小事順利，但做決定時要乾脆，不要反覆猶豫。",
+    "en": "Wind following wind, reaching into every corner: gentle but persistent influence. Today, move things along softly—listen more, communicate often, and ask experienced people for advice. Small matters go well, but when it is time to decide, be clear and avoid endless back-and-forth."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "进退犹豫不决，此时宜像武士一样果断坚定。",
+     "谦卑地俯身在床下，多方请人沟通祈福，吉利无过错。",
+     "一再地屈从迁就、没有主见，最后会留下遗憾。",
+     "懊悔消失，田猎收获了三类猎物，成果丰富。",
+     "守正吉利，懊悔消失，无所不利；开头不顺而结局好，变动前后都要细心斟酌。",
+     "卑屈地伏在床下，丢了钱财和工具，固执下去不顺。"
+    ],
+    "zh-TW": [
+     "進退猶豫不決，此時宜像武士一樣果斷堅定。",
+     "謙卑地俯身在床下，多方請人溝通祈福，吉利無過錯。",
+     "一再地屈從遷就、沒有主見，最後會留下遺憾。",
+     "懊悔消失，田獵收穫了三類獵物，成果豐富。",
+     "守正吉利，懊悔消失，無所不利；開頭不順而結局好，變動前後都要細心斟酌。",
+     "卑屈地伏在床下，丟了錢財和工具，固執下去不順。"
+    ],
+    "en": [
+     "Wavering back and forth; now is the time to borrow a soldier's firm resolve.",
+     "Humbly kneeling low and seeking guidance from many sources; it works out fine.",
+     "Bending again and again to please others leads to regret.",
+     "Regret fades, and the hunt yields three kinds of game; a rich result.",
+     "Steady and upright, all is favorable; a weak start but a good finish, so plan carefully before and after a change.",
+     "Groveling too low, you lose your money and tools; continuing this way goes badly."
+    ]
+   }
+  },
+  {
+   "kingWen": 58,
+   "name": "兌",
+   "symbol": "䷹",
+   "lower": "兌",
+   "upper": "兌",
+   "judgment": "亨。利貞。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "六三",
+    "九四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "和兌，吉。",
+    "孚兌，吉，悔亡。",
+    "來兌，凶。",
+    "商兌，未寧，介疾有喜。",
+    "孚于剝，有厲。",
+    "引兌。"
+   ],
+   "en": "Joy",
+   "reading": {
+    "zh-CN": "两片泽水相连，彼此滋润，象征喜悦与交流。今天适合与人愉快地交谈、分享想法，真诚的笑容会带来好人缘。只是快乐要发自真心，不必为了讨好别人而勉强自己。",
+    "zh-TW": "兩片澤水相連，彼此滋潤，象徵喜悅與交流。今天適合與人愉快地交談、分享想法，真誠的笑容會帶來好人緣。只是快樂要發自真心，不必為了討好別人而勉強自己。",
+    "en": "Two lakes joined together, nourishing each other: joy and open exchange. Today is great for friendly conversations and sharing ideas, and a genuine smile wins goodwill. Just make sure your cheer is real—there is no need to force yourself to please everyone."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "平和自然地喜悦，与人相处融洽，吉利。",
+     "发自诚信的喜悦，吉利，懊悔自然消失。",
+     "刻意讨好、追逐享乐而来的喜悦，不会顺利。",
+     "在各种乐事间反复权衡，心神未定；远离有害的诱惑，就会有喜事。",
+     "信任了会侵蚀你的人或事，有危险，要当心。",
+     "被别人引诱而产生的喜悦，要看清是谁在牵引你。"
+    ],
+    "zh-TW": [
+     "平和自然地喜悅，與人相處融洽，吉利。",
+     "發自誠信的喜悅，吉利，懊悔自然消失。",
+     "刻意討好、追逐享樂而來的喜悅，不會順利。",
+     "在各種樂事間反覆權衡，心神未定；遠離有害的誘惑，就會有喜事。",
+     "信任了會侵蝕你的人或事，有危險，要當心。",
+     "被別人引誘而產生的喜悅，要看清是誰在牽引你。"
+    ],
+    "en": [
+     "Calm, natural, harmonious joy with the people around you; good fortune.",
+     "Joy rooted in sincerity brings good fortune, and regrets fade away.",
+     "Joy pursued by flattery or chasing pleasure does not go well.",
+     "Weighing pleasures back and forth, still unsettled; cut off the harmful one and happiness follows.",
+     "Placing trust in what slowly erodes you is risky; be careful.",
+     "Pleasure drawn out by others; look closely at who is leading you and where."
+    ]
+   }
+  },
+  {
+   "kingWen": 59,
+   "name": "渙",
+   "symbol": "䷺",
+   "lower": "坎",
+   "upper": "巽",
+   "judgment": "亨，王假有廟，利涉大川，利貞。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "六三",
+    "六四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "用拯馬壯，吉，悔亡。",
+    "渙奔其机，悔亡。",
+    "渙其躬，无悔。",
+    "渙其群，元吉。渙有丘，匪夷所思。",
+    "渙汗其大號，渙王居，无咎。",
+    "渙其血，去逖出，无咎。"
+   ],
+   "en": "Dispersing",
+   "reading": {
+    "zh-CN": "风吹过水面，波纹四散，象征涣散与疏通。今天适合化解心结、打破僵局，把分散的人心重新聚拢。放下私心、着眼大局，困难会像冰雪一样慢慢融化。",
+    "zh-TW": "風吹過水麵，波紋四散，象徵渙散與疏通。今天適合化解心結、打破僵局，把分散的人心重新聚攏。放下私心、著眼大局，困難會像冰雪一樣慢慢融化。",
+    "en": "Wind moving over water, scattering ripples: dispersal and release. Today is good for clearing up misunderstandings, breaking deadlocks, and bringing scattered people back together. Set aside narrow self-interest and look at the bigger picture, and hard knots will gradually melt away."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "借助强壮的马及时救援，吉利，懊悔消失。",
+     "人心涣散时奔向可以倚靠的地方，懊悔消失。",
+     "散去自身的私心杂念，没有懊悔。",
+     "打散小团体，大吉；散后又聚成山丘，超出常人的想象。",
+     "像出汗一样发出号令，散发积蓄与众人共享，没有过错。",
+     "化解伤害，远远离开危险，没有过错。"
+    ],
+    "zh-TW": [
+     "藉助強壯的馬及時救援，吉利，懊悔消失。",
+     "人心渙散時奔向可以倚靠的地方，懊悔消失。",
+     "散去自身的私心雜念，沒有懊悔。",
+     "打散小團體，大吉；散後又聚成山丘，超出常人的想像。",
+     "像出汗一樣發出號令，散發積蓄與眾人共享，沒有過錯。",
+     "化解傷害，遠遠離開危險，沒有過錯。"
+    ],
+    "en": [
+     "Rescue comes with a strong horse; help arrives in time, and regret fades.",
+     "As things scatter, run to something steady you can lean on, and regret fades.",
+     "Dissolving your own selfish concerns and narrow worries leaves nothing to regret.",
+     "Breaking up cliques brings great fortune; what scatters regathers into a hill, beyond ordinary thinking.",
+     "Issue a clear call that flows out like sweat, and share resources generously; no blame.",
+     "Dispel the harm and move far away from danger; there is no blame."
+    ]
+   }
+  },
+  {
+   "kingWen": 60,
+   "name": "節",
+   "symbol": "䷻",
+   "lower": "兌",
+   "upper": "坎",
+   "judgment": "亨。苦節不可貞。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "六三",
+    "六四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "不出戶庭，无咎。",
+    "不出門庭，凶。",
+    "不節若，則嗟若，无咎。",
+    "安節，亨。",
+    "甘節，吉；往有尚。",
+    "苦節，貞凶，悔亡。"
+   ],
+   "en": "Moderation",
+   "reading": {
+    "zh-CN": "泽上有水，容量有限，象征节制与分寸。今天做事要有度：花钱、饮食、说话都适可而止。适度的节制让人舒服，但对自己过于苛刻的限制也难以长久。",
+    "zh-TW": "澤上有水，容量有限，象徵節制與分寸。今天做事要有度：花錢、飲食、說話都適可而止。適度的節制讓人舒服，但對自己過於苛刻的限制也難以長久。",
+    "en": "Water over a lake that can only hold so much: limits and measure. Today, keep things in proportion—spending, eating, talking—and stop at enough. Healthy restraint feels good, but rules that are too harsh on yourself will not last long."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "待在自家院里不出门，谨慎收敛，没有过错。",
+     "该出门时却仍不迈出门庭，会错失时机，不顺。",
+     "不加节制，事后只能叹气，这是自己造成的，怨不得别人。",
+     "安然自在地节制，顺其自然，亨通顺利。",
+     "心甘情愿、恰到好处的节制，吉利，前往会受人推崇。",
+     "苦涩过度的节制，坚持下去不顺，适当放宽懊悔才会消失。"
+    ],
+    "zh-TW": [
+     "待在自家院裡不出門，謹慎收斂，沒有過錯。",
+     "該出門時卻仍不邁出門庭，會錯失時機，不順。",
+     "不加節制，事後只能嘆氣，這是自己造成的，怨不得別人。",
+     "安然自在地節制，順其自然，亨通順利。",
+     "心甘情願、恰到好處的節制，吉利，前往會受人推崇。",
+     "苦澀過度的節制，堅持下去不順，適當放寬懊悔才會消失。"
+    ],
+    "en": [
+     "Staying inside the courtyard; holding back cautiously for now is wise and blameless.",
+     "Not stepping out the gate when the time has come goes badly; do not miss the chance.",
+     "Without moderation you end up sighing, and the result is your own doing.",
+     "Moderation that feels natural and easy, never forced, brings smooth success.",
+     "Sweet, willing restraint brings good fortune and earns respect as you go forward.",
+     "Bitter, harsh restraint goes badly if kept up; easing off lets regret fade."
+    ]
+   }
+  },
+  {
+   "kingWen": 61,
+   "name": "中孚",
+   "symbol": "䷼",
+   "lower": "兌",
+   "upper": "巽",
+   "judgment": "豚魚吉，利涉大川，利貞。",
+   "lineTags": [
+    "初九",
+    "九二",
+    "六三",
+    "六四",
+    "九五",
+    "上九"
+   ],
+   "lines": [
+    "虞吉，有它不燕。",
+    "鳴鶴在陰，其子和之，我有好爵，吾與爾靡之。",
+    "得敵，或鼓或罷，或泣或歌。",
+    "月既望，馬匹亡，无咎。",
+    "有孚攣如，无咎。",
+    "翰音登于天，貞凶。"
+   ],
+   "en": "Heartfelt Trust",
+   "reading": {
+    "zh-CN": "泽上有风，风吹水面处处有回应，象征内心的诚信。今天以真诚待人，连最普通的小事也能打动人心，适合合作与共同跨越难关。诚意要发自内心，而不是做给别人看。",
+    "zh-TW": "澤上有風，風吹水面處處有回應，象徵內心的誠信。今天以真誠待人，連最普通的小事也能打動人心，適合合作與共同跨越難關。誠意要發自內心，而不是做給別人看。",
+    "en": "Wind over the lake stirs every ripple: sincerity that reaches others. Today, genuine honesty can move people even in ordinary matters, making it a good time for cooperation and tackling challenges together. Let your sincerity come from within, not as a show for others."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "安守诚信则吉利，若三心二意便不得安宁。",
+     "鹤在树荫里鸣叫，小鹤声声应和；我有好酒，愿与你一同分享。",
+     "遇到对手，时而击鼓时而罢休，时而哭泣时而歌唱，情绪起伏不定。",
+     "月亮将圆，走失了一匹马，学会放下，没有过错。",
+     "以诚信紧紧相连，彼此扶持，没有过错。",
+     "鸡鸣声想直上云天，名声超过实际，固守下去不顺。"
+    ],
+    "zh-TW": [
+     "安守誠信則吉利，若三心二意便不得安寧。",
+     "鶴在樹蔭裡鳴叫，小鶴聲聲應和；我有好酒，願與你一同分享。",
+     "遇到對手，時而擊鼓時而罷休，時而哭泣時而歌唱，情緒起伏不定。",
+     "月亮將圓，走失了一匹馬，學會放下，沒有過錯。",
+     "以誠信緊緊相連，彼此扶持，沒有過錯。",
+     "雞鳴聲想直上雲天，名聲超過實際，固守下去不順。"
+    ],
+    "en": [
+     "Steady, quiet trust brings good fortune; divided loyalties and hidden motives bring unrest.",
+     "A crane calls from the shade and its chick answers; I have fine wine to share with you.",
+     "Facing a rival, you drum then stop, weep then sing; emotions swing wildly.",
+     "The moon is nearly full and one horse wanders off; letting go brings no blame.",
+     "Trust that binds people closely together, supporting one another; no blame.",
+     "A rooster's cry trying to reach heaven; claiming more than you are goes badly."
+    ]
+   }
+  },
+  {
+   "kingWen": 62,
+   "name": "小過",
+   "symbol": "䷽",
+   "lower": "艮",
+   "upper": "震",
+   "judgment": "亨。利貞。可小事，不可大事。飛鳥遺之音，不宜上宜下，大吉。",
+   "lineTags": [
+    "初六",
+    "六二",
+    "九三",
+    "九四",
+    "六五",
+    "上六"
+   ],
+   "lines": [
+    "飛鳥以凶。",
+    "過其祖，遇其妣；不及其君，遇其臣；无咎。",
+    "弗過防之，從或戕之，凶。",
+    "无咎，弗過遇之。往厲必戒，勿用永貞。",
+    "密雲不雨，自我西郊，公弋取彼在穴。",
+    "弗遇過之，飛鳥離之，凶，是謂災眚。"
+   ],
+   "en": "Small Excess",
+   "reading": {
+    "zh-CN": "山上有雷，声音稍稍越过而不太远，象征小有过度。今天适合做小事，不宜大冒险，处理事情宁可谦卑一点、节俭一点。像飞鸟往低处飞更安全一样，别好高骛远。",
+    "zh-TW": "山上有雷，聲音稍稍越過而不太遠，象徵小有過度。今天適合做小事，不宜大冒險，處理事情寧可謙卑一點、節儉一點。像飛鳥往低處飛更安全一樣，別好高騖遠。",
+    "en": "Thunder on the mountain, slightly overstepping but not carrying far: a time of small excesses. Today favors small tasks over big gambles. Lean a little toward humility and frugality. Just as a bird is safer flying low, keep your goals grounded and realistic."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "飞鸟急于高飞，脱离了根基，不会顺利。",
+     "越过祖父遇到祖母，不越过君主而遇到臣子，守住分寸，没有过错。",
+     "不加防范而盲目跟随，可能受到伤害，不顺。",
+     "不过分而恰好相遇，没有过错；前往有危险须警惕，不宜一味固守。",
+     "浓云密布却还不下雨；但近处藏着的目标，仍然可以取得。",
+     "不去相遇反而越过头，飞鸟落入罗网，不顺，这就是灾祸。"
+    ],
+    "zh-TW": [
+     "飛鳥急於高飛，脫離了根基，不會順利。",
+     "越過祖父遇到祖母，不越過君主而遇到臣子，守住分寸，沒有過錯。",
+     "不加防範而盲目跟隨，可能受到傷害，不順。",
+     "不過分而恰好相遇，沒有過錯；前往有危險須警惕，不宜一味固守。",
+     "濃雲密佈卻還不下雨；但近處藏著的目標，仍然可以取得。",
+     "不去相遇反而越過頭，飛鳥落入羅網，不順，這就是災禍。"
+    ],
+    "en": [
+     "A bird flying too high too soon loses its footing and meets trouble.",
+     "Bypassing one elder to meet another, yet never overstepping the leader; proper restraint brings no blame.",
+     "Failing to take precautions and blindly following may lead to harm.",
+     "Meeting it without overdoing is blameless; going ahead is risky, so stay alert and flexible.",
+     "Thick clouds but no rain yet; still, what is hidden close by can be caught.",
+     "Overshooting instead of meeting, the bird is caught in a net; overreach brings misfortune."
+    ]
+   }
+  },
+  {
+   "kingWen": 63,
+   "name": "既濟",
+   "symbol": "䷾",
+   "lower": "離",
+   "upper": "坎",
+   "judgment": "亨小。利貞。初吉終亂。",
+   "lineTags": [
+    "初九",
+    "六二",
+    "九三",
+    "六四",
+    "九五",
+    "上六"
+   ],
+   "lines": [
+    "曳其輪，濡其尾，无咎。",
+    "婦喪其茀，勿逐，七日得。",
+    "高宗伐鬼方，三年克之，小人勿用。",
+    "繻有衣袽，終日戒。",
+    "東鄰殺牛，不如西鄰之禴祭，實受其福。",
+    "濡其首，厲。"
+   ],
+   "en": "Completion",
+   "reading": {
+    "zh-CN": "水在火上，饭已煮成，象征事情已经完成。今天整体状况不错，但正因为一切就绪，更要防止松懈。开局顺利不等于结局圆满，在细节上多留一点心。",
+    "zh-TW": "水在火上，飯已煮成，象徵事情已經完成。今天整體狀況不錯，但正因為一切就緒，更要防止鬆懈。開局順利不等於結局圓滿，在細節上多留一點心。",
+    "en": "Water above fire, the meal is cooked: things are done. Today looks good overall, but precisely because everything seems settled, guard against getting careless. A smooth beginning does not guarantee a happy ending, so keep an eye on the details."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "拖住车轮、弄湿了尾巴，谨慎缓行就没有过错。",
+     "妇人丢了车帘，不必去找，过几天自然会回来。",
+     "高宗征讨鬼方，三年才取胜，不可任用无德之人。",
+     "华美的衣服也会变成破絮，整天都要保持戒备。",
+     "东邻杀牛大祭，不如西邻简朴的祭祀，真诚才真正得到福佑。",
+     "过河时弄湿了头，掉以轻心，有危险。"
+    ],
+    "zh-TW": [
+     "拖住車輪、弄溼了尾巴，謹慎緩行就沒有過錯。",
+     "婦人丟了車簾，不必去找，過幾天自然會回來。",
+     "高宗征討鬼方，三年才取勝，不可任用無德之人。",
+     "華美的衣服也會變成破絮，整天都要保持戒備。",
+     "東鄰殺牛大祭，不如西鄰簡樸的祭祀，真誠才真正得到福佑。",
+     "過河時弄溼了頭，掉以輕心，有危險。"
+    ],
+    "en": [
+     "Braking the wheels and getting the tail wet; slow, careful progress keeps you safe.",
+     "A lost carriage curtain need not be chased; it comes back within days.",
+     "A long campaign takes three years to win; do not rely on unworthy people.",
+     "Fine clothes can turn to rags; stay watchful all day long.",
+     "A modest, sincere offering outshines a lavish one; true blessing follows sincerity.",
+     "Getting your head wet at the end of the crossing; overconfidence now is dangerous."
+    ]
+   }
+  },
+  {
+   "kingWen": 64,
+   "name": "未濟",
+   "symbol": "䷿",
+   "lower": "坎",
+   "upper": "離",
+   "judgment": "亨。小狐汔濟，濡其尾，无攸利。",
+   "lineTags": [
+    "初六",
+    "九二",
+    "六三",
+    "九四",
+    "六五",
+    "上九"
+   ],
+   "lines": [
+    "濡其尾，吝。",
+    "曳其輪，貞吉。",
+    "未濟，征凶，利涉大川。",
+    "貞吉，悔亡，震用伐鬼方，三年有賞于大國。",
+    "貞吉，无悔，君子之光，有孚，吉。",
+    "有孚于飲酒，无咎，濡其首，有孚失是。"
+   ],
+   "en": "Not Yet Complete",
+   "reading": {
+    "zh-CN": "火在水上，水火未交，象征事情尚未完成。今天就像小狐狸过河，快到对岸时最容易出差错，切勿急躁。耐心谨慎地收尾，一切仍有希望，未完成也意味着还有可能。",
+    "zh-TW": "火在水上，水火未交，象徵事情尚未完成。今天就像小狐狸過河，快到對岸時最容易出差錯，切勿急躁。耐心謹慎地收尾，一切仍有希望，未完成也意味著還有可能。",
+    "en": "Fire above water, not yet meeting: the work is unfinished. Today is like a young fox crossing a river, most likely to slip just before reaching the far bank. Do not rush. Finish patiently and carefully—being incomplete also means there is still room for possibility."
+   },
+   "lineReadings": {
+    "zh-CN": [
+     "过早地弄湿了尾巴，有些难堪，太过冒进了。",
+     "拖住车轮，稳住节奏，守正就吉利。",
+     "尚未渡过，贸然出征不顺，但准备充分后适合渡过大河。",
+     "守正吉利，懊悔消失；奋力征讨鬼方，三年后得到大国的奖赏。",
+     "守正吉利，没有懊悔；君子的光辉显现，心怀诚信，吉利。",
+     "怀着信任饮酒庆祝，没有过错；若喝到湿了头，便失了分寸。"
+    ],
+    "zh-TW": [
+     "過早地弄溼了尾巴，有些難堪，太過冒進了。",
+     "拖住車輪，穩住節奏，守正就吉利。",
+     "尚未渡過，貿然出征不順，但準備充分後適合渡過大河。",
+     "守正吉利，懊悔消失；奮力征討鬼方，三年後得到大國的獎賞。",
+     "守正吉利，沒有懊悔；君子的光輝顯現，心懷誠信，吉利。",
+     "懷著信任飲酒慶祝，沒有過錯；若喝到溼了頭，便失了分寸。"
+    ],
+    "en": [
+     "Getting your tail wet too early; a small embarrassment from rushing ahead.",
+     "Braking the wheels and steadying your pace; patience and integrity bring fortune.",
+     "Not yet across; rash campaigns go badly, but a well-prepared crossing of the great river can work.",
+     "Steadiness clears regret; vigorous effort over three years earns a great reward.",
+     "Upright with no regret; the light of a noble character shines, and trust brings fortune.",
+     "Celebrate with trust over wine, but drinking until your head is soaked means losing your way."
+    ]
+   }
+  }
+ ]
+}

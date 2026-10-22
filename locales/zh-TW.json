@@ -321,6 +321,17 @@
       "下下": "Very poor"
     }
   },
+  "gua": {
+    "title": "每日一卦",
+    "castAt": "起卦時辰：{{hour}}",
+    "hourRange": "{{from}}–{{to}} 點",
+    "note": "以你今天第一次起卦的時辰為準，一天一卦",
+    "main": "本卦",
+    "movingLine": "動爻：第 {{n}} 爻",
+    "changed": "變卦",
+    "extraNote": "六爻全動時才用{{tag}}，這裡附上原文",
+    "source": "卦辭、爻辭出自《{{title}}》，錄自維基文庫，保持原文。白話為奧半仙自撰。"
+  },
   "rulesText": {
     "tiers": {
       "best": "大吉",

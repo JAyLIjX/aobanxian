@@ -5,6 +5,7 @@ import "./fonts.css";
 import "./App.css";
 import { AboutApp } from "./windows/AboutApp";
 import { AnniversariesApp } from "./windows/AnniversariesApp";
+import { GuaApp } from "./windows/GuaApp";
 import { LotsApp } from "./windows/LotsApp";
 import { MainApp } from "./windows/MainApp";
 import { PreviewApp } from "./windows/PreviewApp";
@@ -20,6 +21,7 @@ const VIEWS: Record<string, () => React.JSX.Element> = {
   zeri: ZeriApp,
   anniversaries: AnniversariesApp,
   lots: LotsApp,
+  gua: GuaApp,
 };
 const App = (view && VIEWS[view]) || (view === "preview" && import.meta.env.DEV ? PreviewApp : MainApp);
 

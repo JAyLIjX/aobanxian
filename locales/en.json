@@ -365,5 +365,16 @@
       "下": "Poor",
       "下下": "Very poor"
     }
+  },
+  "gua": {
+    "title": "Daily Hexagram",
+    "castAt": "Cast at the hour of {{hour}}",
+    "hourRange": "{{from}}:00–{{to}}:00",
+    "note": "Based on the hour you first cast today — one hexagram per day",
+    "main": "Hexagram",
+    "movingLine": "Moving line: line {{n}}",
+    "changed": "Changed hexagram",
+    "extraNote": "{{tag}} applies only when all six lines move; included for reference",
+    "source": "Judgments and line texts from the “{{title}}” (Book of Changes), via Chinese Wikisource, in the original text. The English readings are our own."
   }
 }
