@@ -1,0 +1,11 @@
+{
+  "$comment": "角色说明。key.png 是色键版（换色区域：洋红 = 大面积主色，青色 = 小面积配色），ref.png 是原配色参考。写字的地方是木牌，writing 是排法：vertical（竖排）或 horizontal（横排）。 writingSide：木牌紧贴着耳朵，写字面那几行里左右只算 3 格边框，耳朵算人。",
+  "id": "heshang",
+  "name": {
+    "zh-CN": "小和尚",
+    "zh-TW": "小和尚",
+    "en": "Little Monk"
+  },
+  "writing": "vertical",
+  "writingSide": 3
+}

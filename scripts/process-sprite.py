@@ -34,8 +34,10 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 CHAR_DIR = ROOT / "assets/character"
 SPRITE_DIR = ROOT / "src/assets/sprite"
-# 横排书写物：从米白区域向外最多扩几格算边框
+# 横排书写物：从米白区域向外最多扩几格算边框（character.json 的 writingFrame 可以按角色改）
 H_FRAME = 3
+# 竖排书写物：character.json 的 writingSide 是写字面那几行里、写字面左右各最多算几格边框
+# （再往外是紧贴着的耳朵、脑袋）；不写就不限制（道士的幡边框宽，不能限制）
 
 REGIONS = {1: "robe", 2: "sash"}
 SHADES = ("dark", "mid", "light")
@@ -60,6 +62,24 @@ def estimate_period(profile, lo=6.0, hi=16.0):
     k = np.arange(len(e))
     best = max(np.arange(lo, hi, 0.02), key=lambda s: abs((e * np.exp(-2j * np.pi * k / s)).sum()))
     return float(best)
+
+
+# AI 画的像素格本来是正方形、约 10.5 原图像素；两个方向各自估出来的周期差太多时不可信
+PERIOD_AGREE = 0.06
+PERIOD_RANGE = (9.8, 11.5)
+
+
+def joint_period(colp, rowp, lo=PERIOD_RANGE[0], hi=PERIOD_RANGE[1]):
+    """两个方向的频谱各自归一化后相加，在合理范围内取峰值，横竖用同一个周期（格子保持正方形）"""
+    ss = np.arange(lo, hi, 0.02)
+
+    def spectrum(profile):
+        e = profile - profile.mean()
+        k = np.arange(len(e))
+        pw = np.array([abs((e * np.exp(-2j * np.pi * k / s)).sum()) for s in ss])
+        return pw / pw.max()
+
+    return float(ss[int(np.argmax(spectrum(colp) + spectrum(rowp)))])
 
 
 def find_lines(profile, start, end, period):
@@ -258,6 +278,10 @@ def process(cid):
 
     colp, rowp = edge_profiles(rgb, opaque)
     px, py = estimate_period(colp), estimate_period(rowp)
+    if abs(px - py) / min(px, py) > PERIOD_AGREE:
+        # 例：小和尚横向估成 12.9、纵向 10.5，人会被压窄；改用两个方向共同的周期
+        print(f"两个方向的格子周期差太多（x≈{px:.2f} y≈{py:.2f}），改用共同周期")
+        px = py = joint_period(colp, rowp)
     xs = find_lines(colp, max(0, bx0 - 2), min(img.shape[1], bx1 + 2), px)
     ys = find_lines(rowp, max(0, by0 - 2), min(img.shape[0], by1 + 2), py)
     print(f"格子周期 x≈{px:.2f}px y≈{py:.2f}px，网格 {len(xs) - 1}×{len(ys) - 1}")
@@ -379,9 +403,9 @@ def process(cid):
     print(f"幡面空白 x={fx} y={fy} {fw}×{fh} 格")
 
     if writing == "horizontal":
-        mask = horizontal_mask(paper, cell_a, cell_rgb, region, face, H, W)
+        mask = horizontal_mask(paper, cell_a, cell_rgb, region, face, H, W, meta.get("writingFrame", H_FRAME), meta.get("writingShape"))
     else:
-        mask = vertical_mask(cell_a, cell_rgb, region, face, H, W)
+        mask = vertical_mask(cell_a, cell_rgb, region, face, H, W, meta.get("writingSide"))
     ys_m, xs_m = np.nonzero(mask)
     bx0, bx1, by0, by1 = xs_m.min(), xs_m.max(), ys_m.min(), ys_m.max()
     banner = {"x": int(bx0), "y": int(by0), "w": int(bx1 - bx0 + 1), "h": int(by1 - by0 + 1)}
@@ -414,27 +438,37 @@ def process(cid):
     write_previews(data, ROOT / "preview/character" / cid)
 
 
-def horizontal_mask(paper, cell_a, cell_rgb, region, face, H, W):
-    """横排书写物（扇面、告示）：从米白区域出发连通填充，最多向外扩 H_FRAME 格（边框、扇骨、木框）"""
+def horizontal_mask(paper, cell_a, cell_rgb, region, face, H, W, frame=H_FRAME, shape=None):
+    """横排书写物（扇面、告示）：从米白区域出发连通填充，最多向外扩 frame 格（边框、扇骨、卷轴两头的木轴和金头）"""
     fx, fy, fw, fh = face
     comp = np.zeros((H, W), dtype=bool)
     for yy, xx in largest_component(paper):
         comp[yy, xx] = True
     ys, xs = np.nonzero(comp)
-    y0, y1 = max(0, ys.min() - H_FRAME), min(H - 1, ys.max() + H_FRAME)
-    x0, x1 = max(0, xs.min() - H_FRAME), min(W - 1, xs.max() + H_FRAME)
+    y0, y1 = max(0, ys.min() - frame), min(H - 1, ys.max() + frame)
+    x0, x1 = max(0, xs.min() - frame), min(W - 1, xs.max() + frame)
+    py0, py1, px0, px1 = ys.min(), ys.max(), xs.min(), xs.max()
+
+    def inside(yy, xx):
+        if not (y0 <= yy <= y1 and x0 <= xx <= x1):
+            return False
+        # 卷轴（告示）：只有两头的木轴、金头伸出纸面上下，中间只有一两格边框（再往外是衣领、胡子）
+        if shape == "scroll" and not (py0 - 2 <= yy <= py1 + 2):
+            return xx <= px0 + frame or xx >= px1 - frame
+        return True
+
     mask = comp.copy()
     stack = list(zip(*np.nonzero(comp)))
     while stack:
         yy, xx = stack.pop()
         for ny, nx in ((yy - 1, xx), (yy + 1, xx), (yy, xx - 1), (yy, xx + 1)):
-            if y0 <= ny <= y1 and x0 <= nx <= x1 and not mask[ny, nx] and cell_a[ny, nx] and not region[ny, nx] and not is_skin(cell_rgb[ny, nx]):
+            if inside(ny, nx) and not mask[ny, nx] and cell_a[ny, nx] and not region[ny, nx] and not is_skin(cell_rgb[ny, nx]):
                 mask[ny, nx] = True
                 stack.append((ny, nx))
     return mask
 
 
-def vertical_mask(cell_a, cell_rgb, region, face, H, W):
+def vertical_mask(cell_a, cell_rgb, region, face, H, W, side=None):
     """竖幡：上下木轴、红框、米白幡面、旗杆上半段"""
     fx, fy, fw, fh = face
     # 整面幡：上下木轴、红框、米白幡面、旗杆上半段。
@@ -475,7 +509,13 @@ def vertical_mask(cell_a, cell_rgb, region, face, H, W):
         pole_end = yy
     # 3) 从幡面出发做连通填充（不走换色区，限定在手以上、幡的左右范围内），得到幡的形状。
     #    顶上的金色宝珠颜色接近皮肤，所以这里不按皮肤色拦
-    inside = lambda yy, xx: top <= yy <= pole_end and left <= xx <= right
+    # 写字面那几行只算写字面和两边的边框：小和尚的耳朵紧贴木牌，不能算进木牌
+    def inside(yy, xx):
+        if not (top <= yy <= pole_end and left <= xx <= right):
+            return False
+        if side is not None and fy <= yy < fy + fh:
+            return fx - side <= xx < fx + fw + side
+        return True
     mask = np.zeros((H, W), dtype=bool)
     stack = [(fy + fh // 2, cx)]
     mask[fy + fh // 2, cx] = True

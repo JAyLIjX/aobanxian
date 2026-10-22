@@ -105,7 +105,7 @@ JSON 结构：`id`、`writing`（`vertical` 竖排 / `horizontal` 横排）、`b
 
 ## 角色
 
-角色 = 一张色键图 + 一个说明文件，代码里不写死。`src/sprite/characters.ts` 用 `import.meta.glob` 自动收集 `assets/character/*/character.json` 和 `src/assets/sprite/*.json`，两者 id 对上的就出现在设置「外观 → 角色」里（道士永远排第一，是默认角色）。字段名沿用道士：「幡」= 印字的书写物，「道袍 / 腰带」= 大面积 / 小面积两个换色区。
+角色 = 一张色键图 + 一个说明文件，代码里不写死。现有四个：道士（daoshi，竖幡）、书生（shusheng，扇面横排）、青天大老爷（guanyuan，告示横排）、小和尚（heshang，木牌竖排）。`src/sprite/characters.ts` 用 `import.meta.glob` 自动收集 `assets/character/*/character.json` 和 `src/assets/sprite/*.json`，两者 id 对上的就出现在设置「外观 → 角色」里（道士永远排第一，是默认角色）。字段名沿用道士：「幡」= 印字的书写物，「道袍 / 腰带」= 大面积 / 小面积两个换色区。
 
 每个角色包含：
 - **id**：文件夹名，也是 `settings.character` 的值。
@@ -122,9 +122,13 @@ JSON 结构：`id`、`writing`（`vertical` 竖排 / `horizontal` 横排）、`b
    { "id": "shusheng", "name": { "zh-CN": "书生", "zh-TW": "書生", "en": "Scholar" }, "writing": "horizontal" }
    ```
 3. 运行 `.venv-tools/bin/python scripts/process-sprite.py shusheng`，生成 `src/assets/sprite/shusheng.json` 和 `preview/character/shusheng/`。看预览图：换色区是否干净、`sprite-regions.png` 里书写区找得对不对。
-4. 不用改代码，`npm run tauri dev` 后在设置「外观 → 角色」里就能选。
-5. 竖幡的范围按「木轴 + 握杆的手」找（道士专用的规则）；横排书写物从米白区域向外最多扩 `H_FRAME`（3）格算边框。新角色的书写物形状特别时，在脚本里给它加一个找范围的函数（参照 `vertical_mask` / `horizontal_mask`）。
-6. 计划中的角色：书生（横排扇面）、青天大老爷（横排告示）。横排的排版和点击逻辑已经写好并有测试，但还没有真实素材验证过。
+4. 不用改代码，`npm run tauri dev` 后在设置「外观 → 角色」里就能选。**跑测试前先删 `node_modules/.vitest-cache`**：`import.meta.glob` 在编译时展开，vitest 的缓存不会因为多了角色文件而失效，测试会看不到新角色。
+5. 书写物的范围：竖排按「木轴 + 握杆的手」找；横排从米白区域向外扩几格算边框。`character.json` 里可以按角色微调：
+   - `writingFrame`（横排）：向外扩几格，默认 3。书生的扇面 2（再往外是衣服轮廓线），青天大老爷的告示 6（两头木轴、金头伸出较多）。
+   - `writingShape: "scroll"`（横排）：卷轴形状，只有两头能伸出纸面上下，中间上下只算两格（再往外是衣领、胡子）。青天大老爷用。
+   - `writingSide`（竖排）：写字面那几行里，左右各最多算几格边框。小和尚 3（木牌紧贴耳朵）；道士不设（幡的边框宽）。
+6. 格子周期：AI 画的像素格本来是正方形、约 10.5 原图像素。脚本先分别估横竖周期，两者相差超过 6% 时（书生、青天大老爷、小和尚都是）改用两个方向共同的周期（`joint_period`，限定在 9.8–11.5），否则人会被压扁或拉长。
+7. 用 `scripts/process-sprite.py` 处理完，看 `preview/character/<id>/sprite-regions.png` 和 `outfits.png`；`tests/characterSprites.test.ts` 检查每个角色没有色键残留、两层叠加等于完整角色、高度和道士相差 10% 以内、写字面排得下「奥半仙」。
 
 
 ## 渲染

@@ -1,0 +1,11 @@
+{
+  "$comment": "角色说明。key.png 是色键版（换色区域：洋红 = 大面积主色，青色 = 小面积配色），ref.png 是原配色参考。写字的地方是扇面，writing 是排法：vertical（竖排）或 horizontal（横排）。 writingFrame：扇面外只多算 2 格（扇骨、扇边），再往外是衣服的轮廓线。",
+  "id": "shusheng",
+  "name": {
+    "zh-CN": "书生",
+    "zh-TW": "書生",
+    "en": "Scholar"
+  },
+  "writing": "horizontal",
+  "writingFrame": 2
+}
