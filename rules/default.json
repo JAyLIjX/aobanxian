@@ -15,7 +15,7 @@
     "火": { "name": "红色系", "char": "红" },
     "土": { "name": "黄色系", "char": "黄" },
     "金": { "name": "白色系", "char": "白" },
-    "水": { "name": "黑蓝色系", "char": "蓝" }
+    "水": { "name": "黑蓝色系", "char": "黑" }
   },
   "palettes": {
     "木": [
@@ -78,7 +78,7 @@
       { "level": "亮", "traditional": "群青", "hex": "#4C8DAE" }
     ]
   },
-  "explanation": "今日{label}：{wang}为同气，{wang}生{xiang}，{wangChar}、{xiangChar}皆为大吉",
+  "explanation": "今日{label}：{wang}生{xiang}，{wang}为同气，{xiangChar}、{wangChar}皆为大吉",
   "xiuLuckLabels": {
     "吉": "吉",
     "凶": "宜谨慎"

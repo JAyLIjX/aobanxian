@@ -52,10 +52,10 @@ describe("旺相休囚死分档", () => {
     });
   }
 
-  it("木日：红、绿皆为大吉，解释句同时说两个（同气在前，所生在后）", () => {
+  it("木日：红、绿皆为大吉，解释句同时说两个（相在前，旺在后）", () => {
     const outfit = buildOutfit(PILLAR_OF.木, nayinRules);
     expect(outfit.tiers[0].entries.map((e) => defaultRules.colorFamilies[e.element].name)).toEqual(["红色系", "绿色系"]);
-    expect(outfit.explanation).toBe("今日松柏木：木为同气，木生火，绿、红皆为大吉");
+    expect(outfit.explanation).toBe("今日松柏木：木生火，木为同气，红、绿皆为大吉");
   });
 
   it("每档带上完整色系", () => {
@@ -84,7 +84,7 @@ describe("elementSource 三种取法", () => {
     expect(stem.day.element).toBe("金");
     expect(stem.primary.element).toBe("水");
     expect(stem.accent.element).toBe("金");
-    expect(stem.explanation).toBe("今日庚金：金为同气，金生水，白、蓝皆为大吉");
+    expect(stem.explanation).toBe("今日庚金：金生水，金为同气，黑、白皆为大吉");
   });
 });
 

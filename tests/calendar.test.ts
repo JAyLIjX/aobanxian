@@ -75,23 +75,24 @@ describe("已知日期的锚点", () => {
     expect(info.cell).toEqual({ text: "闰六月", kind: "month" });
   });
 
-  it("纳音取法：2026-10-21 戊辰日，大林木：绿、红皆为大吉", () => {
+  it("纳音取法：2026-10-21 戊辰日，大林木：红、绿皆为大吉", () => {
     const detail = getDayDetail({ year: 2026, month: 10, day: 21 }, withRules({ elementSource: "nayin" }));
     expect(detail.ganzhi).toEqual({ year: "丙午", month: "戊戌", day: "戊辰" });
     expect(detail.lunar.text).toBe("农历九月十二");
     expect(detail.outfit.primary.name).toBe("红");
     expect(detail.outfit.accent.name).toBe("绿");
-    expect(detail.outfit.explanation).toBe("今日大林木：木为同气，木生火，绿、红皆为大吉");
+    expect(detail.outfit.explanation).toBe("今日大林木：木生火，木为同气，红、绿皆为大吉");
   });
 });
 
 describe("日支取法（默认）下的大吉色回归", () => {
+  // 顺序统一为「相在前、旺在后」：被日所生的颜色在前，同气的在后
   const CASES: [string, string, string, [string, string]][] = [
-    ["2026-10-22", "己巳", "巳火", ["红", "黄"]],
-    ["2026-10-23", "庚午", "午火", ["红", "黄"]],
-    ["2026-10-24", "辛未", "未土", ["黄", "白"]],
-    ["2026-10-25", "壬申", "申金", ["白", "蓝"]],
-    ["2026-10-26", "癸酉", "酉金", ["白", "蓝"]],
+    ["2026-10-22", "己巳", "巳火", ["黄", "红"]],
+    ["2026-10-23", "庚午", "午火", ["黄", "红"]],
+    ["2026-10-24", "辛未", "未土", ["白", "黄"]],
+    ["2026-10-25", "壬申", "申金", ["黑", "白"]],
+    ["2026-10-26", "癸酉", "酉金", ["黑", "白"]],
   ];
   for (const [date, gz, label, colors] of CASES) {
     it(`${date} ${gz} → ${label}，${colors.join("、")}`, () => {
@@ -99,15 +100,22 @@ describe("日支取法（默认）下的大吉色回归", () => {
       const d = getDayDetail({ year, month, day }, defaultRules);
       expect(d.ganzhi.day).toBe(gz);
       expect(d.outfit.day.label).toBe(label);
-      // 大吉两个色系（同气、所生），黑蓝色系的幡上单字是「蓝」
-      const lucky = [d.outfit.phases.wang, d.outfit.phases.xiang].map((e) => defaultRules.colorFamilies[e].char);
+      // 卡片、详情的大吉两档：相在前、旺在后
+      const lucky = d.outfit.tiers[0].entries.map((e) => defaultRules.colorFamilies[e.element].char);
       expect(lucky).toEqual(colors);
-      expect(d.outfit.tiers[0].entries.map((e) => e.element).sort()).toEqual([d.outfit.phases.wang, d.outfit.phases.xiang].sort());
+      expect(d.outfit.tiers[0].entries.map((e) => e.phase)).toEqual(["xiang", "wang"]);
+      // 解释句里两个颜色的顺序一致
+      expect(d.outfit.explanation).toContain(`${colors[0]}、${colors[1]}皆为大吉`);
     });
   }
 
-  it("解释句：今日巳火：火为同气，火生土，红、黄皆为大吉", () => {
-    expect(getDayDetail({ year: 2026, month: 10, day: 22 }, defaultRules).outfit.explanation).toBe("今日巳火：火为同气，火生土，红、黄皆为大吉");
+  it("解释句：今日巳火：火生土，火为同气，黄、红皆为大吉", () => {
+    expect(getDayDetail({ year: 2026, month: 10, day: 22 }, defaultRules).outfit.explanation).toBe("今日巳火：火生土，火为同气，黄、红皆为大吉");
+  });
+
+  it("水的单字是「黑」，色系名仍是黑蓝色系，像素色阶仍是藏青系", () => {
+    expect(defaultRules.colorFamilies.水).toEqual({ name: "黑蓝色系", char: "黑" });
+    expect(defaultRules.pixelRamps.水.map((l) => l.traditional)).toEqual(["玄青", "藏青", "群青"]);
   });
 });
 

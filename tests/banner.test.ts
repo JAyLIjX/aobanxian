@@ -25,7 +25,7 @@ describe("幡面换字循环", () => {
     expect(items.map((i) => i.kind)).toEqual(["brand", "yi", "ji", "colors", "zodiac"]);
   });
 
-  it("两个大吉色平等，相的颜色在前；不出现「穿」「配」", () => {
+  it("两个大吉色平等，相的颜色在前（和卡片、详情、解释句同一顺序）；不出现「穿」「配」", () => {
     const items = buildBannerItems({ ...base, luckyColors: ["白", "黄"] }, branding);
     expect(items[3].text).toBe("宜白宜黄");
     for (const item of items) expect(item.text).not.toMatch(/穿|配/);

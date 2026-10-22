@@ -199,7 +199,7 @@
       "caution": "Careful",
       "avoid": "Avoid"
     },
-    "explanation": "Today is {{label}}: {{wang}} shares the day's energy and gives birth to {{xiang}}, so the {{wangFamily}} and {{xiangFamily}} are both lucky",
+    "explanation": "Today is {{label}}: {{wang}} gives birth to {{xiang}} and shares the day's energy, so the {{xiangFamily}} and {{wangFamily}} are both lucky",
     "xiuLuck": {
       "吉": "Favourable",
       "凶": "Take care"

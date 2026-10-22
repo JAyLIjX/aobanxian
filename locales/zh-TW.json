@@ -199,7 +199,7 @@
       "caution": "慎穿",
       "avoid": "不宜"
     },
-    "explanation": "今日{{label}}：{{wang}}為同氣，{{wang}}生{{xiang}}，{{wangChar}}、{{xiangChar}}皆為大吉",
+    "explanation": "今日{{label}}：{{wang}}生{{xiang}}，{{wang}}為同氣，{{xiangChar}}、{{wangChar}}皆為大吉",
     "xiuLuck": {
       "吉": "吉",
       "凶": "宜謹慎"
