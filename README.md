@@ -3,7 +3,7 @@
 一个住在桌面上的像素道士。他每天按五行换一身吉色道袍，举着的幡上会写今天宜什么、忌什么；点一下他，幡就展开成一幅挂轴日历。支持 macOS 和 Windows。
 
 <p>
-  <img src="preview/outfits.png" alt="木火土金水五种日子的道士配色" width="720">
+  <img src="preview/character/daoshi/outfits.png" alt="木火土金水五种日子的道士配色" width="720">
 </p>
 <p>
   <img src="preview/banner-size.png" alt="幡上文字两版字体：像素字与像素化行书" width="720">

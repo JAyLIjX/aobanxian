@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent, type PointerEvent } from "react";
 import { startWindowDrag } from "../platform/window";
 import { dissolve, ensureBannerFonts, planBannerText, renderBannerText, type BannerFont, type BannerMask } from "./bannerText";
-import { hitTest, renderSprite, sprite, type HitPart, type Outfit } from "./sprite";
+import { hitTest, renderSprite, type HitPart, type Outfit, type SpriteData } from "./sprite";
 
 /** 幡上字的颜色：深墨 */
 const INK = "#2A2420";
@@ -11,6 +11,8 @@ const DISSOLVE_MS = 200;
 const DRAG_THRESHOLD = 4;
 
 interface Props {
+  /** 角色精灵数据（characters.ts） */
+  data: SpriteData;
   outfit: Outfit;
   /** 每格多少 CSS 像素（小 1 / 中 2 / 大 3） */
   scale: number;
@@ -51,9 +53,9 @@ function drawCells(canvas: HTMLCanvasElement, rgba: Uint8ClampedArray, w: number
   ctx.drawImage(off, 0, 0, w * unit, h * unit);
 }
 
-/** 像素道士：canvas 绘制，整数倍放大，image-rendering: pixelated */
+/** 像素角色（默认道士）：canvas 绘制，整数倍放大，image-rendering: pixelated */
 export function Daoshi(props: Props) {
-  const { outfit, scale, bannerText, bannerFont, hideBanner, breathing, jumpSignal, swaySignal } = props;
+  const { data: sprite, outfit, scale, bannerText, bannerFont, hideBanner, breathing, jumpSignal, swaySignal } = props;
   const dpr = useDevicePixelRatio();
   // 每格的设备像素必须是整数，像素才锐利
   const unit = Math.max(1, Math.round(scale * dpr));
@@ -65,7 +67,7 @@ export function Daoshi(props: Props) {
   const b = sprite.banner;
   const face = sprite.bannerFace;
 
-  const body = useMemo(() => renderSprite(sprite, outfit, { hideBanner: true }), [outfit]);
+  const body = useMemo(() => renderSprite(sprite, outfit, { hideBanner: true }), [sprite, outfit]);
   const bannerPixels = useMemo(() => {
     const only = renderSprite(sprite, outfit, { onlyBanner: true });
     const out = new Uint8ClampedArray(b.w * b.h * 4);
@@ -74,7 +76,7 @@ export function Daoshi(props: Props) {
       out.set(only.subarray(src, src + b.w * 4), y * b.w * 4);
     }
     return out;
-  }, [outfit, b]);
+  }, [sprite, outfit, b]);
 
   useEffect(() => {
     if (bodyRef.current) drawCells(bodyRef.current, body, sprite.width, sprite.height, unit);
@@ -114,7 +116,7 @@ export function Daoshi(props: Props) {
 
     void ensureBannerFonts(bannerText, bannerFont).then(() => {
       if (cancelled) return;
-      const plan = planBannerText([...bannerText].length, bannerFont, face, unit);
+      const plan = planBannerText([...bannerText].length, bannerFont, face, unit, sprite.writing);
       const next = renderBannerText(bannerText, plan);
       const prev = shown.current;
       if (!prev || prev.style !== style || prev.text === bannerText) {

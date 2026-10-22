@@ -8,10 +8,12 @@
  *   像素化行书（B 版）：志莽行书画到「半格」网格（每格设备像素为奇数时用整格）后按透明度二值化。
  *                  行书字形四周留白很大，按字号算会显得很小，所以按**墨迹**的实际大小排：
  *                  最宽的字的墨迹占幡面宽度约 76%，整列字放得下。
+ * 横排的书写区域（扇面、告示）同样排法，只是「宽度」换成高度、字从左往右排，字形不转。
  */
 import type { Rect } from "./sprite";
 
 export type BannerFont = "pixel" | "brush";
+export type Writing = "vertical" | "horizontal";
 
 /** 字宽最多占幡面宽度的比例 */
 const WIDTH_MAX = 0.8;
@@ -40,13 +42,20 @@ export interface BannerPlan {
   gap: number;
   family: string;
   threshold: number;
+  /** 横排：字从左往右排 */
+  horizontal?: boolean;
 }
 
 /** 幡面上的点阵，faceW × faceH 设备像素，1 表示印墨 */
 export type BannerMask = Uint8Array;
 
 /** 按字数、字体、幡面和每格设备像素选字号 */
-export function planBannerText(count: number, font: BannerFont, face: Rect, unit: number): BannerPlan {
+export function planBannerText(count: number, font: BannerFont, face: Rect, unit: number, writing: Writing = "vertical"): BannerPlan {
+  if (writing === "horizontal") {
+    // 横排 = 把书写区域转 90° 按竖排算字号，排的时候再按横向放
+    const plan = planBannerText(count, font, { ...face, w: face.h, h: face.w }, unit);
+    return { ...plan, faceW: face.w * unit, faceH: face.h * unit, horizontal: true };
+  }
   const faceW = face.w * unit;
   const faceH = face.h * unit;
   const n = Math.max(1, count);
@@ -167,30 +176,36 @@ function blit(out: Uint8Array, faceW: number, faceH: number, g: Glyph, left: num
 
 /** 行书：按墨迹排版 */
 function renderBrush(chars: string[], plan: BannerPlan, out: BannerMask) {
-  const { faceW, faceH, dot, family, threshold } = plan;
-  const W = Math.floor(faceW / dot);
-  const H = Math.floor((faceH * (1 - V_MARGIN * 2)) / dot);
+  const { faceW, faceH, dot, family, threshold, horizontal } = plan;
+  // across：和排字方向垂直的一边；along：排字方向
+  const acrossPx = horizontal ? faceH : faceW;
+  const alongPx = horizontal ? faceW : faceH;
+  const A = Math.floor(acrossPx / dot);
+  const L = Math.floor((alongPx * (1 - V_MARGIN * 2)) / dot);
   const REF = 96;
   const ref = chars.map((ch) => cropInk(rasterizeChar(ch, family, REF, threshold), REF));
-  const maxW = Math.max(1, ...ref.map((g) => g.w));
-  const sumH = ref.reduce((a, g) => a + g.h, 0) || 1;
+  const across = (g: Glyph) => (horizontal ? g.h : g.w);
+  const along = (g: Glyph) => (horizontal ? g.w : g.h);
+  const maxA = Math.max(1, ...ref.map(across));
+  const sumL = ref.reduce((a, g) => a + along(g), 0) || 1;
   const gapRef = REF * GAP_RATIO_BRUSH * 1.5;
-  const k = Math.min((W * 0.76) / maxW, H / (sumH + gapRef * (chars.length - 1)));
+  const k = Math.min((A * 0.76) / maxA, L / (sumL + gapRef * (chars.length - 1)));
   const size = Math.max(6, Math.floor(REF * k));
   const glyphs = chars.map((ch) => cropInk(rasterizeChar(ch, family, size, threshold), size));
   const gap = Math.max(1, Math.round(gapRef * k));
-  const total = glyphs.reduce((a, g) => a + g.h, 0) + gap * (glyphs.length - 1);
-  let top = Math.round((faceH / dot - total) / 2) * dot;
+  const total = glyphs.reduce((a, g) => a + along(g), 0) + gap * (glyphs.length - 1);
+  let pos = Math.round((alongPx / dot - total) / 2) * dot;
   for (const g of glyphs) {
-    const left = Math.round((W - g.w) / 2) * dot;
-    blit(out, faceW, faceH, g, left, top, dot);
-    top += (g.h + gap) * dot;
+    const off = Math.round((A - across(g)) / 2) * dot;
+    if (horizontal) blit(out, faceW, faceH, g, pos, off, dot);
+    else blit(out, faceW, faceH, g, off, pos, dot);
+    pos += (along(g) + gap) * dot;
   }
 }
 
-/** 竖排、居中，画成幡面大小的设备像素点阵 */
+/** 竖排（或横排）、居中，画成书写区域大小的设备像素点阵 */
 export function renderBannerText(text: string, plan: BannerPlan): BannerMask {
-  const { faceW, faceH, dot, size, gap } = plan;
+  const { faceW, faceH, dot, size, gap, horizontal } = plan;
   const out = new Uint8Array(faceW * faceH);
   const chars = [...text].slice(0, 4);
   if (chars.length === 0) return out;
@@ -198,28 +213,19 @@ export function renderBannerText(text: string, plan: BannerPlan): BannerMask {
     renderBrush(chars, plan, out);
     return out;
   }
+  const acrossPx = horizontal ? faceH : faceW;
+  const alongPx = horizontal ? faceW : faceH;
   const glyph = size * dot;
   const total = (chars.length * size + (chars.length - 1) * gap) * dot;
   // 起点对齐到点的整数倍，点阵边界和像素网格对齐
-  const x0 = Math.round((faceW - glyph) / 2 / dot) * dot;
-  const y0 = Math.round((faceH - total) / 2 / dot) * dot;
+  const a0 = Math.round((acrossPx - glyph) / 2 / dot) * dot;
+  const l0 = Math.round((alongPx - total) / 2 / dot) * dot;
   chars.forEach((ch, i) => {
     const bits = rasterizeChar(ch, plan.family, size, plan.threshold);
-    const top = y0 + i * (size + gap) * dot;
-    for (let y = 0; y < size; y++) {
-      for (let x = 0; x < size; x++) {
-        if (!bits[y * size + x]) continue;
-        for (let dy = 0; dy < dot; dy++) {
-          const py = top + y * dot + dy;
-          if (py < 0 || py >= faceH) continue;
-          const row = py * faceW;
-          for (let dx = 0; dx < dot; dx++) {
-            const px = x0 + x * dot + dx;
-            if (px >= 0 && px < faceW) out[row + px] = 1;
-          }
-        }
-      }
-    }
+    const start = l0 + i * (size + gap) * dot;
+    const left = horizontal ? start : a0;
+    const top = horizontal ? a0 : start;
+    blit(out, faceW, faceH, { w: size, h: size, bits }, left, top, dot);
   });
   return out;
 }

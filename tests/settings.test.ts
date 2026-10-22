@@ -41,6 +41,7 @@ describe("设置", () => {
       expandOnLaunch: true,
       collapseOnBlur: false,
       myZodiac: "申",
+      character: "daoshi",
       displayFont: "B",
       bannerFont: "brush",
       bannerText: "宜静",

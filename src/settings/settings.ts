@@ -5,6 +5,7 @@ import branding from "../../config/branding.json";
 import defaultsJson from "../../config/settings.default.json";
 import { defaultRules, type DayBoundary, type ElementSource, type Rules, type TopPriority } from "../core/rules";
 import { MAX_BANNER_CHARS, clampBannerText } from "../core/banner";
+import { CHARACTER_IDS } from "../sprite/characters";
 
 export type Language = "system" | "zh-CN" | "zh-TW" | "en";
 export type FigureSize = "small" | "medium" | "large";
@@ -23,6 +24,8 @@ export interface Settings {
   /** 我的生肖，只存在本机 */
   myZodiac: MyZodiac;
   // 外观
+  /** 角色 id（assets/character/<id>） */
+  character: string;
   displayFont: "A" | "B";
   bannerFont: "pixel" | "brush";
   bannerText: string;
@@ -45,7 +48,7 @@ export type SettingsPage = "general" | "appearance" | "rules" | "reminders";
 /** 每一页有哪些设置项（「恢复默认」按页恢复） */
 export const SETTINGS_PAGES: Record<SettingsPage, (keyof Settings)[]> = {
   general: ["autostart", "onTop", "size", "language", "myZodiac", "expandOnLaunch", "collapseOnBlur"],
-  appearance: ["displayFont", "bannerFont", "bannerText"],
+  appearance: ["character", "displayFont", "bannerFont", "bannerText"],
   rules: ["elementSource", "topPriority", "dayBoundary"],
   reminders: ["openingEnabled", "effectsEnabled", "bubbleSeconds", "annivNotify", "annivNotifyDays"],
 };
@@ -76,6 +79,7 @@ const CHOICES: Partial<Record<keyof Settings, readonly unknown[]>> = {
   bubbleSeconds: [3, 5, 8],
   annivNotifyDays: [0, 1, 3, 7],
   myZodiac: MY_ZODIAC_OPTIONS,
+  character: CHARACTER_IDS,
 };
 
 /** 校验单个值；不合法时返回 undefined（用默认值） */

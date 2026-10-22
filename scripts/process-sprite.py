@@ -1,21 +1,25 @@
 #!/usr/bin/env python3
 """
-一次性脚本：把 AI 生成的色键版道士图处理成真正的低分辨率像素精灵。
+把 AI 生成的色键版角色图处理成真正的低分辨率像素精灵。每个角色一个文件夹：
 
-    .venv-tools/bin/python scripts/process-sprite.py
+    .venv-tools/bin/python scripts/process-sprite.py            # 处理 assets/character/ 下所有角色
+    .venv-tools/bin/python scripts/process-sprite.py daoshi     # 只处理一个
 
-输入  assets/character/daoshi-key.png   色键版（道袍洋红、腰带青色），正式素材
-输出  src/assets/sprite/daoshi.json      精灵数据（底层像素 + 换色索引 + 幡的位置）
-      preview/sprite-base.png            底层（放大，便于检查）
-      preview/sprite-regions.png         换色区域与深浅档（放大）
-      preview/outfits.png                木火土金水五种日子的道士
+输入  assets/character/<id>/key.png         色键版（大面积换色区洋红、小面积换色区青色），正式素材
+      assets/character/<id>/ref.png         原配色参考（不参与处理）
+      assets/character/<id>/character.json  名字、印字区域排法 writing: vertical | horizontal
+输出  src/assets/sprite/<id>.json           精灵数据（底层像素 + 换色索引 + 印字区域的位置）
+      preview/character/<id>/sprite-base.png      底层（放大，便于检查）
+      preview/character/<id>/sprite-regions.png   换色区域与深浅档（放大）
+      preview/character/<id>/outfits.png          木火土金水五种日子的配色
 
 处理步骤：
 1. 沿边缘强度用动态规划找出每一条实际网格线（AI 画的格子不均匀），每格取主色，不插值
 2. alpha 二值化，去掉孤立杂点和极小的碎块
 3. 按色相识别洋红（道袍）和青色（腰带），每格的深浅归成 暗 / 中 / 亮 三档
 4. 其余像素原样保留为底层
-5. 找出幡面的米白空白矩形（印字用）和整面幡的范围（点击判定、卷轴动画用）
+5. 找出印字区域的米白空白矩形（幡面、扇面、告示）和整个书写物的范围（点击判定、卷轴动画用）
+   竖幡（道士）按木轴和握杆的手找范围；横排的书写物从米白区域向外扩到边框为止
 6. 用 rules/default.json 的像素色阶画出五种配色的预览，并检查没有残留洋红 / 青色
 """
 import colorsys
@@ -28,9 +32,10 @@ import numpy as np
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "assets/character/daoshi-key.png"
-OUT_JSON = ROOT / "src/assets/sprite/daoshi.json"
-PREVIEW = ROOT / "preview"
+CHAR_DIR = ROOT / "assets/character"
+SPRITE_DIR = ROOT / "src/assets/sprite"
+# 横排书写物：从米白区域向外最多扩几格算边框
+H_FRAME = 3
 
 REGIONS = {1: "robe", 2: "sash"}
 SHADES = ("dark", "mid", "light")
@@ -239,8 +244,13 @@ def max_inner_rect(mask, y0, y1, x0, x1):
     return best[1]
 
 
-def main():
-    img = np.asarray(Image.open(SRC).convert("RGBA")).astype(np.int32)
+def process(cid):
+    src = CHAR_DIR / cid / "key.png"
+    meta = json.loads((CHAR_DIR / cid / "character.json").read_text(encoding="utf-8"))
+    writing = meta.get("writing", "vertical")
+    out_json = SPRITE_DIR / f"{cid}.json"
+    print(f"── {cid}（{meta['name']['zh-CN']}，{'竖排' if writing == 'vertical' else '横排'}）")
+    img = np.asarray(Image.open(src).convert("RGBA")).astype(np.int32)
     rgb, a = img[..., :3], img[..., 3]
     opaque = a > 128
     ys_op, xs_op = np.nonzero(opaque)
@@ -368,6 +378,65 @@ def main():
     fx, fy, fw, fh = (int(v) for v in face)
     print(f"幡面空白 x={fx} y={fy} {fw}×{fh} 格")
 
+    if writing == "horizontal":
+        mask = horizontal_mask(paper, cell_a, cell_rgb, region, face, H, W)
+    else:
+        mask = vertical_mask(cell_a, cell_rgb, region, face, H, W)
+    ys_m, xs_m = np.nonzero(mask)
+    bx0, bx1, by0, by1 = xs_m.min(), xs_m.max(), ys_m.min(), ys_m.max()
+    banner = {"x": int(bx0), "y": int(by0), "w": int(bx1 - bx0 + 1), "h": int(by1 - by0 + 1)}
+    banner_mask = ["".join("1" if mask[yy, xx] else "0" for xx in range(bx0, bx1 + 1)) for yy in range(by0, by1 + 1)]
+    print(f"整个书写物 x={banner['x']} y={banner['y']} {banner['w']}×{banner['h']} 格，共 {int(mask.sum())} 格")
+
+    # 头顶：角色头部最高处（书写物以外的不透明格）
+    head_top = next(y for y in range(H) if any(cell_a[y, x] and not mask[y, x] for x in range(W)))
+
+    data = {
+        "$comment": f"由 scripts/process-sprite.py 从 assets/character/{cid}/key.png 生成，不要手改",
+        "id": cid,
+        "writing": writing,
+        "width": W,
+        "height": H,
+        "palette": palette,
+        "alphabet": alphabet[: len(palette)],
+        "base": base,
+        "regionCodes": {"a": ["robe", 0], "b": ["robe", 1], "c": ["robe", 2], "x": ["sash", 0], "y": ["sash", 1], "z": ["sash", 2]},
+        "regions": regions,
+        "bannerFace": {"x": fx, "y": fy, "w": fw, "h": fh},
+        "banner": banner,
+        "bannerMask": banner_mask,
+        "headTop": int(head_top),
+    }
+    out_json.parent.mkdir(parents=True, exist_ok=True)
+    out_json.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"→ {out_json.relative_to(ROOT)}")
+
+    write_previews(data, ROOT / "preview/character" / cid)
+
+
+def horizontal_mask(paper, cell_a, cell_rgb, region, face, H, W):
+    """横排书写物（扇面、告示）：从米白区域出发连通填充，最多向外扩 H_FRAME 格（边框、扇骨、木框）"""
+    fx, fy, fw, fh = face
+    comp = np.zeros((H, W), dtype=bool)
+    for yy, xx in largest_component(paper):
+        comp[yy, xx] = True
+    ys, xs = np.nonzero(comp)
+    y0, y1 = max(0, ys.min() - H_FRAME), min(H - 1, ys.max() + H_FRAME)
+    x0, x1 = max(0, xs.min() - H_FRAME), min(W - 1, xs.max() + H_FRAME)
+    mask = comp.copy()
+    stack = list(zip(*np.nonzero(comp)))
+    while stack:
+        yy, xx = stack.pop()
+        for ny, nx in ((yy - 1, xx), (yy + 1, xx), (yy, xx - 1), (yy, xx + 1)):
+            if y0 <= ny <= y1 and x0 <= nx <= x1 and not mask[ny, nx] and cell_a[ny, nx] and not region[ny, nx] and not is_skin(cell_rgb[ny, nx]):
+                mask[ny, nx] = True
+                stack.append((ny, nx))
+    return mask
+
+
+def vertical_mask(cell_a, cell_rgb, region, face, H, W):
+    """竖幡：上下木轴、红框、米白幡面、旗杆上半段"""
+    fx, fy, fw, fh = face
     # 整面幡：上下木轴、红框、米白幡面、旗杆上半段。
     # 1) 左右范围：上下木轴所在的行里，从幡面中心列向两边连续的不透明格（木轴两端有金色端头）
     cx = fx + fw // 2
@@ -416,34 +485,7 @@ def main():
             if inside(ny, nx) and not mask[ny, nx] and cell_a[ny, nx] and not region[ny, nx]:
                 mask[ny, nx] = True
                 stack.append((ny, nx))
-    ys_m, xs_m = np.nonzero(mask)
-    bx0, bx1, by0, by1 = xs_m.min(), xs_m.max(), ys_m.min(), ys_m.max()
-    banner = {"x": int(bx0), "y": int(by0), "w": int(bx1 - bx0 + 1), "h": int(by1 - by0 + 1)}
-    banner_mask = ["".join("1" if mask[yy, xx] else "0" for xx in range(bx0, bx1 + 1)) for yy in range(by0, by1 + 1)]
-    print(f"整面幡 x={banner['x']} y={banner['y']} {banner['w']}×{banner['h']} 格，共 {int(mask.sum())} 格")
-
-    # 头顶：道士头部最高处（幡以外的不透明格）
-    head_top = next(y for y in range(H) if any(cell_a[y, x] and not mask[y, x] for x in range(W)))
-
-    data = {
-        "$comment": "由 scripts/process-sprite.py 从 assets/character/daoshi-key.png 生成，不要手改",
-        "width": W,
-        "height": H,
-        "palette": palette,
-        "alphabet": alphabet[: len(palette)],
-        "base": base,
-        "regionCodes": {"a": ["robe", 0], "b": ["robe", 1], "c": ["robe", 2], "x": ["sash", 0], "y": ["sash", 1], "z": ["sash", 2]},
-        "regions": regions,
-        "bannerFace": {"x": fx, "y": fy, "w": fw, "h": fh},
-        "banner": banner,
-        "bannerMask": banner_mask,
-        "headTop": int(head_top),
-    }
-    OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
-    OUT_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    print(f"→ {OUT_JSON.relative_to(ROOT)}")
-
-    write_previews(data)
+    return mask
 
 
 def is_skin(c):
@@ -475,8 +517,8 @@ def render(data, ramps=None):
     return out
 
 
-def write_previews(data):
-    PREVIEW.mkdir(exist_ok=True)
+def write_previews(data, preview):
+    preview.mkdir(parents=True, exist_ok=True)
     scale = 6
     big = lambda arr, s=scale: Image.fromarray(arr).resize((arr.shape[1] * s, arr.shape[0] * s), Image.NEAREST)
 
@@ -486,8 +528,8 @@ def write_previews(data):
         for x in range(data["width"]):
             if data["regions"][y][x] != ".":
                 base_only[y, x] = 0
-    big(base_only).save(PREVIEW / "sprite-base.png")
-    big(render(data)).save(PREVIEW / "sprite-regions.png")
+    big(base_only).save(preview / "sprite-base.png")
+    big(render(data)).save(preview / "sprite-regions.png")
 
     rules = json.loads((ROOT / "rules/default.json").read_text(encoding="utf-8"))
     ramps = rules.get("pixelRamps")
@@ -512,10 +554,16 @@ def write_previews(data):
                     if classify_region(arr[y, x, :3]):
                         bad += 1
         sheet.alpha_composite(big(arr, s), (i * (W * s + pad * 2) + pad, pad))
-    sheet.save(PREVIEW / "outfits.png")
-    print(f"→ preview/outfits.png（底层里残留洋红 / 青色 {bad} 格）")
+    sheet.save(preview / "outfits.png")
+    print(f"→ {(preview / 'outfits.png').relative_to(ROOT)}（底层里残留洋红 / 青色 {bad} 格）")
     if bad:
         sys.exit(1)
+
+
+def main():
+    ids = sys.argv[1:] or sorted(p.name for p in CHAR_DIR.iterdir() if (p / "key.png").exists())
+    for cid in ids:
+        process(cid)
 
 
 if __name__ == "__main__":

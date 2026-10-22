@@ -43,7 +43,8 @@ import { useAnniversaries } from "../settings/anniversaries";
 import { getState, setState } from "../settings/store";
 import { useSettings } from "../settings/useSettings";
 import { Daoshi } from "../sprite/Daoshi";
-import { inBanner, isOpaque, sprite, type Outfit, type Ramp } from "../sprite/sprite";
+import { getCharacter } from "../sprite/characters";
+import { inBanner, isOpaque, type Outfit, type Ramp } from "../sprite/sprite";
 
 /** 道士四周留给气泡、闪光、翻译小气泡的空白（逻辑像素） */
 const CHROME: Chrome = { top: 48, left: 130, right: 170, bottom: 12 };
@@ -88,7 +89,8 @@ export function MainApp() {
     [detail, ramp],
   );
 
-  // ── 几何 ──
+  // ── 角色与几何 ──
+  const sprite = useMemo(() => getCharacter(settings.character).data, [settings.character]);
   const scale = SIZE_SCALE[settings.size];
   const cell = Math.max(1, Math.round(scale * (window.devicePixelRatio || 1))) / (window.devicePixelRatio || 1);
   const spriteW = sprite.width * cell;
@@ -468,7 +470,7 @@ export function MainApp() {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [anchor, loaded, spriteW, spriteH, cell, expanded, scrollSize, detailDay, detailSize]);
+  }, [anchor, loaded, sprite, spriteW, spriteH, cell, expanded, scrollSize, detailDay, detailSize]);
 
   // ── 点穿：告诉 Rust 哪里能点 ──
   useEffect(() => {
@@ -494,7 +496,7 @@ export function MainApp() {
     if (layout.scroll && scrollSize) rects.push([layout.scroll.x, layout.scroll.y, scrollSize.w, scrollSize.h]);
     if (layout.detail && detailSize) rects.push([layout.detail.x, layout.detail.y, detailSize.w, detailSize.h]);
     setHitRegions({ rects, masks: [mask] });
-  }, [layout, expanded, cell, scrollSize, detailSize]);
+  }, [layout, sprite, expanded, cell, scrollSize, detailSize]);
 
   const onScrollResize = useCallback((w: number, h: number) => setScrollSize({ w, h }), []);
   const detailRef = useRef<HTMLDivElement>(null);
@@ -528,6 +530,7 @@ export function MainApp() {
 
       <div className="stage__sprite" style={{ left: layout.sprite.x, top: layout.sprite.y }}>
         <Daoshi
+          data={sprite}
           outfit={outfit}
           scale={scale}
           bannerText={bannerItems[bannerIndex]?.text ?? settings.bannerText}

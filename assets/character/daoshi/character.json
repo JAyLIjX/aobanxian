@@ -1,0 +1,6 @@
+{
+  "$comment": "角色说明。key.png 是色键版（换色区域：洋红 = 大面积主色，青色 = 小面积配色），ref.png 是原配色参考。writing 是印字区域的排法：vertical（竖幡）或 horizontal（扇面、告示）。",
+  "id": "daoshi",
+  "name": { "zh-CN": "道士", "zh-TW": "道士", "en": "Taoist" },
+  "writing": "vertical"
+}

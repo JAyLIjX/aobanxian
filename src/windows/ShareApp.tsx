@@ -19,7 +19,8 @@ import { requestSay } from "../platform/windows";
 import { rulesWith } from "../settings/settings";
 import { todaysLot } from "../settings/lotBook";
 import { ensureBannerFonts, planBannerText, renderBannerText } from "../sprite/bannerText";
-import { renderSprite, sprite, type Ramp } from "../sprite/sprite";
+import { getCharacter } from "../sprite/characters";
+import { renderSprite, type Ramp } from "../sprite/sprite";
 import { renderShareImage, SHARE_H, SHARE_W, SPRITE_CELL, type ShareContent } from "../share/shareImage";
 import { useWindowSetup } from "./useWindowSetup";
 
@@ -58,8 +59,9 @@ export function ShareApp() {
       const body = cssVar("--font-body");
       await ensureBannerFonts(settings.bannerText, settings.bannerFont);
       await Promise.all([document.fonts.load(`40px ${display}`, "奥半仙0"), document.fonts.load(`40px ${body}`, "宜忌")]).catch(() => {});
+      const sprite = getCharacter(settings.character).data;
       const face = sprite.bannerFace;
-      const plan = planBannerText([...settings.bannerText].length, settings.bannerFont, face, SPRITE_CELL);
+      const plan = planBannerText([...settings.bannerText].length, settings.bannerFont, face, SPRITE_CELL, sprite.writing);
       const sep = lang === "en" ? " · " : " · ";
       const l = lot ? getLot(lot.n) : null;
       const content: ShareContent = {
@@ -97,7 +99,7 @@ export function ShareApp() {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loaded, lang, detail, withLot, lot, settings.bannerText, settings.bannerFont, settings.displayFont]);
+  }, [loaded, lang, detail, withLot, lot, settings.bannerText, settings.bannerFont, settings.displayFont, settings.character]);
 
   const save = async () => {
     const canvas = canvasRef.current;

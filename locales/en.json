@@ -219,7 +219,9 @@
     "import": "Import",
     "exported": "Exported {{n}}",
     "imported": "Imported {{n}}",
-    "importFailed": "Couldn't read that file — nothing imported"
+    "importFailed": "Couldn't read that file — nothing imported",
+    "character": "Character",
+    "characterHint": "Only the Taoist for now — a scholar with a fan and a magistrate with a notice board are on the way"
   },
   "about": {
     "title": "About Ao Banxian",

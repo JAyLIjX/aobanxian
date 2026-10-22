@@ -1,5 +1,7 @@
 {
- "$comment": "由 scripts/process-sprite.py 从 assets/character/daoshi-key.png 生成，不要手改",
+ "$comment": "由 scripts/process-sprite.py 从 assets/character/daoshi/key.png 生成，不要手改",
+ "id": "daoshi",
+ "writing": "vertical",
  "width": 79,
  "height": 115,
  "palette": [

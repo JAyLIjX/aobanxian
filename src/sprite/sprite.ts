@@ -1,7 +1,8 @@
 /**
- * 像素道士精灵图：数据结构与换色渲染。纯函数，不依赖浏览器，测试里可以直接用。
+ * 像素角色精灵图：数据结构与换色渲染。纯函数，不依赖浏览器，测试里可以直接用。
+ * 角色清单见 characters.ts；字段名沿用第一个角色道士（幡 = 印字的书写物，道袍 / 腰带 = 两个换色区）。
  *
- * 精灵数据由 scripts/process-sprite.py 生成（src/assets/sprite/daoshi.json）：
+ * 精灵数据由 scripts/process-sprite.py 生成（src/assets/sprite/<角色 id>.json）：
  *   base     每格一个字符，指向 palette 里的底层颜色；"." 表示透明或换色区域
  *   regions  每格一个字符，a/b/c = 道袍 暗/中/亮，x/y/z = 腰带 暗/中/亮，"." = 不换色
  */
@@ -17,6 +18,9 @@ export interface Rect {
 export type RegionName = "robe" | "sash";
 
 export interface SpriteData {
+  id: string;
+  /** 书写物上的字竖排（幡）还是横排（扇面、告示） */
+  writing: "vertical" | "horizontal";
   width: number;
   height: number;
   palette: string[];
@@ -34,6 +38,7 @@ export interface SpriteData {
   headTop: number;
 }
 
+/** 道士（默认角色）；其他角色用 characters.ts 的 getCharacter */
 export const sprite = spriteJson as unknown as SpriteData;
 
 /** 三档颜色（暗、中、亮），#RRGGBB */

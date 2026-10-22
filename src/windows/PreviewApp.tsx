@@ -7,6 +7,7 @@
  */
 import { defaultRules } from "../core/rules";
 import { Daoshi } from "../sprite/Daoshi";
+import { sprite } from "../sprite/sprite";
 import type { BannerFont } from "../sprite/bannerText";
 import type { Ramp } from "../sprite/sprite";
 
@@ -20,7 +21,7 @@ function Row({ font, texts }: { font: BannerFont; texts: string[] }) {
     <div className="preview__grid">
       {texts.map((text) => (
         <figure key={text}>
-          <Daoshi
+          <Daoshi data={sprite}
             outfit={outfit}
             scale={2}
             bannerText={text}

@@ -219,7 +219,9 @@
     "import": "导入",
     "exported": "已导出 {{n}} 条",
     "imported": "已导入 {{n}} 条",
-    "importFailed": "文件读不出来，没有导入"
+    "importFailed": "文件读不出来，没有导入",
+    "character": "角色",
+    "characterHint": "现在只有道士，以后会来书生（摇扇）和青天大老爷（举告示）"
   },
   "about": {
     "title": "关于奥半仙",

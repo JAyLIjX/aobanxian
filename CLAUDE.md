@@ -11,7 +11,7 @@ npm test                          # vitest
 npm run typecheck                 # tsc --noEmit
 npm run day [YYYY-MM-DD]          # 终端打印某天的完整结果
 npm run fonts                     # 重新收集字表、给字体做子集（见「字体」）
-.venv-tools/bin/python scripts/process-sprite.py   # 重新处理精灵图（一次性）
+.venv-tools/bin/python scripts/process-sprite.py [角色id]   # 重新处理角色精灵图（不带参数 = 全部角色）
 npx tsx scripts/i18n/build-zh-tw.ts                # 重新生成繁体
 bash scripts/render-previews.sh   # 幡上字体 A/B 预览图（需要先 npm run dev）
 ```
@@ -58,7 +58,7 @@ src-tauri/src/lib.rs       点穿线程、set_window_rect、quit_app、插件、
 scripts/process-sprite.py  素材处理（一次性）
 scripts/fonts/             字体下载、字表收集、子集化
 scripts/i18n/              繁体生成
-assets/character/          AI 生成的原图：daoshi-key.png（色键版，正式素材）、daoshi-ref.png（红绿原配色参考）
+assets/character/<id>/     每个角色一个文件夹：key.png（色键版，正式素材）、ref.png（原配色参考）、character.json（名字、书写物横竖）
 preview/                   效果图
 ```
 
@@ -77,16 +77,40 @@ preview/                   效果图
 
 ## 精灵图
 
-`scripts/process-sprite.py` 把 `assets/character/daoshi-key.png`（1254×1254，AI 画的像素风）处理成 `src/assets/sprite/daoshi.json`：
+`scripts/process-sprite.py` 把 `assets/character/<id>/key.png`（道士是 1254×1254，AI 画的像素风）处理成 `src/assets/sprite/<id>.json`，预览图在 `preview/character/<id>/`。下面以道士为例：
 
 1. **网格**：先用傅里叶估出格子周期（约 10.6×10.9 像素），再沿边缘强度用动态规划找每一条实际网格线（AI 画的格子不均匀），得到 79×115 格。每格取中间 60% 像素的主色（粗量化找众数再取中位数），不插值。原图约 111 格高，不是最初估计的 64 格。
 2. **透明度**：每格 alpha 按多数二值化，去掉四邻都透明的孤立点和小于 4 格的碎块。
 3. **换色区域**：HSV 色相 280–340° 为洋红（道袍），165–210° 为青色（腰带）；紧挨区域的偏色过渡格并入区域，其他偏色格去饱和。每个区域按亮度 1D k-means 分成 暗 / 中 / 亮 三档。
 4. **底层**：其余像素原样保留，调色板超过 90 色时按格数加权合并最近的颜色。
 5. **幡**：幡面 = 米白色最大连通块里的最大内接矩形（`bannerFace`，16×42 格）。整面幡的左右范围只看上下木轴所在行、从幡面中心连续的一段（木轴两端有金色端头）；往下到握杆的手为止；再从幡面做连通填充得到幡的形状 `bannerMask`。**不要**用整块矩形判断幡：矩形会把道士的耳朵和肩膀算进去。顶上的金色宝珠颜色接近皮肤色，所以填充时不按皮肤色拦，只在找握杆的手时用皮肤色。
-6. **预览**：`preview/outfits.png` 五种日子的配色，脚本会检查底层不残留洋红 / 青色。
+6. **预览**：`preview/character/<id>/outfits.png` 五种日子的配色，脚本会检查底层不残留洋红 / 青色。
 
-JSON 结构：`base`（每格一个字符，指向 `palette`）、`regions`（`a/b/c` 道袍暗中亮、`x/y/z` 腰带暗中亮）、`banner`（外接矩形）、`bannerMask`、`bannerFace`、`headTop`。
+JSON 结构：`id`、`writing`（`vertical` 竖排 / `horizontal` 横排）、`base`（每格一个字符，指向 `palette`）、`regions`（`a/b/c` 道袍暗中亮、`x/y/z` 腰带暗中亮）、`banner`（外接矩形）、`bannerMask`、`bannerFace`、`headTop`。
+
+## 角色
+
+角色 = 一张色键图 + 一个说明文件，代码里不写死。`src/sprite/characters.ts` 用 `import.meta.glob` 自动收集 `assets/character/*/character.json` 和 `src/assets/sprite/*.json`，两者 id 对上的就出现在设置「外观 → 角色」里（道士永远排第一，是默认角色）。字段名沿用道士：「幡」= 印字的书写物，「道袍 / 腰带」= 大面积 / 小面积两个换色区。
+
+每个角色包含：
+- **id**：文件夹名，也是 `settings.character` 的值。
+- **名字**：`character.json` 的 `name`，简体、繁体、英文三种。
+- **主图**：`key.png`。换色区涂成洋红（大面积，色相 280–340°）和青色（小面积，165–210°）；书写处留米白空白。
+- **书写区**：脚本自动找米白空白处的最大内接矩形（`bannerFace`，印字）和整个书写物的形状（`banner` + `bannerMask`，点击判定、展开卷轴时隐藏、卷轴从这里展开）。`writing: "vertical"` 竖排（幡），`"horizontal"` 横排（扇面、告示），横排时幡上文字从左往右排、字号按书写区高度算。
+- **点击区**：`bannerMask` 里的不透明格 = 点书写物（换字、晃一下）；其他不透明格 = 点人（轻跳、展开 / 收起）；透明格点穿。
+
+### 加一个新角色（例：书生）
+
+1. 建文件夹 `assets/character/shusheng/`，放进 `key.png`（色键版）和 `ref.png`（原配色参考）。
+2. 写 `assets/character/shusheng/character.json`：
+   ```json
+   { "id": "shusheng", "name": { "zh-CN": "书生", "zh-TW": "書生", "en": "Scholar" }, "writing": "horizontal" }
+   ```
+3. 运行 `.venv-tools/bin/python scripts/process-sprite.py shusheng`，生成 `src/assets/sprite/shusheng.json` 和 `preview/character/shusheng/`。看预览图：换色区是否干净、`sprite-regions.png` 里书写区找得对不对。
+4. 不用改代码，`npm run tauri dev` 后在设置「外观 → 角色」里就能选。
+5. 竖幡的范围按「木轴 + 握杆的手」找（道士专用的规则）；横排书写物从米白区域向外最多扩 `H_FRAME`（3）格算边框。新角色的书写物形状特别时，在脚本里给它加一个找范围的函数（参照 `vertical_mask` / `horizontal_mask`）。
+6. 计划中的角色：书生（横排扇面）、青天大老爷（横排告示）。横排的排版和点击逻辑已经写好并有测试，但还没有真实素材验证过。
+
 
 ## 渲染
 
