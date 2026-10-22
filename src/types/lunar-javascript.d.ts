@@ -49,6 +49,9 @@ declare module "lunar-javascript" {
     getZheng(): string;
     getAnimal(): string;
     getGong(): string;
+    getDayTianShen(): string;
+    getDayTianShenType(): string;
+    getDayTianShenLuck(): string;
     toFullString(): string;
   }
 

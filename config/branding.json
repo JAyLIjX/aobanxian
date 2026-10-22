@@ -1,0 +1,17 @@
+{
+  "$comment": "幡上的字。幡上的字是画的一部分，所有语言下都保持中文；fork 后可以改成自己的。每一项竖排，最多 4 个字。",
+  "bannerText": "奥半仙",
+  "banner": {
+    "yiPrefix": "宜",
+    "jiPrefix": "忌",
+    "noYi": "诸事不宜",
+    "noJi": "百无禁忌",
+    "outfit": "穿{primary}配{accent}",
+    "zodiac": "喜{animals}",
+    "skipWords": ["馀事勿取", "余事勿取", "诸事不宜", "诸事不忌", "无"]
+  },
+  "special": {
+    "tianshe": "天赦日",
+    "yanggong": "宜静"
+  }
+}
