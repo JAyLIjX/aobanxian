@@ -1,12 +1,31 @@
+use std::{
+    sync::atomic::{AtomicU64, Ordering},
+    thread,
+    time::Duration,
+};
+
 use tauri::{
     menu::{CheckMenuItem, Menu, MenuItem, PredefinedMenuItem},
     tray::TrayIconBuilder,
-    App, AppHandle, Manager, Runtime, WebviewWindow,
+    App, AppHandle, Manager, Runtime, WebviewWindow, WindowEvent,
 };
 use tauri_plugin_autostart::{MacosLauncher, ManagerExt};
 use tauri_plugin_window_state::{AppHandleExt, StateFlags};
 
 const MAIN_WINDOW: &str = "main";
+
+/// 每次窗口移动加一；停止移动一段时间后才写盘，避免拖动过程中频繁保存
+static MOVE_GENERATION: AtomicU64 = AtomicU64::new(0);
+
+fn save_position_when_settled<R: Runtime>(app: AppHandle<R>) {
+    let generation = MOVE_GENERATION.fetch_add(1, Ordering::SeqCst) + 1;
+    thread::spawn(move || {
+        thread::sleep(Duration::from_millis(500));
+        if MOVE_GENERATION.load(Ordering::SeqCst) == generation {
+            let _ = app.save_window_state(StateFlags::POSITION);
+        }
+    });
+}
 
 fn main_window<R: Runtime>(app: &AppHandle<R>) -> Option<WebviewWindow<R>> {
     app.get_webview_window(MAIN_WINDOW)
@@ -105,10 +124,20 @@ pub fn run() {
                 .build(),
         )
         .plugin(tauri_plugin_autostart::init(MacosLauncher::LaunchAgent, None))
+        .on_window_event(|window, event| {
+            if let WindowEvent::Moved(_) = event {
+                save_position_when_settled(window.app_handle().clone());
+            }
+        })
         .setup(|app| {
             // macOS 不在 Dock 显示（Windows 由窗口配置里的 skipTaskbar 处理）
             #[cfg(target_os = "macos")]
             app.set_activation_policy(tauri::ActivationPolicy::Accessory);
+
+            // 配置里的 alwaysOnBottom 在 macOS 上创建窗口时不一定生效，启动后再显式设一次
+            if let Some(window) = main_window(app.handle()) {
+                set_on_top(&window, false);
+            }
 
             build_tray(app)?;
             Ok(())
