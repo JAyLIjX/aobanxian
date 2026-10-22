@@ -29,7 +29,7 @@ export function Muyu({ x, y, cell, strike, onKnock }: Props) {
     if (!strike) return;
     // 木槌从举起的位置落下再弹回；木鱼在落下那一刻往下一震（都按格跳变）
     malletRef.current?.animate(
-      [{ transform: "rotate(-40deg)" }, { transform: "rotate(18deg)", offset: 0.45 }, { transform: "rotate(-40deg)" }],
+      [{ transform: "rotate(0deg)" }, { transform: "rotate(-35deg)", offset: 0.45 }, { transform: "rotate(0deg)" }],
       { duration: 260, easing: "steps(6, end)" },
     );
     fishRef.current?.animate(
@@ -39,12 +39,18 @@ export function Muyu({ x, y, cell, strike, onKnock }: Props) {
   }, [strike, cell]);
 
   return (
-    <button type="button" className="muyu" style={{ left: x, top: y - 9 * cell, width: (MUYU_W + 4) * cell, height: (MUYU_H + 9) * cell }} aria-label={t("muyu.knock")} onClick={onKnock}>
+    <button type="button" className="muyu" style={{ left: x, top: y - 9 * cell, width: (MUYU_W + 3) * cell, height: (MUYU_H + 9) * cell }} aria-label={t("muyu.knock")} onClick={onKnock}>
       <canvas ref={fishRef} className="muyu__fish" style={{ left: 0, top: 9 * cell }} />
       <canvas
         ref={malletRef}
         className="muyu__mallet"
-        style={{ left: (MUYU_W - 6) * cell, top: 0, transformOrigin: `${cell}px ${(MALLET_H - 1) * cell}px`, width: MALLET_W * cell }}
+        style={{
+          // 转轴（柄尾）在木鱼右上方
+          left: (MUYU_W + 1 - (MALLET_W - 1)) * cell,
+          top: (14 - (MALLET_H - 1)) * cell,
+          transformOrigin: `${(MALLET_W - 0.5) * cell}px ${(MALLET_H - 0.5) * cell}px`,
+          width: MALLET_W * cell,
+        }}
       />
     </button>
   );

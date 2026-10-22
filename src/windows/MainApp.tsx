@@ -62,7 +62,7 @@ const MUYU_SECONDS = 5;
 
 /** 木鱼（连木槌）在窗口里的位置：小和尚左边、腰的高度 */
 function muyuRect(spriteRect: { x: number; y: number }, spriteHeight: number, cell: number) {
-  const w = (MUYU_W + 4) * cell;
+  const w = (MUYU_W + 3) * cell;
   const h = (MUYU_H + 9) * cell;
   return { x: spriteRect.x - w + 2 * cell, y: spriteRect.y + spriteHeight * 0.52 * cell - 9 * cell, w, h };
 }
@@ -381,6 +381,19 @@ export function MainApp() {
     if (loaded) void syncTray(menuModel);
   }, [loaded, menuModel]);
   const onContextMenu = useCallback(() => void popupContextMenu(menuRef.current), []);
+
+  // 开发版（浏览器预览）里没有原生菜单：用事件触发菜单项，方便调界面
+  //   window.dispatchEvent(new CustomEvent("aobanxian:menu", { detail: "divine" }))
+  useEffect(() => {
+    if (!import.meta.env.DEV) return;
+    const onMenu = (e: Event) => {
+      const action = (e as CustomEvent<string>).detail as keyof MenuModel["actions"];
+      const f = menuRef.current.actions[action];
+      if (typeof f === "function") (f as () => void)();
+    };
+    window.addEventListener("aobanxian:menu", onMenu);
+    return () => window.removeEventListener("aobanxian:menu", onMenu);
+  }, []);
 
   // 择日、纪念日窗口里点某一天：在主窗口打开那天的详情
   useEffect(() => onOpenDetailRequest((ymd) => setDetailDay(ymd)), []);

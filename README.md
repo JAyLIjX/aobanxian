@@ -26,12 +26,18 @@
 - **每日一卦**：梅花易数按时间起卦（以你今天第一次起卦的时辰为准），显示本卦、动爻、变卦的《周易》原文和白话解读。
 - **分享今日**：生成一张 1080×1440 的图（日期、农历、五行、大吉色、宜忌、像素道士、仓库二维码，可附上今日签），复制到剪贴板并存到「图片/奥半仙」。
 - **右键菜单**：在道士或卷轴上右键（Mac 双指轻点、Control+点击）：掐指一算、求签、每日一卦 ／ 今日详情、展开 / 收起日历 ／ 择日、纪念日、分享今日 ／ 小人尺寸、置顶、设置 ／ 关于、退出。托盘 / 菜单栏图标里也是同样的菜单。
-- **设置**：通用、外观、规则、提醒四页，改动即时生效。外观里可以换角色（现在只有道士）。
+- **四个角色**：道士（举幡）、书生（摇扇）、青天大老爷（举告示）、小和尚（举木牌）。在设置「外观」里点缩略图就换，站的位置不变；每个角色有自己的口吻（道士称「善信」、书生称「兄台」、青天大老爷「本官宣判」、小和尚称「施主」），右键菜单第一项也跟着变：掐指一算 / 翻翻黄历 / 升堂 / 敲木鱼。青天大老爷的告示会原地展开成日历卡片。
+- **敲木鱼**：小和尚的「敲木鱼」会在他身边放一个像素木鱼，「笃」一声，头顶飘「功德 +1」；几秒内点木鱼还能接着敲，累计功德记在本机。
+- **设置**：通用、外观、规则、提醒四页，改动即时生效。
 - **三种语言**：简体中文、繁體中文、English。英文界面里，宜忌、纳音、干支这些词写成「中文原词 + 英文解释」。
 
 | 收起 | 展开成挂轴 |
 | --- | --- |
 | <img src="preview/collapsed.png" height="220"> | <img src="preview/scroll.png" height="220"> |
+
+| 道士 | 书生 | 青天大老爷 | 小和尚 |
+| --- | --- | --- | --- |
+| <img src="preview/v0.3/daoshi-collapsed.png" height="200"> | <img src="preview/v0.3/shusheng-collapsed.png" height="200"> | <img src="preview/v0.3/guanyuan-collapsed.png" height="200"> | <img src="preview/v0.3/heshang-muyu.png" height="200"> |
 
 | 求签 | 每日一卦 | 分享今日 |
 | --- | --- | --- |
@@ -212,7 +218,7 @@ npm run tauri dev
 
 ## English
 
-**Ao Banxian** (奥半仙, "Half-Immortal Ao") is a pixel-art Taoist who lives on your desktop (macOS / Windows). Every day he wears robes in the "lucky colours" of the Five Elements, and the banner he holds shows the day's suggested and avoided activities from the traditional Chinese almanac. Click the banner to flip through its messages; click him and the banner unrolls into a hanging-scroll calendar with the lunar date, stem-branch, element of the day and a month view. He greets you each morning (auspicious "Yellow Path" days, the Day of Heavenly Pardon, festivals and solar terms each have their own line), and right-clicking him opens a native menu: draw a daily fortune lot (poems from the public-domain *Guansheng Dijun Lingqian*), cast the day's I Ching hexagram (Meihua time method, original *Zhouyi* text), pick auspicious days for moving, weddings and more, keep birthdays and anniversaries (lunar dates included, with system notifications), and export a 1080×1440 "share today" card. Plain-language readings of the lots and hexagrams are our own writing.
+**Ao Banxian** (奥半仙, "Half-Immortal Ao") is a pixel-art Taoist who lives on your desktop (macOS / Windows). Every day he wears robes in the "lucky colours" of the Five Elements, and the banner he holds shows the day's suggested and avoided activities from the traditional Chinese almanac. Click the banner to flip through its messages; click him and the banner unrolls into a hanging-scroll calendar with the lunar date, stem-branch, element of the day and a month view. He greets you each morning (auspicious "Yellow Path" days, the Day of Heavenly Pardon, festivals and solar terms each have their own line), and right-clicking him opens a native menu: draw a daily fortune lot (poems from the public-domain *Guansheng Dijun Lingqian*), cast the day's I Ching hexagram (Meihua time method, original *Zhouyi* text), pick auspicious days for moving, weddings and more, keep birthdays and anniversaries (lunar dates included, with system notifications), and export a 1080×1440 "share today" card. Four characters to choose from — the Taoist, a scholar with a fan, a magistrate with a notice board, and a little monk who taps a wooden fish for "Merit +1" — each with their own voice. Plain-language readings of the lots and hexagrams are our own writing.
 
 The UI is available in Simplified Chinese, Traditional Chinese and English; in English, culture-specific terms are shown as "Chinese original · English gloss" (see `locales/glossary.json`). Calendar data comes from [lunar-javascript](https://github.com/6tail/lunar-javascript); the colour rules live in `rules/default.json` and are fully configurable, since folk traditions differ — PRs adding other schools are welcome. Everything here is folk tradition, just for fun.
 
