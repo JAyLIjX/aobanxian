@@ -4,7 +4,7 @@
 import { describe, expect, it } from "vitest";
 import poemDays from "../config/poem-days.json";
 import { poemDayOf, poemDaysOfYear } from "../src/calendar/poemDay";
-import { POEMS, POEM_SOURCE, poemForDay } from "../src/data/poems";
+import { POEMS, POEM_SOURCE, poemForDay, shortTitle } from "../src/data/poems";
 
 describe("诗库", () => {
   it("约 400 首，来自 chinese-poetry；每首有简繁诗文、名句、赏析（三种语言）", () => {
@@ -29,6 +29,14 @@ describe("诗库", () => {
     for (const f of ["春节", "元宵", "清明", "端午", "七夕", "中秋", "重阳", "除夕"]) expect(poemDays.festival, f).toHaveProperty(f);
     const ids = new Set(POEMS.map((p) => p.id));
     for (const id of [...Object.values(poemDays.festival), ...Object.values(poemDays.jieqi)]) expect(ids.has(id), id).toBe(true);
+  });
+});
+
+describe("卡片上的短题目", () => {
+  it("组诗长题只留最后一层", () => {
+    expect(shortTitle("四时田园杂兴六十首 秋日田园杂兴十二绝 其七")).toBe("秋日田园杂兴十二绝·其七");
+    expect(shortTitle("观雪二首  其二")).toBe("观雪二首·其二");
+    expect(shortTitle("山行")).toBe("山行");
   });
 });
 

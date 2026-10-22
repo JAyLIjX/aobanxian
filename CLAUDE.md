@@ -25,6 +25,8 @@ rules/default.json         五行规则（流派）：取法、小人配色、�
 config/
   settings.default.json    应用设置的默认值
   branding.json            作者和仓库地址（author、repository）、幡上的字（bannerText、宜忌前缀、兜底文字、特殊日子文字）
+  wuhou.json               七十二候用字校正（lunar-javascript → 《月令七十二候集解》原文）
+  poem-days.json           每日一诗的节日、节气专属诗对照表（build-poems.ts 生成）
 locales/
   zh-CN.json zh-TW.json en.json   界面文字（i18next）
   glossary.json            术语表：历法、宜忌、颜色等的英文 / 繁体
@@ -39,15 +41,18 @@ src/core/                  纯 TS，不依赖 React / Tauri / lunar-javascript
   zodiac.ts                六合、三合、六冲、六害；我的生肖和今天的关系
   lots.ts                  求签：每日签号（日期 + 本机种子）、签册
   gua.ts                   梅花易数时间起卦（纯函数）
+  poemPick.ts              每日一诗的选诗规则（节日 > 节气 > 满月 > 当季，一年内不重复）
+  luckyNumbers.ts          幸运数字（河图数配五行）
 src/calendar/
   day.ts                   lunar-javascript → DayInfo / DayDetail
   special.ts               值神黄道黑道、天赦日、杨公忌日、特殊日子优先级
   zeri.ts                  择日：事件 → 宜忌用词（config/zeri.json），筛出宜做且不忌的日子
   anniversary.ts           纪念日：下次日期（闰月、小月、2/29）、提醒、月历记号、导入校验
   countdown.ts             卡片底部倒计时（纪念日、传统节日、节气）
-  extras.ts                详情「更多黄历」：值星、吉时、吉神方位、彭祖百忌、物候、月相
+  extras.ts                详情的时辰（十二时辰、吉 / 平）、方位、物候（校正用字）、月相、建除、彭祖百忌、胎神、九星
+  poemDay.ts               每日一诗用的季节（按节气）、节日、节气、农历日
   guaDay.ts                某天某时 → 农历年支、月、日、时支 → 起卦
-src/data/                  古籍原文 + 自撰白话：lots.json（關聖帝君靈籤一百签）、zhouyi.json（周易六十四卦）、poems.json（唐詩三百首的绝句，每日一诗）
+src/data/                  古籍原文 + 自撰白话：lots.json（關聖帝君靈籤一百签）、zhouyi.json（周易六十四卦）、poems.json（每日一诗，chinese-poetry 精选，build-poems.ts 生成）
 src/share/shareImage.ts    分享图（1080×1440）版式、离线二维码
 src/sprite/
   sprite.ts                精灵数据、换色渲染（纯函数）、点击分区
@@ -63,7 +68,7 @@ src/windows/
   useWindowSetup.ts        独立窗口的公共设置（语言、标题）
   PreviewApp.tsx           开发用预览页（?view=preview，只在开发模式）
   DetailPreviewApp.tsx     开发用：单独显示详情面板（?view=detail&date=2026-10-22&lang=en）
-src/components/            Scroll（挂轴）/ TodayCard / MonthView / DetailPanel / ColorChip / Bubble / Sparkles / TextField（有字数限制的输入框）
+src/components/            Scroll（挂轴）/ TodayCard / MonthView / DetailPanel（小目录 + 七栏，后四栏折叠）/ AlmanacIcons（罗盘、小月亮）/ ColorChip / Bubble / Sparkles / TextField（有字数限制的输入框）
 src/settings/              设置类型与校验（纯函数）、tauri-plugin-store 读写、useSettings
 src/i18n/                  i18next 初始化、术语显示（terms.ts）、日期等格式化（format.ts）
 src/platform/
@@ -75,6 +80,7 @@ src-tauri/src/lib.rs       点穿线程、set_window_rect、quit_app、插件、
 scripts/process-sprite.py  素材处理（一次性）
 scripts/fonts/             字体下载、字表收集、子集化
 scripts/i18n/              繁体生成
+scripts/poems/             每日一诗：curated.json（精选清单，自撰部分）、build-poems.ts（从 chinese-poetry 生成数据）、spotcheck.cjs（和维基文库对照）
 assets/character/<id>/     每个角色一个文件夹：key.png（色键版，正式素材）、ref.png（原配色参考）、character.json（名字、书写物横竖）
 preview/                   效果图
 ```
@@ -274,8 +280,16 @@ GitHub Actions（`.github/workflows/release.yml`）推送 `v*` 标签时用 taur
   - 典故出自小说、戏曲、传说的，开头写「相传」或「据《××》」；最后一句接回签意；史实不编造，找不到出处只写简介（`brief`）。
   - 健康只写「注意休息、有不适及时就医」这类话，不预测病情；生男生女、诉讼不放进分事项和总解。
   - 自撰文字不出现「凶」「施主」。
-- **每日一诗**：《唐詩三百首》的五言、七言绝句（去掉 3 首写战死、身死的），按儒略日轮换（`core/poem.ts`），显示在详情最后。原文照维基文库，不改字（只统一标点、`云→雲`、`㡬→幾`）；有些字和通行本不同（如「碧山盡」「盡寒食雨」），保留原样。
-- **更多黄历**（详情）：全部取自 lunar-javascript。彭祖百忌只显示前半句的禁忌（「己不破券」），不显示后半句吓人的后果。术语的英文在 `glossary.json` 的 `zhixing`、`pengzu`、`wuhou`、`yuexiang`、`hou`。
+- **求签「古人怎么解」**：签纸最下面的折叠区，显示维基文库该签的聖意、東坡解、碧仙註、解曰、釋義原文（`classic`），去掉异文校记「■」、另一版本和现代补写的「功名：…」四字句。
+- **详情结构**：顶部小目录（穿衣、宜忌、生肖、时辰、方位、物候与诗、更多）点击跳转；穿衣、宜忌、生肖与星宿默认展开；时辰、方位与数字、物候与诗、更多黄历默认折叠，展开状态存在本机 localStorage（`aobanxian.detail.open`）。
+  - **时辰**：十二格，子时 23:00–00:59 作一格（取当天的早子时干支）；黄道写「吉」、黑道写「平」，**不写「凶」**；看今天时高亮并滚到当前时辰。
+  - **方位与数字**：喜神 ●、财神 ◆、福神 ▲ 画在代码画的罗盘上；幸运数字按河图数配大吉的五行（相在前），水 1、6，火 2、7，木 3、8，金 4、9，土 5、10。
+  - **物候与诗**：七十二候用古籍原文用字（`config/wuhou.json`，依据维基文库《月令七十二候集解》，如「菊有黄华」「大雨时行」；集解「元鳥」是避讳，仍用「玄鸟」），每候一句白话；月相配小月亮（按农历日画盈亏）；每日一诗。
+  - **更多黄历**：建除十二神及含义、彭祖百忌（只取前半句）、胎神方位、九星。术语英文在 `glossary.json`（`taishen` 按物件 + 方位组合翻译）。
+- **每日一诗**：诗文来自 chinese-poetry（MIT），`scripts/poems/curated.json` 是精选清单（id、季节、标签、名句、英文题名、赏析，自撰），`npx tsx scripts/poems/build-poems.ts <chinese-poetry 目录>` 生成 `src/data/poems.json` 和 `config/poem-days.json`。**诗文不手写**；确认的数据错字写进 `TEXT_FIXES`（如千家诗本「慾斷魂」→「欲斷魂」）。唐诗、宋诗、千家诗原数据是繁体，宋词是简体，另一种字形用 OpenCC 转；简体界面显示简体，繁体界面显示繁体，英文界面保留中文原诗 + 英文大意。宋词题目自动加首句作小题（「水调歌头·明月几时有」）。
+  - 选诗（`core/poemPick.ts`）：节日专属诗 > 节气专属诗 > 满月前后两天（农历十三到十七）从当季写月亮的诗里选 > 当季的诗。一年按日期顺序分配，所有诗池共用「已用过」，同一年平常日子不重复；专属诗只在当天出现。季节按节气（立春至谷雨为春……）。测试查一年 365 天季节都对、霜降《山行》、中秋《水调歌头》、清明杜牧《清明》。
+  - 卡片底部一行名句（`famous`），点击打开今天的详情并跳到「物候与诗」。
+- **开发用截图**：`VITE_TEST_SHOT=card|detail npm run tauri dev` 启动后自动展开卷轴 / 打开详情并每 4 秒跳一栏，外面用 `screencapture -l <窗口号>` 截图，不用点鼠标。截图在 `preview/v0.4/`。
 - 繁体：签文和诗的大意由 `build-zh-tw.ts` 用 OpenCC（`cn→twp`）生成，**不套** `UI_FIXES`（「衝→沖」只适用于黄历沖煞，散文里的「衝突」要保留）。地支「丑」在繁体里仍是「丑」（OpenCC 会转成「醜」，`TERM_FIXES` 改回）。
 
 ## 测试

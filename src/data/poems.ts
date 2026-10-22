@@ -61,6 +61,16 @@ export function poemForDay(ymd: Ymd): { poem: Poem; reason: PickReason } {
   return { poem: BY_ID.get(pick.id)!, reason: pick.reason };
 }
 
+/**
+ * 短题目（卡片上用）：组诗的长题只留最后一层，如「四时田园杂兴六十首 秋日田园杂兴十二绝 其七」→「秋日田园杂兴十二绝·其七」
+ */
+export function shortTitle(title: string): string {
+  const parts = title.split(/\s+/).filter(Boolean);
+  if (parts.length < 2) return title;
+  const last = parts[parts.length - 1];
+  return /^其[一二三四五六七八九十]+$/.test(last) ? `${parts[parts.length - 2]}·${last}` : last;
+}
+
 /** 界面用的字形：繁体界面用繁体，其他用简体（英文界面保留中文原诗） */
 export function poemScript(lang: Lang): Zh {
   return lang === "zh-TW" ? "zh-TW" : "zh-CN";

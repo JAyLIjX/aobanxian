@@ -6,7 +6,7 @@ import { nextCountdown } from "../calendar/countdown";
 import { getDayDetail } from "../calendar/day";
 import { getAlmanac } from "../calendar/special";
 import { DetailPanel, SECTIONS, type SectionId } from "../components/DetailPanel";
-import { poemForDay, poemScript } from "../data/poems";
+import { poemForDay, poemScript, shortTitle } from "../data/poems";
 import { MonthView } from "../components/MonthView";
 import { Bubble } from "../components/Bubble";
 import { Muyu } from "../components/Muyu";
@@ -101,7 +101,7 @@ export function MainApp() {
   const todayFamous = useMemo(() => {
     const { poem } = poemForDay(today);
     const script = poemScript(lang);
-    return { text: poem.famous[script], title: `《${poem.title[script]}》` };
+    return { text: poem.famous[script], title: `${poem.author[script]}《${shortTitle(poem.title[script])}》` };
   }, [today, lang]);
   const almanac = useMemo(() => getAlmanac(today), [today]);
   const ramp = useCallback((e: Element) => rules.pixelRamps[e].map((l) => l.hex) as Ramp, [rules]);

@@ -1631,8 +1631,7 @@ html[data-view="textfit"] body {
   flex-wrap: wrap;
   gap: 4px 6px;
   margin: 6px 0 2px;
-  padding-bottom: 6px;
-  border-bottom: 1px dashed var(--line);
+  padding-bottom: 2px;
 }
 .detail__nav-item {
   font: inherit;

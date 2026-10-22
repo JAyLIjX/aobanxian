@@ -82,8 +82,19 @@ export function DetailPanel({ ymd, rules, myZodiac, anniversaries, onChange, onC
     });
   const jump = (id: SectionId) => {
     if (FOLDABLE.includes(id) && !open[id]) toggle(id, true);
-    requestAnimationFrame(() => refs.current[id]?.scrollIntoView({ block: "start", behavior: "smooth" }));
+    requestAnimationFrame(() => {
+      // 穿衣是第一栏：滚到最上面，日期和小目录也留在视野里
+      if (id === "outfit") refs.current.outfit?.closest(".detail")?.scrollTo({ top: 0, behavior: "smooth" });
+      else refs.current[id]?.scrollIntoView({ block: "start", behavior: "smooth" });
+    });
   };
+  // 时辰时间轴：把当前时辰滚到中间
+  const hoursRef = useRef<HTMLOListElement | null>(null);
+  useEffect(() => {
+    const ol = hoursRef.current;
+    const cell = ol?.querySelector<HTMLElement>(".is-now");
+    if (ol && cell) ol.scrollLeft = cell.offsetLeft - ol.offsetLeft - (ol.clientWidth - cell.clientWidth) / 2;
+  }, [open.hours, currentHour, ymd]);
   useEffect(() => {
     if (focus) jump(focus.id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -239,7 +250,7 @@ export function DetailPanel({ ymd, rules, myZodiac, anniversaries, onChange, onC
 
       {/* 时辰：十二时辰横向时间轴，子时跨两天作为一格；看今天时高亮当前时辰 */}
       <Fold id="hours" title={t("detail.sectionHours")} open={!!open.hours} onToggle={() => toggle("hours")} refs={refs}>
-        <ol className="hours" aria-label={t("detail.sectionHours")}>
+        <ol className="hours" ref={hoursRef} aria-label={t("detail.sectionHours")}>
           {extras.hours.map((h, i) => (
             <li key={h.branch} className={`hours__cell hours__cell--${h.luck === "吉" ? "good" : "fair"} ${i === currentHour ? "is-now" : ""}`} aria-current={i === currentHour ? "time" : undefined}>
               <b>{t("detail.hourName", { branch: translate("branch", h.branch, lang === "en" ? "zh-CN" : lang) })}</b>
