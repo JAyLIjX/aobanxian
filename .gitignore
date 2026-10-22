@@ -26,3 +26,7 @@ dist-ssr
 # Rust / Tauri
 src-tauri/target
 src-tauri/gen/schemas
+
+# 字体原版（很大），只在子集化时用；子集结果在 src/assets/fonts
+fonts-src/
+.venv-fonts/

@@ -1,0 +1,32 @@
+/*
+ * 字体都是按实际用到的字做过子集的 woff2（见 scripts/fonts/ 和 CLAUDE.md「字体」一节）。
+ * 字表之外的字会回退到系统字体。
+ */
+@font-face {
+  font-family: "WX WenKai";
+  src: url("./assets/fonts/LXGWWenKai-subset.woff2") format("woff2");
+  font-display: block;
+}
+
+@font-face {
+  font-family: "WX MaShanZheng";
+  src: url("./assets/fonts/MaShanZheng-subset.woff2") format("woff2");
+  font-display: block;
+}
+
+@font-face {
+  font-family: "WX ZhiMangXing";
+  src: url("./assets/fonts/ZhiMangXing-subset.woff2") format("woff2");
+  font-display: block;
+}
+
+:root {
+  --font-fallback: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif;
+  --font-body: "WX WenKai", var(--font-fallback);
+  --font-display: "WX MaShanZheng", var(--font-body);
+}
+
+/* 大字字体开关：config/appearance.json 的 displayFont */
+:root[data-display-font="B"] {
+  --font-display: "WX ZhiMangXing", var(--font-body);
+}
