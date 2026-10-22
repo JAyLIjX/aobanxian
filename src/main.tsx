@@ -9,6 +9,7 @@ import { GuaApp } from "./windows/GuaApp";
 import { LotsApp } from "./windows/LotsApp";
 import { MainApp } from "./windows/MainApp";
 import { PreviewApp } from "./windows/PreviewApp";
+import { DetailPreviewApp } from "./windows/DetailPreviewApp";
 import { TextFitApp } from "./windows/TextFitApp";
 import { SettingsApp } from "./windows/SettingsApp";
 import { ShareApp } from "./windows/ShareApp";
@@ -26,7 +27,7 @@ const VIEWS: Record<string, () => React.JSX.Element> = {
   gua: GuaApp,
   share: ShareApp,
 };
-const DEV_VIEWS: Record<string, () => React.JSX.Element> = import.meta.env.DEV ? { preview: PreviewApp, textfit: TextFitApp } : {};
+const DEV_VIEWS: Record<string, () => React.JSX.Element> = import.meta.env.DEV ? { preview: PreviewApp, textfit: TextFitApp, detail: DetailPreviewApp } : {};
 const App = (view && (VIEWS[view] ?? DEV_VIEWS[view])) || MainApp;
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

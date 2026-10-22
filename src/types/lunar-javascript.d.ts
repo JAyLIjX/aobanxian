@@ -54,7 +54,33 @@ declare module "lunar-javascript" {
     getDayTianShen(): string;
     getDayTianShenType(): string;
     getDayTianShenLuck(): string;
+    /** 建除十二值星 */
+    getZhiXing(): string;
+    /** 喜神、福神、财神方位，如「东北」「正北」 */
+    getDayPositionXiDesc(): string;
+    getDayPositionFuDesc(): string;
+    getDayPositionCaiDesc(): string;
+    /** 彭祖百忌，如「己不破券二比并亡」 */
+    getPengZuGan(): string;
+    getPengZuZhi(): string;
+    /** 七十二候的候名，如「菊有黄花」 */
+    getWuHou(): string;
+    /** 节气 + 第几候，如「寒露 三候」 */
+    getHou(): string;
+    getYueXiang(): string;
+    /** 当天 13 个时辰（00:00 的早子时 … 23:00 的晚子时） */
+    getTimes(): LunarTime[];
     toFullString(): string;
+  }
+
+  export class LunarTime {
+    getZhi(): string;
+    getGanZhi(): string;
+    /** 黄道 / 黑道 */
+    getTianShenType(): string;
+    /** 如「01:00」 */
+    getMinHm(): string;
+    getMaxHm(): string;
   }
 
   export class LunarYear {

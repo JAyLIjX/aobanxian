@@ -2,7 +2,9 @@ import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { todays, type Anniversary } from "../calendar/anniversary";
 import { getDayDetail } from "../calendar/day";
+import { getDayExtras } from "../calendar/extras";
 import { getAlmanac } from "../calendar/special";
+import { poemOfDay } from "../data/poems";
 import type { Ymd } from "../core/dayBoundary";
 import type { Rules } from "../core/rules";
 import { personalRelation, ZODIAC, type Branch } from "../core/zodiac";
@@ -22,7 +24,7 @@ import {
   xiuLuck,
   xiuName,
 } from "../i18n/format";
-import { ganzhi, term, yijiExplain } from "../i18n/terms";
+import { ganzhi, term, termDesc, translate, yijiExplain } from "../i18n/terms";
 import { ColorChip } from "./ColorChip";
 
 interface Props {
@@ -44,6 +46,8 @@ export function DetailPanel({ ymd, rules, myZodiac, anniversaries, onChange, onC
   const lang = i18n.language as Lang;
   const d = useMemo(() => getDayDetail(ymd, rules), [ymd, rules]);
   const almanac = useMemo(() => getAlmanac(ymd), [ymd]);
+  const extras = useMemo(() => getDayExtras(ymd), [ymd]);
+  const poem = poemOfDay(d.julianDay);
   const { outfit, zodiac } = d;
 
   useEffect(() => {
@@ -183,6 +187,69 @@ export function DetailPanel({ ymd, rules, myZodiac, anniversaries, onChange, onC
             {xiuName(d, lang)}　<span className="mark">{xiuLuck(d, rules, lang, t)}</span>
           </dd>
         </dl>
+      </section>
+
+      <section className="detail__section">
+        <h3>{t("detail.sectionMore")}</h3>
+        <dl className="facts">
+          <dt>{t("detail.zhiXing")}</dt>
+          <dd>
+            {t("detail.zhiXingValue", { name: term("zhixing", extras.zhiXing, lang) })}
+            <span className="muted">　{termDesc("zhixing", extras.zhiXing, lang)}</span>
+          </dd>
+          <dt>{t("detail.luckyHours")}</dt>
+          <dd className="detail__hours">
+            {extras.luckyHours.length === 0
+              ? t("detail.luckyHoursNone")
+              : extras.luckyHours.map((h) => (
+                  <span key={h.start}>{t("detail.hour", { branch: lang === "en" ? `${h.branch} ${translate("branch", h.branch, lang)}` : translate("branch", h.branch, lang), start: h.start, end: h.end })}</span>
+                ))}
+          </dd>
+          <dt>{t("detail.positions")}</dt>
+          <dd>
+            {t("detail.positionsValue", {
+              xi: term("direction", extras.positions.xi, lang),
+              fu: term("direction", extras.positions.fu, lang),
+              cai: term("direction", extras.positions.cai, lang),
+            })}
+          </dd>
+          <dt>{t("detail.pengzu")}</dt>
+          <dd>{extras.pengzu.map((p) => term("pengzu", p, lang)).join(lang === "en" ? "; " : "　")}</dd>
+          <dt>{t("detail.wuhou")}</dt>
+          <dd>
+            {t("detail.wuhouValue", {
+              jieqi: term("jieqi", extras.wuhou.jieqi, lang),
+              hou: translate("hou", extras.wuhou.hou, lang),
+              name: term("wuhou", extras.wuhou.name, lang),
+            })}
+          </dd>
+          <dt>{t("detail.yueXiang")}</dt>
+          <dd>{term("yuexiang", extras.yueXiang, lang)}</dd>
+        </dl>
+      </section>
+
+      <section className="detail__section poem">
+        <h3>{t("detail.sectionPoem")}</h3>
+        <p className="poem__title">
+          <span className="poem__name display" lang="zh-Hant">
+            {poem.title}
+          </span>
+          <span className="poem__author muted" lang="zh-Hant">
+            {poem.author}
+          </span>
+          {lang === "en" && (
+            <span className="poem__en muted">
+              {poem.titleEn} · {poem.authorEn}
+            </span>
+          )}
+        </p>
+        <div className="poem__lines" lang="zh-Hant">
+          {poem.lines.map((l) => (
+            <p key={l}>{l}</p>
+          ))}
+        </div>
+        <p className="poem__gist">{poem.gist[lang]}</p>
+        <p className="poem__source muted">{t("detail.poemSource")}</p>
       </section>
 
       <footer className="detail__foot">{t("detail.foot")}</footer>

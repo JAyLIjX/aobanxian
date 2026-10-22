@@ -25,7 +25,12 @@ export type Category =
   | "color"
   | "colorFamily"
   | "traditionalColor"
-  | "yiji";
+  | "yiji"
+  | "zhixing"
+  | "pengzu"
+  | "wuhou"
+  | "yuexiang"
+  | "hou";
 
 type Entry = Partial<Record<Lang, string>> & { desc?: Partial<Record<Lang, string>> };
 const glossary = glossaryJson as unknown as Record<Category, Record<string, Entry>>;
@@ -74,9 +79,19 @@ export function glossaryKeys(cat: Category): string[] {
  *   英文：「冠笄 · Coming-of-age rites — An ancient coming-of-age ceremony」
  */
 export function yijiExplain(word: string, lang: Lang): string | undefined {
-  const entry = glossary.yiji?.[word];
+  return termExplain("yiji", word, lang);
+}
+
+/** 带白话解释的词（宜忌、值星）：格式同 yijiExplain */
+export function termExplain(cat: Category, word: string, lang: Lang): string | undefined {
+  const entry = glossary[cat]?.[word];
   const desc = entry?.desc?.[lang];
   if (!desc) return undefined;
-  if (lang === "en") return `${term("yiji", word, lang)} — ${desc}`;
-  return `${translate("yiji", word, lang)}：${desc}`;
+  if (lang === "en") return `${term(cat, word, lang)} — ${desc}`;
+  return `${translate(cat, word, lang)}：${desc}`;
+}
+
+/** 只取白话解释 */
+export function termDesc(cat: Category, word: string, lang: Lang): string | undefined {
+  return glossary[cat]?.[word]?.desc?.[lang];
 }

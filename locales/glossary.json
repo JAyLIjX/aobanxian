@@ -71,7 +71,7 @@
     },
     "丑": {
       "en": "Chou",
-      "zh-TW": "醜"
+      "zh-TW": "丑"
     },
     "寅": {
       "en": "Yin",
@@ -180,6 +180,38 @@
     "北": {
       "en": "North",
       "zh-TW": "北"
+    },
+    "正东": {
+      "en": "Due east",
+      "zh-TW": "正東"
+    },
+    "正南": {
+      "en": "Due south",
+      "zh-TW": "正南"
+    },
+    "正西": {
+      "en": "Due west",
+      "zh-TW": "正西"
+    },
+    "正北": {
+      "en": "Due north",
+      "zh-TW": "正北"
+    },
+    "东北": {
+      "en": "Northeast",
+      "zh-TW": "東北"
+    },
+    "东南": {
+      "en": "Southeast",
+      "zh-TW": "東南"
+    },
+    "西北": {
+      "en": "Northwest",
+      "zh-TW": "西北"
+    },
+    "西南": {
+      "en": "Southwest",
+      "zh-TW": "西南"
     }
   },
   "nayin": {
@@ -1926,6 +1958,604 @@
         "en": "Travelling by boat",
         "zh-TW": "坐船出行"
       }
+    }
+  },
+  "zhixing": {
+    "建": {
+      "en": "Establish",
+      "desc": {
+        "zh-CN": "万物初建之日，宜开始新的计划",
+        "en": "A day of beginnings, good for starting new plans",
+        "zh-TW": "萬物初建之日，宜開始新的計劃"
+      },
+      "zh-TW": "建"
+    },
+    "除": {
+      "en": "Remove",
+      "desc": {
+        "zh-CN": "除旧布新之日，宜清扫、整理",
+        "en": "A day for clearing out the old — tidy up and sort things out",
+        "zh-TW": "除舊佈新之日，宜清掃、整理"
+      },
+      "zh-TW": "除"
+    },
+    "满": {
+      "en": "Full",
+      "desc": {
+        "zh-CN": "丰收圆满之日，宜收纳、祭祀",
+        "en": "A day of fullness, good for gathering in and giving thanks",
+        "zh-TW": "豐收圓滿之日，宜收納、祭祀"
+      },
+      "zh-TW": "滿"
+    },
+    "平": {
+      "en": "Balance",
+      "desc": {
+        "zh-CN": "平平常常之日，宜修整、平治道路",
+        "en": "An even, ordinary day, good for repairs and smoothing things over",
+        "zh-TW": "平平常常之日，宜修整、平治道路"
+      },
+      "zh-TW": "平"
+    },
+    "定": {
+      "en": "Settle",
+      "desc": {
+        "zh-CN": "安定之日，宜做定下来的事",
+        "en": "A settled day, good for decisions meant to last",
+        "zh-TW": "安定之日，宜做定下來的事"
+      },
+      "zh-TW": "定"
+    },
+    "执": {
+      "en": "Hold",
+      "desc": {
+        "zh-CN": "执守之日，宜守成、收拾",
+        "en": "A day for holding on — keep what you have and put things in order",
+        "zh-TW": "執守之日，宜守成、收拾"
+      },
+      "zh-TW": "執"
+    },
+    "破": {
+      "en": "Break",
+      "desc": {
+        "zh-CN": "冲破之日，大事宜缓，宜拆旧",
+        "en": "A day of breaking — postpone big matters, fine for taking down the old",
+        "zh-TW": "沖破之日，大事宜緩，宜拆舊"
+      },
+      "zh-TW": "破"
+    },
+    "危": {
+      "en": "Peril",
+      "desc": {
+        "zh-CN": "危高之日，做事宜谨慎小心",
+        "en": "A day to tread carefully and take extra care",
+        "zh-TW": "危高之日，做事宜謹慎小心"
+      },
+      "zh-TW": "危"
+    },
+    "成": {
+      "en": "Success",
+      "desc": {
+        "zh-CN": "成就之日，诸事易成",
+        "en": "A day of accomplishment — things come together easily",
+        "zh-TW": "成就之日，諸事易成"
+      },
+      "zh-TW": "成"
+    },
+    "收": {
+      "en": "Harvest",
+      "desc": {
+        "zh-CN": "收获之日，宜收成、收账",
+        "en": "A day of harvest, good for collecting what is due",
+        "zh-TW": "收穫之日，宜收成、收賬"
+      },
+      "zh-TW": "收"
+    },
+    "开": {
+      "en": "Open",
+      "desc": {
+        "zh-CN": "开通之日，宜开张、出行",
+        "en": "A day of opening, good for launches and setting out",
+        "zh-TW": "開通之日，宜開張、出行"
+      },
+      "zh-TW": "開"
+    },
+    "闭": {
+      "en": "Close",
+      "desc": {
+        "zh-CN": "闭藏之日，宜收藏、休息",
+        "en": "A day of closing, good for storing away and resting",
+        "zh-TW": "閉藏之日，宜收藏、休息"
+      },
+      "zh-TW": "閉"
+    }
+  },
+  "pengzu": {
+    "甲不开仓": {
+      "en": "Jia days: don't open the granary",
+      "zh-TW": "甲不開倉"
+    },
+    "乙不栽植": {
+      "en": "Yi days: don't plant",
+      "zh-TW": "乙不栽植"
+    },
+    "丙不修灶": {
+      "en": "Bing days: don't repair the stove",
+      "zh-TW": "丙不修灶"
+    },
+    "丁不剃头": {
+      "en": "Ding days: don't shave the head",
+      "zh-TW": "丁不剃頭"
+    },
+    "戊不受田": {
+      "en": "Wu days: don't take on land",
+      "zh-TW": "戊不受田"
+    },
+    "己不破券": {
+      "en": "Ji days: don't break a contract",
+      "zh-TW": "己不破券"
+    },
+    "庚不经络": {
+      "en": "Geng days: don't set up the loom",
+      "zh-TW": "庚不經絡"
+    },
+    "辛不合酱": {
+      "en": "Xin days: don't make sauce",
+      "zh-TW": "辛不合醬"
+    },
+    "壬不泱水": {
+      "en": "Ren days: don't draw off water",
+      "zh-TW": "壬不泱水"
+    },
+    "癸不词讼": {
+      "en": "Gui days: don't go to law",
+      "zh-TW": "癸不詞訟"
+    },
+    "子不问卜": {
+      "en": "Zi days: don't consult a diviner",
+      "zh-TW": "子不問卜"
+    },
+    "丑不冠带": {
+      "en": "Chou days: don't hold coming-of-age rites",
+      "zh-TW": "丑不冠帶"
+    },
+    "寅不祭祀": {
+      "en": "Yin days: don't hold sacrifices",
+      "zh-TW": "寅不祭祀"
+    },
+    "卯不穿井": {
+      "en": "Mao days: don't dig a well",
+      "zh-TW": "卯不穿井"
+    },
+    "辰不哭泣": {
+      "en": "Chen days: don't weep",
+      "zh-TW": "辰不哭泣"
+    },
+    "巳不远行": {
+      "en": "Si days: don't travel far",
+      "zh-TW": "巳不遠行"
+    },
+    "午不苫盖": {
+      "en": "Wu days: don't thatch a roof",
+      "zh-TW": "午不苫蓋"
+    },
+    "未不服药": {
+      "en": "Wei days: don't start new medicine",
+      "zh-TW": "未不服藥"
+    },
+    "申不安床": {
+      "en": "Shen days: don't set up a bed",
+      "zh-TW": "申不安床"
+    },
+    "酉不会客": {
+      "en": "You days: don't host guests",
+      "zh-TW": "酉不會客"
+    },
+    "戌不吃犬": {
+      "en": "Xu days: don't eat dog",
+      "zh-TW": "戌不吃犬"
+    },
+    "亥不嫁娶": {
+      "en": "Hai days: don't marry",
+      "zh-TW": "亥不嫁娶"
+    }
+  },
+  "wuhou": {
+    "蚯蚓结": {
+      "en": "Earthworms curl up",
+      "zh-TW": "蚯蚓結"
+    },
+    "麋角解": {
+      "en": "Elk shed their antlers",
+      "zh-TW": "麋角解"
+    },
+    "水泉动": {
+      "en": "Springs begin to stir",
+      "zh-TW": "水泉動"
+    },
+    "雁北乡": {
+      "en": "Geese turn north",
+      "zh-TW": "雁北鄉"
+    },
+    "鹊始巢": {
+      "en": "Magpies start their nests",
+      "zh-TW": "鵲始巢"
+    },
+    "雉始雊": {
+      "en": "Pheasants begin to call",
+      "zh-TW": "雉始雊"
+    },
+    "鸡始乳": {
+      "en": "Hens start to brood",
+      "zh-TW": "雞始乳"
+    },
+    "征鸟厉疾": {
+      "en": "Birds of prey grow fierce",
+      "zh-TW": "徵鳥厲疾"
+    },
+    "水泽腹坚": {
+      "en": "Pools freeze hard",
+      "zh-TW": "水澤腹堅"
+    },
+    "东风解冻": {
+      "en": "East wind thaws the ice",
+      "zh-TW": "東風解凍"
+    },
+    "蛰虫始振": {
+      "en": "Hibernating insects stir",
+      "zh-TW": "蟄蟲始振"
+    },
+    "鱼陟负冰": {
+      "en": "Fish rise to the ice",
+      "zh-TW": "魚陟負冰"
+    },
+    "獭祭鱼": {
+      "en": "Otters lay out fish",
+      "zh-TW": "獺祭魚"
+    },
+    "候雁北": {
+      "en": "Wild geese fly north",
+      "zh-TW": "候雁北"
+    },
+    "草木萌动": {
+      "en": "Plants begin to bud",
+      "zh-TW": "草木萌動"
+    },
+    "桃始华": {
+      "en": "Peach trees blossom",
+      "zh-TW": "桃始華"
+    },
+    "仓庚鸣": {
+      "en": "Orioles sing",
+      "zh-TW": "倉庚鳴"
+    },
+    "鹰化为鸠": {
+      "en": "Hawks seem to turn into doves",
+      "zh-TW": "鷹化為鳩"
+    },
+    "玄鸟至": {
+      "en": "Swallows return",
+      "zh-TW": "玄鳥至"
+    },
+    "雷乃发声": {
+      "en": "Thunder raises its voice",
+      "zh-TW": "雷乃發聲"
+    },
+    "始电": {
+      "en": "Lightning first appears",
+      "zh-TW": "始電"
+    },
+    "桐始华": {
+      "en": "Paulownias blossom",
+      "zh-TW": "桐始華"
+    },
+    "田鼠化为鴽": {
+      "en": "Field mice seem to turn into quail",
+      "zh-TW": "田鼠化為鴽"
+    },
+    "虹始见": {
+      "en": "Rainbows first appear",
+      "zh-TW": "虹始見"
+    },
+    "萍始生": {
+      "en": "Duckweed begins to grow",
+      "zh-TW": "萍始生"
+    },
+    "鸣鸠拂其羽": {
+      "en": "Turtledoves preen their feathers",
+      "zh-TW": "鳴鳩拂其羽"
+    },
+    "戴胜降于桑": {
+      "en": "Hoopoes alight on mulberries",
+      "zh-TW": "戴勝降於桑"
+    },
+    "蝼蝈鸣": {
+      "en": "Mole crickets chirp",
+      "zh-TW": "螻蟈鳴"
+    },
+    "蚯蚓出": {
+      "en": "Earthworms come out",
+      "zh-TW": "蚯蚓出"
+    },
+    "王瓜生": {
+      "en": "Snake gourds grow",
+      "zh-TW": "王瓜生"
+    },
+    "苦菜秀": {
+      "en": "Sow thistle flowers",
+      "zh-TW": "苦菜秀"
+    },
+    "靡草死": {
+      "en": "Fine grasses wither",
+      "zh-TW": "靡草死"
+    },
+    "麦秋至": {
+      "en": "Wheat ripens",
+      "zh-TW": "麥秋至"
+    },
+    "螳螂生": {
+      "en": "Mantises hatch",
+      "zh-TW": "螳螂生"
+    },
+    "鵙始鸣": {
+      "en": "Shrikes begin to call",
+      "zh-TW": "鵙始鳴"
+    },
+    "反舌无声": {
+      "en": "Mockingbirds fall silent",
+      "zh-TW": "反舌無聲"
+    },
+    "鹿角解": {
+      "en": "Deer shed their antlers",
+      "zh-TW": "鹿角解"
+    },
+    "蜩始鸣": {
+      "en": "Cicadas begin to sing",
+      "zh-TW": "蜩始鳴"
+    },
+    "半夏生": {
+      "en": "Crow-dipper sprouts",
+      "zh-TW": "半夏生"
+    },
+    "温风至": {
+      "en": "Warm winds arrive",
+      "zh-TW": "溫風至"
+    },
+    "蟋蟀居壁": {
+      "en": "Crickets shelter by the walls",
+      "zh-TW": "蟋蟀居壁"
+    },
+    "鹰始挚": {
+      "en": "Young hawks learn to hunt",
+      "zh-TW": "鷹始摯"
+    },
+    "腐草为萤": {
+      "en": "Fireflies rise from rotting grass",
+      "zh-TW": "腐草為螢"
+    },
+    "土润溽暑": {
+      "en": "The earth is damp and sultry",
+      "zh-TW": "土潤溽暑"
+    },
+    "大雨行时": {
+      "en": "Great rains fall in season",
+      "zh-TW": "大雨行時"
+    },
+    "凉风至": {
+      "en": "Cool winds arrive",
+      "zh-TW": "涼風至"
+    },
+    "白露降": {
+      "en": "White dew forms",
+      "zh-TW": "白露降"
+    },
+    "寒蝉鸣": {
+      "en": "Autumn cicadas sing",
+      "zh-TW": "寒蟬鳴"
+    },
+    "鹰乃祭鸟": {
+      "en": "Hawks lay out their prey",
+      "zh-TW": "鷹乃祭鳥"
+    },
+    "天地始肃": {
+      "en": "Heaven and earth turn austere",
+      "zh-TW": "天地始肅"
+    },
+    "禾乃登": {
+      "en": "Grain is harvested",
+      "zh-TW": "禾乃登"
+    },
+    "鸿雁来": {
+      "en": "Wild geese arrive",
+      "zh-TW": "鴻雁來"
+    },
+    "玄鸟归": {
+      "en": "Swallows leave",
+      "zh-TW": "玄鳥歸"
+    },
+    "群鸟养羞": {
+      "en": "Birds store food",
+      "zh-TW": "群鳥養羞"
+    },
+    "雷始收声": {
+      "en": "Thunder falls silent",
+      "zh-TW": "雷始收聲"
+    },
+    "蛰虫坯户": {
+      "en": "Insects seal their burrows",
+      "zh-TW": "蟄蟲坯戶"
+    },
+    "水始涸": {
+      "en": "Waters begin to dry",
+      "zh-TW": "水始涸"
+    },
+    "鸿雁来宾": {
+      "en": "Wild geese gather as guests",
+      "zh-TW": "鴻雁來賓"
+    },
+    "雀入大水为蛤": {
+      "en": "Sparrows seem to turn into clams",
+      "zh-TW": "雀入大水為蛤"
+    },
+    "菊有黄花": {
+      "en": "Chrysanthemums bloom yellow",
+      "zh-TW": "菊有黃花"
+    },
+    "豺乃祭兽": {
+      "en": "Jackals lay out their prey",
+      "zh-TW": "豺乃祭獸"
+    },
+    "草木黄落": {
+      "en": "Leaves turn yellow and fall",
+      "zh-TW": "草木黃落"
+    },
+    "蛰虫咸俯": {
+      "en": "Insects settle in for winter",
+      "zh-TW": "蟄蟲鹹俯"
+    },
+    "水始冰": {
+      "en": "Water begins to freeze",
+      "zh-TW": "水始冰"
+    },
+    "地始冻": {
+      "en": "The ground begins to freeze",
+      "zh-TW": "地始凍"
+    },
+    "雉入大水为蜃": {
+      "en": "Pheasants seem to turn into clams",
+      "zh-TW": "雉入大水為蜃"
+    },
+    "虹藏不见": {
+      "en": "Rainbows hide away",
+      "zh-TW": "虹藏不見"
+    },
+    "天气上升地气下降": {
+      "en": "Heaven's air rises, earth's air sinks",
+      "zh-TW": "天氣上升地氣下降"
+    },
+    "闭塞而成冬": {
+      "en": "All is closed — winter sets in",
+      "zh-TW": "閉塞而成冬"
+    },
+    "鹖鴠不鸣": {
+      "en": "Night birds fall silent",
+      "zh-TW": "鶡鴠不鳴"
+    },
+    "虎始交": {
+      "en": "Tigers begin to mate",
+      "zh-TW": "虎始交"
+    },
+    "荔挺出": {
+      "en": "Lychee grass sprouts",
+      "zh-TW": "荔挺出"
+    }
+  },
+  "yuexiang": {
+    "朔": {
+      "en": "New moon",
+      "zh-TW": "朔"
+    },
+    "既朔": {
+      "en": "Day after new moon",
+      "zh-TW": "既朔"
+    },
+    "蛾眉新": {
+      "en": "New crescent",
+      "zh-TW": "蛾眉新"
+    },
+    "蛾眉": {
+      "en": "Crescent",
+      "zh-TW": "蛾眉"
+    },
+    "夕": {
+      "en": "Evening crescent",
+      "zh-TW": "夕"
+    },
+    "上弦": {
+      "en": "First quarter",
+      "zh-TW": "上弦"
+    },
+    "九夜": {
+      "en": "Ninth-night moon",
+      "zh-TW": "九夜"
+    },
+    "宵": {
+      "en": "Waxing evening moon",
+      "zh-TW": "宵"
+    },
+    "渐盈凸": {
+      "en": "Waxing gibbous",
+      "zh-TW": "漸盈凸"
+    },
+    "小望": {
+      "en": "Near full",
+      "zh-TW": "小望"
+    },
+    "望": {
+      "en": "Full moon",
+      "zh-TW": "望"
+    },
+    "既望": {
+      "en": "Day after full moon",
+      "zh-TW": "既望"
+    },
+    "立待": {
+      "en": "Standing-wait moon",
+      "zh-TW": "立待"
+    },
+    "居待": {
+      "en": "Sitting-wait moon",
+      "zh-TW": "居待"
+    },
+    "寝待": {
+      "en": "Lying-wait moon",
+      "zh-TW": "寢待"
+    },
+    "更待": {
+      "en": "Late-night moon",
+      "zh-TW": "更待"
+    },
+    "渐亏凸": {
+      "en": "Waning gibbous",
+      "zh-TW": "漸虧凸"
+    },
+    "下弦": {
+      "en": "Last quarter",
+      "zh-TW": "下弦"
+    },
+    "有明": {
+      "en": "Dawn moon",
+      "zh-TW": "有明"
+    },
+    "蛾眉残": {
+      "en": "Waning crescent",
+      "zh-TW": "蛾眉殘"
+    },
+    "残": {
+      "en": "Old moon",
+      "zh-TW": "殘"
+    },
+    "晓": {
+      "en": "Daybreak moon",
+      "zh-TW": "曉"
+    },
+    "晦": {
+      "en": "Dark moon",
+      "zh-TW": "晦"
+    }
+  },
+  "hou": {
+    "初候": {
+      "en": "1st pentad",
+      "zh-TW": "初候"
+    },
+    "二候": {
+      "en": "2nd pentad",
+      "zh-TW": "二候"
+    },
+    "三候": {
+      "en": "3rd pentad",
+      "zh-TW": "三候"
     }
   }
 }

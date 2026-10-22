@@ -45,8 +45,9 @@ src/calendar/
   zeri.ts                  择日：事件 → 宜忌用词（config/zeri.json），筛出宜做且不忌的日子
   anniversary.ts           纪念日：下次日期（闰月、小月、2/29）、提醒、月历记号、导入校验
   countdown.ts             卡片底部倒计时（纪念日、传统节日、节气）
+  extras.ts                详情「更多黄历」：值星、吉时、吉神方位、彭祖百忌、物候、月相
   guaDay.ts                某天某时 → 农历年支、月、日、时支 → 起卦
-src/data/                  古籍原文 + 自撰白话：lots.json（關聖帝君靈籤一百签）、zhouyi.json（周易六十四卦）
+src/data/                  古籍原文 + 自撰白话：lots.json（關聖帝君靈籤一百签）、zhouyi.json（周易六十四卦）、poems.json（唐詩三百首的绝句，每日一诗）
 src/share/shareImage.ts    分享图（1080×1440）版式、离线二维码
 src/sprite/
   sprite.ts                精灵数据、换色渲染（纯函数）、点击分区
@@ -61,6 +62,7 @@ src/windows/
   ZeriApp / AnniversariesApp / LotsApp / GuaApp / ShareApp   择日、纪念日、求签、每日一卦、分享今日（?view=zeri 等）
   useWindowSetup.ts        独立窗口的公共设置（语言、标题）
   PreviewApp.tsx           开发用预览页（?view=preview，只在开发模式）
+  DetailPreviewApp.tsx     开发用：单独显示详情面板（?view=detail&date=2026-10-22&lang=en）
 src/components/            Scroll（挂轴）/ TodayCard / MonthView / DetailPanel / ColorChip / Bubble / Sparkles / TextField（有字数限制的输入框）
 src/settings/              设置类型与校验（纯函数）、tauri-plugin-store 读写、useSettings
 src/i18n/                  i18next 初始化、术语显示（terms.ts）、日期等格式化（format.ts）
@@ -264,6 +266,17 @@ GitHub Actions（`.github/workflows/release.yml`）推送 `v*` 标签时用 taur
 - **起卦**：年支按农历年（正月初一换年），闰月按本月数，时辰 23 点起算子时。
 - **择日**：`config/zeri.json` 里每件事对应的宜忌用词；要求「宜」里有、「忌」里没有。和我的生肖相冲的日子变灰并标「冲你」。
 - **分享图**：文字按界面语言；存到 `图片/奥半仙/奥半仙-日期.png`（附签加「-签」），需要 fs 的 `$PICTURE` 权限；导出 / 导入纪念日走对话框选的路径（对话框会把选中的路径加进 fs 权限范围）。
+
+
+## v0.4 内容要点
+
+- **求签**：每签有 签诗（原文）、白话总解（`reading`，3–5 句）、分事项（`aspects`：事业、求财、感情、出行、考试、失物、健康，各一句）、典故故事（`tale`，150–250 字，`taleBasis` 记依据）。都依据维基文库该签页面的聖意、解曰、釋義、故事及記載自撰；第 1–10 签的页面没有「故事及記載」。规则（`tests/lots.test.ts` 会查）：
+  - 典故出自小说、戏曲、传说的，开头写「相传」或「据《××》」；最后一句接回签意；史实不编造，找不到出处只写简介（`brief`）。
+  - 健康只写「注意休息、有不适及时就医」这类话，不预测病情；生男生女、诉讼不放进分事项和总解。
+  - 自撰文字不出现「凶」「施主」。
+- **每日一诗**：《唐詩三百首》的五言、七言绝句（去掉 3 首写战死、身死的），按儒略日轮换（`core/poem.ts`），显示在详情最后。原文照维基文库，不改字（只统一标点、`云→雲`、`㡬→幾`）；有些字和通行本不同（如「碧山盡」「盡寒食雨」），保留原样。
+- **更多黄历**（详情）：全部取自 lunar-javascript。彭祖百忌只显示前半句的禁忌（「己不破券」），不显示后半句吓人的后果。术语的英文在 `glossary.json` 的 `zhixing`、`pengzu`、`wuhou`、`yuexiang`、`hou`。
+- 繁体：签文和诗的大意由 `build-zh-tw.ts` 用 OpenCC（`cn→twp`）生成，**不套** `UI_FIXES`（「衝→沖」只适用于黄历沖煞，散文里的「衝突」要保留）。地支「丑」在繁体里仍是「丑」（OpenCC 会转成「醜」，`TERM_FIXES` 改回）。
 
 ## 测试
 

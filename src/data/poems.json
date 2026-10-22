@@ -1,0 +1,1474 @@
+{
+  "$comment": "诗的原文来自维基文库《唐詩三百首》各篇页面（五言絕句、七言絕句），公有领域，保持原文繁体；只统一了标点（缺标点的补上「，。」）和两个字形（云→雲、㡬→幾）。revid 是抓取时的页面版本。titleEn、authorEn、gist 是奥半仙自撰。",
+  "source": {
+    "title": "唐詩三百首",
+    "edition": "蘅塘退士選",
+    "url": "https://zh.wikisource.org/wiki/%E5%94%90%E8%A9%A9%E4%B8%89%E7%99%BE%E9%A6%96",
+    "site": "維基文庫"
+  },
+  "poems": [
+    {
+      "id": 1,
+      "form": "五言絕句",
+      "author": "元稹",
+      "authorEn": "Yuan Zhen",
+      "title": "行宮",
+      "titleEn": "The Old Palace",
+      "lines": [
+        "寥落古行宮，宮花寂寞紅。",
+        "白頭宮女在，閑坐說玄宗。"
+      ],
+      "gist": {
+        "zh-CN": "冷清寂寥的古行宫里，宫中的花依旧开得红艳，却无人欣赏。几位头发花白的宫女闲坐着，谈起玄宗时的旧事。短短二十字，便写尽了盛衰变迁和岁月的寂寞。",
+        "zh-TW": "冷清寂寥的古行宮裡，宮中的花依舊開得紅豔，卻無人欣賞。幾位頭髮花白的宮女閒坐著，談起玄宗時的舊事。短短二十字，便寫盡了盛衰變遷和歲月的寂寞。",
+        "en": "In a desolate old palace, the flowers still bloom red with no one to admire them. A few white-haired palace women sit idly, talking of the days of Emperor Xuanzong. In twenty characters the poem captures the passing of glory and the loneliness of time."
+      },
+      "page": "行宮",
+      "revid": 1982370
+    },
+    {
+      "id": 2,
+      "form": "五言絕句",
+      "author": "王之渙",
+      "authorEn": "Wang Zhihuan",
+      "title": "登鸛雀樓",
+      "titleEn": "Climbing Stork Tower",
+      "lines": [
+        "白日依山盡，黃河入海流。",
+        "欲窮千里目，更上一層樓。"
+      ],
+      "gist": {
+        "zh-CN": "白日沿着远处的山峦慢慢落下，黄河滚滚奔流入海。想要望得更远，就要再往上登一层楼。诗人由眼前壮阔的景色，引出向上进取、不断开拓眼界的道理。",
+        "zh-TW": "白日沿著遠處的山巒慢慢落下，黃河滾滾奔流入海。想要望得更遠，就要再往上登一層樓。詩人由眼前壯闊的景色，引出向上進取、不斷開拓眼界的道理。",
+        "en": "The setting sun sinks along the mountains as the Yellow River flows on toward the sea. To see a thousand miles farther, one must climb one more story. From a vast view, the poet draws a simple lesson about always reaching higher."
+      },
+      "page": "登鸛雀樓 (王之渙)",
+      "revid": 2648160
+    },
+    {
+      "id": 3,
+      "form": "五言絕句",
+      "author": "王建",
+      "authorEn": "Wang Jian",
+      "title": "新嫁娘",
+      "titleEn": "The New Bride",
+      "lines": [
+        "三日入廚下，洗手作羹湯。",
+        "未諳姑食性，先遣小姑嘗。"
+      ],
+      "gist": {
+        "zh-CN": "新媳妇过门第三天，洗净双手下厨做汤。她还不太了解婆婆的饮食口味，就先请小姑子尝一尝。几句家常小事，写出新嫁娘的细心、聪慧和一点小小的忐忑。",
+        "zh-TW": "新媳婦過門第三天，洗淨雙手下廚做湯。她還不太瞭解婆婆的飲食口味，就先請小姑子嘗一嘗。幾句家常小事，寫出新嫁娘的細心、聰慧和一點小小的忐忑。",
+        "en": "On her third day in the new household, the bride washes her hands and cooks a soup. Not yet knowing her mother-in-law's taste, she lets her husband's younger sister try it first. A small domestic scene shows her care, cleverness and quiet nervousness."
+      },
+      "page": "新嫁娘",
+      "revid": 1984476
+    },
+    {
+      "id": 4,
+      "form": "五言絕句",
+      "author": "王維",
+      "authorEn": "Wang Wei",
+      "title": "相思",
+      "titleEn": "Red Beans",
+      "lines": [
+        "紅豆生南國，春來發幾枝。",
+        "願君多采擷，此物最相思。"
+      ],
+      "gist": {
+        "zh-CN": "红豆生长在温暖的南方，春天来时又长出了多少新枝？希望你多多采摘，因为这小小的红豆最能寄托相思。诗人借红豆写思念，语言浅白如话，情意却深长。",
+        "zh-TW": "紅豆生長在溫暖的南方，春天來時又長出了多少新枝？希望你多多采摘，因為這小小的紅豆最能寄託相思。詩人借紅豆寫思念，語言淺白如話，情意卻深長。",
+        "en": "Red beans grow in the south; how many new sprigs has spring brought? Pick plenty of them, the poet urges, for nothing holds longing better. Plain words carry a deep and lasting affection."
+      },
+      "page": "相思",
+      "revid": 2450604
+    },
+    {
+      "id": 5,
+      "form": "五言絕句",
+      "author": "王維",
+      "authorEn": "Wang Wei",
+      "title": "雜詩",
+      "titleEn": "Miscellaneous Poem",
+      "lines": [
+        "君自故鄉來，應知故鄉事。",
+        "來日綺窗前，寒梅着花未。"
+      ],
+      "gist": {
+        "zh-CN": "你刚从故乡来，应该知道故乡的近况吧。你动身那天，我家雕花窗前的那株寒梅，开花了没有？诗人不问别的，只问一枝梅花，浓浓的乡思都藏在这一问里。",
+        "zh-TW": "你剛從故鄉來，應該知道故鄉的近況吧。你動身那天，我家雕花窗前的那株寒梅，開花了沒有？詩人不問別的，只問一枝梅花，濃濃的鄉思都藏在這一問裡。",
+        "en": "You have come from my hometown, so you must know its news. On the day you left, had the winter plum outside my carved window begun to bloom? Asking only about a single plum tree, the poet folds all his homesickness into one question."
+      },
+      "page": "雜詩 (君自故鄉來)",
+      "revid": 2172055
+    },
+    {
+      "id": 6,
+      "form": "五言絕句",
+      "author": "王維",
+      "authorEn": "Wang Wei",
+      "title": "鹿柴",
+      "titleEn": "Deer Park",
+      "lines": [
+        "空山不見人，但聞人語響。",
+        "返景入深林，復照青苔上。"
+      ],
+      "gist": {
+        "zh-CN": "空寂的山中看不见人，只偶尔听到远处传来人说话的声音。夕阳的余晖照进幽深的树林，又落在青苔上。以声衬静、以光映幽，写出了山林空灵幽静的意境。",
+        "zh-TW": "空寂的山中看不見人，只偶爾聽到遠處傳來人說話的聲音。夕陽的餘暉照進幽深的樹林，又落在青苔上。以聲襯靜、以光映幽，寫出了山林空靈幽靜的意境。",
+        "en": "No one can be seen in the empty mountains, yet voices drift faintly through. The evening light slips into the deep woods and falls again on the green moss. Sound and light only deepen the stillness of the hills."
+      },
+      "page": "鹿柴 (王維)",
+      "revid": 2648341
+    },
+    {
+      "id": 7,
+      "form": "五言絕句",
+      "author": "王維",
+      "authorEn": "Wang Wei",
+      "title": "竹里館",
+      "titleEn": "Bamboo Lodge",
+      "lines": [
+        "獨坐幽篁裏，彈琴復長嘯。",
+        "深林人不知，明月來相照。"
+      ],
+      "gist": {
+        "zh-CN": "诗人独自坐在幽深的竹林里，弹琴，又放声长啸。林子深密，没有人知道他在这里，只有明月来照着他。写出隐居生活的清幽自在，和与自然相伴的宁静心境。",
+        "zh-TW": "詩人獨自坐在幽深的竹林裡，彈琴，又放聲長嘯。林子深密，沒有人知道他在這裡，只有明月來照著他。寫出隱居生活的清幽自在，和與自然相伴的寧靜心境。",
+        "en": "Sitting alone in a secluded bamboo grove, the poet plays his zither and whistles long and clear. No one knows he is deep in the woods; only the bright moon comes to shine on him. It is a picture of quiet, carefree solitude in nature."
+      },
+      "page": "輞川集 (王維)/竹里館",
+      "revid": 2328978
+    },
+    {
+      "id": 8,
+      "form": "五言絕句",
+      "author": "王維",
+      "authorEn": "Wang Wei",
+      "title": "送別",
+      "titleEn": "Farewell",
+      "lines": [
+        "山中相送罷，日暮掩柴扉。",
+        "春草明年綠，王孫歸不歸。"
+      ],
+      "gist": {
+        "zh-CN": "在山中送别了友人，日暮时分独自回来，轻轻掩上柴门。明年春草再绿的时候，你还会回来吗？送别之后的冷清和对重逢的期盼，都藏在这淡淡的一问里。",
+        "zh-TW": "在山中送別了友人，日暮時分獨自回來，輕輕掩上柴門。明年春草再綠的時候，你還會回來嗎？送別之後的冷清和對重逢的期盼，都藏在這淡淡的一問裡。",
+        "en": "After seeing a friend off in the mountains, the poet returns at dusk and closes his brushwood gate. When the spring grass turns green next year, will you come back? The quiet after parting and the hope of reunion rest in one gentle question."
+      },
+      "page": "送別 (山中相送罷)",
+      "revid": 1982067
+    },
+    {
+      "id": 9,
+      "form": "五言絕句",
+      "author": "白居易",
+      "authorEn": "Bai Juyi",
+      "title": "問劉十九",
+      "titleEn": "A Question for Liu the Nineteenth",
+      "lines": [
+        "綠螘新醅酒，紅泥小火爐。",
+        "晚來天欲雪，能飲一杯無？"
+      ],
+      "gist": {
+        "zh-CN": "新酿的米酒浮着绿色的泡沫，红泥小火炉烧得正旺。天色已晚，眼看就要下雪，你能来和我一起喝一杯吗？短短几句，写出冬夜邀友的温暖和朋友间的亲切。",
+        "zh-TW": "新釀的米酒浮著綠色的泡沫，紅泥小火爐燒得正旺。天色已晚，眼看就要下雪，你能來和我一起喝一杯嗎？短短幾句，寫出冬夜邀友的溫暖和朋友間的親切。",
+        "en": "Newly brewed wine with green froth, a little red clay stove glowing. Evening has come and snow is on the way: will you join me for a cup? A few lines convey the warmth of a winter-night invitation between friends."
+      },
+      "page": "問劉十九",
+      "revid": 1982858
+    },
+    {
+      "id": 10,
+      "form": "五言絕句",
+      "author": "西鄙人",
+      "authorEn": "Anonymous",
+      "title": "哥舒歌",
+      "titleEn": "Song of Geshu",
+      "lines": [
+        "北斗七星高，哥舒夜帶刀。",
+        "至今窺牧馬，不敢過臨洮。"
+      ],
+      "gist": {
+        "zh-CN": "北斗七星高挂夜空，哥舒将军夜里佩刀巡守。直到今天，边外的游牧骑兵只敢远远窥望，不敢越过临洮。这首民间歌谣赞颂将军的威名，让边境得以安宁。",
+        "zh-TW": "北斗七星高掛夜空，哥舒將軍夜裡佩刀巡守。直到今天，邊外的游牧騎兵只敢遠遠窺望，不敢越過臨洮。這首民間歌謠讚頌將軍的威名，讓邊境得以安寧。",
+        "en": "The Big Dipper rides high as General Geshu keeps watch at night with his sword. To this day the nomad horsemen only gaze from afar, never daring to cross Lintao. This folk song praises a general whose fame keeps the border at peace."
+      },
+      "page": "哥舒歌",
+      "revid": 1986501
+    },
+    {
+      "id": 11,
+      "form": "五言絕句",
+      "author": "李白",
+      "authorEn": "Li Bai",
+      "title": "靜夜思",
+      "titleEn": "Quiet Night Thoughts",
+      "lines": [
+        "牀前明月光，疑是地上霜。",
+        "舉頭望明月，低頭思故鄉。"
+      ],
+      "gist": {
+        "zh-CN": "床前洒满明亮的月光，让人恍惚以为是地上结了一层白霜。抬头望着明月，低下头便不由得想起了故乡。语言平白如话，却道出了天下游子共同的思乡之情。",
+        "zh-TW": "床前灑滿明亮的月光，讓人恍惚以為是地上結了一層白霜。抬頭望著明月，低下頭便不由得想起了故鄉。語言平白如話，卻道出了天下游子共同的思鄉之情。",
+        "en": "Bright moonlight spreads before the bed, so pale it seems like frost on the ground. Raising his head he gazes at the moon; lowering it, he thinks of home. In the simplest words, it speaks the homesickness every traveler knows."
+      },
+      "page": "靜夜思",
+      "revid": 8747585
+    },
+    {
+      "id": 12,
+      "form": "五言絕句",
+      "author": "李白",
+      "authorEn": "Li Bai",
+      "title": "怨情",
+      "titleEn": "Grievance",
+      "lines": [
+        "美人捲珠簾，深坐顰蛾眉。",
+        "但見淚痕濕，不知心恨誰。"
+      ],
+      "gist": {
+        "zh-CN": "美人卷起珠帘，静静地坐了很久，紧锁着双眉。只看见她脸上湿湿的泪痕，却不知道她心里究竟在怨谁。诗人始终不说破缘由，留下含蓄而耐人寻味的哀愁。",
+        "zh-TW": "美人捲起珠簾，靜靜地坐了很久，緊鎖著雙眉。只看見她臉上溼溼的淚痕，卻不知道她心裡究竟在怨誰。詩人始終不說破緣由，留下含蓄而耐人尋味的哀愁。",
+        "en": "A beautiful woman rolls up the beaded curtain and sits deep within, her brows knitted. Only the wet traces of tears can be seen; whom she resents, no one knows. Leaving the cause unspoken, the poem lets her sorrow linger."
+      },
+      "page": "怨情 (美人捲珠簾)",
+      "revid": 2515322
+    },
+    {
+      "id": 13,
+      "form": "五言絕句",
+      "author": "李商隱",
+      "authorEn": "Li Shangyin",
+      "title": "登樂游原",
+      "titleEn": "Climbing Leyou Plateau",
+      "lines": [
+        "向晚意不適，驅車登古原。",
+        "夕陽無限好，只是近黃昏。"
+      ],
+      "gist": {
+        "zh-CN": "傍晚时分心情不太畅快，便驾车登上古老的乐游原。夕阳无比美好，只可惜时光已经临近黄昏。诗人在赞叹落日之美时，也流露出对美好事物易逝的感慨。",
+        "zh-TW": "傍晚時分心情不太暢快，便駕車登上古老的樂遊原。夕陽無比美好，只可惜時光已經臨近黃昏。詩人在讚歎落日之美時，也流露出對美好事物易逝的感慨。",
+        "en": "Feeling uneasy toward evening, the poet drives up to the ancient Leyou Plateau. The setting sun is endlessly beautiful; only, dusk is drawing near. Admiring the sunset, he also sighs that lovely things do not last."
+      },
+      "page": "樂遊原 (向晚意不適)",
+      "revid": 1982222
+    },
+    {
+      "id": 14,
+      "form": "五言絕句",
+      "author": "李端",
+      "authorEn": "Li Duan",
+      "title": "聽箏",
+      "titleEn": "Listening to the Zheng",
+      "lines": [
+        "鳴箏金粟柱，素手玉房前。",
+        "欲得周郎顧，時時誤拂弦。"
+      ],
+      "gist": {
+        "zh-CN": "女子坐在华美的屋前，素手拨弄装饰精美的筝。为了让心上的“周郎”回头看她一眼，她时时故意弹错弦音。诗人借周瑜精通音律、听到错音会回头的典故，写出女子含蓄又俏皮的心思。",
+        "zh-TW": "女子坐在華美的屋前，素手撥弄裝飾精美的箏。為了讓心上的“周郎”回頭看她一眼，她時時故意彈錯絃音。詩人借周瑜精通音律、聽到錯音會回頭的典故，寫出女子含蓄又俏皮的心思。",
+        "en": "Seated before an elegant chamber, a woman plucks a finely decorated zheng. Hoping her \"Master Zhou\" will turn to look, she now and then strikes a wrong string on purpose. Drawing on the tale of Zhou Yu, who always noticed a wrong note, the poem captures her shy, playful heart."
+      },
+      "page": "聽箏 (李端)",
+      "revid": 1981944
+    },
+    {
+      "id": 15,
+      "form": "五言絕句",
+      "author": "李頻",
+      "authorEn": "Li Pin",
+      "title": "渡漢江",
+      "titleEn": "Crossing the Han River",
+      "lines": [
+        "嶺外音書絕，經冬復歷春。",
+        "近鄉情更怯，不敢問來人。"
+      ],
+      "gist": {
+        "zh-CN": "身在岭南，与家里音信断绝，熬过了冬天，又到了春天。越是走近家乡，心里越是胆怯，不敢向路上遇到的人打听家中消息。诗人写出久别归乡时既盼望又害怕的复杂心情。",
+        "zh-TW": "身在嶺南，與家裡音信斷絕，熬過了冬天，又到了春天。越是走近家鄉，心裡越是膽怯，不敢向路上遇到的人打聽家中訊息。詩人寫出久別歸鄉時既盼望又害怕的複雜心情。",
+        "en": "Far beyond the southern ranges, with no letters from home, the poet lived through winter into spring. Now nearing home, he grows more timid and dares not ask passers-by for news. It captures the mixed hope and fear of returning after a long absence."
+      },
+      "page": "渡漢江 (李頻)",
+      "revid": 1988928
+    },
+    {
+      "id": 16,
+      "form": "五言絕句",
+      "author": "杜甫",
+      "authorEn": "Du Fu",
+      "title": "八陣圖",
+      "titleEn": "The Eight-Array Formation",
+      "lines": [
+        "功蓋三分國，名成八陣圖。",
+        "江流石不轉，遺恨失吞吳。"
+      ],
+      "gist": {
+        "zh-CN": "诗人赞颂诸葛亮：他在三国鼎立中功业最为卓著，八阵图更使他名扬天下。江水奔流，阵图的石头却始终不移，仿佛诉说着吞吴失策留下的遗憾。寥寥数语，饱含敬仰与惋惜。",
+        "zh-TW": "詩人讚頌諸葛亮：他在三國鼎立中功業最為卓著，八陣圖更使他名揚天下。江水奔流，陣圖的石頭卻始終不移，彷彿訴說著吞吳失策留下的遺憾。寥寥數語，飽含敬仰與惋惜。",
+        "en": "The poet honors Zhuge Liang: his deeds towered over the Three Kingdoms, and his Eight-Array Formation made his name. The river rushes on, yet the stones of the formation never move, as if holding the lasting regret of the failed campaign against Wu. Few words carry both admiration and sorrow."
+      },
+      "page": "八陣圖",
+      "revid": 10330138
+    },
+    {
+      "id": 17,
+      "form": "五言絕句",
+      "author": "孟浩然",
+      "authorEn": "Meng Haoran",
+      "title": "宿建德江",
+      "titleEn": "Mooring on the Jiande River",
+      "lines": [
+        "移舟泊煙渚，日暮客愁新。",
+        "野曠天低樹，江清月近人。"
+      ],
+      "gist": {
+        "zh-CN": "把船划到烟雾笼罩的小洲边停泊，日暮时分，旅人又添了新的愁绪。原野空旷，远天仿佛比树还低；江水清澈，水中的月亮好像离人更近。开阔清寂的景色，衬出客居他乡的孤独。",
+        "zh-TW": "把船劃到煙霧籠罩的小洲邊停泊，日暮時分，旅人又添了新的愁緒。原野空曠，遠天彷彿比樹還低；江水清澈，水中的月亮好像離人更近。開闊清寂的景色，襯出客居他鄉的孤獨。",
+        "en": "The boat is moored by a misty islet, and at dusk the traveler's sorrow returns anew. On the wide plain the sky seems to sink below the trees; in the clear river the moon seems close at hand. The open, quiet scene sets off the loneliness of being far from home."
+      },
+      "page": "宿建德江",
+      "revid": 1981947
+    },
+    {
+      "id": 18,
+      "form": "五言絕句",
+      "author": "孟浩然",
+      "authorEn": "Meng Haoran",
+      "title": "春曉",
+      "titleEn": "Spring Dawn",
+      "lines": [
+        "春眠不覺曉，處處聞啼鳥。",
+        "夜來風雨聲，花落知多少。"
+      ],
+      "gist": {
+        "zh-CN": "春天睡得香甜，不知不觉天已经亮了，到处都能听到鸟儿啼叫。想起夜里的风雨声，不知道又有多少花被吹落了。诗人写春晨的欢愉，也带着一丝惜春之情。",
+        "zh-TW": "春天睡得香甜，不知不覺天已經亮了，到處都能聽到鳥兒啼叫。想起夜裡的風雨聲，不知道又有多少花被吹落了。詩人寫春晨的歡愉，也帶著一絲惜春之情。",
+        "en": "Sleeping soundly in spring, the poet does not notice the dawn; birdsong is heard everywhere. Recalling the wind and rain in the night, he wonders how many blossoms have fallen. A cheerful spring morning carries a gentle regret for passing spring."
+      },
+      "page": "春曉 (孟浩然)",
+      "revid": 11123475
+    },
+    {
+      "id": 19,
+      "form": "五言絕句",
+      "author": "金昌緒",
+      "authorEn": "Jin Changxu",
+      "title": "春怨",
+      "titleEn": "Spring Grievance",
+      "lines": [
+        "打起黃鶯兒，莫教枝上啼。",
+        "啼時驚妾夢，不得到遼西。"
+      ],
+      "gist": {
+        "zh-CN": "女子把树上的黄莺儿赶走，不让它在枝头啼叫。因为鸟叫会惊醒她的梦，让她在梦里到不了辽西。丈夫远在边地，思念只能托付给梦，情意天真而又深切。",
+        "zh-TW": "女子把樹上的黃鶯兒趕走，不讓它在枝頭啼叫。因為鳥叫會驚醒她的夢，讓她在夢裡到不了遼西。丈夫遠在邊地，思念只能託付給夢，情意天真而又深切。",
+        "en": "A woman shoos the orioles away so they will not sing on the branches. Their song would wake her from her dream before she could reach Liaoxi. With her husband far off on the frontier, only in dreams can she go to him, a longing both innocent and deep."
+      },
+      "page": "春怨 (金昌緒)",
+      "revid": 1981953
+    },
+    {
+      "id": 20,
+      "form": "五言絕句",
+      "author": "柳宗元",
+      "authorEn": "Liu Zongyuan",
+      "title": "江雪",
+      "titleEn": "River Snow",
+      "lines": [
+        "千山鳥飛絕，萬徑人蹤滅。",
+        "孤舟簑笠翁，獨釣寒江雪。"
+      ],
+      "gist": {
+        "zh-CN": "千山之上不见飞鸟，万条小路没有人迹。只有一叶孤舟上，一位披蓑戴笠的老翁，独自在寒江雪中垂钓。画面空旷寂静，透出孤高清冷、不随流俗的心境。",
+        "zh-TW": "千山之上不見飛鳥，萬條小路沒有人跡。只有一葉孤舟上，一位披蓑戴笠的老翁，獨自在寒江雪中垂釣。畫面空曠寂靜，透出孤高畫質冷、不隨流俗的心境。",
+        "en": "Over a thousand hills no bird flies; on ten thousand paths no footprint remains. In a lone boat, an old man in straw cape and hat fishes by himself on the cold, snowy river. The vast, silent scene reveals a spirit solitary, lofty and unbending."
+      },
+      "page": "江雪",
+      "revid": 2315191
+    },
+    {
+      "id": 21,
+      "form": "五言絕句",
+      "author": "韋應物",
+      "authorEn": "Wei Yingwu",
+      "title": "秋夜寄丘員外",
+      "titleEn": "On an Autumn Night, to Official Qiu",
+      "lines": [
+        "懷君屬秋夜，散步詠涼天。",
+        "空山松子落，幽人應未眠。"
+      ],
+      "gist": {
+        "zh-CN": "秋夜里想念着你，我一边散步，一边吟咏这清凉的天气。空山中松子悄悄落下，想必隐居的你此刻也还没有睡吧。诗人由自己的思念推想友人，情意清淡而真挚。",
+        "zh-TW": "秋夜裡想念著你，我一邊散步，一邊吟詠這清涼的天氣。空山中松子悄悄落下，想必隱居的你此刻也還沒有睡吧。詩人由自己的思念推想友人，情意清淡而真摯。",
+        "en": "Thinking of you on this autumn night, I stroll and chant verses to the cool air. In the empty hills pine cones drop softly; you, living in seclusion, must still be awake too. From his own longing the poet imagines his friend's night, a feeling light yet sincere."
+      },
+      "page": "秋夜寄丘員外",
+      "revid": 1986872
+    },
+    {
+      "id": 22,
+      "form": "五言絕句",
+      "author": "祖詠",
+      "authorEn": "Zu Yong",
+      "title": "終南望餘雪",
+      "titleEn": "Lingering Snow on Zhongnan Mountain",
+      "lines": [
+        "終南陰嶺秀，積雪浮雲端。",
+        "林表明霽色，城中增暮寒。"
+      ],
+      "gist": {
+        "zh-CN": "终南山北面的山岭秀丽，积雪仿佛浮在云端之上。雪后初晴，林梢闪着明亮的光，城中却在傍晚更添了几分寒意。诗人写远望雪山的清丽景色和雪后天寒的真切感受。",
+        "zh-TW": "終南山北面的山嶺秀麗，積雪彷彿浮在雲端之上。雪後初晴，林梢閃著明亮的光，城中卻在傍晚更添了幾分寒意。詩人寫遠望雪山的清麗景色和雪後天寒的真切感受。",
+        "en": "The northern ridges of Zhongnan Mountain are lovely, their snow seeming to float above the clouds. After the snow clears, the treetops shine bright, while the city grows colder as evening falls. The poem paints a distant snowy peak and the real chill that follows."
+      },
+      "page": "終南望餘雪",
+      "revid": 1982642
+    },
+    {
+      "id": 23,
+      "form": "五言絕句",
+      "author": "張祜",
+      "authorEn": "Zhang Hu",
+      "title": "何滿子",
+      "titleEn": "He Manzi",
+      "lines": [
+        "故國三千里，深宮二十年。",
+        "一聲何滿子，雙淚落君前。"
+      ],
+      "gist": {
+        "zh-CN": "离开三千里外的故乡，在深宫中度过了二十年。一曲《何满子》刚唱出一声，宫人便在君王面前落下两行泪。诗句以简洁的数字，道尽宫中女子漫长的寂寞与辛酸。",
+        "zh-TW": "離開三千里外的故鄉，在深宮中度過了二十年。一曲《何滿子》剛唱出一聲，宮人便在君王面前落下兩行淚。詩句以簡潔的數字，道盡宮中女子漫長的寂寞與辛酸。",
+        "en": "Three thousand miles from home, twenty years shut in the deep palace. At the first note of the song \"He Manzi,\" two lines of tears fall before the emperor. Spare numbers tell the long loneliness and grief of a palace woman."
+      },
+      "page": "何滿子 (張祜)",
+      "revid": 1984495
+    },
+    {
+      "id": 24,
+      "form": "五言絕句",
+      "author": "賈島",
+      "authorEn": "Jia Dao",
+      "title": "尋隱者不遇",
+      "titleEn": "Searching for the Hermit in Vain",
+      "lines": [
+        "松下問童子，言師採藥去。",
+        "只在此山中，雲深不知處。"
+      ],
+      "gist": {
+        "zh-CN": "诗人在松树下询问隐者的童子，童子说师父采药去了。只知道他就在这座山中，可云雾太深，不知道在哪里。一问一答之间，写出隐者的高远飘逸和寻访不遇的怅然。",
+        "zh-TW": "詩人在松樹下詢問隱者的童子，童子說師父採藥去了。只知道他就在這座山中，可雲霧太深，不知道在哪裡。一問一答之間，寫出隱者的高遠飄逸和尋訪不遇的悵然。",
+        "en": "Under a pine the poet asks the recluse's boy, who says his master has gone to gather herbs. He is somewhere on this mountain, but the clouds are too deep to tell where. Through a simple exchange, the poem conveys the hermit's remoteness and the poet's gentle disappointment."
+      },
+      "page": "尋隱者不遇",
+      "revid": 1310721
+    },
+    {
+      "id": 25,
+      "form": "五言絕句",
+      "author": "裴迪",
+      "authorEn": "Pei Di",
+      "title": "送崔九",
+      "titleEn": "Farewell to Cui the Ninth",
+      "lines": [
+        "歸山深淺去，須盡丘壑美。",
+        "莫學武陵人，暫遊桃源裡。"
+      ],
+      "gist": {
+        "zh-CN": "你这次回山隐居，不论走得多深多远，都要把山水丘壑的美好尽情领略。不要学那个武陵渔人，只在桃花源里短暂游玩一下就离开了。诗人劝友人坚定归隐之心，真正享受山林之乐。",
+        "zh-TW": "你這次回山隱居，不論走得多深多遠，都要把山水丘壑的美好盡情領略。不要學那個武陵漁人，只在桃花源裡短暫遊玩一下就離開了。詩人勸友人堅定歸隱之心，真正享受山林之樂。",
+        "en": "Going back to the mountains, however deep you go, be sure to take in all the beauty of the hills and valleys. Do not be like the fisherman of Wuling, who visited the Peach Blossom Spring only briefly. The poet urges his friend to commit fully to a life among the hills."
+      },
+      "page": "送崔九",
+      "revid": 1986871
+    },
+    {
+      "id": 26,
+      "form": "五言絕句",
+      "author": "劉長卿",
+      "authorEn": "Liu Changqing",
+      "title": "送靈澈",
+      "titleEn": "Seeing Off Lingche",
+      "lines": [
+        "蒼蒼竹林寺，杳杳鐘聲晚。",
+        "荷笠帶夕陽，青山獨歸遠。"
+      ],
+      "gist": {
+        "zh-CN": "苍翠的竹林寺里，远远传来一阵阵傍晚的钟声。灵澈背着斗笠，披着夕阳，独自向远方的青山慢慢走去。画面清幽淡远，送别的情意都含在静静的目送之中。",
+        "zh-TW": "蒼翠的竹林寺裡，遠遠傳來一陣陣傍晚的鐘聲。靈澈揹著斗笠，披著夕陽，獨自向遠方的青山慢慢走去。畫面清幽淡遠，送別的情意都含在靜靜的目送之中。",
+        "en": "From the deep green Bamboo Grove Temple, the evening bell sounds faintly from afar. Carrying his bamboo hat in the sunset glow, Lingche walks alone toward the distant blue hills. The scene is calm and far-reaching, the farewell held in a quiet, lingering gaze."
+      },
+      "page": "送靈澈上人",
+      "revid": 1981927
+    },
+    {
+      "id": 27,
+      "form": "五言絕句",
+      "author": "劉長卿",
+      "authorEn": "Liu Changqing",
+      "title": "彈琴",
+      "titleEn": "Playing the Qin",
+      "lines": [
+        "泠泠七絲上，靜聽松風寒。",
+        "古調雖自愛，今人多不彈。"
+      ],
+      "gist": {
+        "zh-CN": "七根琴弦上流淌出清越的琴音，静静聆听，像松间吹来的寒风。这样古老的曲调我虽然很喜爱，如今的人却大多不再弹了。诗人借琴抒怀，流露出曲高和寡、知音难觅的感慨。",
+        "zh-TW": "七根琴絃上流淌出清越的琴音，靜靜聆聽，像松間吹來的寒風。這樣古老的曲調我雖然很喜愛，如今的人卻大多不再彈了。詩人借琴抒懷，流露出曲高和寡、知音難覓的感慨。",
+        "en": "Clear notes flow from the seven strings; listening quietly, one hears a cold wind through the pines. I still love these ancient tunes, though few people play them nowadays. Through the qin, the poet sighs that refined tastes find few companions."
+      },
+      "page": "聽彈琴",
+      "revid": 1981843
+    },
+    {
+      "id": 28,
+      "form": "五言絕句",
+      "author": "劉長卿",
+      "authorEn": "Liu Changqing",
+      "title": "送上人",
+      "titleEn": "Farewell to a Monk",
+      "lines": [
+        "孤雲將野鶴，豈向人間住？",
+        "莫買沃洲山，時人已知處。"
+      ],
+      "gist": {
+        "zh-CN": "你就像孤云带着野鹤，怎么会在尘世中久住？不要去买沃洲山隐居，那里早已被世人知道了。诗人赞美友人超脱自在，也劝他去寻找真正清静无扰的地方。",
+        "zh-TW": "你就像孤雲帶著野鶴，怎麼會在塵世中久住？不要去買沃洲山隱居，那裡早已被世人知道了。詩人讚美友人超脫自在，也勸他去尋找真正清靜無擾的地方。",
+        "en": "Like a lone cloud leading a wild crane, how could you stay long in the world of men? Don't buy Mount Wozhou to live on; people already know where it is. The poet praises his friend's freedom and urges him to seek a truly quiet retreat."
+      },
+      "page": "送上人",
+      "revid": 1982964
+    },
+    {
+      "id": 29,
+      "form": "五言絕句",
+      "author": "權德輿",
+      "authorEn": "Quan Deyu",
+      "title": "玉臺體",
+      "titleEn": "In the Jade Terrace Style",
+      "lines": [
+        "昨夜裙帶解，今朝蟢子飛。",
+        "鉛華不可棄，莫是藁砧歸。"
+      ],
+      "gist": {
+        "zh-CN": "昨夜裙带自己松开了，今早又看见蟢子飞来，都是喜事临门的预兆。女子想：脂粉可不能丢开，莫不是丈夫要回来了？诗句活泼含蓄，写出妻子盼夫归来的欣喜与期待。",
+        "zh-TW": "昨夜裙帶自己鬆開了，今早又看見蟢子飛來，都是喜事臨門的預兆。女子想：脂粉可不能丟開，莫不是丈夫要回來了？詩句活潑含蓄，寫出妻子盼夫歸來的欣喜與期待。",
+        "en": "Last night her skirt sash came loose by itself, and this morning a little spider appeared; both are said to be signs of good news. She thinks: I mustn't put away my powder; could my husband be coming home? Light and playful, the poem shows a wife's joyful hope for her husband's return."
+      },
+      "page": "玉臺體",
+      "revid": 485583
+    },
+    {
+      "id": 30,
+      "form": "七言絕句",
+      "author": "王昌齡",
+      "authorEn": "Wang Changling",
+      "title": "芙蓉樓送辛漸",
+      "titleEn": "Farewell to Xin Jian at Hibiscus Tower",
+      "lines": [
+        "寒雨連江夜入吳，平明送客楚山孤。",
+        "洛陽親友如相問，一片冰心在玉壺。"
+      ],
+      "gist": {
+        "zh-CN": "寒雨连夜洒满江面，诗人来到吴地；天亮时送别友人，只见楚山孤零零地立着。洛阳的亲友若问起我，就说我的心依然像玉壶里的冰一样纯洁。离别的冷清中，表白了诗人光明磊落的品格。",
+        "zh-TW": "寒雨連夜灑滿江面，詩人來到吳地；天亮時送別友人，只見楚山孤零零地立著。洛陽的親友若問起我，就說我的心依然像玉壺裡的冰一樣純潔。離別的冷清中，表白了詩人光明磊落的品格。",
+        "en": "Cold rain swept the river all night as the poet reached the land of Wu; at dawn he sees his friend off, the hills of Chu standing alone. If family and friends in Luoyang ask after me, tell them my heart is still like ice in a jade pot. In the chill of parting, he affirms his pure and upright character."
+      },
+      "page": "芙蓉樓送辛漸 (寒雨連江夜入吳)",
+      "revid": 2648167
+    },
+    {
+      "id": 31,
+      "form": "七言絕句",
+      "author": "王昌齡",
+      "authorEn": "Wang Changling",
+      "title": "閨怨",
+      "titleEn": "Boudoir Grievance",
+      "lines": [
+        "閨中少婦不曾愁，春日凝妝上翠樓。",
+        "忽見陌頭楊柳色，悔教夫婿覓封侯。"
+      ],
+      "gist": {
+        "zh-CN": "闺中的少妇原本不知忧愁，春日里精心打扮后登上翠楼赏景。忽然看见路边杨柳又绿了，她后悔当初让丈夫离家去求取功名。一刹那的心情转折，写出了思念与悔意。",
+        "zh-TW": "閨中的少婦原本不知憂愁，春日裡精心打扮後登上翠樓賞景。忽然看見路邊楊柳又綠了，她後悔當初讓丈夫離家去求取功名。一剎那的心情轉折，寫出了思念與悔意。",
+        "en": "A young wife who has never known sorrow dresses carefully on a spring day and climbs the green tower. Suddenly she sees the willows by the road turning green, and regrets sending her husband off to seek rank and honor. A sudden turn of feeling reveals her longing and regret."
+      },
+      "page": "閨怨 (王昌齡)",
+      "revid": 485219
+    },
+    {
+      "id": 32,
+      "form": "七言絕句",
+      "author": "王昌齡",
+      "authorEn": "Wang Changling",
+      "title": "春宮曲",
+      "titleEn": "Spring Palace Song",
+      "lines": [
+        "昨夜風開露井桃，未央前殿月輪高。",
+        "平陽歌舞新承寵，簾外春寒賜錦袍。"
+      ],
+      "gist": {
+        "zh-CN": "昨夜春风吹开了露井边的桃花，未央宫前殿上一轮明月高悬。一位擅长歌舞的女子刚刚得到宠幸，帘外春寒，君王特地赐她锦袍。诗写新人受宠的风光，也暗含对其他宫人的同情。",
+        "zh-TW": "昨夜春風吹開了露井邊的桃花，未央宮前殿上一輪明月高懸。一位擅長歌舞的女子剛剛得到寵幸，簾外春寒，君王特地賜她錦袍。詩寫新人受寵的風光，也暗含對其他宮人的同情。",
+        "en": "Last night the spring breeze opened the peach blossoms by the well, as the moon rode high above the front hall of Weiyang Palace. A singer and dancer has just won the emperor's favor, and against the spring chill beyond the curtain she is granted a brocade robe. The poem shows her new glory, with quiet sympathy for those left out."
+      },
+      "page": "春宮曲",
+      "revid": 485118
+    },
+    {
+      "id": 33,
+      "form": "七言絕句",
+      "author": "王維",
+      "authorEn": "Wang Wei",
+      "title": "九月九日憶山東兄弟",
+      "titleEn": "On the Double Ninth, Remembering My Brothers East of the Mountains",
+      "lines": [
+        "獨在異鄉為異客，每逢佳節倍思親。",
+        "遙知兄弟登高處，遍插茱萸少一人。"
+      ],
+      "gist": {
+        "zh-CN": "独自在他乡做客，每到佳节就格外思念亲人。远远想到兄弟们今天登高时，插遍了茱萸，却唯独少了我一个。诗人从对方着笔，把重阳佳节的思亲之情写得真切动人。",
+        "zh-TW": "獨自在他鄉做客，每到佳節就格外思念親人。遠遠想到兄弟們今天登高時，插遍了茱萸，卻唯獨少了我一個。詩人從對方著筆，把重陽佳節的思親之情寫得真切動人。",
+        "en": "Alone in a strange land as a stranger, at every festival I miss my family twice as much. Far away, I know my brothers are climbing the heights today, each wearing a sprig of dogwood, with one person missing. Imagining them, the poet makes his Double Ninth homesickness vivid and moving."
+      },
+      "page": "九月九日憶山東兄弟",
+      "revid": 2648561
+    },
+    {
+      "id": 34,
+      "form": "七言絕句",
+      "author": "王翰",
+      "authorEn": "Wang Han",
+      "title": "涼州詞",
+      "titleEn": "Liangzhou Song",
+      "lines": [
+        "葡萄美酒夜光杯，欲飲琵琶馬上催。",
+        "醉臥沙場君莫笑，古來征戰幾人回。"
+      ],
+      "gist": {
+        "zh-CN": "夜光杯里斟满了甘美的葡萄酒，正要畅饮，马上的琵琶声已在催促。即使醉倒在沙场上，也请你不要笑话，自古出征打仗的人有几个能回来？豪迈的语气里，藏着戍边将士的悲凉。",
+        "zh-TW": "夜光杯裡斟滿了甘美的葡萄酒，正要暢飲，馬上的琵琶聲已在催促。即使醉倒在沙場上，也請你不要笑話，自古出征打仗的人有幾個能回來？豪邁的語氣裡，藏著戍邊將士的悲涼。",
+        "en": "Fine grape wine in luminous cups; just as they raise them, the pipa on horseback urges them on. If I lie drunk on the battlefield, please don't laugh: since ancient times, how many who went to war came home? Beneath the bold tone lies the sorrow of soldiers on the frontier."
+      },
+      "page": "涼州詞 (葡萄美酒夜光杯)",
+      "revid": 2648165
+    },
+    {
+      "id": 35,
+      "form": "七言絕句",
+      "author": "白居易",
+      "authorEn": "Bai Juyi",
+      "title": "宮詞",
+      "titleEn": "Palace Song",
+      "lines": [
+        "淚濕羅巾夢不成，夜深前殿按歌聲。",
+        "紅顏未老恩先斷，斜倚薰籠坐到明。"
+      ],
+      "gist": {
+        "zh-CN": "泪水湿透了丝巾，怎么也睡不着，深夜里前殿还传来按拍唱歌的声音。容颜还没有老去，君王的恩宠却已先断了，她只好斜靠着熏笼一直坐到天亮。诗写失宠宫人的孤寂和哀怨。",
+        "zh-TW": "淚水溼透了絲巾，怎麼也睡不著，深夜裡前殿還傳來按拍唱歌的聲音。容顏還沒有老去，君王的恩寵卻已先斷了，她只好斜靠著熏籠一直坐到天亮。詩寫失寵宮人的孤寂和哀怨。",
+        "en": "Tears soak her silk kerchief and sleep will not come, while late at night the sound of singing drifts from the front hall. Her beauty has not yet faded, but the emperor's favor has already ended; leaning on the incense warmer, she sits until dawn. The poem portrays the loneliness of a palace woman who has lost favor."
+      },
+      "page": "宮詞 (白居易)",
+      "revid": 1992299
+    },
+    {
+      "id": 36,
+      "form": "七言絕句",
+      "author": "朱慶餘",
+      "authorEn": "Zhu Qingyu",
+      "title": "宮中詞",
+      "titleEn": "Within the Palace",
+      "lines": [
+        "寂寂花時閉院門，美人相並立瓊軒。",
+        "含情欲說宮中事，鸚鵡前頭不敢言。"
+      ],
+      "gist": {
+        "zh-CN": "花开时节，宫院大门却静静紧闭，两位美人并肩站在华美的长廊上。她们满怀心事，想说说宫中的事情，可鹦鹉就在面前，终究不敢开口。一个细节，写出宫中生活的压抑和寂寞。",
+        "zh-TW": "花開時節，宮院大門卻靜靜緊閉，兩位美人並肩站在華美的長廊上。她們滿懷心事，想說說宮中的事情，可鸚鵡就在面前，終究不敢開口。一個細節，寫出宮中生活的壓抑和寂寞。",
+        "en": "In the flowering season the courtyard gate stays quietly shut, as two beauties stand side by side on a fine veranda. Full of feeling, they want to talk about palace life, but with a parrot right before them, they dare not speak. One small detail reveals the constraint and loneliness of the palace."
+      },
+      "page": "宮中詞",
+      "revid": 1982846
+    },
+    {
+      "id": 37,
+      "form": "七言絕句",
+      "author": "朱慶餘",
+      "authorEn": "Zhu Qingyu",
+      "title": "近試上張水部",
+      "titleEn": "Before the Exam, to Zhang of the Water Bureau",
+      "lines": [
+        "洞房昨夜停紅燭，待曉堂前拜舅姑。",
+        "妝罷低聲問夫婿，畫眉深淺入時無？"
+      ],
+      "gist": {
+        "zh-CN": "洞房里红烛点了一夜，新娘等着天亮去堂前拜见公婆。梳妆好了，她低声问丈夫：我的眉毛画得深浅合不合时兴？从诗题看，诗人借新娘的口吻，向张水部探问自己的诗文是否合乎要求。",
+        "zh-TW": "洞房裡紅燭點了一夜，新娘等著天亮去堂前拜見公婆。梳妝好了，她低聲問丈夫：我的眉毛畫得深淺合不合時興？從詩題看，詩人借新娘的口吻，向張水部探問自己的詩文是否合乎要求。",
+        "en": "Red candles burned all night in the bridal chamber; at dawn the bride will greet her parents-in-law in the hall. Her makeup done, she softly asks her husband whether her brows are painted in the current fashion. As the title suggests, the poet uses the bride's voice to ask Zhang whether his writing will measure up before the exam."
+      },
+      "page": "近試上張水部",
+      "revid": 2083706
+    },
+    {
+      "id": 38,
+      "form": "七言絕句",
+      "author": "岑參",
+      "authorEn": "Cen Shen",
+      "title": "逢入京使",
+      "titleEn": "Meeting an Envoy Bound for the Capital",
+      "lines": [
+        "故園東望路漫漫，雙袖龍鍾淚不乾。",
+        "馬上相逢無紙筆，憑君傳語報平安。"
+      ],
+      "gist": {
+        "zh-CN": "向东遥望故乡，路途漫长遥远，思乡的泪水沾湿了双袖。在马上与进京的使者相逢，没有纸笔写信，只好请你捎个口信，告诉家人我平安。诗句朴素真切，饱含游子的乡情。",
+        "zh-TW": "向東遙望故鄉，路途漫長遙遠，思鄉的淚水沾溼了雙袖。在馬上與進京的使者相逢，沒有紙筆寫信，只好請你捎個口信，告訴家人我平安。詩句樸素真切，飽含遊子的鄉情。",
+        "en": "Looking east toward home, the road stretches endlessly, and tears soak both sleeves. Meeting an envoy bound for the capital on horseback, with no paper or brush at hand, I ask him to tell my family I am well. Plain and heartfelt, the poem is full of a traveler's longing for home."
+      },
+      "page": "逢入京使",
+      "revid": 1982641
+    },
+    {
+      "id": 39,
+      "form": "七言絕句",
+      "author": "李白",
+      "authorEn": "Li Bai",
+      "title": "送孟浩然之廣陵",
+      "titleEn": "Seeing Off Meng Haoran to Guangling",
+      "lines": [
+        "故人西辭黃鶴樓，煙花三月下揚州。",
+        "孤帆遠影碧山盡，唯見長江天際流。"
+      ],
+      "gist": {
+        "zh-CN": "老朋友在黄鹤楼向我辞别，在烟花似锦的三月顺流东下扬州。孤帆的影子渐渐远去，消失在青山尽头，只看见长江向天边奔流。诗人久久目送，深情都在不言之中。",
+        "zh-TW": "老朋友在黃鶴樓向我辭別，在煙花似錦的三月順流東下揚州。孤帆的影子漸漸遠去，消失在青山盡頭，只看見長江向天邊奔流。詩人久久目送，深情都在不言之中。",
+        "en": "My old friend bids farewell at Yellow Crane Tower, sailing down to Yangzhou in the misty, blossoming third month. His lone sail fades into the distance until it vanishes beyond the blue hills, and only the Yangtze is left flowing to the edge of the sky. Watching long after he has gone, the poet lets his feelings go unspoken."
+      },
+      "page": "黃鶴樓送孟浩然之廣陵",
+      "revid": 2648633
+    },
+    {
+      "id": 40,
+      "form": "七言絕句",
+      "author": "李白",
+      "authorEn": "Li Bai",
+      "title": "下江陵",
+      "titleEn": "Down to Jiangling",
+      "lines": [
+        "朝辭白帝彩雲間，千里江陵一日還。",
+        "兩岸猿聲啼不盡，輕舟已過萬重山。"
+      ],
+      "gist": {
+        "zh-CN": "清晨在彩云缭绕中告别白帝城，千里之外的江陵一天就能到达。两岸猿声此起彼伏，还没听够，轻快的小船已穿过重重山峦。全诗节奏明快，透出顺流而下的畅快与喜悦。",
+        "zh-TW": "清晨在彩雲繚繞中告別白帝城，千里之外的江陵一天就能到達。兩岸猿聲此起彼伏，還沒聽夠，輕快的小船已穿過重重山巒。全詩節奏明快，透出順流而下的暢快與喜悅。",
+        "en": "At dawn the poet leaves Baidi amid bright clouds, and Jiangling, a thousand li away, is reached within a single day. Gibbons call ceaselessly from both banks, yet the light boat has already slipped past ten thousand hills. The brisk rhythm carries the joy of sailing swiftly downstream."
+      },
+      "page": "早發白帝城",
+      "revid": 2690621
+    },
+    {
+      "id": 41,
+      "form": "七言絕句",
+      "author": "李益",
+      "authorEn": "Li Yi",
+      "title": "夜上受降城聞笛",
+      "titleEn": "Hearing a Flute at Night on the Wall of Shouxiang",
+      "lines": [
+        "回樂峰前沙似雪，受降城下月如霜。",
+        "不知何處吹蘆管，一夜征人盡望鄉。"
+      ],
+      "gist": {
+        "zh-CN": "夜里登上受降城，回乐峰前的沙地白得像雪，城下的月光冷得像霜。不知从哪里传来芦管的乐声，戍边的将士整夜都在遥望故乡。月色、笛声与边塞的荒凉交织，写尽征人的思乡之情。",
+        "zh-TW": "夜裡登上受降城，回樂峰前的沙地白得像雪，城下的月光冷得像霜。不知從哪裡傳來蘆管的樂聲，戍邊的將士整夜都在遙望故鄉。月色、笛聲與邊塞的荒涼交織，寫盡徵人的思鄉之情。",
+        "en": "On the fortress wall at night, the sand before Huile Peak is white as snow and the moonlight below the city is like frost. From somewhere comes the sound of a reed pipe, and all night long the soldiers gaze toward home. Moonlight, music and the bleak frontier together voice the homesickness of men far from home."
+      },
+      "page": "夜上受降城聞笛",
+      "revid": 3299214
+    },
+    {
+      "id": 42,
+      "form": "七言絕句",
+      "author": "李商隱",
+      "authorEn": "Li Shangyin",
+      "title": "賈生",
+      "titleEn": "Scholar Jia",
+      "lines": [
+        "宣室求賢訪逐臣，賈生才調更無倫。",
+        "可憐夜半虛前席，不問蒼生問鬼神。"
+      ],
+      "gist": {
+        "zh-CN": "汉文帝在宣室求访贤才，召见了被贬的贾谊，贾谊的才华无人能比。可惜君王半夜听得入神、不住向前移坐，问的却不是百姓疾苦，而是鬼神之事。诗人借这段旧事，感叹贤才不被真正重用。",
+        "zh-TW": "漢文帝在宣室求訪賢才，召見了被貶的賈誼，賈誼的才華無人能比。可惜君王半夜聽得入神、不住向前移坐，問的卻不是百姓疾苦，而是鬼神之事。詩人借這段舊事，感嘆賢才不被真正重用。",
+        "en": "Seeking talent in the Xuanshi Hall, the emperor summoned the exiled Jia Yi, whose gifts had no equal. Sadly, though the ruler leaned forward eagerly deep into the night, he asked not about the common people but about ghosts and spirits. Through this old story the poet laments that true talent goes unused."
+      },
+      "page": "賈生",
+      "revid": 2288408
+    },
+    {
+      "id": 43,
+      "form": "七言絕句",
+      "author": "李商隱",
+      "authorEn": "Li Shangyin",
+      "title": "隋宮",
+      "titleEn": "The Sui Palace",
+      "lines": [
+        "乘興南遊不戒嚴，九重誰省諫書函。",
+        "春風舉國裁宮錦，半作障泥半作帆。"
+      ],
+      "gist": {
+        "zh-CN": "隋炀帝一时兴起南下巡游，毫无戒备，深宫之中谁会理会劝谏的奏章？春天里全国上下忙着裁剪宫锦，一半做马鞍下的障泥，一半做龙舟的船帆。诗人以奢靡的细节，讽刺帝王荒淫误国。",
+        "zh-TW": "隋煬帝一時興起南下巡遊，毫無戒備，深宮之中誰會理會勸諫的奏章？春天裡全國上下忙著裁剪宮錦，一半做馬鞍下的障泥，一半做龍舟的船帆。詩人以奢靡的細節，諷刺帝王荒淫誤國。",
+        "en": "On a whim the Sui emperor journeyed south with no thought for caution, and in his deep palace no one heeded the memorials of protest. All spring the whole realm cut palace brocade, half for saddle flaps and half for the sails of his boats. Through this lavish detail the poet mocks a ruler whose indulgence ruined his state."
+      },
+      "page": "隋宮 (乘興南遊不戒嚴)",
+      "revid": 1986496
+    },
+    {
+      "id": 44,
+      "form": "七言絕句",
+      "author": "李商隱",
+      "authorEn": "Li Shangyin",
+      "title": "瑤池",
+      "titleEn": "The Jasper Pool",
+      "lines": [
+        "瑤池阿母綺窗開，黃竹歌聲動地哀。",
+        "八駿日行三萬里，穆王何事不重來。"
+      ],
+      "gist": {
+        "zh-CN": "瑶池边西王母推开雕花的窗子等候，却只听见《黄竹》歌声哀痛动地。周穆王的八匹骏马一天能跑三万里，为什么他再也没有回来？诗人借神话发问，暗示求仙长生终归虚妄。",
+        "zh-TW": "瑤池邊西王母推開雕花的窗子等候，卻只聽見《黃竹》歌聲哀痛動地。周穆王的八匹駿馬一天能跑三萬裡，為什麼他再也沒有回來？詩人借神話發問，暗示求仙長生終歸虛妄。",
+        "en": "By the Jasper Pool the Queen Mother of the West opens her carved window and waits, but hears only the mournful \"Yellow Bamboo\" song shaking the earth. King Mu's eight steeds could run thirty thousand li a day, so why did he never return? Through myth the poet hints that the quest for immortality is in vain."
+      },
+      "page": "瑤池",
+      "revid": 1983706
+    },
+    {
+      "id": 45,
+      "form": "七言絕句",
+      "author": "李商隱",
+      "authorEn": "Li Shangyin",
+      "title": "嫦娥",
+      "titleEn": "Chang'e",
+      "lines": [
+        "雲母屏風燭影深，長河漸落曉星沉。",
+        "嫦娥應悔偷靈藥，碧海青天夜夜心。"
+      ],
+      "gist": {
+        "zh-CN": "云母屏风上烛影幽深，银河渐渐西落，晓星也沉了下去。诗人想，嫦娥该后悔偷了灵药吧，如今只能在碧海青天之间夜夜独守。诗写长夜无眠的孤寂，也寄托了清冷寂寞的心境。",
+        "zh-TW": "雲母屏風上燭影幽深，銀河漸漸西落，曉星也沉了下去。詩人想，嫦娥該後悔偷了靈藥吧，如今只能在碧海青天之間夜夜獨守。詩寫長夜無眠的孤寂，也寄託了清冷寂寞的心境。",
+        "en": "Candle shadows deepen on the mica screen as the Milky Way sinks and the morning stars fade. Chang'e must regret stealing the elixir, the poet muses, for now she keeps her lonely watch night after night between blue sea and sky. The poem captures a sleepless night and a heart steeped in cool solitude."
+      },
+      "page": "常娥",
+      "revid": 1981886
+    },
+    {
+      "id": 46,
+      "form": "七言絕句",
+      "author": "李商隱",
+      "authorEn": "Li Shangyin",
+      "title": "夜雨寄北",
+      "titleEn": "A Letter North on a Rainy Night",
+      "lines": [
+        "君問歸期未有期，巴山夜雨漲秋池。",
+        "何當共剪西窗燭，卻話巴山夜雨時。"
+      ],
+      "gist": {
+        "zh-CN": "你问我何时回去，我还说不准归期；此刻巴山夜雨绵绵，涨满了秋天的池塘。什么时候能和你一起在西窗下剪烛夜谈，再说起今夜巴山听雨的情景？诗由眼前的孤寂想到将来的团聚，思念深长。",
+        "zh-TW": "你問我何時回去，我還說不準歸期；此刻巴山夜雨綿綿，漲滿了秋天的池塘。什麼時候能和你一起在西窗下剪燭夜談，再說起今夜巴山聽雨的情景？詩由眼前的孤寂想到將來的團聚，思念深長。",
+        "en": "You ask when I will come home, but I cannot yet say; tonight the autumn rain in the Ba hills is filling the ponds. When shall we trim the candle together by the west window and talk of this rainy night in the Ba hills? From present loneliness the poet looks ahead to reunion, and his longing runs deep."
+      },
+      "page": "夜雨寄北",
+      "revid": 1566402
+    },
+    {
+      "id": 47,
+      "form": "七言絕句",
+      "author": "李商隱",
+      "authorEn": "Li Shangyin",
+      "title": "寄令狐郎中",
+      "titleEn": "To Director Linghu",
+      "lines": [
+        "嵩雲秦樹久離居，雙鯉迢迢一紙書。",
+        "休問梁園舊賓客，茂陵秋雨病相如。"
+      ],
+      "gist": {
+        "zh-CN": "嵩山的云和秦地的树遥遥相隔，两人分别已久，远方寄来一封书信。别再问起当年梁园的旧宾客了，如今我就像在茂陵秋雨中卧病的司马相如。诗人借典故自比，流露出病中失意与对旧日情谊的感怀。",
+        "zh-TW": "嵩山的雲和秦地的樹遙遙相隔，兩人分別已久，遠方寄來一封書信。別再問起當年梁園的舊賓客了，如今我就像在茂陵秋雨中臥病的司馬相如。詩人借典故自比，流露出病中失意與對舊日情誼的感懷。",
+        "en": "Clouds over Mount Song and trees in Qin lie far apart; long separated, the poet receives a letter from afar. Do not ask after the old guests of the Liang Garden, he replies, for I am like Sima Xiangru lying ill in the autumn rain at Maoling. Through this allusion he quietly reveals illness, disappointment and fondness for an old friendship."
+      },
+      "page": "寄令狐郎中",
+      "revid": 1984602
+    },
+    {
+      "id": 48,
+      "form": "七言絕句",
+      "author": "李商隱",
+      "authorEn": "Li Shangyin",
+      "title": "為有",
+      "titleEn": "Because",
+      "lines": [
+        "為有雲屏無限嬌，鳳城寒盡怕春宵。",
+        "無端嫁得金龜婿，辜負香衾事早朝。"
+      ],
+      "gist": {
+        "zh-CN": "云母屏风后，娇美的女子柔情无限，京城寒冬刚过，她却害怕春宵太短。只因嫁了个佩金龟的高官丈夫，他天不亮就要去上早朝，辜负了温暖的香被。诗以闺中女子的口吻，写出富贵生活里小小的怨情。",
+        "zh-TW": "雲母屏風後，嬌美的女子柔情無限，京城寒冬剛過，她卻害怕春宵太短。只因嫁了個佩金龜的高官丈夫，他天不亮就要去上早朝，辜負了溫暖的香被。詩以閨中女子的口吻，寫出富貴生活裡小小的怨情。",
+        "en": "Behind a mica screen lives a lovely young wife; winter in the capital has just ended, yet she dreads the shortness of spring nights. Having married an official who wears the golden tortoise seal, she is left alone in her fragrant quilt as he rises early for court. The poem gives voice to a small, wistful complaint within a life of wealth."
+      },
+      "page": "為有",
+      "revid": 1991876
+    },
+    {
+      "id": 49,
+      "form": "七言絕句",
+      "author": "杜甫",
+      "authorEn": "Du Fu",
+      "title": "江南逢李龜年",
+      "titleEn": "Meeting Li Guinian in the South",
+      "lines": [
+        "岐王宅裏尋常見，崔九堂前幾度聞。",
+        "正是江南好風景，落花時節又逢君。"
+      ],
+      "gist": {
+        "zh-CN": "当年在岐王府中常常见到你，在崔九堂前也多次听过你的歌。如今正是江南风景最好的时候，在落花时节，我又与你重逢了。短短四句，昔日的繁华与眼前的漂泊相映，感慨尽在不言中。",
+        "zh-TW": "當年在岐王府中常常見到你，在崔九堂前也多次聽過你的歌。如今正是江南風景最好的時候，在落花時節，我又與你重逢了。短短四句，昔日的繁華與眼前的漂泊相映，感慨盡在不言中。",
+        "en": "In the old days I often saw you at Prince Qi's mansion and heard you sing more than once in Cui Jiu's hall. Now, in the loveliest season of the south, I meet you again as the blossoms fall. In four short lines past splendor and present wandering mirror each other, and the sorrow is left unspoken."
+      },
+      "page": "江南逢李龜年",
+      "revid": 1534428
+    },
+    {
+      "id": 50,
+      "form": "七言絕句",
+      "author": "杜牧",
+      "authorEn": "Du Mu",
+      "title": "贈別·其一",
+      "titleEn": "A Parting Gift (I)",
+      "lines": [
+        "娉娉褭褭十三餘，荳蔻梢頭二月初。",
+        "春風十里揚州路，卷上珠簾總不如。"
+      ],
+      "gist": {
+        "zh-CN": "她体态轻盈，年方十三出头，就像二月初枝头含苞的豆蔻。扬州城十里长街春风吹拂，卷起珠帘看遍所有女子，都比不上她。诗人以花喻人，赞美少女清新动人的美。",
+        "zh-TW": "她體態輕盈，年方十三出頭，就像二月初枝頭含苞的豆蔻。揚州城十里長街春風吹拂，捲起珠簾看遍所有女子，都比不上她。詩人以花喻人，讚美少女清新動人的美。",
+        "en": "Graceful and slender, just past thirteen, she is like a cardamom bud on the bough in early spring. Along ten li of Yangzhou's streets in the spring breeze, of all the beauties behind raised bead curtains, none compares with her. The poet likens her to a flower to praise her fresh, tender beauty."
+      },
+      "page": "贈別 (娉娉褭褭十三餘)",
+      "revid": 1982938
+    },
+    {
+      "id": 51,
+      "form": "七言絕句",
+      "author": "杜牧",
+      "authorEn": "Du Mu",
+      "title": "贈別·其二",
+      "titleEn": "A Parting Gift (II)",
+      "lines": [
+        "多情卻似總無情，唯覺尊前笑不成。",
+        "蠟燭有心還惜別，替人垂淚到天明。"
+      ],
+      "gist": {
+        "zh-CN": "情意太深，反倒像是毫无情意，在离别的酒杯前，只觉得连笑也笑不出来。蜡烛似乎也有心，舍不得分别，替人流着泪直到天明。诗人借烛泪写离愁，含蓄而深情。",
+        "zh-TW": "情意太深，反倒像是毫無情意，在離別的酒杯前，只覺得連笑也笑不出來。蠟燭似乎也有心，捨不得分別，替人流著淚直到天明。詩人借燭淚寫離愁，含蓄而深情。",
+        "en": "Feeling too deeply can look like feeling nothing at all; before the parting cup, he finds he cannot even smile. The candle seems to have a heart that grieves the farewell, shedding tears for them until dawn. Through the candle's tears the poet expresses the sorrow of parting, subtly and tenderly."
+      },
+      "page": "贈別 (多情卻似總無情)",
+      "revid": 1982931
+    },
+    {
+      "id": 52,
+      "form": "七言絕句",
+      "author": "杜牧",
+      "authorEn": "Du Mu",
+      "title": "寄揚州韓綽判官",
+      "titleEn": "To Han Chuo, Judge in Yangzhou",
+      "lines": [
+        "青山隱隱水迢迢，秋盡江南草未凋。",
+        "二十四橋明月夜，玉人何處教吹簫？"
+      ],
+      "gist": {
+        "zh-CN": "青山隐约，江水悠长，深秋时节江南的草木还未凋零。二十四桥明月高照的夜晚，你又在哪里听玉人吹箫呢？诗人遥想扬州的美景与友人的生活，既有怀念，也带着几分调侃。",
+        "zh-TW": "青山隱約，江水悠長，深秋時節江南的草木還未凋零。二十四橋明月高照的夜晚，你又在哪裡聽玉人吹簫呢？詩人遙想揚州的美景與友人的生活，既有懷念，也帶著幾分調侃。",
+        "en": "Blue hills fade into the distance and the river flows on and on; though autumn is ending, the grass of Jiangnan has not yet withered. On a moonlit night at the Twenty-Four Bridges, where might you be, listening to a fair one play the flute? Picturing Yangzhou's beauty from afar, the poet mixes fond remembrance with gentle teasing."
+      },
+      "page": "寄揚州韓綽判官",
+      "revid": 1982014
+    },
+    {
+      "id": 53,
+      "form": "七言絕句",
+      "author": "杜牧",
+      "authorEn": "Du Mu",
+      "title": "遣懷",
+      "titleEn": "Unburdening My Heart",
+      "lines": [
+        "落魄江湖載酒行，楚腰纖細掌中輕。",
+        "十年一覺揚州夢，贏得青樓薄幸名。"
+      ],
+      "gist": {
+        "zh-CN": "当年失意漂泊江湖，载着酒四处游荡，身边是腰肢纤细、体态轻盈的美人。十年过去，扬州的往事像一场大梦醒来，只落得个青楼薄情郎的名声。诗中有自嘲，也有对虚度年华的追悔。",
+        "zh-TW": "當年失意漂泊江湖，載著酒四處遊蕩，身邊是腰肢纖細、體態輕盈的美人。十年過去，揚州的往事像一場大夢醒來，只落得個青樓薄情郎的名聲。詩中有自嘲，也有對虛度年華的追悔。",
+        "en": "Down on his luck, he once drifted through the land with wine in his boat, among slender, light-footed beauties. Ten years in Yangzhou now seem a dream from which he has woken, leaving him only the name of a fickle lover of the pleasure houses. The poem mixes self-mockery with regret for wasted years."
+      },
+      "page": "遣懷 (杜牧)",
+      "revid": 2629638
+    },
+    {
+      "id": 54,
+      "form": "七言絕句",
+      "author": "杜牧",
+      "authorEn": "Du Mu",
+      "title": "秋夕",
+      "titleEn": "An Autumn Evening",
+      "lines": [
+        "銀燭秋光冷畫屏，輕羅小扇撲流螢。",
+        "天階夜色涼如水，臥看牽牛織女星。"
+      ],
+      "gist": {
+        "zh-CN": "秋夜烛光清冷，映照着画屏，女子手执轻罗小扇，扑打飞舞的萤火虫。石阶上夜色清凉如水，她躺着仰望天上的牵牛星和织女星。画面清丽安静，透出寂寞与淡淡的向往。",
+        "zh-TW": "秋夜燭光清冷，映照著畫屏，女子手執輕羅小扇，撲打飛舞的螢火蟲。石階上夜色清涼如水，她躺著仰望天上的牽牛星和織女星。畫面清麗安靜，透出寂寞與淡淡的嚮往。",
+        "en": "Silver candlelight casts an autumn chill on the painted screen as a young woman swats at drifting fireflies with a light silk fan. The night on the steps is cool as water, and she lies gazing at the Herd Boy and Weaver Girl stars. The quiet, delicate scene hints at loneliness and a faint longing."
+      },
+      "page": "秋夕 (杜牧)",
+      "revid": 2629627
+    },
+    {
+      "id": 55,
+      "form": "七言絕句",
+      "author": "杜牧",
+      "authorEn": "Du Mu",
+      "title": "將赴吳興登樂游原",
+      "titleEn": "Climbing Leyou Plain Before Leaving for Wuxing",
+      "lines": [
+        "清時有味是無能，閑愛孤雲靜愛僧。",
+        "欲把一麾江海去，樂游原上望昭陵。"
+      ],
+      "gist": {
+        "zh-CN": "太平时节能自得其乐，是因为自己没什么才能；闲时爱看孤云，静时爱与僧人相处。如今将要出任远方，赴江海之地，临行前登上乐游原，遥望唐太宗的昭陵。平静的语气里，藏着怀才不遇的感慨。",
+        "zh-TW": "太平時節能自得其樂，是因為自己沒什麼才能；閒時愛看孤雲，靜時愛與僧人相處。如今將要出任遠方，赴江海之地，臨行前登上樂遊原，遙望唐太宗的昭陵。平靜的語氣裡，藏著懷才不遇的感慨。",
+        "en": "In peaceful times one can enjoy life only by having no talent, he says; at leisure he loves lone clouds, in stillness he loves monks. Now, about to take up a post far off by rivers and sea, he climbs Leyou Plain and looks toward Zhaoling, the tomb of Emperor Taizong. Beneath the calm tone lies regret at gifts left unused."
+      },
+      "page": "將赴吳興登樂游原",
+      "revid": 1982407
+    },
+    {
+      "id": 56,
+      "form": "七言絕句",
+      "author": "杜牧",
+      "authorEn": "Du Mu",
+      "title": "赤壁",
+      "titleEn": "Red Cliff",
+      "lines": [
+        "折戟沉沙鐵未銷，自將磨洗認前朝。",
+        "東風不與周郎便，銅雀春深鎖二喬。"
+      ],
+      "gist": {
+        "zh-CN": "一支断戟沉埋在沙中，铁还没有锈尽，诗人亲手磨洗，认出是前朝遗物。他设想：如果当年东风不给周瑜方便，大乔小乔恐怕就要被锁进铜雀台了。诗人由一件旧物生发议论，对历史成败别有见解。",
+        "zh-TW": "一支斷戟沉埋在沙中，鐵還沒有鏽盡，詩人親手磨洗，認出是前朝遺物。他設想：如果當年東風不給周瑜方便，大喬小喬恐怕就要被鎖進銅雀臺了。詩人由一件舊物生髮議論，對歷史成敗別有見解。",
+        "en": "A broken halberd lies buried in the sand, its iron not yet rusted away; the poet scrubs it clean and recognizes a relic of a bygone dynasty. Had the east wind not favored Zhou Yu, he muses, the two Qiao sisters would have been locked away in Bronze Sparrow Tower. From a single relic the poet draws his own reflections on history's turns."
+      },
+      "page": "赤壁",
+      "revid": 1964883
+    },
+    {
+      "id": 57,
+      "form": "七言絕句",
+      "author": "杜牧",
+      "authorEn": "Du Mu",
+      "title": "泊秦淮",
+      "titleEn": "Mooring on the Qinhuai River",
+      "lines": [
+        "煙籠寒水月籠沙，夜泊秦淮近酒家。",
+        "商女不知亡國恨，隔江猶唱後庭花。"
+      ],
+      "gist": {
+        "zh-CN": "轻烟笼罩着寒冷的江水，月光笼罩着沙岸，夜里把船停在秦淮河边，靠近酒家。卖唱的歌女不懂亡国的悲恨，隔着江仍在唱着《后庭花》。诗人借眼前的歌声，寄托对世事兴亡的深沉忧思。",
+        "zh-TW": "輕煙籠罩著寒冷的江水，月光籠罩著沙岸，夜裡把船停在秦淮河邊，靠近酒家。賣唱的歌女不懂亡國的悲恨，隔著江仍在唱著《後庭花》。詩人借眼前的歌聲，寄託對世事興亡的深沉憂思。",
+        "en": "Mist veils the cold water and moonlight veils the sand as the poet moors for the night on the Qinhuai, near the wine houses. The singing girls, knowing nothing of the grief of a fallen kingdom, still sing \"Flowers in the Rear Court\" across the river. Through this song the poet voices his deep concern over the rise and fall of states."
+      },
+      "page": "泊秦淮",
+      "revid": 1982119
+    },
+    {
+      "id": 58,
+      "form": "七言絕句",
+      "author": "柳中庸",
+      "authorEn": "Liu Zhongyong",
+      "title": "征人怨",
+      "titleEn": "A Soldier's Lament",
+      "lines": [
+        "歲歲金河復玉關，朝朝馬策與刀環。",
+        "三春白雪歸青塚，萬里黃河繞黑山。"
+      ],
+      "gist": {
+        "zh-CN": "年复一年辗转于金河和玉门关，天天与马鞭和刀环为伴。春天里白雪还落在昭君的青冢上，万里黄河奔流，环绕着黑山。诗中只写地名与景物，戍边的艰辛与怨情却自然流露。",
+        "zh-TW": "年復一年輾轉於金河和玉門關，天天與馬鞭和刀環為伴。春天裡白雪還落在昭君的青冢上，萬里黃河奔流，環繞著黑山。詩中只寫地名與景物，戍邊的艱辛與怨情卻自然流露。",
+        "en": "Year after year between the Golden River and Jade Gate Pass, day after day with whip and sword ring. Even in spring white snow falls on the Green Tomb, and the Yellow River winds ten thousand li around the Black Mountains. Naming only places and scenes, the poem lets the hardship and grievance of frontier service speak for itself."
+      },
+      "page": "征人怨",
+      "revid": 1982995
+    },
+    {
+      "id": 59,
+      "form": "七言絕句",
+      "author": "韋莊",
+      "authorEn": "Wei Zhuang",
+      "title": "金陵圖",
+      "titleEn": "A Picture of Jinling",
+      "lines": [
+        "江雨霏霏江草齊，六朝如夢鳥空啼。",
+        "無情最是臺城柳，依舊煙籠十里隄。"
+      ],
+      "gist": {
+        "zh-CN": "江上细雨纷纷，江边春草齐整，六朝繁华如梦一般消逝，只有鸟儿徒然啼叫。最无情的是台城的柳树，依旧像当年一样，如烟般笼罩着十里长堤。诗人以景物不变反衬人事全非，抒发兴亡之感。",
+        "zh-TW": "江上細雨紛紛，江邊春草齊整，六朝繁華如夢一般消逝，只有鳥兒徒然啼叫。最無情的是臺城的柳樹，依舊像當年一樣，如煙般籠罩著十里長堤。詩人以景物不變反襯人事全非，抒發興亡之感。",
+        "en": "Fine rain falls on the river and the riverside grass grows even; the Six Dynasties have vanished like a dream, and birds call in vain. Most heartless are the willows of Taicheng, still veiling the ten-li embankment like mist, just as before. The unchanged scenery sets off how much has been lost, stirring thoughts of rise and fall."
+      },
+      "page": "金陵圖",
+      "revid": 2310067
+    },
+    {
+      "id": 60,
+      "form": "七言絕句",
+      "author": "韋應物",
+      "authorEn": "Wei Yingwu",
+      "title": "滁州西澗",
+      "titleEn": "West Stream at Chuzhou",
+      "lines": [
+        "獨憐幽草澗邊生，上有黃鸝深樹鳴。",
+        "春潮帶雨晚來急，野渡無人舟自橫。"
+      ],
+      "gist": {
+        "zh-CN": "诗人独爱生长在山涧边的幽草，上方幽深的树林里黄鹂在婉转鸣唱。傍晚春潮夹着雨水来得更急，荒野渡口空无一人，只有小船独自横在水面。画面幽静自在，透出诗人恬淡闲适的心境。",
+        "zh-TW": "詩人獨愛生長在山澗邊的幽草，上方幽深的樹林裡黃鸝在婉轉鳴唱。傍晚春潮夾著雨水來得更急，荒野渡口空無一人，只有小船獨自橫在水面。畫面幽靜自在，透出詩人恬淡閒適的心境。",
+        "en": "The poet especially loves the quiet grass growing by the stream, while orioles sing deep in the trees above. Toward evening the spring flood rises swiftly with the rain, and at the deserted ferry a boat drifts crosswise on its own. The scene is tranquil and unhurried, reflecting the poet's calm, easy spirit."
+      },
+      "page": "滁州西澗",
+      "revid": 1981825
+    },
+    {
+      "id": 61,
+      "form": "七言絕句",
+      "author": "張旭",
+      "authorEn": "Zhang Xu",
+      "title": "桃花谿",
+      "titleEn": "Peach Blossom Stream",
+      "lines": [
+        "隱隱飛橋隔野煙，石磯西畔問漁船。",
+        "桃花盡日隨流水，洞在清谿何處邊。"
+      ],
+      "gist": {
+        "zh-CN": "远处一座高桥隐隐约约，隔着山野的烟雾；诗人站在石矶西边，向渔船打听。桃花整天随着流水漂来，那传说中的桃源洞口，究竟在清溪的哪一边呢？诗写山水清幽，也寄托了对世外桃源的向往。",
+        "zh-TW": "遠處一座高橋隱隱約約，隔著山野的煙霧；詩人站在石磯西邊，向漁船打聽。桃花整天隨著流水漂來，那傳說中的桃源洞口，究竟在清溪的哪一邊呢？詩寫山水清幽，也寄託了對世外桃源的嚮往。",
+        "en": "A high bridge looms faintly through the wild mist, and from the west side of a rocky bank the poet calls out to a fishing boat. Peach blossoms drift down the stream all day long, so where along this clear brook is the hidden cave? The poem paints a serene landscape and a longing for a Peach Blossom Spring beyond the world."
+      },
+      "page": "桃花谿",
+      "revid": 229374
+    },
+    {
+      "id": 62,
+      "form": "七言絕句",
+      "author": "張泌",
+      "authorEn": "Zhang Bi",
+      "title": "寄人",
+      "titleEn": "To Someone Far Away",
+      "lines": [
+        "別夢依依到謝家，小廊迴合曲闌斜。",
+        "多情只有春庭月，猶為離人照落花。"
+      ],
+      "gist": {
+        "zh-CN": "离别后梦魂依依，又回到了她的家中，那里小廊回环、栏杆曲折。最多情的只有春夜庭院里的月亮，还在为离别的人照着满地落花。诗由梦境写到月色，含蓄地诉说着难以忘怀的思念。",
+        "zh-TW": "離別後夢魂依依，又回到了她的家中，那裡小廊迴環、欄杆曲折。最多情的只有春夜庭院裡的月亮，還在為離別的人照著滿地落花。詩由夢境寫到月色，含蓄地訴說著難以忘懷的思念。",
+        "en": "After parting, his dreams linger and carry him back to her home, with its winding little corridor and slanting railings. Only the spring moon in the courtyard is truly tender, still shining on the fallen petals for the one who has left. Moving from dream to moonlight, the poem quietly tells of a longing that will not fade."
+      },
+      "page": "寄人 (張泌)",
+      "revid": 1036058
+    },
+    {
+      "id": 63,
+      "form": "七言絕句",
+      "author": "張祜",
+      "authorEn": "Zhang Hu",
+      "title": "題金陵渡",
+      "titleEn": "Written at Jinling Ferry",
+      "lines": [
+        "金陵津渡小山樓，一宿行人自可愁。",
+        "潮落夜江斜月裡，兩三星火是瓜洲。"
+      ],
+      "gist": {
+        "zh-CN": "金陵渡口旁有座小山楼，过路的旅人在此住宿一夜，自然生出愁绪。夜里江潮退落，斜月低垂，对岸闪着两三点灯火，那就是瓜洲。诗写夜宿江边的所见，景色清冷，旅愁淡淡。",
+        "zh-TW": "金陵渡口旁有座小山樓，過路的旅人在此住宿一夜，自然生出愁緒。夜裡江潮退落，斜月低垂，對岸閃著兩三點燈火，那就是瓜洲。詩寫夜宿江邊的所見，景色清冷，旅愁淡淡。",
+        "en": "By the Jinling ferry stands a small hillside inn, and a traveler spending the night here cannot help but feel sad. The tide ebbs on the night river under a slanting moon, and two or three glimmering lights across the water mark Guazhou. Describing the riverside at night, the poet conveys a cool scene and a quiet traveler's melancholy."
+      },
+      "page": "題金陵渡",
+      "revid": 2548897
+    },
+    {
+      "id": 64,
+      "form": "七言絕句",
+      "author": "張祜",
+      "authorEn": "Zhang Hu",
+      "title": "贈內人",
+      "titleEn": "For a Lady of the Palace",
+      "lines": [
+        "禁門宮樹月痕過，媚眼惟看宿鷺窠。",
+        "斜拔玉釵燈影畔，剔開紅燄救飛蛾。"
+      ],
+      "gist": {
+        "zh-CN": "宫门内的树影间，月光缓缓移过，宫中女子美丽的眼睛只望着白鹭栖宿的窝巢。她在灯影旁斜拔下玉钗，拨开红红的灯焰，救出扑火的飞蛾。诗写深宫女子的寂寞与善良，细腻动人。",
+        "zh-TW": "宮門內的樹影間，月光緩緩移過，宮中女子美麗的眼睛只望著白鷺棲宿的窩巢。她在燈影旁斜拔下玉釵，撥開紅紅的燈焰，救出撲火的飛蛾。詩寫深宮女子的寂寞與善良，細膩動人。",
+        "en": "Moonlight slips past the palace trees within the forbidden gates, and the lady's lovely eyes rest only on the egrets' nest. Beside the lamp she draws out her jade hairpin and parts the red flame to save a moth. The poem delicately portrays both the loneliness and the kindness of a woman in the palace."
+      },
+      "page": "贈內人",
+      "revid": 1983704
+    },
+    {
+      "id": 65,
+      "form": "七言絕句",
+      "author": "張祜",
+      "authorEn": "Zhang Hu",
+      "title": "集靈臺之一",
+      "titleEn": "The Terrace of Assembled Spirits (I)",
+      "lines": [
+        "日光斜照集靈台，紅樹花迎曉露開。",
+        "昨夜上皇新授籙，太真含笑入簾來。"
+      ],
+      "gist": {
+        "zh-CN": "阳光斜照着集灵台，满树红花迎着清晨的露水绽开。昨夜上皇刚刚授予道箓，太真（杨玉环）便含着笑走进帘中。诗人用平淡的笔调叙写宫中之事，言外带有含蓄的讽意。",
+        "zh-TW": "陽光斜照著集靈臺，滿樹紅花迎著清晨的露水綻開。昨夜上皇剛剛授予道籙，太真（楊玉環）便含著笑走進簾中。詩人用平淡的筆調敘寫宮中之事，言外帶有含蓄的諷意。",
+        "en": "Slanting sunlight falls on the Terrace of Assembled Spirits, where red blossoms open to greet the morning dew. Only last night the emperor conferred a Daoist register, and now Taizhen, Yang Yuhuan, steps smiling behind the curtain. Recounted in a plain tone, the palace scene carries a quiet note of irony."
+      },
+      "page": "集靈臺之一",
+      "revid": 1982344
+    },
+    {
+      "id": 66,
+      "form": "七言絕句",
+      "author": "張祜",
+      "authorEn": "Zhang Hu",
+      "title": "集靈臺之二",
+      "titleEn": "The Terrace of Assembled Spirits (II)",
+      "lines": [
+        "虢國夫人承主恩，平明騎馬入宮門。",
+        "卻嫌脂粉污顏色，淡掃蛾眉朝至尊。"
+      ],
+      "gist": {
+        "zh-CN": "虢国夫人深受君王的恩宠，天刚亮就骑着马进入宫门。她嫌脂粉会玷污自己天生的好颜色，只淡淡画了画眉毛，便去朝见天子。诗写她自恃美貌、恩宠之盛，语带讥讽。",
+        "zh-TW": "虢國夫人深受君王的恩寵，天剛亮就騎著馬進入宮門。她嫌脂粉會玷汙自己天生的好顏色，只淡淡畫了畫眉毛，便去朝見天子。詩寫她自恃美貌、恩寵之盛，語帶譏諷。",
+        "en": "The Lady of Guo enjoys the emperor's special favor, and at daybreak she rides on horseback through the palace gate. Disdaining powder and rouge as a stain on her natural beauty, she lightly brushes her eyebrows and goes to greet the sovereign. The poem shows her pride in her looks and the height of her favor, with a touch of mockery."
+      },
+      "page": "集靈臺之二",
+      "revid": 1982196
+    },
+    {
+      "id": 67,
+      "form": "七言絕句",
+      "author": "張繼",
+      "authorEn": "Zhang Ji",
+      "title": "楓橋夜泊",
+      "titleEn": "Night Mooring at Maple Bridge",
+      "lines": [
+        "月落烏啼霜滿天，江楓漁火對愁眠。",
+        "姑蘇城外寒山寺，夜半鐘聲到客船。"
+      ],
+      "gist": {
+        "zh-CN": "月亮西落，乌鸦啼叫，寒霜仿佛布满夜空；江边的枫树和点点渔火，陪伴着满怀愁绪、难以入眠的旅人。姑苏城外的寒山寺，半夜敲响的钟声一直传到客船上。诗写江南秋夜的清寂，羁旅之愁悠长。",
+        "zh-TW": "月亮西落，烏鴉啼叫，寒霜彷彿佈滿夜空；江邊的楓樹和點點漁火，陪伴著滿懷愁緒、難以入眠的旅人。姑蘇城外的寒山寺，半夜敲響的鐘聲一直傳到客船上。詩寫江南秋夜的清寂，羈旅之愁悠長。",
+        "en": "The moon sets, crows caw, and frost seems to fill the sky; riverside maples and fishing lights keep company with a traveler too sad to sleep. From Hanshan Temple outside the city of Gusu, the midnight bell reaches his boat. The poem captures the stillness of an autumn night in the south and the lingering sorrow of a journey."
+      },
+      "page": "楓橋夜泊",
+      "revid": 1748066
+    },
+    {
+      "id": 68,
+      "form": "七言絕句",
+      "author": "無名氏",
+      "authorEn": "Anonymous",
+      "title": "雜詩",
+      "titleEn": "Untitled Poem",
+      "lines": [
+        "盡寒食雨草萋萋，著麥苗風柳映堤。",
+        "等是有家歸未得，杜鵑休向耳邊啼。"
+      ],
+      "gist": {
+        "zh-CN": "临近寒食节，雨中青草茂盛，风吹麦苗起伏，堤上杨柳相映。大家同样是有家却回不去的人，杜鹃啊，别再在耳边啼叫了。诗人借杜鹃的啼声，写出客居他乡、有家难归的愁苦。",
+        "zh-TW": "臨近寒食節，雨中青草茂盛，風吹麥苗起伏，堤上楊柳相映。大家同樣是有家卻回不去的人，杜鵑啊，別再在耳邊啼叫了。詩人借杜鵑的啼聲，寫出客居他鄉、有家難歸的愁苦。",
+        "en": "As the Cold Food Festival nears, the grass grows lush in the rain, the wind ripples the wheat sprouts, and willows line the embankment. We are all people with homes we cannot return to, so cuckoo, please stop crying in my ear. Through the cuckoo's call the poet expresses the pain of living far from a home he cannot reach."
+      },
+      "page": "雜詩 (無名氏)",
+      "revid": 1992300
+    },
+    {
+      "id": 69,
+      "form": "七言絕句",
+      "author": "賀知章",
+      "authorEn": "He Zhizhang",
+      "title": "回鄉偶書",
+      "titleEn": "Returning Home",
+      "lines": [
+        "少小離家老大回，鄉音無改鬢毛衰。",
+        "兒童相見不相識，笑問客從何處來。"
+      ],
+      "gist": {
+        "zh-CN": "年少时离开家乡，年老才回来，乡音没有改变，鬓发却已经稀疏斑白。村里的孩子见了我都不认识，笑着问我是从哪里来的客人。诗语平易，在轻松的场景里藏着岁月流逝的感慨。",
+        "zh-TW": "年少時離開家鄉，年老才回來，鄉音沒有改變，鬢髮卻已經稀疏斑白。村裡的孩子見了我都不認識，笑著問我是從哪裡來的客人。詩語平易，在輕鬆的場景裡藏著歲月流逝的感慨。",
+        "en": "I left home young and return old; my native accent is unchanged, but the hair at my temples has grown thin and gray. The village children see me and do not know me, smiling as they ask where the guest has come from. In plain words and a light scene, the poem holds a quiet sigh over the passing years."
+      },
+      "page": "回鄉偶書 (少小離家老大回)",
+      "revid": 2648158
+    },
+    {
+      "id": 70,
+      "form": "七言絕句",
+      "author": "溫庭筠",
+      "authorEn": "Wen Tingyun",
+      "title": "瑤瑟怨",
+      "titleEn": "Lament of the Jade Zither",
+      "lines": [
+        "冰簟銀牀夢不成，碧天如水夜雲輕。",
+        "雁聲遠過瀟湘去，十二樓中月自明。"
+      ],
+      "gist": {
+        "zh-CN": "冰凉的竹席，银饰的床榻，女子辗转难以成梦；碧蓝的夜空清澈如水，夜云轻淡。大雁的叫声远远飞向潇湘而去，高楼之中，只有月亮独自明亮。诗不直说怨情，只用清冷的景物烘托出孤寂与思念。",
+        "zh-TW": "冰涼的竹蓆，銀飾的床榻，女子輾轉難以成夢；碧藍的夜空清澈如水，夜雲輕淡。大雁的叫聲遠遠飛向瀟湘而去，高樓之中，只有月亮獨自明亮。詩不直說怨情，只用清冷的景物烘托出孤寂與思念。",
+        "en": "On a cool bamboo mat and a silver bed she cannot fall asleep; the blue sky is clear as water and the night clouds are light. The cries of wild geese fade away toward the Xiao and Xiang rivers, and over the twelve towers the moon shines on alone. Without naming her sorrow, the poem lets the cold, clear scene convey loneliness and longing."
+      },
+      "page": "瑤瑟怨",
+      "revid": 1986874
+    },
+    {
+      "id": 71,
+      "form": "七言絕句",
+      "author": "劉方平",
+      "authorEn": "Liu Fangping",
+      "title": "月夜",
+      "titleEn": "Moonlit Night",
+      "lines": [
+        "更深月色半人家，北斗闌干南斗斜。",
+        "今夜偏知春氣暖，蟲聲新透綠窗沙。"
+      ],
+      "gist": {
+        "zh-CN": "夜深了，月光只照亮了半边人家，北斗星横斜，南斗星也已偏斜。今夜格外感到春天的气息已经变暖，虫鸣声第一次透过绿色的窗纱传了进来。诗人从细微的虫声中觉察春意，清新而有情趣。",
+        "zh-TW": "夜深了，月光只照亮了半邊人家，北斗星橫斜，南斗星也已偏斜。今夜格外感到春天的氣息已經變暖，蟲鳴聲第一次透過綠色的窗紗傳了進來。詩人從細微的蟲聲中覺察春意，清新而有情趣。",
+        "en": "Deep into the night, moonlight falls on only half of the houses; the Big Dipper hangs aslant and the Southern Dipper tilts too. Tonight one can tell that spring has turned warm, for insect songs come through the green window gauze for the first time. The poet senses spring in the faint sounds of insects, a fresh and charming touch."
+      },
+      "page": "月夜 (劉方平)",
+      "revid": 1982345
+    },
+    {
+      "id": 72,
+      "form": "七言絕句",
+      "author": "劉方平",
+      "authorEn": "Liu Fangping",
+      "title": "春怨",
+      "titleEn": "Spring Lament",
+      "lines": [
+        "紗窗日落漸黃昏，金屋無人見淚痕。",
+        "寂寞空庭春欲晚，梨花滿地不開門。"
+      ],
+      "gist": {
+        "zh-CN": "太阳落下，纱窗外渐渐昏暗，华美的屋子里没有人看见她的泪痕。空荡荡的庭院冷冷清清，春天就要过去，满地梨花飘落，她也不愿打开院门。诗以落花和闭门的景象，写出深闺女子的寂寞与哀怨。",
+        "zh-TW": "太陽落下，紗窗外漸漸昏暗，華美的屋子裡沒有人看見她的淚痕。空蕩蕩的庭院冷冷清清，春天就要過去，滿地梨花飄落，她也不願開啟院門。詩以落花和閉門的景象，寫出深閨女子的寂寞與哀怨。",
+        "en": "The sun sets beyond the gauze window and dusk slowly deepens; in the golden chamber no one sees the traces of her tears. In the lonely, empty courtyard spring is nearly over, pear blossoms cover the ground, and the gate stays shut. Through fallen blossoms and a closed gate, the poem conveys a secluded woman's loneliness and sorrow."
+      },
+      "page": "春怨 (劉方平)",
+      "revid": 1981956
+    },
+    {
+      "id": 73,
+      "form": "七言絕句",
+      "author": "劉禹錫",
+      "authorEn": "Liu Yuxi",
+      "title": "烏衣巷",
+      "titleEn": "Black Clothes Lane",
+      "lines": [
+        "朱雀橋邊野草花，烏衣巷口夕陽斜。",
+        "舊時王謝堂前燕，飛入尋常百姓家。"
+      ],
+      "gist": {
+        "zh-CN": "朱雀桥边长满了野草野花，乌衣巷口夕阳斜照。从前在王、谢两家大族堂前筑巢的燕子，如今都飞进了寻常百姓的家里。诗人借燕子的去来，写出世事变迁、繁华不再的感慨。",
+        "zh-TW": "朱雀橋邊長滿了野草野花，烏衣巷口夕陽斜照。從前在王、謝兩家大族堂前築巢的燕子，如今都飛進了尋常百姓的家裡。詩人借燕子的去來，寫出世事變遷、繁華不再的感慨。",
+        "en": "Wild grasses and flowers grow by Vermilion Bird Bridge, and the setting sun slants across the mouth of Black Clothes Lane. The swallows that once nested before the halls of the great Wang and Xie families now fly into the homes of ordinary people. Through the swallows' coming and going, the poet reflects on change and vanished splendor."
+      },
+      "page": "烏衣巷",
+      "revid": 2319342
+    },
+    {
+      "id": 74,
+      "form": "七言絕句",
+      "author": "劉禹錫",
+      "authorEn": "Liu Yuxi",
+      "title": "春詞",
+      "titleEn": "A Spring Song",
+      "lines": [
+        "新妝宜面下朱樓，深鎖春光一院愁。",
+        "行到中庭數花朵，蜻蜓飛上玉搔頭。"
+      ],
+      "gist": {
+        "zh-CN": "女子梳好新妆，走下朱红的楼阁，可深锁的庭院里满是春光与愁绪。她走到庭院中央，一朵一朵地数着花，一只蜻蜓飞来，落在她的玉簪上。诗以细小的动作写出女子的寂寞无聊，含蓄动人。",
+        "zh-TW": "女子梳好新妝，走下硃紅的樓閣，可深鎖的庭院裡滿是春光與愁緒。她走到庭院中央，一朵一朵地數著花，一隻蜻蜓飛來，落在她的玉簪上。詩以細小的動作寫出女子的寂寞無聊，含蓄動人。",
+        "en": "Freshly made up, she comes down from the vermilion tower, but the locked courtyard holds only spring light and sorrow. Walking to the middle of the yard she counts the flowers one by one, and a dragonfly alights on her jade hairpin. Small gestures quietly reveal her loneliness and idle hours."
+      },
+      "page": "春詞 (劉禹錫)",
+      "revid": 1439333
+    },
+    {
+      "id": 75,
+      "form": "七言絕句",
+      "author": "韓翃",
+      "authorEn": "Han Hong",
+      "title": "寒食",
+      "titleEn": "Cold Food Day",
+      "lines": [
+        "春城無處不飛花，寒食東風御柳斜。",
+        "日暮漢宮傳蠟燭，輕煙散入五侯家。"
+      ],
+      "gist": {
+        "zh-CN": "春天的京城处处飞舞着落花，寒食节的东风吹斜了御苑里的柳枝。日暮时分，宫中传赐蜡烛，袅袅轻烟飘散进了王侯贵戚的家中。诗写寒食节的京城风光，也隐约透出对权贵受宠的讽意。",
+        "zh-TW": "春天的京城處處飛舞著落花，寒食節的東風吹斜了御苑裡的柳枝。日暮時分，宮中傳賜蠟燭，嫋嫋輕煙飄散進了王侯貴戚的家中。詩寫寒食節的京城風光，也隱約透出對權貴受寵的諷意。",
+        "en": "Throughout the spring capital petals drift everywhere, and the Cold Food east wind bends the willows of the imperial park. At dusk candles are passed out from the palace, their light smoke drifting into the homes of the five marquises. The poem paints the capital at the festival while hinting at the privileges of the favored few."
+      },
+      "page": "寒食 (韓翃)",
+      "revid": 2365097
+    },
+    {
+      "id": 76,
+      "form": "七言絕句",
+      "author": "韓偓",
+      "authorEn": "Han Wo",
+      "title": "已涼",
+      "titleEn": "Already Cool",
+      "lines": [
+        "碧闌干外繡簾垂，猩色屏風畫折枝。",
+        "八尺龍鬚方錦褥，已涼天氣未寒時。"
+      ],
+      "gist": {
+        "zh-CN": "碧绿的栏杆外垂着绣花帘子，猩红的屏风上画着折枝花卉。八尺长的龙须草席上铺着方锦褥子，正是天气已经转凉、却还没有寒冷的时节。诗只描写室内陈设与天气，含蓄地透出闺中的情思。",
+        "zh-TW": "碧綠的欄杆外垂著繡花簾子，猩紅的屏風上畫著折枝花卉。八尺長的龍鬚草席上鋪著方錦褥子，正是天氣已經轉涼、卻還沒有寒冷的時節。詩只描寫室內陳設與天氣，含蓄地透出閨中的情思。",
+        "en": "Embroidered curtains hang beyond the jade-green railings, and a scarlet screen is painted with sprays of cut flowers. An eight-foot dragon-whisker mat is spread with a square brocade cushion, in that season when the air has cooled but not yet turned cold. Describing only the room and the weather, the poem quietly hints at the feelings of the woman within."
+      },
+      "page": "已涼",
+      "revid": 1982195
+    },
+    {
+      "id": 77,
+      "form": "七言絕句",
+      "author": "顧況",
+      "authorEn": "Gu Kuang",
+      "title": "宮詞",
+      "titleEn": "Palace Song",
+      "lines": [
+        "玉樓天半起笙歌，風送宮嬪笑語和。",
+        "月殿影開聞夜漏，水晶簾卷近銀河。"
+      ],
+      "gist": {
+        "zh-CN": "高耸入云的玉楼上响起笙歌，风送来宫女们的欢声笑语。月光下的宫殿影影绰绰，听得见夜间的漏壶声，卷起水晶帘，仿佛离银河很近。诗写宫中夜晚的热闹，一说是借别处的欢乐反衬听者的寂寞。",
+        "zh-TW": "高聳入雲的玉樓上響起笙歌，風送來宮女們的歡聲笑語。月光下的宮殿影影綽綽，聽得見夜間的漏壺聲，捲起水晶簾，彷彿離銀河很近。詩寫宮中夜晚的熱鬧，一說是借別處的歡樂反襯聽者的寂寞。",
+        "en": "Music of reed pipes and song rises from a jade tower halfway to the sky, and the wind carries the palace ladies' laughter. In the moonlit hall the water clock can be heard in the night, and with the crystal curtain rolled up the Milky Way seems close. The poem portrays the gaiety of a palace night; some read it as setting a listener's loneliness against that distant joy."
+      },
+      "page": "宮詞 (玉樓天半起笙歌)",
+      "revid": 1990621
+    }
+  ]
+}
