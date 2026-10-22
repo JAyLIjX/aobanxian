@@ -185,7 +185,7 @@ GitHub Actions（`.github/workflows/release.yml`）推送 `v*` 标签时用 taur
 - **右键**：WebView2 默认右键菜单在正式版里用 `contextmenu` 的 `preventDefault` 关掉；Tauri 原生菜单 `popup()` 在鼠标位置弹出。
 - **托盘**：Windows 托盘图标常被折叠到「^」里，右键道士是主入口；托盘菜单左键也能打开（`showMenuOnLeftClick`）。
 - **`acceptFirstMouse`** 只对 macOS 生效，Windows 上点击无焦点窗口本来就会传给网页。
-- **安装包名称**：productName 是中文「奥半仙」，可执行文件名用 `mainBinaryName: "aobanxian"` 保持 ASCII；WiX 设了 `language: zh-CN`（代码页 936）以支持中文产品名。如果 MSI 构建报编码错误，先看这里。
+- **安装包名称**：productName 是中文「奥半仙」，可执行文件名用 `mainBinaryName: "aobanxian"` 保持 ASCII；WiX 设了 `language: zh-CN`（代码页 936）以支持中文产品名，v0.1.0 在 GitHub Actions 上 MSI、NSIS 都构建成功。GitHub 上传 Release 附件时会**去掉文件名里的中文**（附件会变成 `_0.1.0_universal.dmg`），所以 release.yml 用 `releaseAssetNamePattern: "AoBanxian_[version]_[arch][setup][ext]"` 改成拼音名。
 - **WebView2 运行时**：Windows 10 可能没有，NSIS 安装包默认会下载引导程序。
 - 需要在 Windows 上确认：透明边缘没有黑边、点穿、拖动、卷轴展开不超出屏幕（含任务栏）、右键菜单位置、设置窗口、字体（canvas 文字栅格化在 ClearType 下仍按阈值取点）。
 

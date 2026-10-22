@@ -30,8 +30,8 @@
 
 到 [Releases](https://github.com/JAyLIjX/aobanxian/releases) 下载：
 
-- macOS：`奥半仙_x.y.z_universal.dmg`（Intel 和 Apple 芯片通用）
-- Windows：`奥半仙_x.y.z_x64-setup.exe`（推荐）或 `.msi`
+- macOS：`AoBanxian_x.y.z_universal.dmg`（Intel 和 Apple 芯片通用）
+- Windows：`AoBanxian_x.y.z_x64-setup.exe`（推荐）或 `AoBanxian_x.y.z_x64.msi`
 
 目前还没有做代码签名，第一次打开时系统会拦一下：
 
