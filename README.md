@@ -1,40 +1,49 @@
-# 五行小历 wuxing-calendar
+# 奥半仙 Ao Banxian
 
-一个待在桌面上的小万年历：今日卡片 + 一个每天穿当日吉色衣服的小人 + 五行生活小贴士。支持 macOS 和 Windows。
-
-> 本工具的五行穿衣、宜忌、生肖等内容都来自传统民俗说法，仅作趣味参考，图个好心情。
+一个住在桌面上的像素道士。他每天按五行换一身吉色道袍，举着的幡上会写今天宜什么、忌什么；点一下他，幡就展开成一幅挂轴日历。支持 macOS 和 Windows。
 
 <p>
-  <img src="preview/collapsed.png" alt="收起状态：小人和黄历签" height="160">
-  <img src="preview/card-A.png" alt="展开状态：今日卡片" height="160">
+  <img src="preview/outfits.png" alt="木火土金水五种日子的道士配色" width="720">
 </p>
+
+> 黄历、宜忌、五行穿衣都是传统民俗说法，仅作趣味参考，图个好心情。
 
 ## 功能
 
-- **桌面小窗**：无边框、透明背景，默认待在其他窗口下面，像桌面小组件。不占任务栏和 Dock，位置重启后保持。
-- **小人和黄历签**：平时只有一个小人，旁边挂着一张朱砂色黄历签，写着今天的公历日和农历日。小人的上衣是当日主色，围巾是点缀色。
-- **今日卡片**：公历日期、星期、农历、年月日干支、节气或节日、今日穿搭，以及一条按当日五行轮换的小贴士。
-- **月历**：前后翻月、跳转年月、回到今天。每格显示公历日和农历日；初一显示月份名，节气和节日优先显示。
-- **详情**：日期与当日五行（纳音）、穿衣四档（大吉 / 平 / 慎穿 / 不宜）、今日宜忌、吉生肖 / 冲煞 / 值日星宿。
-- **托盘 / 菜单栏图标**：显示/隐藏、置顶（切换）、开机启动、退出。
-- 过了午夜自动换到新的一天，电脑从睡眠唤醒后也会刷新。
+- **像素道士**：透明背景，默认待在其他窗口下面，像桌面小组件；不占任务栏和 Dock。空白处点击会穿过去落到桌面。按住道士拖动，位置重启后保持。每隔一秒轻轻上下浮动，像在呼吸。
+- **每日换色**：道袍是当天的主色（相），腰带是点缀色（旺），按暗、中、亮三档像素色阶替换，色值取自中国传统色。
+- **幡上印字**：平时印「奥半仙」。点一下幡，幡晃一下，字按顺序换成 宜事 → 忌事 → 今日穿色 → 吉生肖 → 回到「奥半仙」，停 8 秒自动回到第一项。
+- **挂轴日历**：点道士身体，幡展开成挂轴：日期、农历、干支、今日五行和穿色；点纸面看当天详情，点「月历」展开月历，点任意一天看那天的详情。再点道士、按 Esc 或点桌面其他地方就卷回去。
+- **每日开场白**：每天第一次见面，道士头顶冒一句话——黄道日「掐指一算，今日黄道吉日」，黑道日「今日宜稳不宜急」；天赦日、传统节日、节气、杨公忌日有各自的说法，幡上也换成对应的字。天赦日和春节，道士周围会闪光。
+- **右键菜单**：在道士或卷轴上右键（Mac 双指轻点、Control+点击）：掐指一算、今日详情、展开 / 收起日历、小人尺寸、置顶、设置、关于、退出。托盘 / 菜单栏图标里也是同样的菜单。
+- **设置**：通用、外观、规则、提醒四页，改动即时生效。
+- **三种语言**：简体中文、繁體中文、English。英文界面里，宜忌、纳音、干支这些词写成「中文原词 + 英文解释」。
 
-### 怎么用
-
-| 操作 | 结果 |
+| 收起 | 展开成挂轴 |
 | --- | --- |
-| 点黄历签 | 展开 / 收起今日卡片 |
-| 点卡片 | 看当天详情 |
-| 点卡片上的「月历」 | 展开月历，点任意一天看那天的详情 |
-| 点小人 | 小人轻轻跳一下 |
-| 按住小人或黄历签拖动 | 移动整个小窗 |
-| Esc / 点桌面其他地方 | 收起 |
+| <img src="preview/collapsed.png" height="220"> | <img src="preview/scroll.png" height="220"> |
 
-### 外观
+## 安装
 
-- 卡片只用宣纸底、朱砂红、墨色三种基调，色块做成带纸纹的印泥色签，色值取自中国传统色。
-- 正文用[霞鹜文楷](https://github.com/lxgw/LxgwWenKai)。日期数字、农历标题、黄历签这些大字有两版，在 `config/appearance.json` 里切换：`"displayFont": "A"` 是[马善政毛笔楷书](https://github.com/googlefonts/mashanzheng)，`"B"` 是[志莽行书](https://github.com/googlefonts/zhimangxing)。效果见 `preview/card-A.png` 和 `preview/card-B.png`。
-- 三套字体都是 OFL 协议，仓库里只放按实际用到的字做的子集（合计约 230KB）。改了界面文字后运行 `npm run fonts` 重新子集化，详见 CLAUDE.md。
+到 [Releases](https://github.com/JAyLIjX/aobanxian/releases) 下载：
+
+- macOS：`奥半仙_x.y.z_universal.dmg`（Intel 和 Apple 芯片通用）
+- Windows：`奥半仙_x.y.z_x64-setup.exe`（推荐）或 `.msi`
+
+目前还没有做代码签名，第一次打开时系统会拦一下：
+
+**macOS 提示「无法验证开发者」**
+1. 先双击打开一次，在弹窗里点「完成」
+2. 打开「系统设置 → 隐私与安全性」，往下找到「已阻止使用"奥半仙"」，点「仍要打开」，再输入密码确认
+
+如果提示「已损坏，无法打开」，在终端运行一次下面的命令再打开：
+
+```bash
+xattr -dr com.apple.quarantine /Applications/奥半仙.app
+```
+
+**Windows 提示「Windows 已保护你的电脑」（SmartScreen）**
+点「更多信息」→「仍要运行」。Windows 10 如果没有 WebView2，安装程序会自动下载。
 
 ## 本机运行开发版
 
@@ -53,13 +62,24 @@ npm run tauri dev
 
 | 命令 | 作用 |
 | --- | --- |
-| `npm test` | 运行规则模块和历法数据的单元测试 |
-| `npm run day` | 在终端打印今天的完整结果（可加日期：`npm run day 2026-10-21`） |
-| `npm run dev` | 只在浏览器里打开界面（http://localhost:1420，加 `?font=B` 看 B 版字体），方便调样式 |
+| `npm test` | 单元测试（规则、历法、精灵图换色、点击分区、布局、设置、多语言） |
+| `npm run day [YYYY-MM-DD]` | 在终端打印某一天的完整结果，方便拿老黄历核对 |
+| `npm run dev` | 只在浏览器里打开界面（http://localhost:1420） |
+| `VITE_FAKE_TODAY=2026-10-01 npm run tauri dev` | 把「今天」固定成某一天，看特殊日子的效果 |
 | `npm run fonts` | 重新收集字表并给字体做子集（需要 python3） |
 | `npm run tauri build` | 打包安装包 |
 
-小窗默认在其他窗口下面，第一次启动时如果被挡住，把前面的窗口挪开就能看到；拖到喜欢的位置后会自动记住。
+## 怎么用
+
+| 操作 | 结果 |
+| --- | --- |
+| 点幡 | 幡晃一下，换下一项文字（英文界面旁边会冒翻译小气泡） |
+| 点道士 | 轻跳一下，幡展开成挂轴日历；再点卷回去 |
+| 点挂轴纸面 | 看当天详情 |
+| 点「月历」 | 展开月历，点任意一天看那天的详情 |
+| 按住道士拖动 | 移动位置（移动超过 4 像素才算拖动） |
+| 右键道士或挂轴 | 弹出菜单 |
+| Esc / 点桌面其他地方 | 收起 |
 
 ## 穿衣规则
 
@@ -73,7 +93,7 @@ npm run tauri dev
 | 囚 | 克 D 者 | 慎穿 | 金 |
 | 死 | D 所克 | 不宜 | 土 |
 
-小人的上衣（主色）取「相」的颜色，围巾（点缀色）取「旺」的颜色，所以木日是红上衣配绿围巾。
+道袍（主色）取「相」，腰带（点缀色）取「旺」，所以木日是红袍配绿腰带。
 
 ### 规则配置（`rules/default.json`）
 
@@ -82,17 +102,20 @@ npm run tauri dev
 | `elementSource` | `nayin`（默认） | 当日五行取日柱纳音的最后一个字，如「松柏木」→ 木 |
 | | `stem` | 取日干的五行，如庚日 → 金 |
 | | `branch` | 取日支的五行，如子日 → 水 |
-| `topPriority` | `xiang`（默认） | 「相」当主色（上衣），「旺」当点缀色（围巾） |
-| | `wang` | 反过来，「旺」当主色，「相」当点缀色 |
+| `topPriority` | `xiang`（默认） | 「相」当道袍，「旺」当腰带 |
+| | `wang` | 反过来 |
 | `dayBoundary` | `midnight`（默认） | 午夜 0:00 换日 |
-| | `zi` | 23:00 子时换日（23 点以后按次日算） |
+| | `zi` | 23:00 子时换日 |
 | `tierLabels` | 字符串 | 四档的显示文字：`best` 大吉、`neutral` 平、`caution` 慎穿、`avoid` 不宜 |
-| `palettes` | 每个五行一组 `{ name, traditional, hex }` | 色系，列表里**第一个颜色是代表色**，小人穿的就是它。`traditional` 是对应的中国传统色名（可省略） |
-| `explanation` | 按 `xiang` / `wang` 各一条模板 | 穿衣解释句。可用占位符：`{label}`（如「松柏木」「庚金」）、`{D}`、`{wang}`、`{xiang}`、`{xiu}`、`{qiu}`、`{si}`、`{primaryColor}`、`{accentColor}` |
-| `xiuLuckLabels` | `{ "吉": "...", "凶": "..." }` | 值日星宿吉凶的显示文字 |
-| `tips` | 每个五行一组字符串 | 今日卡片上的小贴士，按日期轮换 |
+| `palettes` | 每个五行一组 `{ name, traditional, hex }` | 色系，**第一个颜色是代表色**。`traditional` 是对应的中国传统色名 |
+| `pixelRamps` | 每个五行三档 `{ level, traditional, hex }` | 像素道士换色用的 暗 / 中 / 亮 色阶，要在同一个色系里。金（白）的暗部用暖灰才看得出褶皱，水用藏青系避免糊成一团 |
+| `explanation` | 按 `xiang` / `wang` 各一条模板 | 穿衣解释句，占位符：`{label}` `{D}` `{wang}` `{xiang}` `{xiu}` `{qiu}` `{si}` `{primaryColor}` `{accentColor}` |
+| `xiuLuckLabels` | `{ "吉": "...", "凶": "..." }` | 值日星宿吉凶的显示文字（界面不出现「凶」字） |
+| `tips` | 每个五行一组字符串 | 挂轴上的小贴士，按日期轮换 |
 
-默认色系（括号里是取色用的中国传统色）：
+前三项也可以在设置窗口的「规则」页里改，改动只存在你自己电脑上，不改这个文件。四档文字、解释句、星宿吉凶、小贴士在简体界面直接用这个文件；繁体和英文用语言文件里的 `rulesText`。
+
+默认色系（括号里是取色用的中国传统色，色值各家资料略有出入，欢迎指正）：
 
 - 木：绿（松柏绿） 青（青碧） 翠（葱青） 浅绿（艾绿） 墨绿（松花绿）
 - 火：红（银朱） 紫（紫色） 粉（粉红） 橙（橙色）
@@ -100,45 +123,66 @@ npm run tauri dev
 - 金：白（象牙白） 金（赤金） 银（银白） 香槟（缟）
 - 水：黑（漆黑） 蓝（靛蓝） 藏青（藏青） 灰（苍色）
 
-传统色的色值各家资料略有出入，这里取的是常见的一种，欢迎指正。
-
 ### 欢迎补充你的流派
 
-五行穿衣在民间本来就有不同说法：有人按纳音，有人按日干或日支；有人认为「旺」最吉，有人认为「相」最吉；换日也有午夜和子时两种算法；每个五行对应哪些颜色，各家也不完全一样。
+五行穿衣在民间本来就有不同说法：有人按纳音，有人按日干或日支；有人认为「旺」最吉，有人认为「相」最吉；换日也有午夜和子时两种算法；每个五行对应哪些颜色，各家也不完全一样。这些分歧都做成了配置项。如果你家用的是另一套说法，欢迎提 PR：在 `rules/` 下新增一个 JSON 文件，写清楚出处或依据，并在测试里补上对应的用例。
 
-这个项目把这些分歧都做成了配置项。如果你家用的是另一套说法，欢迎提 PR：在 `rules/` 下新增一个 JSON 文件，写清楚出处或依据，并在测试里补上对应的用例。
+## 幡上的字与开场白
+
+都在配置里，fork 后可以改成自己的：
+
+- `config/branding.json`：幡上平时的文字 `bannerText`（默认「奥半仙」）、宜忌前缀、「诸事不宜」「百无禁忌」、特殊日子的幡面文字。幡上的字是画的一部分，所有语言下都保持中文
+- `locales/*.json` 的 `opening`：每日开场白（每种语言一份）
+- `config/about.json`：关于窗口里的作者和仓库
+
+特殊日子同一天重合时，按 天赦日 > 传统节日 > 节气 > 杨公忌日 取一个：
+
+| 特殊日子 | 规则 | 幡上 | 开场白 |
+| --- | --- | --- | --- |
+| 天赦日 | 春戊寅、夏甲午、秋戊申、冬甲子（季节按立春、立夏、立秋、立冬划分） | 天赦日 | 今日天赦，百无禁忌 |
+| 传统节日 | 春节、元宵、龙头节、端午、七夕、中秋、重阳、腊八、除夕 | 节日名 | 掐指一算，今日某某节 |
+| 节气 | 二十四节气当天 | 节气名 | 今日某某，顺时而行 |
+| 杨公忌日 | 农历正月十三、二月十一、三月初九、四月初七、五月初五、六月初三、七月初一、七月廿九、八月廿七、九月廿五、十月廿三、十一月廿一、十二月十九 | 宜静 | 今日诸事从简 |
+
+值神（黄道 / 黑道）、节气、节日来自 lunar-javascript；天赦日和杨公忌日按上面的规则实现，2026 年的 6 个天赦日已与公开的日历核对。
+
+## 如何贡献新语言
+
+1. 复制 `locales/en.json` 为新的语言文件，比如 `locales/ja.json`，逐条翻译。`rulesText` 是四档文字、解释句、星宿吉凶和小贴士的译文
+2. 在 `locales/glossary.json`（术语表）里给每个词加一个该语言的字段，比如 `"纳采": { "en": "Betrothal gifts", "ja": "..." }`。术语表收录了宜忌、纳音、节气、节日、二十八宿、值神、颜色、天干地支、生肖、方位等文化专有词，翻译时可以参考英文和繁体
+3. 在 `src/i18n/index.ts` 里注册新语言（`resources`、`resolveSystemLang`），在 `src/i18n/terms.ts` 里决定这些词的显示格式（英文是「中文原词 · 英文解释」）
+4. 在 `locales/*.json` 的 `settings.languageOptions` 里加上语言名
+5. 运行 `npm test`：测试会检查所有语言的键完全一致、术语表没有遗漏
+6. 运行 `npm run fonts`，把新语言用到的字加进字体子集
+
+繁体中文由 `scripts/i18n/build-zh-tw.ts` 用 OpenCC 从简体转换（界面用台湾用词，历法和宜忌逐条转换、保持传统写法），再人工修正，修正写在脚本的 `UI_FIXES` / `TERM_FIXES` / `KEY_FIXES` 里。
 
 ## 历法数据
 
-农历、节气、干支、纳音、宜忌、冲煞、二十八宿全部来自 [6tail/lunar-javascript](https://github.com/6tail/lunar-javascript)（MIT 协议，与本项目兼容），本项目不自己实现历法算法。说明：
+农历、节气、干支、纳音、宜忌、冲煞、二十八宿、值神全部来自 [6tail/lunar-javascript](https://github.com/6tail/lunar-javascript)（MIT 协议），本项目不自己实现历法算法。年干支按立春换年，月干支按节换月。生肖六合、三合、六冲用对照表实现，测试里与 lunar-javascript 的日冲逐日核对过。
 
-- 年干支按**立春**换年，月干支按节换月（与 lunar-javascript 的 `getYearInGanZhiByLiChun` / `getMonthInGanZhi` 一致）。
-- 生肖六合、三合、六冲用对照表实现，测试里与 lunar-javascript 的日冲逐日核对过；冲煞直接用 lunar-javascript 的接口。
-- 界面上不出现「凶」字，星宿的吉凶通过 `xiuLuckLabels` 换成温和的说法。
+## 关于
 
-## 技术栈
+- 作者：[JAyLIjX](https://github.com/JAyLIjX)
+- 仓库：https://github.com/JAyLIjX/aobanxian
+- 协议：代码以 [MIT](LICENSE) 开源；字体各自遵循 SIL Open Font License 1.1
+- 致谢：
+  - [lunar-javascript](https://github.com/6tail/lunar-javascript)（6tail）——历法数据
+  - [霞鹜文楷 LXGW WenKai](https://github.com/lxgw/LxgwWenKai)——正文
+  - [马善政毛笔楷书 Ma Shan Zheng](https://github.com/googlefonts/mashanzheng)、[志莽行书 Zhi Mang Xing](https://github.com/googlefonts/zhimangxing)——大字
+  - [Fusion Pixel 缝合像素字体](https://github.com/TakWolf/fusion-pixel-font)（含 Ark Pixel、Cubic 11、Galmuri）——幡上像素字
+  - [EB Garamond](https://github.com/googlefonts/ebgaramond)——英文正文
+  - [OpenCC](https://github.com/BYVoid/OpenCC) / [opencc-js](https://github.com/nk2028/opencc-js)——繁简转换
 
-Tauri 2 · React 19 · TypeScript · Vite · vitest · lunar-javascript
-
-## 字体许可
-
-- 霞鹜文楷 LXGW WenKai — SIL OFL 1.1，© LXGW
-- 马善政毛笔楷书 Ma Shan Zheng — SIL OFL 1.1，© The Ma Shan Zheng Project Authors
-- 志莽行书 Zhi Mang Xing — SIL OFL 1.1，© The Zhi Mang Xing Project Authors
-
-许可全文见 `src/assets/fonts/OFL-*.txt`。仓库中的字体文件是按本项目用字做的子集。
-
-## 许可
-
-[MIT](LICENSE)
+字体文件是按本项目用字做的子集，许可全文在 `src/assets/fonts/`。
 
 ---
 
 ## English
 
-**Wuxing Calendar** is a small cross-platform (macOS / Windows) desktop widget built with Tauri 2 + React. It shows today's Gregorian and Chinese lunar date, the day's stem-branch (干支) and solar term, plus a little character who dresses each day in the "lucky colours" derived from the Five Elements (五行). Click the character or any day in the month view for details: clothing colour tiers, the almanac's suggested and avoided activities (宜忌), compatible/clashing zodiac signs and the lunar mansion of the day.
+**Ao Banxian** (奥半仙, "Half-Immortal Ao") is a pixel-art Taoist who lives on your desktop (macOS / Windows). Every day he wears robes in the "lucky colours" of the Five Elements, and the banner he holds shows the day's suggested and avoided activities from the traditional Chinese almanac. Click the banner to flip through its messages; click him and the banner unrolls into a hanging-scroll calendar with the lunar date, stem-branch, element of the day and a month view. He greets you each morning (auspicious "Yellow Path" days, the Day of Heavenly Pardon, festivals and solar terms each have their own line), and right-clicking him opens a native menu with settings and an About window.
 
-All calendar data comes from [lunar-javascript](https://github.com/6tail/lunar-javascript). The colour rules live in `rules/default.json` and are fully configurable, since folk traditions differ — PRs adding other schools are welcome. Everything here is folk tradition for fun, not advice.
+The UI is available in Simplified Chinese, Traditional Chinese and English; in English, culture-specific terms are shown as "Chinese original · English gloss" (see `locales/glossary.json`). Calendar data comes from [lunar-javascript](https://github.com/6tail/lunar-javascript); the colour rules live in `rules/default.json` and are fully configurable, since folk traditions differ — PRs adding other schools are welcome. Everything here is folk tradition, just for fun.
 
 ```bash
 npm install
@@ -146,4 +190,6 @@ npm run tauri dev   # run the desktop app
 npm test            # unit tests
 ```
 
-License: MIT (code). Bundled fonts (LXGW WenKai, Ma Shan Zheng, Zhi Mang Xing) are subsets under the SIL Open Font License 1.1.
+Builds are unsigned for now: on macOS, allow it under System Settings → Privacy & Security → "Open Anyway"; on Windows, click "More info" → "Run anyway" in SmartScreen.
+
+License: MIT (code). Bundled fonts (LXGW WenKai, Ma Shan Zheng, Zhi Mang Xing, Fusion Pixel, EB Garamond) are subsets under the SIL Open Font License 1.1.

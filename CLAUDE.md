@@ -1,130 +1,190 @@
 # CLAUDE.md
 
-五行小历：Tauri 2 + React + TypeScript 的桌面小组件，macOS 和 Windows 都要能跑。
+奥半仙（Ao Banxian）：Tauri 2 + React + TypeScript 的桌面小组件。一个像素道士，每天按五行换道袍颜色，举着的幡上印字，点他展开成挂轴日历。macOS 和 Windows 都要能跑。
 
 ## 常用命令
 
 ```bash
-npm run tauri dev   # 开发版桌面窗口
-npm test            # vitest：规则模块 + 历法数据
-npm run typecheck   # tsc --noEmit
-npm run day [YYYY-MM-DD]  # 终端打印某天的完整结果，用来和老黄历核对
-npm run fonts       # 重新收集字表并给三套字体做子集（见「字体」）
+npm run tauri dev                 # 开发版桌面窗口
+VITE_FAKE_TODAY=2026-10-01 npm run tauri dev   # 把「今天」固定成某一天（看特殊日子）
+npm test                          # vitest
+npm run typecheck                 # tsc --noEmit
+npm run day [YYYY-MM-DD]          # 终端打印某天的完整结果
+npm run fonts                     # 重新收集字表、给字体做子集（见「字体」）
+.venv-tools/bin/python scripts/process-sprite.py   # 重新处理精灵图（一次性）
+npx tsx scripts/i18n/build-zh-tw.ts                # 重新生成繁体
+bash scripts/render-previews.sh   # 幡上字体 A/B 预览图（需要先 npm run dev）
 ```
+
+Python 工具（精灵图、字体）用项目里的 `.venv-tools`（已在 .gitignore）：`python3 -m venv .venv-tools && .venv-tools/bin/pip install pillow numpy fonttools brotli`。
 
 ## 架构
 
 ```
-rules/default.json        规则配置（唯一的数据来源，改规则不改代码）
-src/core/                 纯 TS，不依赖 React、Tauri 和 lunar-javascript
-  elements.ts             五行生克；天干、地支、纳音 → 五行
-  wuxing.ts               旺相休囚死分档、主色/点缀色、解释句、小贴士
-  zodiac.ts               六合 / 三合 / 六冲对照表
-  rules.ts                Rules 类型、parseRules 校验、defaultRules
-  dayBoundary.ts          午夜 / 子时换日
-src/calendar/day.ts       唯一调用 lunar-javascript 的地方，拼出 DayInfo / DayDetail
-src/types/lunar-javascript.d.ts  lunar-javascript 用到部分的类型声明
-src/figure/               小人。types.ts 定义 FigureProps，index.ts 决定用哪个实现
-src/components/           HuangliSlip（黄历签）/ TodayCard / MonthView / DetailPanel / ColorChip（印泥色签）
-src/hooks/useToday.ts     当前历日；定时器 + 轮询 + visibilitychange/focus 处理换日和睡眠唤醒
-src/hooks/useDragOrClick.ts  同一元素既可点击又可拖动窗口（移动 > 4px 算拖动）
-src/platform/window.ts    Tauri 窗口接口的封装（浏览器里调用是空操作）
-src/config/appearance.ts  外观配置（config/appearance.json），目前只有大字字体 A / B
-src/fonts.css             三套字体的 @font-face 和 --font-body / --font-display
-src/assets/fonts/         子集化后的 woff2 和各自的 OFL 许可
-scripts/fonts/            字体下载、字表收集、子集化脚本和字表 glyphs-*.txt
-preview/                  效果截图（card-A / card-B / collapsed）
-src-tauri/src/lib.rs      托盘菜单、置顶/置底切换、window-state、autostart
-tests/                    vitest
+rules/default.json         五行规则（流派）：取法、主色、换日、色系、像素色阶、四档文字、解释句、小贴士
+config/
+  settings.default.json    应用设置的默认值
+  branding.json            幡上的字（bannerText、宜忌前缀、兜底文字、特殊日子文字）
+  about.json               关于窗口的作者、仓库
+locales/
+  zh-CN.json zh-TW.json en.json   界面文字（i18next）
+  glossary.json            术语表：历法、宜忌、颜色等的英文 / 繁体
+  zh-TW.terms.json         历法词条简→繁对照（脚本生成）
+src/core/                  纯 TS，不依赖 React / Tauri / lunar-javascript
+  elements.ts wuxing.ts zodiac.ts rules.ts dayBoundary.ts   五行与规则（第一轮）
+  banner.ts                幡面换字循环、宜忌取值
+  layout.ts                卷轴放在哪、窗口多大
+  opening.ts               开场白、特殊日子的幡面文字
+  bubble.ts                气泡计时
+src/calendar/
+  day.ts                   lunar-javascript → DayInfo / DayDetail
+  special.ts               值神黄道黑道、天赦日、杨公忌日、特殊日子优先级
+src/sprite/
+  sprite.ts                精灵数据、换色渲染（纯函数）、点击分区
+  bannerText.ts            幡上文字栅格化（像素字 / 像素化行书）、像素溶解
+  Daoshi.tsx               canvas 绘制道士：身体层 + 幡层，呼吸、轻跳、晃幡、点击 / 拖动
+src/windows/
+  MainApp.tsx              主窗口：道士、幡面循环、卷轴、详情、气泡、闪光、布局、点穿区域、菜单
+  SettingsApp.tsx          设置窗口（?view=settings）
+  AboutApp.tsx             关于窗口（?view=about）
+  PreviewApp.tsx           开发用预览页（?view=preview，只在开发模式）
+src/components/            Scroll（挂轴）/ TodayCard / MonthView / DetailPanel / ColorChip / Bubble / Sparkles
+src/settings/              设置类型与校验（纯函数）、tauri-plugin-store 读写、useSettings
+src/i18n/                  i18next 初始化、术语显示（terms.ts）、日期等格式化（format.ts）
+src/platform/
+  window.ts                Tauri 窗口封装（浏览器里是空操作）
+  menu.ts                  右键菜单与托盘菜单（同一份定义）
+src-tauri/src/lib.rs       点穿线程、set_window_rect、quit_app、插件、macOS 隐藏 Dock 图标
+scripts/process-sprite.py  素材处理（一次性）
+scripts/fonts/             字体下载、字表收集、子集化
+scripts/i18n/              繁体生成
+assets/character/          AI 生成的原图：daoshi-key.png（色键版，正式素材）、daoshi-ref.png（红绿原配色参考）
+preview/                   效果图
 ```
 
-依赖方向：`components → calendar → core`，`core` 不能反向依赖任何东西。
+依赖方向：`windows / components → calendar / sprite / i18n → core`，`core` 不依赖任何东西。
 
-## 规则设计
+## 规则设计（第一轮，沿用）
 
 - 当日五行 D 由 `elementSource` 决定：`nayin`（纳音末字）/ `stem`（日干）/ `branch`（日支）。
-- `phasesOf(D)`：旺 = D，相 = D 所生，休 = 生 D 者，囚 = 克 D 者，死 = D 所克。
-- 档位：旺、相 → 大吉；休 → 平；囚 → 慎穿；死 → 不宜。
-- 主色（上衣）/ 点缀色（围巾）：`topPriority = xiang` 时为 相 / 旺，`wang` 时互换。颜色取该五行色系的第一个。
-- 解释句是 `explanation[topPriority]` 模板，占位符见 README。
-- 新流派加在 `rules/` 下的新 JSON；所有字段都要过 `parseRules`。
+- `phasesOf(D)`：旺 = D，相 = D 所生，休 = 生 D 者，囚 = 克 D 者，死 = D 所克。档位：旺、相 → 大吉；休 → 平；囚 → 慎穿；死 → 不宜。
+- 道袍（主色）/ 腰带（点缀色）：`topPriority = xiang` 时为 相 / 旺，`wang` 时互换。
+- 设置窗口「规则」页里的三项覆盖 `rules/default.json` 的同名项（`rulesWith`），只存在用户的 store 里。
 
-## 约定
+## 精灵图
 
-- 历法数据一律从 lunar-javascript 取，不自己写历法算法。年干支用 `getYearInGanZhiByLiChun`（立春换年）。
-- 六合 / 三合 / 六冲用 `core/zodiac.ts` 的表；冲煞的显示直接用 lunar-javascript 的 `getDayChong*` / `getDaySha`，测试保证两者一致。
-- 界面文案是传统民俗趣味参考，**不出现「凶」字**。星宿吉凶走 `xiuLuckLabels`；`tests/calendar.test.ts` 会逐日扫描两年的 DayDetail。旺相休囚死的「死」「囚」也不直接显示在界面上（只在悬停提示里）。
-- `calendar/day.ts` 里的 `HIDDEN_FESTIVALS` 过滤掉 lunar-javascript 里较冷门的公历节日。
-- 不用只有单一平台才有的接口。唯一的平台分支是 macOS 用 `ActivationPolicy::Accessory` 隐藏 Dock 图标（Windows 由 `skipTaskbar` 处理），用 `#[cfg(target_os = "macos")]` 包住。
-- 透明窗口在 macOS 需要 `macOSPrivateApi`（项目不上 App Store，可以接受）。
+`scripts/process-sprite.py` 把 `assets/character/daoshi-key.png`（1254×1254，AI 画的像素风）处理成 `src/assets/sprite/daoshi.json`：
+
+1. **网格**：先用傅里叶估出格子周期（约 10.6×10.9 像素），再沿边缘强度用动态规划找每一条实际网格线（AI 画的格子不均匀），得到 79×115 格。每格取中间 60% 像素的主色（粗量化找众数再取中位数），不插值。原图约 111 格高，不是最初估计的 64 格。
+2. **透明度**：每格 alpha 按多数二值化，去掉四邻都透明的孤立点和小于 4 格的碎块。
+3. **换色区域**：HSV 色相 280–340° 为洋红（道袍），165–210° 为青色（腰带）；紧挨区域的偏色过渡格并入区域，其他偏色格去饱和。每个区域按亮度 1D k-means 分成 暗 / 中 / 亮 三档。
+4. **底层**：其余像素原样保留，调色板超过 90 色时按格数加权合并最近的颜色。
+5. **幡**：幡面 = 米白色最大连通块里的最大内接矩形（`bannerFace`，16×42 格）。整面幡的左右范围只看上下木轴所在行、从幡面中心连续的一段（木轴两端有金色端头）；往下到握杆的手为止；再从幡面做连通填充得到幡的形状 `bannerMask`。**不要**用整块矩形判断幡：矩形会把道士的耳朵和肩膀算进去。顶上的金色宝珠颜色接近皮肤色，所以填充时不按皮肤色拦，只在找握杆的手时用皮肤色。
+6. **预览**：`preview/outfits.png` 五种日子的配色，脚本会检查底层不残留洋红 / 青色。
+
+JSON 结构：`base`（每格一个字符，指向 `palette`）、`regions`（`a/b/c` 道袍暗中亮、`x/y/z` 腰带暗中亮）、`banner`（外接矩形）、`bannerMask`、`bannerFace`、`headTop`。
+
+## 渲染
+
+- canvas 按格画，每格的**设备像素**取整（`round(scale × devicePixelRatio)`），`image-rendering: pixelated`。小 / 中 / 大 = 每格 1 / 2 / 3 个 CSS 像素。
+- 身体层（`hideBanner`）和幡层（`onlyBanner`）分开画：幡单独晃、展开成卷轴时单独隐藏。测试保证两层叠起来 = 完整的道士。
+- 换色：区域格按深浅档换成 `pixelRamps[五行]` 的三个颜色；道袍用主色五行，腰带用点缀色五行。
+- 幡上的字：每格设备像素为偶数时用半格网格 + Fusion Pixel 12px（幡面 32×84 个文字点，4 个字竖排放得下）；奇数时用整格网格 + 10px，保证每个文字点都是整数设备像素。行书版把志莽行书画到同一网格、按透明度二值化。字体在 canvas 里先画到临时画布，按墨迹居中并对齐整数像素再取点。
+- 动画都按格跳变（CSS `steps()` / Web Animations 的 `steps(1, end)`）：呼吸每秒浮动一格，点人轻跳三格，点幡左右晃一格，换字像素溶解 0.2 秒。**不要**用改 `key` 的方式重播动画，那会让 canvas 重新挂载、画好的内容丢失。
 
 ## 交互
 
 | 操作 | 结果 |
 | --- | --- |
-| 点黄历签 | 展开 / 收起今日卡片 |
-| 点卡片主体 | 打开当天详情 |
-| 点卡片上的「月历」 | 展开 / 收起月历 |
-| 点月历某一天 | 打开那天的详情 |
-| 点小人 | 只轻跳一下（第二轮改成换幡上的字） |
-| 按住小人或黄历签移动 > 4px | 拖动整个窗口 |
-| Esc | 逐层收起：详情 → 月历 → 卡片 |
-| 点桌面或其他窗口 | 全部收起 |
+| 点幡 | 晃一下，换下一项（奥半仙 → 宜事 → 忌事 → 穿色 → 吉生肖），8 秒没操作回到第一项；展开期间暂停 |
+| 点人 | 轻跳，幡展开成挂轴 / 卷回 |
+| 点挂轴纸面 / 「月历」/ 月历某天 | 详情 / 月历 / 那天的详情 |
+| 按住道士移动 > 4px | 拖动窗口 |
+| 右键道士或挂轴 | 原生菜单（`Menu.popup()`）；正式版关掉 WebView 默认右键菜单 |
+| Esc | 详情 → 卷轴，逐层收起 |
+| 点别处（窗口失焦） | 全部收起（可在设置里关掉） |
 
-- 拖动与点击的区分在 `useDragOrClick`：按下只记位置，移动超过 4px 才调用 `startDragging()`（之后这次松开不会回到网页），没动就在 pointerup 时当点击。**不要**再用「mousedown 就 startDragging」或 `data-tauri-drag-region`：那样会吞掉点击，第一版点卡片没反应就是这个原因。
-- 窗口开了 `acceptFirstMouse`，点击时**不会**自动成为焦点窗口，所以收不到 Esc、也不会失焦。`App` 在 `onPointerDownCapture` 里调用 `focusWindow()`（`setFocus`），之后才有 blur；blur 后等 150ms 且 `document.hasFocus()` 为假才收起，避开原生下拉框等短暂失焦。
-- 没有用 `setIgnoreCursorEvents` 做透明点穿。窗口大小紧贴内容（见下），透明区域只剩四周 10px 留白和小人周围的空隙。以后如果加点穿，只能对透明像素生效，卡片、黄历签、弹窗都必须能收到点击。
+- 点击分区按格判断：`bannerMask` 里的不透明格算幡，其他不透明格算人，透明格不响应（在 Tauri 里根本收不到，见「点穿」）。
+- 拖动和点击：按下只记位置，移动超过 4px 才 `startDragging()`（之后这次松开不会回到网页），没动就在 pointerup 按落点当点击。
+- 焦点：窗口开了 `acceptFirstMouse`，点击时不会自动成为焦点窗口。主窗口 `onPointerDownCapture` 每次都调 `setFocus()`（不能用 `document.hasFocus()` 判断，网页可能误以为自己有焦点），这样才收得到 Esc 和失焦。失焦后等 150ms 再收起，避开原生下拉框等短暂失焦。
+- macOS 上用 System Events 查「前台应用」看不到本应用（Accessory 策略），这不代表没拿到焦点。
 
-## 窗口
+## 点穿
 
-- `tauri.conf.json`：无边框、透明、`alwaysOnBottom`、`skipTaskbar`、`acceptFirstMouse`。
-- 窗口大小由前端按内容实测：`App` 用 ResizeObserver 量 `.content`（必须 `width: max-content`，否则宽度被当前窗口卡住，窗口永远长不大），加上四周留白后 `setSize`；打开详情时高度至少 612。小人和黄历签固定在左上，展开只向右、向下长。window-state 只记 `POSITION`。
-- 托盘「置顶」与默认的置底互斥：`set_on_top` 先取消一个再设置另一个。
-- 配置里的 `alwaysOnBottom` 在 macOS 上创建窗口时不生效（窗口层级仍是 0），所以 `setup` 里再调用一次 `set_on_top(false)`，之后层级为 -1。
-- 位置保存：窗口 `Moved` 事件停止 500ms 后写盘（`MOVE_GENERATION` 去抖），托盘「退出」时也会再存一次。所以 Ctrl+C 或异常退出也不丢位置。
+`lib.rs` 里一个线程每 16ms 读光标位置（`AppHandle::cursor_position`），换算成窗口内逻辑坐标，判断是否落在前端报告的可点击区域（`set_hit_regions`：精灵图不透明格遮罩 + 卷轴、详情的矩形），不在就 `set_ignore_cursor_events(true)`，点击直接落到桌面或下面的窗口。只用跨平台接口。
 
-## 视觉
+- 遮罩向上下各多算一格（呼吸浮动），再向四周扩一格：光标还没碰到道士时窗口就已经切回接收鼠标。macOS 在 `ignoresMouseEvents` 切换后要等下一次鼠标移动才把点击交给这个窗口，所以提前切换能避免「第一下点击被漏掉」。
+- 展开时幡的格不算（幡已经变成卷轴）。
 
-- 卡片只用三种基调：宣纸底 `--paper`、朱砂红 `--cinnabar`、墨色 `--ink`（层级用墨色的不同透明度 `--ink-2/3`、`--ink-wash`）。其他颜色只出现在色签 `ColorChip` 里。
-- 纸纹是 `--paper-grain`：两层 SVG feTurbulence（细噪点 + 横向纤维），用在卡片、黄历签和色签上。
-- 色签是带纸纹的小方块（印泥色签），不要用圆点。
-- 色值取中国传统色，`rules/default.json` 里每个颜色的 `traditional` 是传统色名（悬停可见）；界面显示的仍是 `name`（绿、红……）。
+## 窗口与布局
+
+- `tauri.conf.json`：无边框、透明、`shadow: false`、`skipTaskbar`、`alwaysOnBottom`、`acceptFirstMouse`、`visible: false`（布局算好后前端再显示）。
+- **道士在屏幕上的位置始终不动**，窗口围绕它伸缩。存的是道士左上角的屏幕坐标（store 里的 `anchor`），不是窗口位置；所以去掉了 window-state 插件。窗口被拖动后（`onMoved`）反推 anchor，500ms 去抖存盘；程序自己改窗口时（`applying`）忽略移动事件。
+- 窗口 = 道士 + 四周空白（气泡、闪光、翻译小气泡）∪ 卷轴 ∪ 详情（各加阴影留边）。透明处点穿，所以窗口大一点不碍事。
+- 卷轴位置（`core/layout.ts` 的 `placePanel`）：水平以幡为中心，默认放在**道士下方**，下面放不下放上方，都放不下放在空间大的一侧并压回屏幕内（这时会和道士重叠）；贴边时整体往屏幕内收。不把卷轴盖在道士身上：幡在道士右上方，卡片以幡为中心展开会盖住道士，就点不到他来卷回了。详情弹窗用同样的规则单独定位。
+- 换了尺寸或屏幕后，道士超出屏幕会先被拉回屏幕内。
+- 卷轴动画：木轴从幡的宽度、以幡中心为原点横向拉宽（0.15s），再拉开纸面（0.2s，向下展开时下木轴往下走，向上展开时上木轴往上走）；收起时反向播放。
+- macOS：配置里的 `alwaysOnBottom` 创建窗口时不生效，`setup` 里再设一次；`ActivationPolicy::Accessory` 隐藏 Dock 图标（唯一的平台分支）。透明窗口需要 `macOSPrivateApi`。
+
+## 每日开场白与特殊日子
+
+- 开场白在「每天第一次显示」时说（启动、跨过午夜或睡眠唤醒后进入新的一天）。store 里的 `lastOpening` 记录说过的日期。
+- 内容只由当天的历法数据决定（`openingFor`），所以「掐指一算」重播的和当天第一次说的一致；气泡还在时再触发会重新计时。
+- 黄道日 = 值神青龙、明堂、金匮、天德、玉堂、司命（lunar-javascript 的 `getDayTianShenType`）。
+- 天赦日按月建分季（寅卯辰春、巳午未夏、申酉戌秋、亥子丑冬，等价于按立春 / 立夏 / 立秋 / 立冬划分）；杨公忌按农历月日表。优先级 天赦 > 传统节日 > 节气 > 杨公忌。2026 年的 6 个天赦日已与公开日历核对（测试里有）。
+
+## 设置
+
+- `tauri-plugin-store` 存在应用数据目录的 `settings.json`，`settings` 键只存和默认值不同的项（`diffFromDefaults`）；`anchor`、`lastOpening` 也在这个文件里。
+- 默认值：`config/settings.default.json` + `rules/default.json`（取法、主色、换日）+ `config/branding.json`（幡上文字）。
+- 改动即时生效：设置窗口保存后 `emit("settings-changed")`，所有窗口的 `useSettings` 都更新。
+- 开机启动以系统里的实际状态为准（`plugin-autostart` 的 `isEnabled`）。
+- 浏览器里（`npm run dev`）退回 localStorage。
+
+## 多语言
+
+- i18next，`locales/zh-CN.json`（默认）、`zh-TW.json`、`en.json`；跟随系统语言（`resolveSystemLang`：zh-TW/HK/MO/Hant → 繁体，其他中文 → 简体，其他 → 英文），设置里可切换，所有窗口即时更新。
+- 简体界面里四档文字、解释句、星宿吉凶、小贴士直接用 `rules/default.json`；其他语言用语言文件的 `rulesText`。所以 `zh-CN.json` 没有 `rulesText`，测试允许这一处差异。
+- 术语（`src/i18n/terms.ts`）：英文显示「中文原词 · 英文解释」，干支「戊辰 Wu-Chen」，颜色「Vermilion 银朱」（英文在前）；繁体先查术语表的 `zh-TW`，再查 `zh-TW.terms.json`。
+- 繁体用 OpenCC 生成：界面 `cn→twp`（台湾用词），历法 / 宜忌**逐条** `cn→tw`（保持传统写法）。**不要逐字转换**：会把「理发」转成「理發」（应为「理髮」）、「谷雨」留成「谷雨」（应为「穀雨」）。人工修正写进脚本的 `UI_FIXES` / `TERM_FIXES` / `KEY_FIXES`：黄历 → 農民曆、衝 → 沖（沖煞）、畫素 → 像素、儲存庫、以 MIT 授權開源、結束（退出）等。
+- 幡上的字所有语言都保持中文；英文界面换字时在幡旁冒翻译小气泡（繁体是中文，不冒）。
 
 ## 字体
 
-| 用途 | 字体 | 文件 |
-| --- | --- | --- |
-| 正文、小字 | 霞鹜文楷 LXGW WenKai | `LXGWWenKai-subset.woff2` |
-| 大字 A 版 | 马善政毛笔楷书 Ma Shan Zheng | `MaShanZheng-subset.woff2` |
-| 大字 B 版 | 志莽行书 Zhi Mang Xing | `ZhiMangXing-subset.woff2` |
+| 用途 | 字体 | 文件 | 字表 |
+| --- | --- | --- | --- |
+| 正文 | 霞鹜文楷 | `LXGWWenKai-subset.woff2` | glyphs-body（含繁体） |
+| 大字 A / B | 马善政 / 志莽行书 | `MaShanZheng-subset.woff2` / `ZhiMangXing-subset.woff2` | glyphs-display |
+| 幡上像素字 | Fusion Pixel 12px / 10px | `FusionPixel12-banner.woff2` / `FusionPixel10-banner.woff2` | glyphs-banner（幡面用字 + GB2312 一级字） |
+| 幡上行书 | 志莽行书 | `ZhiMangXing-banner.woff2` | glyphs-banner-words（只有幡面用字，缺字回退到像素字） |
+| 英文正文 | EB Garamond | `EBGaramond-subset.woff2` | glyphs-latin |
 
-- 大字 = 日期数字、农历标题、黄历签、详情标题，CSS 里用 `.display` 或 `var(--font-display)`。A / B 由 `config/appearance.json` 的 `displayFont` 切换；开发时也可以用地址参数 `?font=B` 临时覆盖。
-- 三套都是 OFL 1.1，许可在 `src/assets/fonts/OFL-*.txt`。霞鹜文楷有保留字体名，但它的附加许可允许子集 / WOFF2 版本在不作为可安装字体分发时沿用原名，内嵌在应用里属于这种情况；另外两套没有保留字体名。
-- 完整原版很大（文楷约 26MB），不进仓库。仓库里只放按字表做的子集（合计约 230KB）。
+- 全部 OFL 1.1，许可在 `src/assets/fonts/`（Fusion Pixel 由 Ark Pixel、Cubic 11、Galmuri 合成，三份许可在 `FusionPixel-LICENSES/`）。霞鹜文楷有保留字体名，但附加许可允许子集 / WOFF2 在不作为可安装字体分发时沿用原名。合计约 780KB。
+- 马善政 / 志莽行书没有 奧曆臘農閏 这几个繁体字，繁体界面里这几个字回退到霞鹜文楷。
+- 幡上文字可以在设置里自定义，所以像素字收了 GB2312 一级常用字（3755 字）；GB2312 解码会混进几个私用区字符，收集时要跳过。
 
 ### 加字 / 重新子集化
 
-字表由 `scripts/fonts/collect-glyphs.ts` 自动收集，来源是：
-- ASCII 和常用中文标点
-- `src/`、`rules/`、`config/` 里出现的所有字符（界面文案、小贴士、色名……）
-- 1901–2099 年每一天的完整 DayDetail（农历、干支、节气、节日、宜忌、星宿……）
+**改了界面文字、规则、语言文件或幡上文字之后，运行一次 `npm run fonts`。** 脚本会下载原版到 `fonts-src/`（已存在跳过）、重新生成 `scripts/fonts/glyphs-*.txt`、用 pyftsubset 输出 woff2 并打印每个字体缺哪些字。字表来源：ASCII 和常用标点；`src/`、`rules/`、`config/`、`locales/` 里的所有字符；1901–2099 年每一天的完整详情；幡面循环可能出现的所有字。要让大字显示新的字，在 `collect-glyphs.ts` 里往 `display` 字表加字。提交时 woff2 和 glyphs-*.txt 一起提交。
 
-大字字表只收数字、`/`、「年月日农历星期天闰」和所有农历月日名、星期。
+## Windows 与 WebView2
 
-所以**改了界面文字、规则或新增流派 JSON 之后，运行一次 `npm run fonts` 即可**，脚本会：
-1. 用 `scripts/fonts/fetch-fonts.sh` 下载原版到 `fonts-src/`（已存在则跳过，已在 .gitignore）
-2. 建 `.venv-fonts` 并装 fonttools + brotli（首次）
-3. 重新生成 `scripts/fonts/glyphs-body.txt` / `glyphs-display.txt`
-4. 用 pyftsubset 输出 woff2 到 `src/assets/fonts/`，复制 OFL 许可
-5. 打印每个字体缺哪些字。缺的字会回退到系统字体，需要时换字或者在大字里避免使用
+GitHub Actions（`.github/workflows/release.yml`）推送 `v*` 标签时用 tauri-action 构建 macOS universal 和 Windows（.msi + NSIS .exe），生成草稿 Release；暂不签名。本机没有 Windows 环境，以下是按 Tauri / WebView2 的已知行为做的处理和需要在 Windows 上确认的点：
 
-如果要让大字显示新的字（比如在黄历签上加节气名），在 `collect-glyphs.ts` 里往 `display` 字表加对应文字再跑 `npm run fonts`。提交时 woff2 和 glyphs-*.txt 一起提交，方便在 diff 里看出字表变化。
+- **透明窗口**：`transparent: true` + `decorations: false` + `shadow: false`（Windows 上 shadow 会给无边框窗口加 1px 边框和阴影）。页面 `html, body, #root` 背景必须透明。
+- **置底**：`alwaysOnBottom` 在 Windows 上通过拦截窗口层级变化保持在底部；需要确认点击道士后它不会跳到其他窗口前面。
+- **点穿**：`set_ignore_cursor_events` 在 Windows 上是 `WS_EX_TRANSPARENT | WS_EX_LAYERED`；`cursor_position` 返回物理像素，已按 `scale_factor` 换算。
+- **拖动**：`startDragging()` 需要在鼠标按住时调用（在 pointermove 里调用满足）。
+- **缩放**：Windows 常见 125% / 150% 缩放时，每格设备像素 = round(格 × 1.25) 等，像素仍锐利，但尺寸会和 macOS 略有不同；幡上文字在每格设备像素为奇数时自动改用整格网格 + 10px 字。
+- **右键**：WebView2 默认右键菜单在正式版里用 `contextmenu` 的 `preventDefault` 关掉；Tauri 原生菜单 `popup()` 在鼠标位置弹出。
+- **托盘**：Windows 托盘图标常被折叠到「^」里，右键道士是主入口；托盘菜单左键也能打开（`showMenuOnLeftClick`）。
+- **`acceptFirstMouse`** 只对 macOS 生效，Windows 上点击无焦点窗口本来就会传给网页。
+- **安装包名称**：productName 是中文「奥半仙」，可执行文件名用 `mainBinaryName: "aobanxian"` 保持 ASCII；WiX 设了 `language: zh-CN`（代码页 936）以支持中文产品名。如果 MSI 构建报编码错误，先看这里。
+- **WebView2 运行时**：Windows 10 可能没有，NSIS 安装包默认会下载引导程序。
+- 需要在 Windows 上确认：透明边缘没有黑边、点穿、拖动、卷轴展开不超出屏幕（含任务栏）、右键菜单位置、设置窗口、字体（canvas 文字栅格化在 ClearType 下仍按阈值取点）。
 
-## 换正式小人形象（下一轮）
+## 测试
 
-目前是 `src/figure/PlaceholderFigure.tsx`：SVG 里 `#shirt` 和 `#scarf` 是两块独立形状，颜色由 props 传入。小人只负责「画」，点击和拖动在 `App` 里用 `useDragOrClick` 处理；想让它跳一下就把 `bounceSignal` 加一。
+`tests/`：规则、历法、精灵图（五种日子不残留色键色、底层不变、两层叠加、点击分区、幡外的手和肩膀算点人、透明处点穿）、幡面循环与宜忌取值、特殊日子（真实日期、优先级）、开场白与气泡计时、卷轴布局（四个角不超出屏幕、道士不动）、设置（每项改动读回、只存改过的项、恢复默认）、多语言（键一致、繁体无简体字、术语表覆盖十年内所有历法词）。
 
-换正式图片时：
-1. 新建一个满足 `FigureProps`（`primary`、`accent`、`bounceSignal`）的组件，比如 `ImageFigure.tsx`。
-2. 推荐做法：一张底图 + 上衣、围巾各一张蒙版图（PNG alpha），用 CSS `mask-image` 叠一层 `background-color: primary/accent`（或 canvas 着色），这样任意颜色都能换。
-3. 在 `src/figure/index.ts` 里把导出换成新组件，其他代码不用改。弹跳动画写在 `App.css` 的 `.figure__svg--bounce`，新组件可以沿用。
+界面交互（点击、拖动、右键、设置即时生效）需要在真实窗口里验证：`npm run tauri dev`。
