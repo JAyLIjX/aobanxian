@@ -1594,7 +1594,8 @@ html[data-view="textfit"] body {
   font-size: 11px;
 }
 .poem__name {
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: bold;
 }
 .poem__author {
   margin-left: 10px;
@@ -1622,4 +1623,217 @@ html[data-view="textfit"] body {
 .lot-paper__classic-part p {
   margin: 0;
   line-height: 1.7;
+}
+
+/* ── 详情：小目录、折叠栏、时辰、罗盘、月亮 ── */
+.detail__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  margin: 6px 0 2px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--line);
+}
+.detail__nav-item {
+  font: inherit;
+  font-size: 12px;
+  padding: 1px 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.detail__nav-item:hover {
+  color: var(--cinnabar);
+  border-color: var(--cinnabar);
+}
+.detail__fold h3 {
+  margin: 0;
+}
+.detail__fold-head {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.detail__fold-arrow {
+  font-size: 11px;
+  width: 1em;
+}
+.detail__fold.is-open > div {
+  margin-top: 8px;
+}
+.detail__desc {
+  display: block;
+  font-size: 12px;
+}
+.detail__note {
+  font-size: 11px;
+  margin: 4px 0 0;
+}
+.hours {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 4px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 50px;
+  gap: 3px;
+  overflow-x: auto;
+}
+.hours__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 4px 0 3px;
+  border: 1px solid var(--line);
+  font-size: 11px;
+  line-height: 1.3;
+  text-align: center;
+}
+.hours__cell b {
+  font-size: 13px;
+}
+.hours__en {
+  font-size: 10px;
+  color: var(--ink-2);
+}
+.hours__time {
+  color: var(--ink-3);
+  font-size: 10px;
+}
+.hours__luck {
+  margin-top: 2px;
+  padding: 0 4px;
+  border: 1px solid var(--line);
+}
+.hours__cell--good .hours__luck {
+  color: var(--cinnabar);
+  border-color: var(--cinnabar);
+}
+.hours__cell.is-now {
+  border: 2px solid var(--cinnabar);
+  background: var(--cinnabar-wash);
+}
+.hours__now {
+  font-size: 10px;
+  color: var(--cinnabar);
+}
+.positions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+.positions__legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+}
+.positions__legend li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.compass__ring {
+  fill: var(--paper);
+  stroke: var(--ink-2);
+  stroke-width: 1.5;
+}
+.compass__inner {
+  fill: none;
+  stroke: var(--line);
+  stroke-dasharray: 2 2;
+}
+.compass__tick {
+  stroke: var(--ink-2);
+  stroke-width: 1.2;
+}
+.compass__label {
+  font-size: 11px;
+  fill: var(--ink-2);
+  text-anchor: middle;
+}
+.compass__center {
+  fill: var(--ink-2);
+}
+.mark--circle {
+  fill: var(--cinnabar);
+}
+.mark--diamond {
+  fill: #c59a2b;
+  stroke: #8a6a14;
+  stroke-width: 0.8;
+}
+.mark--triangle {
+  fill: #3f7a5a;
+}
+.lucky-numbers {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--cinnabar);
+  letter-spacing: 1px;
+}
+.moon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.moon-icon__dark {
+  fill: #2c3140;
+  stroke: var(--ink-2);
+  stroke-width: 0.8;
+}
+.moon-icon__lit {
+  fill: #f3e3a6;
+}
+.poem {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+}
+.poem__head {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--cinnabar);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.poem__lines--ci p {
+  font-size: 15px;
+}
+.today__famous {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 4px 0 0;
+  border: none;
+  border-top: 1px dashed var(--line);
+  background: none;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  text-align: center;
+  cursor: pointer;
+  line-height: 1.6;
+}
+.today__famous:hover {
+  color: var(--cinnabar);
+}
+.today__famous-title {
+  display: block;
+  font-size: 11px;
+  color: var(--ink-3);
 }

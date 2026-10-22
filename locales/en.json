@@ -30,7 +30,8 @@
     "month": "Month",
     "closeMonth": "Hide month",
     "countdown": "{{n}} days until {{name}}",
-    "countdownTomorrow": "{{name}} is tomorrow"
+    "countdownTomorrow": "{{name}} is tomorrow",
+    "poemHint": "Today's poem — click to read it in full"
   },
   "relation": {
     "harmony": "Harmony",
@@ -71,17 +72,56 @@
     "sectionMore": "More from the almanac",
     "zhiXing": "Day officer",
     "zhiXingValue": "{{name}}",
-    "luckyHours": "Lucky hours",
-    "luckyHoursNone": "No auspicious hours today",
-    "hour": "{{branch}} {{start}}–{{end}}",
-    "positions": "Lucky directions",
-    "positionsValue": "Joy: {{xi}} · Blessing: {{fu}} · Wealth: {{cai}}",
     "pengzu": "Pengzu's taboos",
     "wuhou": "Season sign",
-    "wuhouValue": "{{jieqi}}, {{hou}}: {{name}}",
+    "wuhouValue": "{{jieqi}} · {{hou}} · {{name}}",
     "yueXiang": "Moon phase",
     "sectionPoem": "Poem of the day",
-    "poemSource": "Poem from Three Hundred Tang Poems, via Chinese Wikisource, in the original text. The gist is our own."
+    "poemSource": "Poem text from the open-source chinese-poetry project (MIT licence). The notes are our own.",
+    "navLabel": "Sections",
+    "nav": {
+      "outfit": "Wear",
+      "yiji": "Do's",
+      "zodiac": "Zodiac",
+      "hours": "Hours",
+      "positions": "Directions",
+      "nature": "Nature & poem",
+      "more": "More"
+    },
+    "sectionHours": "Hours",
+    "sectionPositions": "Directions & numbers",
+    "sectionNature": "Nature & poem",
+    "hourName": "{{branch}}",
+    "hourLuck": {
+      "good": "吉 Good",
+      "fair": "平 Fair"
+    },
+    "now": "Now",
+    "hoursNote": "Good = auspicious (Yellow Path) hour, Fair = ordinary hour. The Zi hour starts at 23:00 the night before.",
+    "god": {
+      "xi": "Joy",
+      "cai": "Wealth",
+      "fu": "Blessing"
+    },
+    "compass": {
+      "n": "N",
+      "e": "E",
+      "s": "S",
+      "w": "W"
+    },
+    "luckyNumbers": "Lucky numbers",
+    "luckyNumbersHint": "He Tu numbers for today's best elements: {{elements}}",
+    "taishen": "Fetus spirit",
+    "taishenHint": "Where the fetus spirit dwells today; by old custom, avoid digging or moving heavy things there",
+    "nineStar": "Nine Stars",
+    "poemReason": {
+      "moon": "Full moon"
+    },
+    "poemAuthor": "{{author}} ({{dynasty}})",
+    "dynasty": {
+      "tang": "Tang",
+      "song": "Song"
+    }
   },
   "phase": {
     "wang": "旺 Prosperous",

@@ -1,0 +1,40 @@
+{
+  "$comment": "每日一诗的专属诗对照表：传统节日、节气当天用哪一首（值是 src/data/poems.json 里的诗 id）。由 scripts/poems/build-poems.ts 从 scripts/poems/curated.json 生成。",
+  "festival": {
+    "春节": "qjs:2-6",
+    "元宵": "ci:ci.song.11000.json:195",
+    "寒食": "tang:77ac62ee-6396-4ac0-a3ab-cb84ba2e5cd0",
+    "清明": "qjs:2-17",
+    "端午": "ci:ci.song.1000.json:705",
+    "七夕": "ci:ci.song.3000.json:753",
+    "中秋": "ci:ci.song.1000.json:459",
+    "重阳": "tang:ea5ac55c-1d02-43f9-a411-da4255d3c30f",
+    "除夕": "tang:7c339c18-2e14-4988-ba44-43ea5456e44d"
+  },
+  "jieqi": {
+    "立春": "tang:d7cb4244-143b-403b-8599-b10c6763d032",
+    "雨水": "tang:c6ddd64d-606c-421e-8912-7f37568020b1",
+    "惊蛰": "tang:32021394-9342-4eb9-b5c0-f98c6e3beece",
+    "春分": "tang:bf4ce5bb-7a29-4b33-b8c6-55a020394ab8",
+    "清明": "ci:ci.song.0.json:561",
+    "谷雨": "tang:c9bac657-4da7-41af-ad6a-a3171a828f61",
+    "立夏": "tang:f5f726ac-2edd-44c1-bebf-1cc8476fad4c",
+    "小满": "tang:1c0d2513-d896-4ce1-a06d-8810f696e545",
+    "芒种": "ci:ci.song.11000.json:205",
+    "夏至": "tang:6e080f93-6e4f-4afb-ba86-757dbdcbc9a8",
+    "小暑": "ci:ci.song.6000.json:684",
+    "大暑": "ci:ci.song.11000.json:272",
+    "立秋": "tang:00f12a19-bb96-4980-a4f5-11a1b9d604dd",
+    "处暑": "tang:d12edd29-d467-4b19-b3f5-533fa5c8d56a",
+    "白露": "ci:ci.song.0.json:458",
+    "秋分": "tang:aa22a168-1c3f-48e1-b7d4-1aa143d66335",
+    "寒露": "tang:e87ae63c-8907-4e88-aa9e-dde22133a25e",
+    "霜降": "tang:56da3304-439a-400b-b283-16de3add74ce",
+    "立冬": "tang:9972f7bb-ae5b-49e4-87df-381386af66b6",
+    "小雪": "tang:b4780bd1-1703-4bce-a801-d5ed566826b5",
+    "大雪": "tang:1f92134b-bca9-46eb-b2fe-87b30413041a",
+    "冬至": "tang:73fad2cd-27f2-41c4-8a73-609a47cb7ca8",
+    "小寒": "tang:b9d32a46-de5f-41ba-a261-437611f80d0d",
+    "大寒": "tang:5eac7283-4608-4d88-b0cb-ee7411c518c3"
+  }
+}

@@ -5,7 +5,8 @@ import { dueReminders, todays } from "../calendar/anniversary";
 import { nextCountdown } from "../calendar/countdown";
 import { getDayDetail } from "../calendar/day";
 import { getAlmanac } from "../calendar/special";
-import { DetailPanel } from "../components/DetailPanel";
+import { DetailPanel, SECTIONS, type SectionId } from "../components/DetailPanel";
+import { poemForDay, poemScript } from "../data/poems";
 import { MonthView } from "../components/MonthView";
 import { Bubble } from "../components/Bubble";
 import { Muyu } from "../components/Muyu";
@@ -96,6 +97,12 @@ export function MainApp() {
   const rules = useMemo(() => rulesWith(settings), [settings]);
   const today = useToday(rules.dayBoundary);
   const detail = useMemo(() => getDayDetail(today, rules), [today, rules]);
+  // 卡片底部的名句：今天这首诗最有名的两句
+  const todayFamous = useMemo(() => {
+    const { poem } = poemForDay(today);
+    const script = poemScript(lang);
+    return { text: poem.famous[script], title: `《${poem.title[script]}》` };
+  }, [today, lang]);
   const almanac = useMemo(() => getAlmanac(today), [today]);
   const ramp = useCallback((e: Element) => rules.pixelRamps[e].map((l) => l.hex) as Ramp, [rules]);
   const outfit: Outfit = useMemo(
@@ -117,6 +124,8 @@ export function MainApp() {
   const [scrollState, setScrollState] = useState<ScrollState>("closed");
   const [monthOpen, setMonthOpen] = useState(false);
   const [detailDay, setDetailDay] = useState<Ymd | null>(null);
+  // 卡片上点名句：打开今天的详情并跳到「物候与诗」
+  const [detailFocus, setDetailFocus] = useState<{ id: SectionId; seq: number } | null>(null);
   const [scrollSize, setScrollSize] = useState<{ w: number; h: number } | null>(null);
   const [detailSize, setDetailSize] = useState<{ w: number; h: number } | null>(null);
   const [anchor, setAnchor] = useState<{ x: number; y: number } | null>(null);
@@ -404,6 +413,27 @@ export function MainApp() {
     return () => clearTimeout(timer);
   }, [loaded]);
 
+  // 开发版截图：VITE_TEST_SHOT=card npm run tauri dev 启动后展开卷轴（看卡片底部的名句）；
+  // VITE_TEST_SHOT=detail 再打开今天的详情，把四个折叠栏都展开，每 4 秒跳到下一栏（穿衣 → … → 更多），
+  // 外面用 screencapture -l <窗口号> 按时截图，不用点鼠标
+  useEffect(() => {
+    const shot = import.meta.env.DEV ? (import.meta.env.VITE_TEST_SHOT as string | undefined) : undefined;
+    if (!shot || !loaded) return;
+    const timers: number[] = [];
+    timers.push(window.setTimeout(expand, 1500));
+    if (shot === "detail") {
+      try {
+        localStorage.setItem("aobanxian.detail.open", JSON.stringify({ hours: true, positions: true, nature: true, more: true }));
+      } catch {
+        // 开发用，存不了就算了
+      }
+      timers.push(window.setTimeout(() => setDetailDay(today), 3000));
+      SECTIONS.forEach((id, i) => timers.push(window.setTimeout(() => setDetailFocus({ id, seq: i + 1 }), 5000 + i * 4000)));
+    }
+    return () => timers.forEach((t) => window.clearTimeout(t));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaded]);
+
   // 择日、纪念日窗口里点某一天：在主窗口打开那天的详情
   useEffect(() => onOpenDetailRequest((ymd) => setDetailDay(ymd)), []);
   // 求签等窗口请道士说话
@@ -672,6 +702,11 @@ export function MainApp() {
               monthOpen={monthOpen}
               onOpenDetail={() => setDetailDay(today)}
               onToggleMonth={() => setMonthOpen((v) => !v)}
+              famous={todayFamous}
+              onOpenPoem={() => {
+                setDetailDay(today);
+                setDetailFocus((f) => ({ id: "nature", seq: (f?.seq ?? 0) + 1 }));
+              }}
             />
             {monthOpen && <MonthView today={today} anniversaries={anniversaries} onPick={setDetailDay} />}
           </Scroll>
@@ -692,6 +727,7 @@ export function MainApp() {
             anniversaries={anniversaries}
             onChange={setDetailDay}
             onClose={() => setDetailDay(null)}
+            focus={detailFocus}
           />
         </div>
       )}

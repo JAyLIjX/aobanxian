@@ -43,7 +43,7 @@
 | --- | --- | --- |
 | <img src="preview/v0.2/lot.png" height="300"> | <img src="preview/v0.2/gua.png" height="300"> | <img src="preview/v0.2/share.png" height="300"> |
 
-签诗、卦辞、爻辞录自维基文库（《關聖帝君靈籤》清刊本、《周易》），公有领域，保持原文；白话解读和英文大意是本项目自己写的。
+签诗、卦辞、爻辞录自维基文库（《關聖帝君靈籤》清刊本、《周易》），公有领域，保持原文；白话解读和英文大意是本项目自己写的。每日一诗的诗文来自开源项目 [chinese-poetry](https://github.com/chinese-poetry/chinese-poetry)（MIT 协议），精选约 400 首唐诗宋词，季节标签、名句、赏析和英文大意是本项目自己写的。
 
 ## 安装
 
@@ -209,6 +209,8 @@ npm run tauri dev
   - [EB Garamond](https://github.com/googlefonts/ebgaramond)——英文正文
   - [OpenCC](https://github.com/BYVoid/OpenCC) / [opencc-js](https://github.com/nk2028/opencc-js)——繁简转换
   - [维基文库](https://zh.wikisource.org/)——《[關聖帝君靈籤](https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4)》签诗、《[周易](https://zh.wikisource.org/wiki/%E5%91%A8%E6%98%93)》卦辞爻辞（公有领域原文）
+  - [chinese-poetry](https://github.com/chinese-poetry/chinese-poetry)（MIT 协议）——每日一诗的诗文（全唐诗、宋诗、宋词、千家诗）；抽查与维基文库对照过，核对过的错字记在 `scripts/poems/build-poems.ts` 的 `TEXT_FIXES`
+  - [维基文库](https://zh.wikisource.org/)——《[月令七十二候集解](https://zh.wikisource.org/wiki/%E6%9C%88%E4%BB%A4%E4%B8%83%E5%8D%81%E4%BA%8C%E5%80%99%E9%9B%86%E8%A7%A3)》（七十二候用字校正，见 `config/wuhou.json`）
   - [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator)（Kazuhiko Arase，MIT）——离线二维码
 
 字体文件是按本项目用字做的子集，许可全文在 `src/assets/fonts/`。
@@ -228,5 +230,7 @@ npm test            # unit tests
 ```
 
 Builds are unsigned for now: on macOS, allow it under System Settings → Privacy & Security → "Open Anyway"; on Windows, click "More info" → "Run anyway" in SmartScreen.
+
+The poem of the day comes from the open-source [chinese-poetry](https://github.com/chinese-poetry/chinese-poetry) collection (MIT licence); the season tags, notes and English gists are our own.
 
 License: MIT (code). Bundled fonts (LXGW WenKai, Ma Shan Zheng, Zhi Mang Xing, Fusion Pixel, EB Garamond) are subsets under the SIL Open Font License 1.1.

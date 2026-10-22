@@ -18,10 +18,13 @@ interface Props {
   monthOpen: boolean;
   onOpenDetail: () => void;
   onToggleMonth: () => void;
+  /** 今天这首诗最有名的两句；点击跳到详情的「物候与诗」 */
+  famous?: { text: string; title: string } | null;
+  onOpenPoem?: () => void;
 }
 
 /** 卷轴上的今日卡片：点纸面看当天详情，点「月历」展开月历 */
-export function TodayCard({ detail, rules, personal, countdown, monthOpen, onOpenDetail, onToggleMonth }: Props) {
+export function TodayCard({ detail, rules, personal, countdown, monthOpen, onOpenDetail, onToggleMonth, famous, onOpenPoem }: Props) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as Lang;
   const { ymd, outfit } = detail;
@@ -87,6 +90,21 @@ export function TodayCard({ detail, rules, personal, countdown, monthOpen, onOpe
       )}
       {tip && <div className="today__tip">{tip}</div>}
       {countdown && <div className="today__countdown">{countdown}</div>}
+      {famous && (
+        <button
+          type="button"
+          className="today__famous"
+          lang={lang === "zh-TW" ? "zh-Hant" : "zh-Hans"}
+          title={t("card.poemHint")}
+          onClick={(e) => {
+            e.stopPropagation();
+            onOpenPoem?.();
+          }}
+        >
+          {famous.text}
+          <span className="today__famous-title">——{famous.title}</span>
+        </button>
+      )}
 
       <div className="today__foot">
         <span className="today__hint">{t("card.hint")}</span>

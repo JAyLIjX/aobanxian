@@ -10,7 +10,7 @@
  *   locales/glossary.json     给缺少 zh-TW 的词补上（已有的不覆盖）
  *   assets/character/<id>/character.json   各角色口吻的 voice["zh-TW"]
  *   src/data/lots.json        签的白话总解、典故故事、分事项的 zh-TW（签诗原文不动）
- *   src/data/poems.json       每日一诗白话大意的 zh-TW（诗的原文不动）
+ *   src/data/poems.json       每日一诗赏析的 zh-TW（诗文不动）
  *
  * 人工检查后要改的词写进 UI_FIXES / TERM_FIXES，重新运行即可。
  */
@@ -148,10 +148,10 @@ for (const lot of lotsFile.lots as { reading: Tri; tale?: Tri; aspects?: Record<
 }
 write("src/data/lots.json", lotsFile);
 
-// 6. 每日一诗的白话大意
+// 6. 每日一诗的赏析（诗文本身的简繁由 scripts/poems/build-poems.ts 生成）
 const poemsFile = read("src/data/poems.json");
-for (const poem of poemsFile.poems as { gist: Tri }[]) {
-  if (poem.gist["zh-CN"]) poem.gist["zh-TW"] = prose(poem.gist["zh-CN"]);
+for (const poem of poemsFile.poems as { appreciation: Tri }[]) {
+  if (poem.appreciation["zh-CN"]) poem.appreciation["zh-TW"] = prose(poem.appreciation["zh-CN"]);
 }
 write("src/data/poems.json", poemsFile);
 

@@ -30,7 +30,8 @@
     "month": "月历",
     "closeMonth": "收起月历",
     "countdown": "距{{name}}还有 {{n}} 天",
-    "countdownTomorrow": "明天就是{{name}}"
+    "countdownTomorrow": "明天就是{{name}}",
+    "poemHint": "今日一诗，点击看全诗"
   },
   "relation": {
     "harmony": "相合",
@@ -71,17 +72,56 @@
     "sectionMore": "更多黄历",
     "zhiXing": "值星",
     "zhiXingValue": "{{name}}日",
-    "luckyHours": "吉时",
-    "luckyHoursNone": "今日没有黄道时辰",
-    "hour": "{{branch}}时 {{start}}–{{end}}",
-    "positions": "吉神方位",
-    "positionsValue": "喜神{{xi}}　福神{{fu}}　财神{{cai}}",
     "pengzu": "彭祖百忌",
     "wuhou": "物候",
-    "wuhouValue": "{{jieqi}}{{hou}}：{{name}}",
+    "wuhouValue": "{{jieqi}} · {{hou}} · {{name}}",
     "yueXiang": "月相",
     "sectionPoem": "每日一诗",
-    "poemSource": "诗出自《唐诗三百首》，录自维基文库，保持原文。大意为奥半仙自撰。"
+    "poemSource": "诗文来自开源项目 chinese-poetry（MIT 协议），赏析为奥半仙自撰。",
+    "navLabel": "详情目录",
+    "nav": {
+      "outfit": "穿衣",
+      "yiji": "宜忌",
+      "zodiac": "生肖",
+      "hours": "时辰",
+      "positions": "方位",
+      "nature": "物候与诗",
+      "more": "更多"
+    },
+    "sectionHours": "时辰",
+    "sectionPositions": "方位与数字",
+    "sectionNature": "物候与诗",
+    "hourName": "{{branch}}时",
+    "hourLuck": {
+      "good": "吉",
+      "fair": "平"
+    },
+    "now": "现在",
+    "hoursNote": "吉为黄道时辰，平为黑道时辰；子时从前一天 23:00 算起。",
+    "god": {
+      "xi": "喜神",
+      "cai": "财神",
+      "fu": "福神"
+    },
+    "compass": {
+      "n": "北",
+      "e": "东",
+      "s": "南",
+      "w": "西"
+    },
+    "luckyNumbers": "幸运数字",
+    "luckyNumbersHint": "河图数配今天大吉的{{elements}}",
+    "taishen": "胎神",
+    "taishenHint": "胎神所在，旧俗不宜在此动土、搬动重物",
+    "nineStar": "九星",
+    "poemReason": {
+      "moon": "月圆时节"
+    },
+    "poemAuthor": "〔{{dynasty}}〕{{author}}",
+    "dynasty": {
+      "tang": "唐",
+      "song": "宋"
+    }
   },
   "phase": {
     "wang": "旺",

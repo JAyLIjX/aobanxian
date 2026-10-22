@@ -30,7 +30,9 @@ export type Category =
   | "pengzu"
   | "wuhou"
   | "yuexiang"
-  | "hou";
+  | "hou"
+  | "taishen"
+  | "ninestar";
 
 type Entry = Partial<Record<Lang, string>> & { desc?: Partial<Record<Lang, string>> };
 const glossary = glossaryJson as unknown as Record<Category, Record<string, Entry>>;

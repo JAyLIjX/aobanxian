@@ -2163,290 +2163,650 @@
   "wuhou": {
     "蚯蚓结": {
       "en": "Earthworms curl up",
+      "desc": {
+        "zh-CN": "土里的蚯蚓蜷缩成团，躲避寒气。",
+        "en": "Earthworms curl up underground against the cold.",
+        "zh-TW": "土裡的蚯蚓蜷縮成團，躲避寒氣。"
+      },
       "zh-TW": "蚯蚓結"
     },
     "麋角解": {
       "en": "Elk shed their antlers",
+      "desc": {
+        "zh-CN": "麋鹿的旧角开始脱落。",
+        "en": "Elk begin to shed their old antlers.",
+        "zh-TW": "麋鹿的舊角開始脫落。"
+      },
       "zh-TW": "麋角解"
     },
     "水泉动": {
       "en": "Springs begin to stir",
+      "desc": {
+        "zh-CN": "地下的泉水开始流动，带着一点暖意。",
+        "en": "Underground springs begin to stir with faint warmth.",
+        "zh-TW": "地下的泉水開始流動，帶著一點暖意。"
+      },
       "zh-TW": "水泉動"
     },
     "雁北乡": {
       "en": "Geese turn north",
+      "desc": {
+        "zh-CN": "大雁感到阳气，准备向北飞回。",
+        "en": "Wild geese sense the turning season and face north.",
+        "zh-TW": "大雁感到陽氣，準備向北飛回。"
+      },
       "zh-TW": "雁北鄉"
     },
     "鹊始巢": {
       "en": "Magpies start their nests",
+      "desc": {
+        "zh-CN": "喜鹊开始衔枝筑巢。",
+        "en": "Magpies begin building their nests.",
+        "zh-TW": "喜鵲開始銜枝築巢。"
+      },
       "zh-TW": "鵲始巢"
     },
-    "雉始雊": {
-      "en": "Pheasants begin to call",
-      "zh-TW": "雉始雊"
+    "雉雊": {
+      "en": "Pheasants call",
+      "desc": {
+        "zh-CN": "野鸡开始鸣叫，求偶相呼。",
+        "en": "Pheasants start calling to one another.",
+        "zh-TW": "野雞開始鳴叫，求偶相呼。"
+      },
+      "zh-TW": "雉雊"
     },
-    "鸡始乳": {
-      "en": "Hens start to brood",
-      "zh-TW": "雞始乳"
+    "鸡乳": {
+      "en": "Hens brood",
+      "desc": {
+        "zh-CN": "母鸡开始孵育小鸡。",
+        "en": "Hens begin to brood their chicks.",
+        "zh-TW": "母雞開始孵育小雞。"
+      },
+      "zh-TW": "雞乳"
     },
     "征鸟厉疾": {
       "en": "Birds of prey grow fierce",
+      "desc": {
+        "zh-CN": "鹰隼等猛禽飞得格外迅猛。",
+        "en": "Hawks and falcons fly at their fiercest and fastest.",
+        "zh-TW": "鷹隼等猛禽飛得格外迅猛。"
+      },
       "zh-TW": "徵鳥厲疾"
     },
     "水泽腹坚": {
       "en": "Pools freeze hard",
+      "desc": {
+        "zh-CN": "河湖的冰一直冻到中心，最为坚厚。",
+        "en": "Lakes and marshes freeze solid to the core.",
+        "zh-TW": "河湖的冰一直凍到中心，最為堅厚。"
+      },
       "zh-TW": "水澤腹堅"
     },
     "东风解冻": {
       "en": "East wind thaws the ice",
+      "desc": {
+        "zh-CN": "东风吹来，冰冻开始消融。",
+        "en": "The east wind arrives and the ice begins to thaw.",
+        "zh-TW": "東風吹來，冰凍開始消融。"
+      },
       "zh-TW": "東風解凍"
     },
     "蛰虫始振": {
       "en": "Hibernating insects stir",
+      "desc": {
+        "zh-CN": "冬眠的虫子开始苏醒活动。",
+        "en": "Hibernating insects begin to stir.",
+        "zh-TW": "冬眠的蟲子開始甦醒活動。"
+      },
       "zh-TW": "蟄蟲始振"
     },
     "鱼陟负冰": {
       "en": "Fish rise to the ice",
+      "desc": {
+        "zh-CN": "鱼游到水面，贴着还未化尽的薄冰。",
+        "en": "Fish rise to swim just beneath the thinning ice.",
+        "zh-TW": "魚游到水面，貼著還未化盡的薄冰。"
+      },
       "zh-TW": "魚陟負冰"
     },
     "獭祭鱼": {
       "en": "Otters lay out fish",
+      "desc": {
+        "zh-CN": "水獭捕鱼，摆在岸边像在祭祀。",
+        "en": "Otters catch fish and lay them out on the bank, as if in offering.",
+        "zh-TW": "水獺捕魚，擺在岸邊像在祭祀。"
+      },
       "zh-TW": "獺祭魚"
     },
     "候雁北": {
       "en": "Wild geese fly north",
+      "desc": {
+        "zh-CN": "大雁成群向北飞去。",
+        "en": "Wild geese fly north in flocks.",
+        "zh-TW": "大雁成群向北飛去。"
+      },
       "zh-TW": "候雁北"
     },
     "草木萌动": {
       "en": "Plants begin to bud",
+      "desc": {
+        "zh-CN": "草木开始抽芽萌发。",
+        "en": "Grass and trees begin to sprout.",
+        "zh-TW": "草木開始抽芽萌發。"
+      },
       "zh-TW": "草木萌動"
     },
     "桃始华": {
       "en": "Peach trees blossom",
+      "desc": {
+        "zh-CN": "桃花开始开放。",
+        "en": "Peach trees begin to blossom.",
+        "zh-TW": "桃花開始開放。"
+      },
       "zh-TW": "桃始華"
     },
     "仓庚鸣": {
       "en": "Orioles sing",
+      "desc": {
+        "zh-CN": "黄鹂开始鸣唱。",
+        "en": "Orioles begin to sing.",
+        "zh-TW": "黃鸝開始鳴唱。"
+      },
       "zh-TW": "倉庚鳴"
     },
     "鹰化为鸠": {
       "en": "Hawks seem to turn into doves",
+      "desc": {
+        "zh-CN": "鹰隐去、布谷鸟多了，古人以为鹰变成了鸠。",
+        "en": "Hawks grow scarce and cuckoos appear — the ancients said hawks turned into doves.",
+        "zh-TW": "鷹隱去、布穀鳥多了，古人以為鷹變成了鳩。"
+      },
       "zh-TW": "鷹化為鳩"
     },
     "玄鸟至": {
       "en": "Swallows return",
+      "desc": {
+        "zh-CN": "燕子从南方飞回来了。",
+        "en": "Swallows return from the south.",
+        "zh-TW": "燕子從南方飛回來了。"
+      },
       "zh-TW": "玄鳥至"
     },
     "雷乃发声": {
       "en": "Thunder raises its voice",
+      "desc": {
+        "zh-CN": "开始听到雷声。",
+        "en": "Thunder is heard again.",
+        "zh-TW": "開始聽到雷聲。"
+      },
       "zh-TW": "雷乃發聲"
     },
     "始电": {
       "en": "Lightning first appears",
+      "desc": {
+        "zh-CN": "开始出现闪电。",
+        "en": "Lightning first appears.",
+        "zh-TW": "開始出現閃電。"
+      },
       "zh-TW": "始電"
     },
     "桐始华": {
       "en": "Paulownias blossom",
+      "desc": {
+        "zh-CN": "白桐树开花。",
+        "en": "Paulownia trees come into flower.",
+        "zh-TW": "白桐樹開花。"
+      },
       "zh-TW": "桐始華"
     },
     "田鼠化为鴽": {
       "en": "Field mice seem to turn into quail",
+      "desc": {
+        "zh-CN": "田鼠回洞、鹌鹑出现，古人以为田鼠化成了鹌鹑。",
+        "en": "Field mice retreat and quail appear — the ancients said one turned into the other.",
+        "zh-TW": "田鼠回洞、鵪鶉出現，古人以為田鼠化成了鵪鶉。"
+      },
       "zh-TW": "田鼠化為鴽"
     },
     "虹始见": {
       "en": "Rainbows first appear",
+      "desc": {
+        "zh-CN": "雨后天空开始出现彩虹。",
+        "en": "Rainbows begin to appear after rain.",
+        "zh-TW": "雨後天空開始出現彩虹。"
+      },
       "zh-TW": "虹始見"
     },
     "萍始生": {
       "en": "Duckweed begins to grow",
+      "desc": {
+        "zh-CN": "水面开始长出浮萍。",
+        "en": "Duckweed begins to grow on the water.",
+        "zh-TW": "水面開始長出浮萍。"
+      },
       "zh-TW": "萍始生"
     },
     "鸣鸠拂其羽": {
       "en": "Turtledoves preen their feathers",
+      "desc": {
+        "zh-CN": "布谷鸟一边鸣叫一边拍打翅膀，催人春耕。",
+        "en": "Cuckoos call and flap their wings, urging on the spring planting.",
+        "zh-TW": "布穀鳥一邊鳴叫一邊拍打翅膀，催人春耕。"
+      },
       "zh-TW": "鳴鳩拂其羽"
     },
     "戴胜降于桑": {
       "en": "Hoopoes alight on mulberries",
+      "desc": {
+        "zh-CN": "戴胜鸟落在桑树上，正是养蚕的时节。",
+        "en": "Hoopoes alight on mulberry trees, just as silkworm season begins.",
+        "zh-TW": "戴勝鳥落在桑樹上，正是養蠶的時節。"
+      },
       "zh-TW": "戴勝降於桑"
     },
     "蝼蝈鸣": {
       "en": "Mole crickets chirp",
+      "desc": {
+        "zh-CN": "蝼蛄在田间鸣叫。",
+        "en": "Mole crickets chirp in the fields.",
+        "zh-TW": "螻蛄在田間鳴叫。"
+      },
       "zh-TW": "螻蟈鳴"
     },
     "蚯蚓出": {
       "en": "Earthworms come out",
+      "desc": {
+        "zh-CN": "蚯蚓钻出地面。",
+        "en": "Earthworms come up out of the soil.",
+        "zh-TW": "蚯蚓鑽出地面。"
+      },
       "zh-TW": "蚯蚓出"
     },
     "王瓜生": {
       "en": "Snake gourds grow",
+      "desc": {
+        "zh-CN": "王瓜的藤蔓开始快速生长。",
+        "en": "Snake-gourd vines begin to grow quickly.",
+        "zh-TW": "王瓜的藤蔓開始快速生長。"
+      },
       "zh-TW": "王瓜生"
     },
     "苦菜秀": {
       "en": "Sow thistle flowers",
+      "desc": {
+        "zh-CN": "苦菜长得茂盛，开出花来。",
+        "en": "Sow thistle grows lush and flowers.",
+        "zh-TW": "苦菜長得茂盛，開出花來。"
+      },
       "zh-TW": "苦菜秀"
     },
     "靡草死": {
       "en": "Fine grasses wither",
+      "desc": {
+        "zh-CN": "喜阴的细草在烈日下枯萎。",
+        "en": "Delicate shade-loving grasses wither in the strong sun.",
+        "zh-TW": "喜陰的細草在烈日下枯萎。"
+      },
       "zh-TW": "靡草死"
     },
     "麦秋至": {
       "en": "Wheat ripens",
+      "desc": {
+        "zh-CN": "麦子成熟，到了收麦的时候。",
+        "en": "Wheat ripens — harvest time for the grain.",
+        "zh-TW": "麥子成熟，到了收麥的時候。"
+      },
       "zh-TW": "麥秋至"
     },
     "螳螂生": {
       "en": "Mantises hatch",
+      "desc": {
+        "zh-CN": "小螳螂破壳而出。",
+        "en": "Young mantises hatch.",
+        "zh-TW": "小螳螂破殼而出。"
+      },
       "zh-TW": "螳螂生"
     },
     "鵙始鸣": {
       "en": "Shrikes begin to call",
+      "desc": {
+        "zh-CN": "伯劳鸟开始鸣叫。",
+        "en": "Shrikes begin to call.",
+        "zh-TW": "伯勞鳥開始鳴叫。"
+      },
       "zh-TW": "鵙始鳴"
     },
     "反舌无声": {
       "en": "Mockingbirds fall silent",
+      "desc": {
+        "zh-CN": "善于学舌的百舌鸟安静下来。",
+        "en": "The mockingbird falls silent.",
+        "zh-TW": "善於學舌的百舌鳥安靜下來。"
+      },
       "zh-TW": "反舌無聲"
     },
     "鹿角解": {
       "en": "Deer shed their antlers",
+      "desc": {
+        "zh-CN": "鹿的角开始脱落。",
+        "en": "Deer begin to shed their antlers.",
+        "zh-TW": "鹿的角開始脫落。"
+      },
       "zh-TW": "鹿角解"
     },
     "蜩始鸣": {
       "en": "Cicadas begin to sing",
+      "desc": {
+        "zh-CN": "知了开始鸣叫。",
+        "en": "Cicadas begin to sing.",
+        "zh-TW": "知了開始鳴叫。"
+      },
       "zh-TW": "蜩始鳴"
     },
     "半夏生": {
       "en": "Crow-dipper sprouts",
+      "desc": {
+        "zh-CN": "半夏这种草药开始生长。",
+        "en": "The herb banxia begins to sprout.",
+        "zh-TW": "半夏這種草藥開始生長。"
+      },
       "zh-TW": "半夏生"
     },
     "温风至": {
       "en": "Warm winds arrive",
+      "desc": {
+        "zh-CN": "吹来的风都带着热气。",
+        "en": "Warm winds arrive.",
+        "zh-TW": "吹來的風都帶著熱氣。"
+      },
       "zh-TW": "溫風至"
     },
     "蟋蟀居壁": {
       "en": "Crickets shelter by the walls",
+      "desc": {
+        "zh-CN": "蟋蟀躲到墙壁、洞穴里避暑。",
+        "en": "Crickets shelter in walls and burrows from the heat.",
+        "zh-TW": "蟋蟀躲到牆壁、洞穴裡避暑。"
+      },
       "zh-TW": "蟋蟀居壁"
     },
-    "鹰始挚": {
-      "en": "Young hawks learn to hunt",
-      "zh-TW": "鷹始摯"
+    "鹰始击": {
+      "en": "Young hawks learn to strike",
+      "desc": {
+        "zh-CN": "小鹰开始学习搏击捕猎。",
+        "en": "Young hawks begin to practice striking prey.",
+        "zh-TW": "小鷹開始學習搏擊捕獵。"
+      },
+      "zh-TW": "鷹始擊"
     },
     "腐草为萤": {
       "en": "Fireflies rise from rotting grass",
+      "desc": {
+        "zh-CN": "萤火虫在草丛间飞舞，古人以为是腐草所化。",
+        "en": "Fireflies rise from the grass — the ancients thought rotting grass became fireflies.",
+        "zh-TW": "螢火蟲在草叢間飛舞，古人以為是腐草所化。"
+      },
       "zh-TW": "腐草為螢"
     },
     "土润溽暑": {
       "en": "The earth is damp and sultry",
+      "desc": {
+        "zh-CN": "土地湿润，天气闷热。",
+        "en": "The soil is damp and the air is hot and humid.",
+        "zh-TW": "土地溼潤，天氣悶熱。"
+      },
       "zh-TW": "土潤溽暑"
     },
-    "大雨行时": {
-      "en": "Great rains fall in season",
-      "zh-TW": "大雨行時"
+    "大雨时行": {
+      "en": "Heavy rains fall in season",
+      "desc": {
+        "zh-CN": "时常下起大雨。",
+        "en": "Heavy rains fall from time to time.",
+        "zh-TW": "時常下起大雨。"
+      },
+      "zh-TW": "大雨時行"
     },
     "凉风至": {
       "en": "Cool winds arrive",
+      "desc": {
+        "zh-CN": "开始吹起凉风。",
+        "en": "Cool winds begin to blow.",
+        "zh-TW": "開始吹起涼風。"
+      },
       "zh-TW": "涼風至"
     },
     "白露降": {
       "en": "White dew forms",
+      "desc": {
+        "zh-CN": "清晨开始有露水。",
+        "en": "Dew begins to form in the mornings.",
+        "zh-TW": "清晨開始有露水。"
+      },
       "zh-TW": "白露降"
     },
     "寒蝉鸣": {
       "en": "Autumn cicadas sing",
+      "desc": {
+        "zh-CN": "秋蝉开始鸣叫。",
+        "en": "Autumn cicadas begin to sing.",
+        "zh-TW": "秋蟬開始鳴叫。"
+      },
       "zh-TW": "寒蟬鳴"
     },
     "鹰乃祭鸟": {
       "en": "Hawks lay out their prey",
+      "desc": {
+        "zh-CN": "鹰捕到鸟后摆开，像在祭祀。",
+        "en": "Hawks lay out the birds they catch, as if in offering.",
+        "zh-TW": "鷹捕到鳥後襬開，像在祭祀。"
+      },
       "zh-TW": "鷹乃祭鳥"
     },
     "天地始肃": {
       "en": "Heaven and earth turn austere",
+      "desc": {
+        "zh-CN": "天地间开始有萧瑟的秋意。",
+        "en": "A crisp autumn austerity settles over heaven and earth.",
+        "zh-TW": "天地間開始有蕭瑟的秋意。"
+      },
       "zh-TW": "天地始肅"
     },
     "禾乃登": {
       "en": "Grain is harvested",
+      "desc": {
+        "zh-CN": "庄稼成熟，可以收割了。",
+        "en": "The grain is ripe and ready for harvest.",
+        "zh-TW": "莊稼成熟，可以收割了。"
+      },
       "zh-TW": "禾乃登"
     },
     "鸿雁来": {
       "en": "Wild geese arrive",
+      "desc": {
+        "zh-CN": "大雁从北方飞来。",
+        "en": "Wild geese arrive from the north.",
+        "zh-TW": "大雁從北方飛來。"
+      },
       "zh-TW": "鴻雁來"
     },
     "玄鸟归": {
       "en": "Swallows leave",
+      "desc": {
+        "zh-CN": "燕子飞回南方。",
+        "en": "Swallows fly back south.",
+        "zh-TW": "燕子飛回南方。"
+      },
       "zh-TW": "玄鳥歸"
     },
     "群鸟养羞": {
       "en": "Birds store food",
+      "desc": {
+        "zh-CN": "鸟儿们储存食物，准备过冬。",
+        "en": "Birds store up food for the winter.",
+        "zh-TW": "鳥兒們儲存食物，準備過冬。"
+      },
       "zh-TW": "群鳥養羞"
     },
     "雷始收声": {
       "en": "Thunder falls silent",
+      "desc": {
+        "zh-CN": "雷声渐渐停息。",
+        "en": "Thunder falls quiet.",
+        "zh-TW": "雷聲漸漸停息。"
+      },
       "zh-TW": "雷始收聲"
     },
     "蛰虫坯户": {
       "en": "Insects seal their burrows",
+      "desc": {
+        "zh-CN": "虫子钻进洞里，用土封好洞口。",
+        "en": "Insects retreat into burrows and seal the entrances with earth.",
+        "zh-TW": "蟲子鑽進洞裡，用土封好洞口。"
+      },
       "zh-TW": "蟄蟲坯戶"
     },
     "水始涸": {
       "en": "Waters begin to dry",
+      "desc": {
+        "zh-CN": "河湖的水开始变浅。",
+        "en": "Rivers and lakes begin to run low.",
+        "zh-TW": "河湖的水開始變淺。"
+      },
       "zh-TW": "水始涸"
     },
     "鸿雁来宾": {
       "en": "Wild geese gather as guests",
+      "desc": {
+        "zh-CN": "最后一批大雁也飞来了，像来做客。",
+        "en": "The last wild geese arrive, like late guests.",
+        "zh-TW": "最後一批大雁也飛來了，像來做客。"
+      },
       "zh-TW": "鴻雁來賓"
     },
     "雀入大水为蛤": {
       "en": "Sparrows seem to turn into clams",
+      "desc": {
+        "zh-CN": "雀鸟少了、海边蛤蜊多了，古人以为雀入海变成了蛤。",
+        "en": "Sparrows grow scarce and clams abound — the ancients said sparrows went into the sea and became clams.",
+        "zh-TW": "雀鳥少了、海邊蛤蜊多了，古人以為雀入海變成了蛤。"
+      },
       "zh-TW": "雀入大水為蛤"
     },
-    "菊有黄花": {
+    "菊有黄华": {
       "en": "Chrysanthemums bloom yellow",
-      "zh-TW": "菊有黃花"
+      "desc": {
+        "zh-CN": "菊花盛开，一片金黄。",
+        "en": "Chrysanthemums bloom in gold.",
+        "zh-TW": "菊花盛開，一片金黃。"
+      },
+      "zh-TW": "菊有黃華"
     },
-    "豺乃祭兽": {
+    "豺祭兽": {
       "en": "Jackals lay out their prey",
-      "zh-TW": "豺乃祭獸"
+      "desc": {
+        "zh-CN": "豺捕到猎物后摆开，像在祭祀。",
+        "en": "Jackals lay out their prey, as if in offering.",
+        "zh-TW": "豺捕到獵物後襬開，像在祭祀。"
+      },
+      "zh-TW": "豺祭獸"
     },
     "草木黄落": {
       "en": "Leaves turn yellow and fall",
+      "desc": {
+        "zh-CN": "草木枯黄，树叶飘落。",
+        "en": "Grass yellows and leaves fall.",
+        "zh-TW": "草木枯黃，樹葉飄落。"
+      },
       "zh-TW": "草木黃落"
     },
     "蛰虫咸俯": {
       "en": "Insects settle in for winter",
+      "desc": {
+        "zh-CN": "虫子都垂头不动，准备冬眠。",
+        "en": "Insects lie still with heads bowed, ready for winter sleep.",
+        "zh-TW": "蟲子都垂頭不動，準備冬眠。"
+      },
       "zh-TW": "蟄蟲鹹俯"
     },
     "水始冰": {
       "en": "Water begins to freeze",
+      "desc": {
+        "zh-CN": "水面开始结冰。",
+        "en": "Water begins to freeze.",
+        "zh-TW": "水面開始結冰。"
+      },
       "zh-TW": "水始冰"
     },
     "地始冻": {
       "en": "The ground begins to freeze",
+      "desc": {
+        "zh-CN": "土地开始冻结。",
+        "en": "The ground begins to freeze.",
+        "zh-TW": "土地開始凍結。"
+      },
       "zh-TW": "地始凍"
     },
     "雉入大水为蜃": {
       "en": "Pheasants seem to turn into clams",
+      "desc": {
+        "zh-CN": "野鸡少了、海边大蛤多了，古人以为野鸡入海变成了蜃。",
+        "en": "Pheasants grow scarce and large clams appear — the ancients said pheasants became clams in the sea.",
+        "zh-TW": "野雞少了、海邊大蛤多了，古人以為野雞入海變成了蜃。"
+      },
       "zh-TW": "雉入大水為蜃"
     },
     "虹藏不见": {
       "en": "Rainbows hide away",
+      "desc": {
+        "zh-CN": "天冷了，再也看不到彩虹。",
+        "en": "Rainbows hide away in the cold.",
+        "zh-TW": "天冷了，再也看不到彩虹。"
+      },
       "zh-TW": "虹藏不見"
     },
     "天气上升地气下降": {
       "en": "Heaven's air rises, earth's air sinks",
+      "desc": {
+        "zh-CN": "天上的阳气上升、地下的阴气下沉，天地不再交融。",
+        "en": "Heaven's air rises and earth's sinks; the two no longer mingle.",
+        "zh-TW": "天上的陽氣上升、地下的陰氣下沉，天地不再交融。"
+      },
       "zh-TW": "天氣上升地氣下降"
     },
     "闭塞而成冬": {
       "en": "All is closed — winter sets in",
+      "desc": {
+        "zh-CN": "天地闭藏，真正进入冬天。",
+        "en": "All is closed and stored away — winter has truly come.",
+        "zh-TW": "天地閉藏，真正進入冬天。"
+      },
       "zh-TW": "閉塞而成冬"
     },
     "鹖鴠不鸣": {
       "en": "Night birds fall silent",
+      "desc": {
+        "zh-CN": "寒号鸟也不再鸣叫。",
+        "en": "Even the hardy night bird falls silent.",
+        "zh-TW": "寒號鳥也不再鳴叫。"
+      },
       "zh-TW": "鶡鴠不鳴"
     },
     "虎始交": {
       "en": "Tigers begin to mate",
+      "desc": {
+        "zh-CN": "老虎开始求偶。",
+        "en": "Tigers begin to seek mates.",
+        "zh-TW": "老虎開始求偶。"
+      },
       "zh-TW": "虎始交"
     },
     "荔挺出": {
       "en": "Lychee grass sprouts",
+      "desc": {
+        "zh-CN": "马蔺草从地里挺出新芽。",
+        "en": "Iris grass pushes up new shoots.",
+        "zh-TW": "馬藺草從地裡挺出新芽。"
+      },
       "zh-TW": "荔挺出"
     }
   },
@@ -2556,6 +2916,286 @@
     "三候": {
       "en": "3rd pentad",
       "zh-TW": "三候"
+    }
+  },
+  "taishen": {
+    "碓磨床 外西南": {
+      "en": "the mortar and mill & the bed · outside, southwest",
+      "zh-TW": "碓磨床 外西南"
+    },
+    "厨灶碓 外西南": {
+      "en": "the kitchen stove & the mortar · outside, southwest",
+      "zh-TW": "廚灶碓 外西南"
+    },
+    "仓库厕 外正西": {
+      "en": "the storeroom & the privy · outside, due west",
+      "zh-TW": "倉庫廁 外正西"
+    },
+    "房床炉 外正西": {
+      "en": "the bed & the stove · outside, due west",
+      "zh-TW": "房床爐 外正西"
+    },
+    "占大门 外正西": {
+      "en": "the main gate · outside, due west",
+      "zh-TW": "佔大門 外正西"
+    },
+    "碓磨栖 外正西": {
+      "en": "the mortar and mill & the coop · outside, due west",
+      "zh-TW": "碓磨棲 外正西"
+    },
+    "厨灶床 外正西": {
+      "en": "the kitchen stove & the bed · outside, due west",
+      "zh-TW": "廚灶床 外正西"
+    },
+    "仓库碓 外西北": {
+      "en": "the storeroom & the mortar · outside, northwest",
+      "zh-TW": "倉庫碓 外西北"
+    },
+    "房床厕 外西北": {
+      "en": "the bed & the privy · outside, northwest",
+      "zh-TW": "房床廁 外西北"
+    },
+    "占门炉 外西北": {
+      "en": "the door & the stove · outside, northwest",
+      "zh-TW": "佔門爐 外西北"
+    },
+    "碓磨门 外西北": {
+      "en": "the mortar and mill & the door · outside, northwest",
+      "zh-TW": "碓磨門 外西北"
+    },
+    "厨灶栖 外西北": {
+      "en": "the kitchen stove & the coop · outside, northwest",
+      "zh-TW": "廚灶棲 外西北"
+    },
+    "仓库床 外西北": {
+      "en": "the storeroom & the bed · outside, northwest",
+      "zh-TW": "倉庫床 外西北"
+    },
+    "房床碓 外正北": {
+      "en": "the bed & the mortar · outside, due north",
+      "zh-TW": "房床碓 外正北"
+    },
+    "占门厕 外正北": {
+      "en": "the door & the privy · outside, due north",
+      "zh-TW": "佔門廁 外正北"
+    },
+    "碓磨炉 外正北": {
+      "en": "the mortar and mill & the stove · outside, due north",
+      "zh-TW": "碓磨爐 外正北"
+    },
+    "厨灶门 外正北": {
+      "en": "the kitchen stove & the door · outside, due north",
+      "zh-TW": "廚灶門 外正北"
+    },
+    "仓库栖 外正北": {
+      "en": "the storeroom & the coop · outside, due north",
+      "zh-TW": "倉庫棲 外正北"
+    },
+    "占房床 房内北": {
+      "en": "the bed · inside the room, north",
+      "zh-TW": "占房床 房內北"
+    },
+    "占门碓 房内北": {
+      "en": "the door & the mortar · inside the room, north",
+      "zh-TW": "佔門碓 房內北"
+    },
+    "碓磨厕 房内北": {
+      "en": "the mortar and mill & the privy · inside the room, north",
+      "zh-TW": "碓磨廁 房內北"
+    },
+    "厨灶炉 房内北": {
+      "en": "the kitchen stove & the stove · inside the room, north",
+      "zh-TW": "廚灶爐 房內北"
+    },
+    "仓库门 房内北": {
+      "en": "the storeroom & the door · inside the room, north",
+      "zh-TW": "倉庫門 房內北"
+    },
+    "房床栖 房内中": {
+      "en": "the bed & the coop · inside the room, center",
+      "zh-TW": "房床棲 房內中"
+    },
+    "占门床 房内中": {
+      "en": "the door & the bed · inside the room, center",
+      "zh-TW": "佔門床 房內中"
+    },
+    "占碓磨 房内南": {
+      "en": "the mortar and mill · inside the room, south",
+      "zh-TW": "佔碓磨 房內南"
+    },
+    "厨灶厕 房内南": {
+      "en": "the kitchen stove & the privy · inside the room, south",
+      "zh-TW": "廚灶廁 房內南"
+    },
+    "仓库炉 房内南": {
+      "en": "the storeroom & the stove · inside the room, south",
+      "zh-TW": "倉庫爐 房內南"
+    },
+    "房床门 房内西": {
+      "en": "the bed & the door · inside the room, west",
+      "zh-TW": "房床門 房內西"
+    },
+    "占门栖 房内东": {
+      "en": "the door & the coop · inside the room, east",
+      "zh-TW": "佔門棲 房內東"
+    },
+    "碓磨床 房内东": {
+      "en": "the mortar and mill & the bed · inside the room, east",
+      "zh-TW": "碓磨床 房內東"
+    },
+    "厨灶碓 房内东": {
+      "en": "the kitchen stove & the mortar · inside the room, east",
+      "zh-TW": "廚灶碓 房內東"
+    },
+    "仓库厕 房内东": {
+      "en": "the storeroom & the privy · inside the room, east",
+      "zh-TW": "倉庫廁 房內東"
+    },
+    "房床炉 房内中": {
+      "en": "the bed & the stove · inside the room, center",
+      "zh-TW": "房床爐 房內中"
+    },
+    "占大门 外东北": {
+      "en": "the main gate · outside, northeast",
+      "zh-TW": "佔大門 外東北"
+    },
+    "碓磨栖 外东北": {
+      "en": "the mortar and mill & the coop · outside, northeast",
+      "zh-TW": "碓磨棲 外東北"
+    },
+    "厨灶床 外东北": {
+      "en": "the kitchen stove & the bed · outside, northeast",
+      "zh-TW": "廚灶床 外東北"
+    },
+    "仓库碓 外东北": {
+      "en": "the storeroom & the mortar · outside, northeast",
+      "zh-TW": "倉庫碓 外東北"
+    },
+    "房床厕 外东北": {
+      "en": "the bed & the privy · outside, northeast",
+      "zh-TW": "房床廁 外東北"
+    },
+    "占门炉 外东北": {
+      "en": "the door & the stove · outside, northeast",
+      "zh-TW": "佔門爐 外東北"
+    },
+    "碓磨门 外正东": {
+      "en": "the mortar and mill & the door · outside, due east",
+      "zh-TW": "碓磨門 外正東"
+    },
+    "厨灶栖 外正东": {
+      "en": "the kitchen stove & the coop · outside, due east",
+      "zh-TW": "廚灶棲 外正東"
+    },
+    "仓库床 外正东": {
+      "en": "the storeroom & the bed · outside, due east",
+      "zh-TW": "倉庫床 外正東"
+    },
+    "房床碓 外正东": {
+      "en": "the bed & the mortar · outside, due east",
+      "zh-TW": "房床碓 外正東"
+    },
+    "占门厕 外正东": {
+      "en": "the door & the privy · outside, due east",
+      "zh-TW": "佔門廁 外正東"
+    },
+    "碓磨炉 外东南": {
+      "en": "the mortar and mill & the stove · outside, southeast",
+      "zh-TW": "碓磨爐 外東南"
+    },
+    "厨灶门 外东南": {
+      "en": "the kitchen stove & the door · outside, southeast",
+      "zh-TW": "廚灶門 外東南"
+    },
+    "仓库栖 外东南": {
+      "en": "the storeroom & the coop · outside, southeast",
+      "zh-TW": "倉庫棲 外東南"
+    },
+    "占房床 外东南": {
+      "en": "the bed · outside, southeast",
+      "zh-TW": "占房床 外東南"
+    },
+    "占门碓 外东南": {
+      "en": "the door & the mortar · outside, southeast",
+      "zh-TW": "佔門碓 外東南"
+    },
+    "碓磨厕 外东南": {
+      "en": "the mortar and mill & the privy · outside, southeast",
+      "zh-TW": "碓磨廁 外東南"
+    },
+    "厨灶炉 外正南": {
+      "en": "the kitchen stove & the stove · outside, due south",
+      "zh-TW": "廚灶爐 外正南"
+    },
+    "仓库门 外正南": {
+      "en": "the storeroom & the door · outside, due south",
+      "zh-TW": "倉庫門 外正南"
+    },
+    "房床栖 外正南": {
+      "en": "the bed & the coop · outside, due south",
+      "zh-TW": "房床棲 外正南"
+    },
+    "占门床 外正南": {
+      "en": "the door & the bed · outside, due south",
+      "zh-TW": "佔門床 外正南"
+    },
+    "占碓磨 外正南": {
+      "en": "the mortar and mill · outside, due south",
+      "zh-TW": "佔碓磨 外正南"
+    },
+    "厨灶厕 外西南": {
+      "en": "the kitchen stove & the privy · outside, southwest",
+      "zh-TW": "廚灶廁 外西南"
+    },
+    "仓库炉 外西南": {
+      "en": "the storeroom & the stove · outside, southwest",
+      "zh-TW": "倉庫爐 外西南"
+    },
+    "房床门 外西南": {
+      "en": "the bed & the door · outside, southwest",
+      "zh-TW": "房床門 外西南"
+    },
+    "占门栖 外西南": {
+      "en": "the door & the coop · outside, southwest",
+      "zh-TW": "佔門棲 外西南"
+    }
+  },
+  "ninestar": {
+    "一白水天枢": {
+      "en": "One White · Water · Dubhe",
+      "zh-TW": "一白水天樞"
+    },
+    "二黑土天璇": {
+      "en": "Two Black · Earth · Merak",
+      "zh-TW": "二黑土天璇"
+    },
+    "三碧木天玑": {
+      "en": "Three Jade · Wood · Phecda",
+      "zh-TW": "三碧木天璣"
+    },
+    "四绿木天权": {
+      "en": "Four Green · Wood · Megrez",
+      "zh-TW": "四綠木天權"
+    },
+    "五黄土玉衡": {
+      "en": "Five Yellow · Earth · Alioth",
+      "zh-TW": "五黃土玉衡"
+    },
+    "六白金开阳": {
+      "en": "Six White · Metal · Mizar",
+      "zh-TW": "六白金開陽"
+    },
+    "七赤金摇光": {
+      "en": "Seven Red · Metal · Alkaid",
+      "zh-TW": "七赤金搖光"
+    },
+    "八白土洞明": {
+      "en": "Eight White · Earth · Dongming (hidden star)",
+      "zh-TW": "八白土洞明"
+    },
+    "九紫火隐元": {
+      "en": "Nine Purple · Fire · Yinyuan (hidden star)",
+      "zh-TW": "九紫火隱元"
     }
   }
 }

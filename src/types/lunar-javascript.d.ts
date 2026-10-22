@@ -70,7 +70,22 @@ declare module "lunar-javascript" {
     getYueXiang(): string;
     /** 当天 13 个时辰（00:00 的早子时 … 23:00 的晚子时） */
     getTimes(): LunarTime[];
+    /** 上一个「节」（wholeDay 为 true 时按整天算） */
+    getPrevJie(wholeDay?: boolean): { getName(): string };
+    /** 胎神方位，如「占门床 外正南」 */
+    getDayPositionTai(): string;
+    /** 日家九星 */
+    getDayNineStar(): NineStar;
     toFullString(): string;
+  }
+
+  export class NineStar {
+    /** 如「一白水天枢」 */
+    toString(): string;
+    /** 一 … 九 */
+    getNumber(): string;
+    getColor(): string;
+    getWuXing(): string;
   }
 
   export class LunarTime {

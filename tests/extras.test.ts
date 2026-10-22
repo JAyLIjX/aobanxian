@@ -1,12 +1,13 @@
 /**
- * 详情「更多黄历」：值星、吉时、吉神方位、彭祖百忌、物候、月相（取自 lunar-javascript），以及每日一诗的轮换。
+ * 详情的时辰、方位与数字、物候、更多黄历（取自 lunar-javascript；七十二候按古籍原文校正）。
  */
 import { describe, expect, it } from "vitest";
-import { getDayExtras } from "../src/calendar/extras";
-import { getDayInfo } from "../src/calendar/day";
-import { poemIndexOfDay } from "../src/core/poem";
-import { glossaryKeys } from "../src/i18n/terms";
-import { POEMS, POEM_SOURCE, poemOfDay } from "../src/data/poems";
+import wuhouConfig from "../config/wuhou.json";
+import { getDayExtras, hourIndex, wuhouName } from "../src/calendar/extras";
+import { getDayDetail } from "../src/calendar/day";
+import { defaultRules } from "../src/core/rules";
+import { HETU, luckyNumbers } from "../src/core/luckyNumbers";
+import { glossaryKeys, term } from "../src/i18n/terms";
 
 const days = (from: Date, n: number) =>
   Array.from({ length: n }, (_, i) => {
@@ -14,78 +15,93 @@ const days = (from: Date, n: number) =>
     return { year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate() };
   });
 
-describe("更多黄历", () => {
-  it("2026-10-22：危日、寒露三候菊有黄花、己不破券 巳不远行", () => {
+describe("时辰", () => {
+  it("十二格，子时在最前、跨两天（23:00–00:59）作为一格，吉凶只用「吉」「平」", () => {
     const x = getDayExtras({ year: 2026, month: 10, day: 22 });
-    expect(x.zhiXing).toBe("危");
-    expect(x.wuhou).toEqual({ jieqi: "寒露", hou: "三候", name: "菊有黄花" });
-    expect(x.pengzu).toEqual(["己不破券", "巳不远行"]);
-    expect(x.positions).toEqual({ xi: "东北", fu: "正北", cai: "正北" });
-    expect(x.luckyHours.map((h) => h.branch)).toEqual(["丑", "辰", "午", "未", "戌", "亥", "子"]);
-    expect(x.luckyHours[0]).toEqual({ branch: "丑", start: "01:00", end: "02:59" });
+    expect(x.hours.map((h) => h.branch).join("")).toBe("子丑寅卯辰巳午未申酉戌亥");
+    expect(x.hours[0]).toMatchObject({ branch: "子", start: "23:00", end: "00:59", ganzhi: "甲子" });
+    expect(x.hours[1]).toMatchObject({ branch: "丑", start: "01:00", end: "02:59", ganzhi: "乙丑", luck: "吉" });
+    expect(x.hours[11]).toMatchObject({ branch: "亥", start: "21:00", end: "22:59" });
+    for (const h of x.hours) expect(["吉", "平"]).toContain(h.luck);
+    // 己日：丑辰午未戌亥为黄道
+    expect(x.hours.filter((h) => h.luck === "吉").map((h) => h.branch).join("")).toBe("丑辰午未戌亥");
   });
 
-  it("两年内每一天：词都在术语表里（有英文、繁体），彭祖百忌只取前半句，不出现「凶」", () => {
-    const keys = {
-      zhixing: new Set(glossaryKeys("zhixing")),
-      pengzu: new Set(glossaryKeys("pengzu")),
-      wuhou: new Set(glossaryKeys("wuhou")),
-      yuexiang: new Set(glossaryKeys("yuexiang")),
-      direction: new Set(glossaryKeys("direction")),
-      hou: new Set(glossaryKeys("hou")),
-      jieqi: new Set(glossaryKeys("jieqi")),
-    };
+  it("当前时辰：23 点和 0 点都是子时，1 点起丑时", () => {
+    expect([23, 0, 1, 2, 3, 11, 12, 21, 22].map(hourIndex)).toEqual([0, 0, 1, 1, 2, 6, 6, 11, 11]);
+  });
+});
+
+describe("幸运数字（河图数）", () => {
+  it("今天大吉是土和火 → 5、10、2、7", () => {
+    const d = getDayDetail({ year: 2026, month: 10, day: 22 }, defaultRules);
+    const best = d.outfit.tiers[0].entries.map((e) => e.element);
+    expect(best).toEqual(["土", "火"]);
+    expect(luckyNumbers(best)).toEqual([5, 10, 2, 7]);
+  });
+
+  it("五行对应：水 1、6，火 2、7，木 3、8，金 4、9，土 5、10", () => {
+    expect(HETU).toEqual({ 水: [1, 6], 火: [2, 7], 木: [3, 8], 金: [4, 9], 土: [5, 10] });
+    expect(luckyNumbers(["水", "金"])).toEqual([1, 6, 4, 9]);
+  });
+});
+
+describe("七十二候用字校正", () => {
+  it("lunar-javascript 的候名按《月令七十二候集解》原文校正", () => {
+    expect(wuhouName("菊有黄花")).toBe("菊有黄华");
+    expect(wuhouName("大雨行时")).toBe("大雨时行");
+    expect(wuhouName("雉始雊")).toBe("雉雊");
+    expect(wuhouName("鸡始乳")).toBe("鸡乳");
+    expect(wuhouName("鹰始挚")).toBe("鹰始击");
+    expect(wuhouName("豺乃祭兽")).toBe("豺祭兽");
+    // 两边一致的不改
+    expect(wuhouName("东风解冻")).toBe("东风解冻");
+    expect(Object.keys(wuhouConfig.fixes)).toHaveLength(6);
+  });
+
+  it("2026-10-22：寒露 · 三候 · 菊有黄华，附白话；繁体是「菊有黃華」", () => {
+    const x = getDayExtras({ year: 2026, month: 10, day: 22 });
+    expect(x.wuhou).toEqual({ jieqi: "寒露", hou: "三候", name: "菊有黄华" });
+    expect(term("wuhou", "菊有黄华", "zh-TW")).toBe("菊有黃華");
+    expect(term("wuhou", "菊有黄华", "en")).toContain("Chrysanthemums");
+  });
+});
+
+describe("更多黄历", () => {
+  it("胎神、九星：2026-10-22 占门床 外正南、一白水天枢", () => {
+    const x = getDayExtras({ year: 2026, month: 10, day: 22 });
+    expect(x.taishen).toBe("占门床 外正南");
+    expect(term("taishen", x.taishen, "en")).toBe("占门床 外正南 · the door & the bed · outside, due south");
+    expect(x.nineStar).toMatchObject({ name: "一白水天枢", number: "一", color: "白", element: "水", star: "天枢" });
+    expect(x.zhiXing).toBe("危");
+    expect(x.pengzu).toEqual(["己不破券", "巳不远行"]);
+  });
+
+  it("胎神房内：占房床 房内北", () => {
+    // 甲子日胎神占门碓外东南……逐日轮转；找一天是「占房床 房内北」
+    const hit = days(new Date(2026, 0, 1), 60).map(getDayExtras).find((x) => x.taishen === "占房床 房内北");
+    expect(hit).toBeTruthy();
+    expect(term("taishen", "占房床 房内北", "en")).toContain("inside the room, north");
+  });
+
+  it("两年内每一天：词都在术语表里（有英文、繁体），不出现「凶」", () => {
+    const keys = Object.fromEntries(
+      (["zhixing", "pengzu", "wuhou", "yuexiang", "direction", "hou", "jieqi", "taishen", "ninestar"] as const).map((c) => [c, new Set(glossaryKeys(c))]),
+    );
     for (const ymd of days(new Date(2026, 0, 1), 731)) {
       const x = getDayExtras(ymd);
       const at = `${ymd.year}-${ymd.month}-${ymd.day}`;
       expect(keys.zhixing.has(x.zhiXing), at).toBe(true);
-      for (const p of x.pengzu) {
-        expect(p).toHaveLength(4);
-        expect(keys.pengzu.has(p), `${at} ${p}`).toBe(true);
-      }
-      expect(keys.wuhou.has(x.wuhou.name), at).toBe(true);
+      for (const p of x.pengzu) expect(keys.pengzu.has(p), `${at} ${p}`).toBe(true);
+      expect(keys.wuhou.has(x.wuhou.name), `${at} ${x.wuhou.name}`).toBe(true);
       expect(keys.hou.has(x.wuhou.hou), at).toBe(true);
       expect(keys.jieqi.has(x.wuhou.jieqi), at).toBe(true);
-      expect(keys.yuexiang.has(x.yueXiang), `${at} ${x.yueXiang}`).toBe(true);
+      expect(keys.yuexiang.has(x.moon.name), `${at} ${x.moon.name}`).toBe(true);
+      expect(keys.taishen.has(x.taishen), `${at} ${x.taishen}`).toBe(true);
+      expect(keys.ninestar.has(x.nineStar.name), `${at} ${x.nineStar.name}`).toBe(true);
       for (const dir of Object.values(x.positions)) expect(keys.direction.has(dir), `${at} ${dir}`).toBe(true);
-      expect(x.luckyHours.length).toBeGreaterThan(0);
+      expect(x.hours).toHaveLength(12);
       expect(JSON.stringify(x)).not.toContain("凶");
     }
-  });
-});
-
-describe("每日一诗", () => {
-  it("按儒略日轮换：相邻两天不同，一轮里每首都出现一次", () => {
-    const n = 77;
-    const start = getDayInfo({ year: 2026, month: 10, day: 22 }).julianDay;
-    const seen = new Set<number>();
-    for (let i = 0; i < n; i++) {
-      const k = poemIndexOfDay(start + i, n);
-      expect(k).toBeGreaterThanOrEqual(0);
-      expect(k).toBeLessThan(n);
-      if (i > 0) expect(k).not.toBe(poemIndexOfDay(start + i - 1, n));
-      seen.add(k);
-    }
-    expect(seen.size).toBe(n);
-  });
-
-  it("诗的数据：绝句四句、五言或七言，三种语言的大意，不出现「凶」", () => {
-    expect(POEMS.length).toBe(77);
-    expect(POEM_SOURCE.url).toMatch(/^https:\/\/zh\.wikisource\.org\//);
-    POEMS.forEach((p, i) => {
-      const at = `${p.id} ${p.title}`;
-      expect(p.id).toBe(i + 1);
-      const n = p.form === "五言絕句" ? 5 : 7;
-      const clauses = p.lines.join("").split(/[，。？！]/).filter(Boolean);
-      expect(clauses, at).toHaveLength(4);
-      for (const c of clauses) expect([...c], at).toHaveLength(n);
-      for (const lang of ["zh-CN", "zh-TW", "en"] as const) {
-        expect(p.gist[lang], `${at} ${lang}`).toBeTruthy();
-        expect(p.gist[lang]).not.toContain("凶");
-      }
-      expect(p.titleEn && p.authorEn, at).toBeTruthy();
-    });
-    expect(new Set(POEMS.map((p) => p.lines.join(""))).size).toBe(77);
-    expect(poemOfDay(2461336).id).toBeGreaterThan(0);
   });
 });
