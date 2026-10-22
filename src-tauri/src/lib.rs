@@ -5,7 +5,7 @@ use std::{
 };
 
 use serde::Deserialize;
-use tauri::{AppHandle, LogicalPosition, LogicalSize, Manager, Runtime, State, WebviewWindow};
+use tauri::{AppHandle, LogicalPosition, LogicalSize, Manager, Runtime, State, WebviewWindow, WindowEvent};
 use tauri_plugin_autostart::MacosLauncher;
 
 const MAIN_WINDOW: &str = "main";
@@ -62,6 +62,26 @@ impl HitRegions {
 #[derive(Default)]
 struct HitState(Mutex<Option<Arc<HitRegions>>>);
 
+/// 主窗口左上角（物理像素）和缩放比例。由窗口事件更新，点穿线程直接读，
+/// 不用每 16ms 都去主线程问两次（主线程忙或开着菜单时，这些询问会一直排队等）
+#[derive(Default, Clone, Copy)]
+struct Geom {
+    x: f64,
+    y: f64,
+    scale: f64,
+}
+
+#[derive(Default)]
+struct GeomState(Mutex<Option<Geom>>);
+
+fn update_geom<R: Runtime>(app: &AppHandle<R>, f: impl FnOnce(&mut Geom)) {
+    let state = app.state::<GeomState>();
+    let mut g = state.0.lock().unwrap();
+    if let Some(geom) = g.as_mut() {
+        f(geom);
+    }
+}
+
 #[tauri::command]
 fn set_hit_regions(state: State<HitState>, regions: HitRegions) {
     *state.0.lock().unwrap() = Some(Arc::new(regions));
@@ -94,12 +114,10 @@ fn spawn_click_through<R: Runtime>(app: AppHandle<R>) {
             let regions = app.state::<HitState>().0.lock().unwrap().clone();
             // 前端还没报告可点击区域时，整窗都接收鼠标
             let Some(regions) = regions else { continue };
-            let hit = match (app.cursor_position(), window.outer_position(), window.scale_factor()) {
-                (Ok(cursor), Ok(pos), Ok(scale)) => {
-                    let x = (cursor.x - pos.x as f64) / scale;
-                    let y = (cursor.y - pos.y as f64) / scale;
-                    regions.hit(x, y)
-                }
+            let geom = *app.state::<GeomState>().0.lock().unwrap();
+            // 每次只向主线程问一次光标位置；锁都在询问之前放掉
+            let hit = match (geom, app.cursor_position()) {
+                (Some(g), Ok(cursor)) => regions.hit((cursor.x - g.x) / g.scale, (cursor.y - g.y) / g.scale),
                 _ => true,
             };
             let ignore = !hit;
@@ -121,7 +139,22 @@ pub fn run() {
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_clipboard_manager::init())
         .manage(HitState::default())
+        .manage(GeomState::default())
         .invoke_handler(tauri::generate_handler![set_hit_regions, set_window_rect, quit_app])
+        .on_window_event(|window, event| {
+            if window.label() != MAIN_WINDOW {
+                return;
+            }
+            let app = window.app_handle();
+            match event {
+                WindowEvent::Moved(pos) => update_geom(app, |g| {
+                    g.x = pos.x as f64;
+                    g.y = pos.y as f64;
+                }),
+                WindowEvent::ScaleFactorChanged { scale_factor, .. } => update_geom(app, |g| g.scale = *scale_factor),
+                _ => {}
+            }
+        })
         .setup(|app| {
             // macOS 不在 Dock 显示（Windows 由窗口配置里的 skipTaskbar 处理）
             #[cfg(target_os = "macos")]
@@ -132,6 +165,9 @@ pub fn run() {
             if let Some(window) = app.get_webview_window(MAIN_WINDOW) {
                 let _ = window.set_always_on_top(false);
                 let _ = window.set_always_on_bottom(true);
+                if let (Ok(pos), Ok(scale)) = (window.outer_position(), window.scale_factor()) {
+                    *app.state::<GeomState>().0.lock().unwrap() = Some(Geom { x: pos.x as f64, y: pos.y as f64, scale });
+                }
             }
 
             spawn_click_through(app.handle().clone());

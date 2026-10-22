@@ -22,7 +22,7 @@ import { setLanguage, type Lang } from "../i18n";
 import { anniversaryTitle, fmtDate } from "../i18n/format";
 import { term, translate } from "../i18n/terms";
 import { useToday } from "../hooks/useToday";
-import { popupContextMenu, syncTray, type MenuModel } from "../platform/menu";
+import { isContextMenuOpen, popupContextMenu, syncTray, type MenuModel } from "../platform/menu";
 import { notify } from "../platform/notify";
 import { onOpenDetailRequest, onSayRequest, openView } from "../platform/windows";
 import { todaysLot } from "../settings/lotBook";
@@ -369,7 +369,8 @@ export function MainApp() {
     const onBlur = () => {
       clearTimeout(timer);
       timer = setTimeout(() => {
-        if (!document.hasFocus()) collapse();
+        // 右键菜单打开时窗口也会失焦，这时不收起（菜单里还有「收起日历」）
+        if (!document.hasFocus() && !isContextMenuOpen()) collapse();
       }, BLUR_DELAY);
     };
     window.addEventListener("blur", onBlur);

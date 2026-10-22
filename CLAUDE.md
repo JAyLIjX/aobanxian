@@ -155,10 +155,11 @@ JSON 结构：`id`、`writing`（`vertical` 竖排 / `horizontal` 横排）、`b
 - 拖动和点击：按下只记位置，移动超过 4px 才 `startDragging()`（之后这次松开不会回到网页），没动就在 pointerup 按落点当点击。
 - 焦点：窗口开了 `acceptFirstMouse`，点击时不会自动成为焦点窗口。主窗口 `onPointerDownCapture` 每次都调 `setFocus()`（不能用 `document.hasFocus()` 判断，网页可能误以为自己有焦点），这样才收得到 Esc 和失焦。失焦后等 150ms 再收起，避开原生下拉框等短暂失焦。
 - macOS 上用 System Events 查「前台应用」看不到本应用（Accessory 策略），这不代表没拿到焦点。
+- **右键菜单开着时不能调任何菜单接口**：Tauri 的 `popup` 命令在菜单打开期间一直占着这个网页的菜单资源表锁，这时再新建菜单项、换托盘菜单，会在主线程上死锁，整个程序卡死（v0.2.0 出过：展开日历时右键，150ms 后失焦收起 → 菜单文字变了 → 重建托盘菜单 → 卡死）。所以 `menu.ts` 里所有菜单操作排队、一次一件；文字和勾选没变就不重建；菜单开着时失焦不收起日历。
 
 ## 点穿
 
-`lib.rs` 里一个线程每 16ms 读光标位置（`AppHandle::cursor_position`），换算成窗口内逻辑坐标，判断是否落在前端报告的可点击区域（`set_hit_regions`：精灵图不透明格遮罩 + 卷轴、详情的矩形），不在就 `set_ignore_cursor_events(true)`，点击直接落到桌面或下面的窗口。只用跨平台接口。
+`lib.rs` 里一个线程每 16ms 读光标位置（`AppHandle::cursor_position`，每次只向主线程问这一样；窗口位置和缩放比例由窗口事件 `Moved` / `ScaleFactorChanged` 缓存），换算成窗口内逻辑坐标，判断是否落在前端报告的可点击区域（`set_hit_regions`：精灵图不透明格遮罩 + 卷轴、详情的矩形），不在就 `set_ignore_cursor_events(true)`，点击直接落到桌面或下面的窗口。只用跨平台接口。
 
 - 遮罩向上下各多算一格（呼吸浮动），再向四周扩一格：光标还没碰到道士时窗口就已经切回接收鼠标。macOS 在 `ignoresMouseEvents` 切换后要等下一次鼠标移动才把点击交给这个窗口，所以提前切换能避免「第一下点击被漏掉」。
 - 展开时幡的格不算（幡已经变成卷轴）。
