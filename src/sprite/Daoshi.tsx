@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent, type PointerEvent } from "react";
 import { startWindowDrag } from "../platform/window";
-import { dissolve, ensureBannerFonts, layoutBannerText, textGridFor, type BannerFont, type TextPixels } from "./bannerText";
+import { dissolve, ensureBannerFonts, planBannerText, renderBannerText, type BannerFont, type BannerMask } from "./bannerText";
 import { hitTest, renderSprite, sprite, type HitPart, type Outfit } from "./sprite";
 
 /** 幡上字的颜色：深墨 */
@@ -80,45 +80,56 @@ export function Daoshi(props: Props) {
     if (bodyRef.current) drawCells(bodyRef.current, body, sprite.width, sprite.height, unit);
   }, [body, unit]);
 
-  // 幡：底图 + 文字，文字变化时像素溶解
-  const grid = useMemo(() => textGridFor(face, unit), [face, unit]);
-  const shown = useRef<{ key: string; pixels: TextPixels } | null>(null);
+  // 幡：底图 + 文字。字号按幡面大小和字数自动选（见 bannerText.ts）；换字时像素溶解
+  const shown = useRef<{ text: string; style: string; mask: BannerMask } | null>(null);
   useEffect(() => {
     const canvas = bannerRef.current;
     if (!canvas) return;
     let cancelled = false;
     let raf = 0;
-    const key = `${bannerText}|${bannerFont}|${grid.w}x${grid.h}`;
+    // 字体或尺寸变了直接换；只是换字才溶解
+    const style = `${bannerFont}|${unit}`;
+    const faceW = face.w * unit;
+    const ox = (face.x - b.x) * unit;
+    const oy = (face.y - b.y) * unit;
 
-    const paint = (pixels: TextPixels) => {
+    const paint = (mask: BannerMask) => {
       drawCells(canvas, bannerPixels, b.w, b.h, unit);
       const ctx = canvas.getContext("2d")!;
       ctx.fillStyle = INK;
-      const g = unit / grid.cellsPerUnit;
-      const ox = (face.x - b.x) * unit;
-      const oy = (face.y - b.y) * unit;
-      for (let y = 0; y < grid.h; y++) {
-        for (let x = 0; x < grid.w; x++) if (pixels[y * grid.w + x]) ctx.fillRect(ox + x * g, oy + y * g, g, g);
+      // 按行合并连续的点，少调几次 fillRect
+      for (let y = 0; y < face.h * unit; y++) {
+        let x = 0;
+        while (x < faceW) {
+          if (!mask[y * faceW + x]) {
+            x++;
+            continue;
+          }
+          const start = x;
+          while (x < faceW && mask[y * faceW + x]) x++;
+          ctx.fillRect(ox + start, oy + y, x - start, 1);
+        }
       }
     };
 
     void ensureBannerFonts(bannerText, bannerFont).then(() => {
       if (cancelled) return;
-      const next = layoutBannerText(bannerText, bannerFont, grid);
+      const plan = planBannerText([...bannerText].length, bannerFont, face, unit);
+      const next = renderBannerText(bannerText, plan);
       const prev = shown.current;
-      // 尺寸或字体变了就直接换；只是换字才溶解过渡
-      if (!prev || prev.key.split("|").slice(1).join("|") !== key.split("|").slice(1).join("|") || prev.key === key) {
-        shown.current = { key, pixels: next };
+      if (!prev || prev.style !== style || prev.text === bannerText) {
+        shown.current = { text: bannerText, style, mask: next };
         paint(next);
         return;
       }
+      const block = Math.max(1, Math.round(unit / 2));
       const start = performance.now();
       const step = (now: number) => {
         if (cancelled) return;
         const p = Math.min(1, (now - start) / DISSOLVE_MS);
-        paint(dissolve(prev.pixels, next, p, grid));
+        paint(dissolve(prev.mask, next, p, faceW, block));
         if (p < 1) raf = requestAnimationFrame(step);
-        else shown.current = { key, pixels: next };
+        else shown.current = { text: bannerText, style, mask: next };
       };
       raf = requestAnimationFrame(step);
     });
@@ -126,7 +137,7 @@ export function Daoshi(props: Props) {
       cancelled = true;
       cancelAnimationFrame(raf);
     };
-  }, [bannerText, bannerFont, grid, bannerPixels, unit, b, face]);
+  }, [bannerText, bannerFont, bannerPixels, unit, b, face]);
 
   // 轻跳、晃幡：用 Web Animations 播放，按格跳变（steps），保持像素感；不重新挂载 canvas
   useEffect(() => {
