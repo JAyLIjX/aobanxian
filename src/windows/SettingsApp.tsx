@@ -2,14 +2,14 @@ import { disable as disableAutostart, enable as enableAutostart, isEnabled as au
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { open as openDialog, save as saveDialog } from "@tauri-apps/plugin-dialog";
 import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { setLanguage } from "../i18n";
 import { inTauri } from "../platform/window";
-import { MAX_BANNER_CHARS, MY_ZODIAC_OPTIONS, resetPage, sanitize, type Settings, type SettingsPage } from "../settings/settings";
+import { MAX_BANNER_CHARS, MY_ZODIAC_OPTIONS, resetPage, rulesWith, sanitize, type Settings, type SettingsPage } from "../settings/settings";
 import { ZODIAC, type Branch } from "../core/zodiac";
 import { term } from "../i18n/terms";
-import { CHARACTERS } from "../sprite/characters";
+import { CharacterPicker } from "../components/CharacterPicker";
 import type { Lang } from "../i18n";
 import { useSettings } from "../settings/useSettings";
 import { exportPayload, mergeImported, useAnniversaries } from "../settings/anniversaries";
@@ -57,6 +57,7 @@ export function SettingsApp() {
   const [bannerDraft, setBannerDraft] = useState(settings.bannerText);
   const anniv = useAnniversaries();
   const merit = useMerit();
+  const rules = useMemo(() => rulesWith(settings), [settings]);
   const [dataMsg, setDataMsg] = useState<string | null>(null);
 
   useEffect(() => setLanguage(settings.language), [settings.language]);
@@ -190,15 +191,13 @@ export function SettingsApp() {
 
         {page === "appearance" && (
           <>
-            <Row label={t("settings.character")} hint={t("settings.characterHint")}>
-              <select value={settings.character} onChange={(e) => set("character", sanitize("character", e.target.value) ?? "daoshi")}>
-                {CHARACTERS.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.name[lang]}
-                  </option>
-                ))}
-              </select>
-            </Row>
+            <div className="set-block">
+              <div className="set-row__text">
+                <div className="set-row__label">{t("settings.character")}</div>
+                <div className="set-row__hint">{t("settings.characterHint")}</div>
+              </div>
+              <CharacterPicker value={settings.character} rules={rules} lang={lang} onChange={(id) => set("character", sanitize("character", id) ?? "daoshi")} />
+            </div>
             <p className="set-merit">{t("settings.meritTotal", { n: merit })}</p>
             <Row label={t("settings.displayFont")} hint={t("settings.displayFontHint")}>
               <Segmented value={settings.displayFont} options={opts(["A", "B"] as const, "settings.displayFontOptions")} onChange={(v) => set("displayFont", v)} />

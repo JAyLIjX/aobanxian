@@ -16,7 +16,7 @@ import { BANNER_RESET_MS, buildBannerItems, nextBannerIndex, type BannerItem } f
 import { createBubble } from "../core/bubble";
 import { ymdKey, type Ymd } from "../core/dayBoundary";
 import type { Element } from "../core/elements";
-import { placeOverWriting, placePanel, toLocal, union, windowRect, type Chrome, type Rect } from "../core/layout";
+import { anchorAfterSwitch, placeOverWriting, placePanel, toLocal, union, windowRect, type Chrome, type Rect } from "../core/layout";
 import { openingFor, specialBannerText } from "../core/opening";
 import { personalRelation, ZODIAC, zodiacRelations, type Branch } from "../core/zodiac";
 import { setLanguage, type Lang } from "../i18n";
@@ -427,6 +427,21 @@ export function MainApp() {
       window.removeEventListener("blur", onBlur);
     };
   }, [settings.collapseOnBlur, collapse]);
+
+  // ── 换角色：脚底中点不动，换完站在原地 ──
+  const prevSprite = useRef(sprite);
+  useEffect(() => {
+    const prev = prevSprite.current;
+    prevSprite.current = sprite;
+    if (prev === sprite) return;
+    setAnchor((a) => {
+      if (!a) return a;
+      const next = anchorAfterSwitch(a, prev, sprite, cell);
+      void setState("anchor", next);
+      return next;
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sprite]);
 
   // ── 道士位置：读取 / 拖动后保存 ──
   useEffect(() => {

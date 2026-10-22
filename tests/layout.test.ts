@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { placePanel, toLocal, windowRect, type Rect, placeOverWriting } from "../src/core/layout";
+import { anchorAfterSwitch, placeOverWriting, placePanel, toLocal, windowRect, type Rect } from "../src/core/layout";
 
 const work: Rect = { x: 0, y: 25, w: 1512, h: 920 };
 const spriteSize = { w: 158, h: 230 };
@@ -92,5 +92,20 @@ describe("告示原地展开成卡片", () => {
       expect(p.rect.x + p.rect.w).toBeLessThanOrEqual(work.x + work.w - 8);
       expect(p.rect.x <= w.x && p.rect.y <= w.y && p.rect.y + p.rect.h >= w.y + w.h).toBe(true);
     }
+  });
+});
+
+describe("换角色时站在原地", () => {
+  it("脚底中点不动", () => {
+    const a = { x: 1000, y: 300 };
+    const from = { width: 79, height: 115 };
+    const to = { width: 58, height: 109 };
+    for (const cell of [1, 2, 3]) {
+      const b = anchorAfterSwitch(a, from, to, cell);
+      // 取整到像素，最多差半个像素
+      expect(Math.abs(b.x + (to.width * cell) / 2 - (a.x + (from.width * cell) / 2))).toBeLessThanOrEqual(0.5);
+      expect(b.y + to.height * cell).toBe(a.y + from.height * cell);
+    }
+    expect(anchorAfterSwitch(a, from, from, 2)).toEqual(a);
   });
 });

@@ -101,3 +101,19 @@ export function placeOverWriting(opts: { work: Rect; writing: Rect; panel: Size;
   const y = Math.round(maxY < minY ? minY : clamp(writing.y, minY, maxY));
   return { rect: { x, y, w: panel.w, h: panel.h }, direction: "down" };
 }
+
+/**
+ * 换角色时道士的位置（anchor 是精灵图左上角）怎么跟着变：保持「脚底中点」不动，
+ * 四个角色高矮胖瘦不同，换完站在原地，不会上下跳。
+ */
+export function anchorAfterSwitch(
+  anchor: { x: number; y: number },
+  from: { width: number; height: number },
+  to: { width: number; height: number },
+  cell: number,
+): { x: number; y: number } {
+  return {
+    x: Math.round(anchor.x + ((from.width - to.width) / 2) * cell),
+    y: Math.round(anchor.y + (from.height - to.height) * cell),
+  };
+}

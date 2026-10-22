@@ -1431,3 +1431,46 @@ select {
   font-size: 12px;
   color: var(--ink-2);
 }
+.set-block {
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.picker {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+.picker__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 4px 6px;
+  border: 2px solid var(--line);
+  border-radius: 2px;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  color: var(--ink-2);
+}
+.picker__item:hover {
+  background: var(--ink-wash);
+}
+.picker__item.is-on {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+  background: var(--cinnabar-wash);
+}
+.picker__stage {
+  height: 122px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.picker__thumb {
+  image-rendering: pixelated;
+}
+.picker__name {
+  font-size: 13px;
+}

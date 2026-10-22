@@ -45,6 +45,9 @@ export interface CharacterDef extends CharacterMeta {
 const sprites = import.meta.glob<{ default: SpriteData }>("../assets/sprite/*.json", { eager: true });
 const metas = import.meta.glob<{ default: CharacterMeta }>("../../assets/character/*/character.json", { eager: true });
 
+const ORDER = ["daoshi", "shusheng", "guanyuan", "heshang"];
+const rank = (id: string) => (ORDER.includes(id) ? ORDER.indexOf(id) : ORDER.length);
+
 export const CHARACTERS: CharacterDef[] = Object.values(metas)
   .map(({ default: meta }) => {
     const data = Object.values(sprites).find((m) => m.default.id === meta.id)?.default;
@@ -52,8 +55,8 @@ export const CHARACTERS: CharacterDef[] = Object.values(metas)
     return data ? { ...meta, unroll, data } : null;
   })
   .filter((c): c is CharacterDef => !!c)
-  // 道士永远排第一（默认角色）
-  .sort((a, b) => (a.id === "daoshi" ? -1 : b.id === "daoshi" ? 1 : a.id.localeCompare(b.id)));
+  // 道士永远排第一（默认角色），然后书生、青天大老爷、小和尚；以后加的按 id 排在后面
+  .sort((a, b) => rank(a.id) - rank(b.id) || a.id.localeCompare(b.id));
 
 export const DEFAULT_CHARACTER = "daoshi";
 export const CHARACTER_IDS = CHARACTERS.map((c) => c.id);

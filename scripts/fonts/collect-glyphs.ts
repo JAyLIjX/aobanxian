@@ -48,6 +48,7 @@ function walk(dir: string, exts: string[], sets: Set<string>[]) {
 }
 walk(join(ROOT, "src"), [".ts", ".tsx", ".css"], [body]);
 walk(join(ROOT, "src", "data"), [".json"], [body]); // 签诗、周易原文
+walk(join(ROOT, "assets", "character"), [".json"], [body]); // 各角色的名字、口吻
 walk(join(ROOT, "rules"), [".json"], [body]);
 walk(join(ROOT, "config"), [".json"], [body]);
 walk(join(ROOT, "locales"), [".json"], [body]);

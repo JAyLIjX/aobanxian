@@ -155,8 +155,8 @@
       "pixel": "Pixel font",
       "brush": "Pixelated brush script"
     },
-    "bannerText": "Default banner text",
-    "bannerTextHint": "Up to 4 Chinese characters, written vertically",
+    "bannerText": "Default text",
+    "bannerTextHint": "Up to 4 characters, written on the banner, fan, notice or placard",
     "elementSource": "Element of the day",
     "elementSourceOptions": {
       "branch": "Day Branch (Recommended default)",

@@ -155,8 +155,8 @@
       "pixel": "像素字体",
       "brush": "像素化行书"
     },
-    "bannerText": "幡上平时显示的文字",
-    "bannerTextHint": "最多 4 个字，竖排印在幡上",
+    "bannerText": "平时写的字",
+    "bannerTextHint": "最多 4 个字，写在幡、扇面、告示或木牌上",
     "elementSource": "当日五行取法",
     "elementSourceOptions": {
       "branch": "日支（默认推荐取法）",

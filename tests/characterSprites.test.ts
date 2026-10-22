@@ -23,8 +23,8 @@ function isKeyColor(r: number, g: number, b: number) {
 }
 
 describe("四个角色", () => {
-  it("书生、青天大老爷、小和尚都在清单里，道士排第一", () => {
-    expect(CHARACTERS.map((c) => c.id)).toEqual(["daoshi", "guanyuan", "heshang", "shusheng"]);
+  it("顺序：道士、书生、青天大老爷、小和尚", () => {
+    expect(CHARACTERS.map((c) => c.id)).toEqual(["daoshi", "shusheng", "guanyuan", "heshang"]);
     expect(getCharacter("shusheng").data.writing).toBe("horizontal");
     expect(getCharacter("guanyuan").data.writing).toBe("horizontal");
     expect(getCharacter("heshang").data.writing).toBe("vertical");
