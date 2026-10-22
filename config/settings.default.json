@@ -1,0 +1,14 @@
+{
+  "$comment": "应用设置的默认值。用户在设置窗口里改过的项存在应用数据目录的 settings.json（tauri-plugin-store），只覆盖改过的项。当日五行取法、主色、换日时间的默认值来自 rules/default.json，幡上文字的默认值来自 config/branding.json。",
+  "autostart": false,
+  "onTop": false,
+  "size": "medium",
+  "language": "system",
+  "expandOnLaunch": false,
+  "collapseOnBlur": true,
+  "displayFont": "A",
+  "bannerFont": "pixel",
+  "openingEnabled": true,
+  "effectsEnabled": true,
+  "bubbleSeconds": 5
+}
