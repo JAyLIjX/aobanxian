@@ -21,12 +21,15 @@ const PILLAR_OF: Record<Element, DayPillar> = {
   水: { nayin: "涧下水", stem: "丙", branch: "子" },
 };
 
+/** 这些用例的日柱是按纳音挑的，所以用纳音取法 */
+const nayinRules = withRules({ elementSource: "nayin" });
+
 describe("旺相休囚死分档", () => {
   for (const d of ELEMENTS) {
     it(`${d}日`, () => {
       expect(phasesOf(d)).toEqual(EXPECTED[d]);
 
-      const outfit = buildOutfit(PILLAR_OF[d], defaultRules);
+      const outfit = buildOutfit(PILLAR_OF[d], nayinRules);
       const e = EXPECTED[d];
       const byKey = Object.fromEntries(outfit.tiers.map((t) => [t.key, t]));
 
@@ -49,14 +52,14 @@ describe("旺相休囚死分档", () => {
     });
   }
 
-  it("木日：红、绿皆为大吉，解释句同时说两个", () => {
-    const outfit = buildOutfit(PILLAR_OF.木, defaultRules);
+  it("木日：红、绿皆为大吉，解释句同时说两个（同气在前，所生在后）", () => {
+    const outfit = buildOutfit(PILLAR_OF.木, nayinRules);
     expect(outfit.tiers[0].entries.map((e) => defaultRules.colorFamilies[e.element].name)).toEqual(["红色系", "绿色系"]);
-    expect(outfit.explanation).toBe("今日松柏木：木为同气，木生火，红、绿皆为大吉");
+    expect(outfit.explanation).toBe("今日松柏木：木为同气，木生火，绿、红皆为大吉");
   });
 
   it("每档带上完整色系", () => {
-    const outfit = buildOutfit(PILLAR_OF.木, defaultRules);
+    const outfit = buildOutfit(PILLAR_OF.木, nayinRules);
     const neutral = outfit.tiers.find((t) => t.key === "neutral")!;
     expect(neutral.entries[0].colors.map((c) => c.name)).toEqual(["黑", "蓝", "藏青", "灰"]);
   });
@@ -81,15 +84,15 @@ describe("elementSource 三种取法", () => {
     expect(stem.day.element).toBe("金");
     expect(stem.primary.element).toBe("水");
     expect(stem.accent.element).toBe("金");
-    expect(stem.explanation).toBe("今日庚金：金为同气，金生水，蓝、白皆为大吉");
+    expect(stem.explanation).toBe("今日庚金：金为同气，金生水，白、蓝皆为大吉");
   });
 });
 
 describe("topPriority 切换", () => {
   for (const d of ELEMENTS) {
     it(`${d}日 wang 优先时主色与点缀色互换`, () => {
-      const xiang = buildOutfit(PILLAR_OF[d], defaultRules);
-      const wang = buildOutfit(PILLAR_OF[d], withRules({ topPriority: "wang" }));
+      const xiang = buildOutfit(PILLAR_OF[d], nayinRules);
+      const wang = buildOutfit(PILLAR_OF[d], withRules({ topPriority: "wang", elementSource: "nayin" }));
 
       expect(wang.primary.element).toBe(EXPECTED[d].wang);
       expect(wang.accent.element).toBe(EXPECTED[d].xiang);

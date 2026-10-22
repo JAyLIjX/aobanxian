@@ -89,6 +89,14 @@ describe("两个大吉色平等", () => {
     for (const s of texts(defaultRules)) expect(s).not.toMatch(/道袍|腰带|穿.{1,4}配/);
   });
 
+  it("界面上不出现取法（按日支、按纳音……），取法只在设置里出现", () => {
+    for (const loc of [zhCN, zhTW, en]) {
+      const { settings, ...rest } = loc as Record<string, unknown> & { settings: unknown };
+      void settings;
+      for (const s of texts(rest)) expect(s).not.toMatch(/按(日支|日干|纳音|納音)|by (day )?(branch|stem)|by nayin/i);
+    }
+  });
+
   it("英文：大吉写成 Lucky colors，色系写成 … family", () => {
     expect(en.card.lucky).toBe("Lucky colors:");
     expect(term("colorFamily", "红色系", "en")).toBe("红色系 · red family");

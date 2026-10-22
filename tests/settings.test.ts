@@ -11,11 +11,11 @@ import {
 } from "../src/settings/settings";
 
 describe("设置", () => {
-  it("默认值：中号、跟随系统语言、纳音 / 相 / 午夜、幡上「奥半仙」", () => {
+  it("默认值：中号、跟随系统语言、日支 / 相 / 午夜、幡上「奥半仙」", () => {
     expect(DEFAULT_SETTINGS).toMatchObject({
       size: "medium",
       language: "system",
-      elementSource: "nayin",
+      elementSource: "branch",
       topPriority: "xiang",
       dayBoundary: "midnight",
       bannerText: "奥半仙",
@@ -43,7 +43,7 @@ describe("设置", () => {
       displayFont: "B",
       bannerFont: "brush",
       bannerText: "宜静",
-      elementSource: "branch",
+      elementSource: "stem",
       topPriority: "wang",
       dayBoundary: "zi",
       openingEnabled: false,
@@ -53,6 +53,12 @@ describe("设置", () => {
     expect(Object.keys(alt).sort()).toEqual(Object.keys(DEFAULT_SETTINGS).sort());
     const merged = mergeSettings(alt);
     expect(merged).toEqual({ ...DEFAULT_SETTINGS, ...alt });
+  });
+
+  it("没手动改过取法的用户跟着用新默认值（日支）", () => {
+    // 只存改过的项，所以没改过取法的用户存盘里没有 elementSource
+    expect(mergeSettings({ size: "large" }).elementSource).toBe("branch");
+    expect(mergeSettings({ elementSource: "nayin" }).elementSource).toBe("nayin");
   });
 
   it("非法值用默认值", () => {

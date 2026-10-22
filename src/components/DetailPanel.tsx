@@ -84,12 +84,11 @@ export function DetailPanel({ ymd, rules, onChange, onClose }: Props) {
             ))}
           </p>
           <p>{ganzhiLine(d, lang, t)}</p>
+          {/* 只写结果，不写取法；纳音作为黄历信息另起一行，不参与配色 */}
           <p className="detail__element">
-            {t("detail.element")}：<b>{term("nayin", d.pillar.nayin, lang)}</b>
-            {outfit.day.source !== "nayin" && (
-              <span className="muted">{t("detail.sourceNote", { source: t(`source.${outfit.day.source}`), label: dayLabel(outfit, lang) })}</span>
-            )}
+            {t("detail.element")}：<b>{dayLabel(outfit, lang)}</b>
           </p>
+          <p>{t("detail.nayin", { nayin: term("nayin", d.pillar.nayin, lang) })}</p>
         </div>
         <button type="button" className="icon-btn" onClick={() => onChange(addDays(ymd, 1))} aria-label={t("detail.nextDay")}>
           ›

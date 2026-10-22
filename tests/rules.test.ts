@@ -6,7 +6,7 @@ import { effectiveDate } from "../src/core/dayBoundary";
 
 describe("rules/default.json", () => {
   it("能通过校验，默认值符合需求", () => {
-    expect(defaultRules.elementSource).toBe("nayin");
+    expect(defaultRules.elementSource).toBe("branch");
     expect(defaultRules.topPriority).toBe("xiang");
     expect(defaultRules.dayBoundary).toBe("midnight");
     expect(defaultRules.tierLabels).toEqual({ best: "大吉", neutral: "平", caution: "慎穿", avoid: "不宜" });

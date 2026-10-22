@@ -42,7 +42,7 @@
     "nextDay": "Next day",
     "close": "Close",
     "element": "Element of the day",
-    "sourceNote": " (by {{source}}: {{label}})",
+    "nayin": "Nayin: {{nayin}}",
     "sectionOutfit": "What to wear",
     "family": "{{family}} ({{element}})",
     "sectionYiji": "宜忌 · Do's and don'ts",
@@ -58,11 +58,6 @@
     "xiu": "Lunar mansion",
     "tianShen": "{{type}} · {{shen}}",
     "foot": "Folk tradition, just for fun"
-  },
-  "source": {
-    "nayin": "Nayin",
-    "stem": "day stem",
-    "branch": "day branch"
   },
   "phase": {
     "wang": "旺 Prosperous",
@@ -153,14 +148,14 @@
     "bannerTextHint": "Up to 4 Chinese characters, written vertically",
     "elementSource": "Element of the day",
     "elementSourceOptions": {
-      "nayin": "纳音 Nayin",
-      "stem": "日干 Day stem",
-      "branch": "日支 Day branch"
+      "branch": "Day Branch (Recommended default)",
+      "nayin": "Nayin",
+      "stem": "Day Stem"
     },
     "elementSourceHints": {
-      "nayin": "Nayin: the element printed in traditional almanacs, e.g. 大林木 Great Forest Wood",
-      "stem": "Day stem: the element of the day's heavenly stem, e.g. 庚 Geng is Metal",
-      "branch": "Day branch: the element of the day's earthly branch, e.g. 子 Zi is Water"
+      "branch": "Day Branch: the element of the day's earthly branch, e.g. 巳 Si is Fire",
+      "nayin": "Nayin: the element printed in traditional almanacs, e.g. 大林木 Great Forest Wood is Wood",
+      "stem": "Day Stem: the element of the day's heavenly stem, e.g. 己 Ji is Earth"
     },
     "topPriority": "Figure colours",
     "topPriorityOptions": {
@@ -204,7 +199,7 @@
       "caution": "Careful",
       "avoid": "Avoid"
     },
-    "explanation": "Today is {{label}}: {{wang}} shares the day's energy and gives birth to {{xiang}}, so the {{xiangFamily}} and {{wangFamily}} are both lucky",
+    "explanation": "Today is {{label}}: {{wang}} shares the day's energy and gives birth to {{xiang}}, so the {{wangFamily}} and {{xiangFamily}} are both lucky",
     "xiuLuck": {
       "吉": "Favourable",
       "凶": "Take care"

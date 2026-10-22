@@ -42,7 +42,7 @@
     "nextDay": "後一天",
     "close": "關閉",
     "element": "當日五行",
-    "sourceNote": "（按{{source}}取 {{label}}）",
+    "nayin": "納音：{{nayin}}",
     "sectionOutfit": "穿衣",
     "family": "{{family}}（{{element}}）",
     "sectionYiji": "宜忌",
@@ -58,11 +58,6 @@
     "xiu": "值日星宿",
     "tianShen": "{{type}} · {{shen}}",
     "foot": "傳統民俗趣味參考，圖個好心情"
-  },
-  "source": {
-    "nayin": "納音",
-    "stem": "日干",
-    "branch": "日支"
   },
   "phase": {
     "wang": "旺",
@@ -153,14 +148,14 @@
     "bannerTextHint": "最多 4 個字，豎排印在幡上",
     "elementSource": "當日五行取法",
     "elementSourceOptions": {
+      "branch": "日支（預設推薦取法）",
       "nayin": "納音",
-      "stem": "日干",
-      "branch": "日支"
+      "stem": "日干"
     },
     "elementSourceHints": {
-      "nayin": "納音：農民曆上寫的五行，如大林木",
-      "stem": "日干：取當天天干的五行，如庚日屬金",
-      "branch": "日支：取當天地支的五行，如子日屬水"
+      "branch": "日支：看當天地支的五行，如巳日屬火",
+      "nayin": "納音：農民曆上寫的五行，如大林木屬木",
+      "stem": "日干：看當天天干的五行，如己日屬土"
     },
     "topPriority": "小人身上的配色",
     "topPriorityOptions": {
@@ -204,7 +199,7 @@
       "caution": "慎穿",
       "avoid": "不宜"
     },
-    "explanation": "今日{{label}}：{{wang}}為同氣，{{wang}}生{{xiang}}，{{xiangChar}}、{{wangChar}}皆為大吉",
+    "explanation": "今日{{label}}：{{wang}}為同氣，{{wang}}生{{xiang}}，{{wangChar}}、{{xiangChar}}皆為大吉",
     "xiuLuck": {
       "吉": "吉",
       "凶": "宜謹慎"

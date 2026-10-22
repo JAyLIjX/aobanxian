@@ -153,7 +153,7 @@ export function SettingsApp() {
         {page === "rules" && (
           <>
             <Row label={t("settings.elementSource")} hint={t(`settings.elementSourceHints.${settings.elementSource}`)}>
-              <Segmented value={settings.elementSource} options={opts(["nayin", "stem", "branch"] as const, "settings.elementSourceOptions")} onChange={(v) => set("elementSource", v)} />
+              <Segmented value={settings.elementSource} options={opts(["branch", "nayin", "stem"] as const, "settings.elementSourceOptions")} onChange={(v) => set("elementSource", v)} />
             </Row>
             <Row label={t("settings.topPriority")} hint={t(`settings.topPriorityHints.${settings.topPriority}`)}>
               <Segmented value={settings.topPriority} options={opts(["xiang", "wang"] as const, "settings.topPriorityOptions")} onChange={(v) => set("topPriority", v)} />

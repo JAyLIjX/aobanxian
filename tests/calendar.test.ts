@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { LunarUtil, Solar } from "lunar-javascript";
 import { getDayDetail, getDayInfo, getMonthGrid } from "../src/calendar/day";
 import { BRANCH_ELEMENT, STEM_ELEMENT, nayinElement } from "../src/core/elements";
-import { defaultRules } from "../src/core/rules";
+import { defaultRules, withRules } from "../src/core/rules";
 import { dayElement } from "../src/core/wuxing";
 
 const raw = (y: number, m: number, d: number) => Solar.fromYmd(y, m, d).getLunar();
@@ -36,7 +36,9 @@ describe("与 lunar-javascript 原始输出逐项核对", () => {
       expect(detail.zodiac.sha).toBe(l.getDaySha());
       expect(detail.xiu.fullName).toBe(l.getXiu() + l.getZheng() + l.getAnimal());
       expect(detail.lunar.dayName).toBe(l.getDayInChinese());
-      expect(detail.outfit.day.element).toBe(l.getDayNaYin().slice(-1));
+      // 默认按日支取当日五行
+      expect(detail.outfit.day.element).toBe(LunarUtil.WU_XING_ZHI[l.getDayZhi()]);
+      expect(detail.outfit.day.label).toBe(l.getDayZhi() + LunarUtil.WU_XING_ZHI[l.getDayZhi()]);
     });
   }
 });
@@ -73,13 +75,39 @@ describe("已知日期的锚点", () => {
     expect(info.cell).toEqual({ text: "闰六月", kind: "month" });
   });
 
-  it("2026-10-21 戊辰日，大林木：红、绿皆为大吉", () => {
-    const detail = getDayDetail({ year: 2026, month: 10, day: 21 }, defaultRules);
+  it("纳音取法：2026-10-21 戊辰日，大林木：绿、红皆为大吉", () => {
+    const detail = getDayDetail({ year: 2026, month: 10, day: 21 }, withRules({ elementSource: "nayin" }));
     expect(detail.ganzhi).toEqual({ year: "丙午", month: "戊戌", day: "戊辰" });
     expect(detail.lunar.text).toBe("农历九月十二");
     expect(detail.outfit.primary.name).toBe("红");
     expect(detail.outfit.accent.name).toBe("绿");
-    expect(detail.outfit.explanation).toBe("今日大林木：木为同气，木生火，红、绿皆为大吉");
+    expect(detail.outfit.explanation).toBe("今日大林木：木为同气，木生火，绿、红皆为大吉");
+  });
+});
+
+describe("日支取法（默认）下的大吉色回归", () => {
+  const CASES: [string, string, string, [string, string]][] = [
+    ["2026-10-22", "己巳", "巳火", ["红", "黄"]],
+    ["2026-10-23", "庚午", "午火", ["红", "黄"]],
+    ["2026-10-24", "辛未", "未土", ["黄", "白"]],
+    ["2026-10-25", "壬申", "申金", ["白", "蓝"]],
+    ["2026-10-26", "癸酉", "酉金", ["白", "蓝"]],
+  ];
+  for (const [date, gz, label, colors] of CASES) {
+    it(`${date} ${gz} → ${label}，${colors.join("、")}`, () => {
+      const [year, month, day] = date.split("-").map(Number);
+      const d = getDayDetail({ year, month, day }, defaultRules);
+      expect(d.ganzhi.day).toBe(gz);
+      expect(d.outfit.day.label).toBe(label);
+      // 大吉两个色系（同气、所生），黑蓝色系的幡上单字是「蓝」
+      const lucky = [d.outfit.phases.wang, d.outfit.phases.xiang].map((e) => defaultRules.colorFamilies[e].char);
+      expect(lucky).toEqual(colors);
+      expect(d.outfit.tiers[0].entries.map((e) => e.element).sort()).toEqual([d.outfit.phases.wang, d.outfit.phases.xiang].sort());
+    });
+  }
+
+  it("解释句：今日巳火：火为同气，火生土，红、黄皆为大吉", () => {
+    expect(getDayDetail({ year: 2026, month: 10, day: 22 }, defaultRules).outfit.explanation).toBe("今日巳火：火为同气，火生土，红、黄皆为大吉");
   });
 });
 
