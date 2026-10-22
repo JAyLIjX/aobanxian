@@ -21,6 +21,16 @@ export interface ColorSwatch {
   traditional?: string;
 }
 
+/** 像素道士换色用的一档颜色 */
+export interface RampLevel {
+  level: string;
+  traditional?: string;
+  hex: string;
+}
+
+/** 暗 / 中 / 亮 三档 */
+export type PixelRamp = [RampLevel, RampLevel, RampLevel];
+
 export interface Rules {
   name: string;
   elementSource: ElementSource;
@@ -29,6 +39,8 @@ export interface Rules {
   tierLabels: Record<TierKey, string>;
   /** 每个五行的色系；列表第一个颜色是该五行的代表色，小人穿的就是它 */
   palettes: Record<Element, ColorSwatch[]>;
+  /** 每个五行的像素色阶（暗、中、亮），道袍、腰带按深浅档替换成这三个颜色 */
+  pixelRamps: Record<Element, PixelRamp>;
   /** 解释句模板，按 topPriority 选用 */
   explanation: Record<TopPriority, string>;
   /** 星宿吉凶的显示文字（界面不出现「凶」字） */
@@ -85,6 +97,21 @@ export function parseRules(input: unknown): Rules {
     });
   }
 
+  if (!isRecord(r.pixelRamps)) fail("缺少 pixelRamps");
+  const pixelRamps = {} as Record<Element, PixelRamp>;
+  for (const e of ELEMENTS) {
+    const list = r.pixelRamps[e];
+    if (!Array.isArray(list) || list.length !== 3) fail(`pixelRamps.${e} 应为暗、中、亮三档`);
+    pixelRamps[e] = list.map((c, i) => {
+      if (!isRecord(c) || typeof c.hex !== "string" || !/^#[0-9a-fA-F]{6}$/.test(c.hex)) {
+        fail(`pixelRamps.${e}[${i}].hex 应为 #RRGGBB`);
+      }
+      const level: RampLevel = { level: typeof c.level === "string" ? c.level : String(i), hex: c.hex };
+      if (typeof c.traditional === "string") level.traditional = c.traditional;
+      return level;
+    }) as PixelRamp;
+  }
+
   if (!isRecord(r.explanation)) fail("缺少 explanation");
   const explanation = {} as Record<TopPriority, string>;
   for (const k of ["xiang", "wang"] as const) {
@@ -115,6 +142,7 @@ export function parseRules(input: unknown): Rules {
     dayBoundary,
     tierLabels,
     palettes,
+    pixelRamps,
     explanation,
     xiuLuckLabels,
     tips,

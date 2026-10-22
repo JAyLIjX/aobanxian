@@ -1,5 +1,5 @@
 {
-  "$comment": "五行小历默认规则（流派：纳音取五行 + 旺相为吉）。色值取自常见的中国传统色名，traditional 是对应的传统色名。各字段含义见 README「规则配置」一节。",
+  "$comment": "奥半仙默认规则（流派：纳音取五行 + 旺相为吉）。色值取自常见的中国传统色名，traditional 是对应的传统色名；pixelRamps 是像素道士换色用的 暗 / 中 / 亮 三档色阶。各字段含义见 README「规则配置」一节。",
   "name": "默认流派",
   "elementSource": "nayin",
   "topPriority": "xiang",
@@ -42,6 +42,33 @@
       { "name": "蓝", "traditional": "靛蓝", "hex": "#065279" },
       { "name": "藏青", "traditional": "藏青", "hex": "#2E4E7E" },
       { "name": "灰", "traditional": "苍色", "hex": "#75878A" }
+    ]
+  },
+  "pixelRamps": {
+    "木": [
+      { "level": "暗", "traditional": "松花绿", "hex": "#057748" },
+      { "level": "中", "traditional": "松柏绿", "hex": "#21A675" },
+      { "level": "亮", "traditional": "青碧", "hex": "#48C0A3" }
+    ],
+    "火": [
+      { "level": "暗", "traditional": "胭脂", "hex": "#9D2933" },
+      { "level": "中", "traditional": "银朱", "hex": "#BF242A" },
+      { "level": "亮", "traditional": "绯红（提亮）", "hex": "#DA443B" }
+    ],
+    "土": [
+      { "level": "暗", "traditional": "秋色", "hex": "#896C39" },
+      { "level": "中", "traditional": "缃色", "hex": "#F0C239" },
+      { "level": "亮", "traditional": "姜黄", "hex": "#FFC773" }
+    ],
+    "金": [
+      { "level": "暗", "traditional": "暖灰（缟色加深）", "hex": "#B5AC9A" },
+      { "level": "中", "traditional": "缟", "hex": "#E8E0CC" },
+      { "level": "亮", "traditional": "象牙白", "hex": "#FFFBF0" }
+    ],
+    "水": [
+      { "level": "暗", "traditional": "玄青", "hex": "#1F2A44" },
+      { "level": "中", "traditional": "藏青", "hex": "#2E4E7E" },
+      { "level": "亮", "traditional": "群青", "hex": "#4C8DAE" }
     ]
   },
   "explanation": {
