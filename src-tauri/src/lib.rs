@@ -10,7 +10,7 @@ use tauri_plugin_autostart::MacosLauncher;
 
 const MAIN_WINDOW: &str = "main";
 /// 点穿检测的轮询间隔
-const HIT_POLL: Duration = Duration::from_millis(30);
+const HIT_POLL: Duration = Duration::from_millis(16);
 
 /// 精灵图的不透明格（窗口内逻辑像素坐标）。rows 每行一个字符串，'1' 表示该格不透明
 #[derive(Deserialize, Clone)]

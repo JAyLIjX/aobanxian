@@ -337,8 +337,18 @@ export function MainApp() {
     if (!anchor || !loaded) return;
     let cancelled = false;
     void (async () => {
-      const spriteRect = { x: anchor.x, y: anchor.y, w: spriteW, h: spriteH };
       const work = await workAreaAt(anchor.x + spriteW / 2, anchor.y + spriteH / 2);
+      // 换了尺寸或屏幕后道士可能跑出屏幕，先拉回来（之后道士就不动了）
+      const clamped = {
+        x: Math.round(Math.min(Math.max(anchor.x, work.x), work.x + work.w - spriteW)),
+        y: Math.round(Math.min(Math.max(anchor.y, work.y), work.y + work.h - spriteH)),
+      };
+      if (clamped.x !== anchor.x || clamped.y !== anchor.y) {
+        setAnchor(clamped);
+        void setState("anchor", clamped);
+        return;
+      }
+      const spriteRect = { x: anchor.x, y: anchor.y, w: spriteW, h: spriteH };
       const bannerCenterX = anchor.x + (sprite.banner.x + sprite.banner.w / 2) * cell;
       const place = (size: { w: number; h: number }) =>
         placePanel({ work, sprite: spriteRect, bannerCenterX, panel: size, gap: GAP, margin: SCREEN_MARGIN });
@@ -386,9 +396,12 @@ export function MainApp() {
     for (let y = 0; y <= sprite.height; y++) {
       let row = "";
       for (let x = 0; x < sprite.width; x++) {
-        // 呼吸时会上下浮动一格，向下多算一格
-        const opaque = opaqueAt(x, y) || opaqueAt(x, y - 1);
-        // 第 y 行对应道士的第 y-1 行（正常位置）或第 y 行（上浮一格时）
+        // 呼吸时会上下浮动一格，向下多算一格；再向四周多扩一格，
+        // 让光标还没碰到道士时窗口就已经切回接收鼠标，第一下点击不会被漏掉
+        let opaque = false;
+        for (let dy = -2; dy <= 1 && !opaque; dy++) {
+          for (let dx = -1; dx <= 1 && !opaque; dx++) opaque = opaqueAt(x + dx, y + dy);
+        }
         row += opaque ? "1" : "0";
       }
       rows.push(row);

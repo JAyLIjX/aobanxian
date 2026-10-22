@@ -16,10 +16,21 @@ function msUntilNextBoundary(now: Date, boundary: DayBoundary): number {
  * 当前「历日」。午夜（或子时）自动切到新的一天；
  * 电脑睡眠唤醒、窗口重新可见或获得焦点时也会立即重新判断。
  */
+/**
+ * 开发时可以用环境变量把「今天」固定成某一天，方便看特殊日子的效果：
+ *   VITE_FAKE_TODAY=2026-10-01 npm run tauri dev
+ */
+const FAKE_TODAY: Ymd | null = (() => {
+  const raw = import.meta.env.DEV ? (import.meta.env.VITE_FAKE_TODAY as string | undefined) : undefined;
+  const m = raw?.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  return m ? { year: +m[1], month: +m[2], day: +m[3] } : null;
+})();
+
 export function useToday(boundary: DayBoundary): Ymd {
-  const [today, setToday] = useState(() => effectiveDate(new Date(), boundary));
+  const [today, setToday] = useState(() => FAKE_TODAY ?? effectiveDate(new Date(), boundary));
 
   useEffect(() => {
+    if (FAKE_TODAY) return;
     let timeout: ReturnType<typeof setTimeout> | undefined;
 
     const check = () => {
