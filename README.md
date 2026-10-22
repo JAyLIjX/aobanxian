@@ -47,7 +47,7 @@
 
 ## 安装
 
-到 [Releases](https://github.com/KhalilLiJX/aobanxian/releases) 下载：
+到本仓库的 [Releases](../../releases) 下载：
 
 - macOS：`AoBanxian_x.y.z_universal.dmg`（Intel 和 Apple 芯片通用）
 - Windows：`AoBanxian_x.y.z_x64-setup.exe`（推荐）或 `AoBanxian_x.y.z_x64.msi`
@@ -168,8 +168,8 @@ npm run tauri dev
 都在配置里，fork 后可以改成自己的：
 
 - `config/branding.json`：幡上平时的文字 `bannerText`（默认「奥半仙」）、宜忌前缀、大吉色的写法（`luckyColors`，默认「宜{first}宜{second}」）、「诸事不宜」「百无禁忌」、特殊日子的幡面文字。幡上的字是画的一部分，所有语言下都保持中文
-- `locales/*.json` 的 `opening`：每日开场白（每种语言一份）
-- `config/about.json`：关于窗口里的作者和仓库
+- `config/branding.json` 的 `author`、`repository`：作者的 GitHub 用户名和仓库地址（关于窗口、分享图上的地址和二维码都从这里读）
+- `assets/character/<id>/character.json` 的 `voice`：每个角色的开场白和右键菜单第一项（三种语言）
 
 特殊日子同一天重合时，按 天赦日 > 传统节日 > 节气 > 杨公忌日 取一个：
 
@@ -199,8 +199,7 @@ npm run tauri dev
 
 ## 关于
 
-- 作者：[KhalilLiJX](https://github.com/KhalilLiJX)
-- 仓库：https://github.com/KhalilLiJX/aobanxian
+- 作者、仓库地址：见 [`config/branding.json`](config/branding.json) 的 `author`、`repository`
 - 协议：代码以 [MIT](LICENSE) 开源；字体各自遵循 SIL Open Font License 1.1
 - 致谢：
   - [lunar-javascript](https://github.com/6tail/lunar-javascript)（6tail）——历法数据

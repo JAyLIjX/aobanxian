@@ -3,7 +3,6 @@ import { writeImage } from "@tauri-apps/plugin-clipboard-manager";
 import { mkdir, writeFile } from "@tauri-apps/plugin-fs";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import about from "../../config/about.json";
 import branding from "../../config/branding.json";
 import { getDayDetail } from "../calendar/day";
 import { chineseNumber } from "../components/LotPaper";
@@ -81,7 +80,7 @@ export function ShareApp() {
         yi: detail.yi.length ? detail.yi.slice(0, 4).map((w) => term("yiji", w, lang)) : [lang === "en" ? t("share.noYi") : branding.banner.noYi],
         ji: detail.ji.length ? detail.ji.slice(0, 4).map((w) => term("yiji", w, lang)) : [lang === "en" ? t("share.noJi") : branding.banner.noJi],
         brand: t("app.name"),
-        url: about.repository,
+        url: branding.repository,
         scanHint: t("share.scan"),
         lot:
           withLot && l
@@ -134,6 +133,11 @@ export function ShareApp() {
       setBusy(false);
     }
   };
+
+  // 开发版：?view=share&raw=1 只显示 1080×1440 原尺寸的图（无头 Chrome 截图出预览图用）
+  if (import.meta.env.DEV && new URLSearchParams(location.search).get("raw")) {
+    return <canvas ref={canvasRef} width={SHARE_W} height={SHARE_H} style={{ display: "block", width: SHARE_W, height: SHARE_H }} />;
+  }
 
   return (
     <main className="tool paper share">

@@ -3,7 +3,7 @@ import { getCurrentWindow } from "@tauri-apps/api/window";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import about from "../../config/about.json";
+import branding from "../../config/branding.json";
 import { setLanguage } from "../i18n";
 import { inTauri } from "../platform/window";
 import { useSettings } from "../settings/useSettings";
@@ -30,16 +30,16 @@ export function AboutApp() {
       <p className="about__tagline">{t("app.tagline")}</p>
       {version && <p className="muted">{t("about.version", { version })}</p>}
       <dl className="facts about__facts">
-        <dt>{t("about.author")}</dt>
+        <dt>{t("branding.author")}</dt>
         <dd>
-          <button type="button" className="text-btn" onClick={() => open(`https://github.com/${about.author}`)}>
-            {about.author}
+          <button type="button" className="text-btn" onClick={() => open(`https://github.com/${branding.author}`)}>
+            {branding.author}
           </button>
         </dd>
         <dt>{t("about.repo")}</dt>
         <dd>
-          <button type="button" className="text-btn" onClick={() => open(about.repository)}>
-            {about.repository.replace("https://", "")}
+          <button type="button" className="text-btn" onClick={() => open(branding.repository)}>
+            {branding.repository.replace("https://", "")}
           </button>
         </dd>
       </dl>

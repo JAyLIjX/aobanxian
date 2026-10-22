@@ -2,7 +2,6 @@
 name = "aobanxian"
 version = "0.3.0"
 description = "Ao Banxian 奥半仙 — pixel Taoist almanac desktop widget"
-authors = ["KhalilLiJX"]
 license = "MIT"
 edition = "2024"
 

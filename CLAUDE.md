@@ -24,8 +24,7 @@ Python 工具（精灵图、字体）用项目里的 `.venv-tools`（已在 .git
 rules/default.json         五行规则（流派）：取法、小人配色、换日、色系名、色系、像素色阶、四档文字、解释句、小贴士
 config/
   settings.default.json    应用设置的默认值
-  branding.json            幡上的字（bannerText、宜忌前缀、兜底文字、特殊日子文字）
-  about.json               关于窗口的作者、仓库
+  branding.json            作者和仓库地址（author、repository）、幡上的字（bannerText、宜忌前缀、兜底文字、特殊日子文字）
 locales/
   zh-CN.json zh-TW.json en.json   界面文字（i18next）
   glossary.json            术语表：历法、宜忌、颜色等的英文 / 繁体
@@ -190,6 +189,12 @@ JSON 结构：`id`、`writing`（`vertical` 竖排 / `horizontal` 横排）、`b
 - 内容只由当天的历法数据决定（`openingFor`），所以「掐指一算」重播的和当天第一次说的一致；气泡还在时再触发会重新计时。
 - 黄道日 = 值神青龙、明堂、金匮、天德、玉堂、司命（lunar-javascript 的 `getDayTianShenType`）。
 - 天赦日按月建分季（寅卯辰春、巳午未夏、申酉戌秋、亥子丑冬，等价于按立春 / 立夏 / 立秋 / 立冬划分）；杨公忌按农历月日表。优先级 天赦 > 传统节日 > 节气 > 杨公忌。2026 年的 6 个天赦日已与公开日历核对（测试里有）。
+
+## 作者和仓库地址（改 GitHub 用户名时看这里）
+
+- 作者的 GitHub 用户名和仓库地址**只写在 `config/branding.json` 的 `author`、`repository`**：关于窗口（作者链接、仓库链接）、分享图上的仓库地址和二维码都从这里读。README 用相对链接（`../../releases`）并指向这个文件，`Cargo.toml` 不写 `authors`。
+- GitHub 改名后：改这两项；`git remote set-url origin https://github.com/<新用户名>/aobanxian.git`；本项目的 `git config user.email` 改成 `<id>+<新用户名>@users.noreply.github.com`（id 用 `gh api user --jq .id` 查，不变）。**不要改写已有提交**，旧提交的带 id 隐私邮箱 GitHub 仍算在同一个账号名下。
+- `tests/username.test.ts` 检查项目文件里不再出现旧用户名（git 历史除外），并检查分享图二维码扫出来就是 `repository`。
 
 ## 设置
 

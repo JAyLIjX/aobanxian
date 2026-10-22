@@ -1,5 +1,7 @@
 {
-  "$comment": "幡上的字。幡上的字是画的一部分，所有语言下都保持中文；fork 后可以改成自己的。每一项竖排，最多 4 个字。",
+  "$comment": "幡上的字。幡上的字是画的一部分，所有语言下都保持中文；fork 后可以改成自己的。每一项竖排，最多 4 个字。 author / repository：作者的 GitHub 用户名和仓库地址，关于窗口、分享图（文字和二维码）都从这里读；GitHub 改名后只改这两项。",
+  "author": "KhalilLiJX",
+  "repository": "https://github.com/KhalilLiJX/aobanxian",
   "bannerText": "奥半仙",
   "banner": {
     "yiPrefix": "宜",
@@ -10,7 +12,13 @@
     "zodiac": "喜{animals}",
     "withYou": "合你",
     "clashYou": "冲你",
-    "skipWords": ["馀事勿取", "余事勿取", "诸事不宜", "诸事不忌", "无"]
+    "skipWords": [
+      "馀事勿取",
+      "余事勿取",
+      "诸事不宜",
+      "诸事不忌",
+      "无"
+    ]
   },
   "special": {
     "tianshe": "天赦日",
