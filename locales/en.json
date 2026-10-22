@@ -376,5 +376,21 @@
     "changed": "Changed hexagram",
     "extraNote": "{{tag}} applies only when all six lines move; included for reference",
     "source": "Judgments and line texts from the “{{title}}” (Book of Changes), via Chinese Wikisource, in the original text. The English readings are our own."
+  },
+  "share": {
+    "title": "Share Today",
+    "dateBig": "{{monthName}} {{day}}",
+    "lucky": "吉",
+    "scan": "Scan for the source",
+    "lotTitle": "Today's lot · {{number}} · {{grade}}",
+    "withLot": "Include today's lot",
+    "noLot": "No lot drawn today yet",
+    "hint": "Copies to the clipboard and saves to Pictures/奥半仙",
+    "save": "Copy & save",
+    "saved": "Saved — go show it off!",
+    "savedTo": "Copied, and saved to {{path}}",
+    "failed": "Couldn't save — please try again",
+    "noYi": "Nothing in particular",
+    "noJi": "No taboos"
   }
 }

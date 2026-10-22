@@ -332,6 +332,22 @@
     "extraNote": "六爻全動時才用{{tag}}，這裡附上原文",
     "source": "卦辭、爻辭出自《{{title}}》，錄自維基文庫，保持原文。白話為奧半仙自撰。"
   },
+  "share": {
+    "title": "分享今日",
+    "dateBig": "{{month}}月{{day}}日",
+    "lucky": "大吉",
+    "scan": "掃碼看原始碼",
+    "lotTitle": "今日籤 · {{number}} · {{grade}}",
+    "withLot": "附上今日籤",
+    "noLot": "今天還沒求籤",
+    "hint": "複製到剪貼簿，並存到「圖片/奧半仙」資料夾",
+    "save": "複製並儲存",
+    "saved": "已存好，拿去曬吧",
+    "savedTo": "已複製，並存到 {{path}}",
+    "failed": "沒存成，再試一次",
+    "noYi": "諸事不宜",
+    "noJi": "百無禁忌"
+  },
   "rulesText": {
     "tiers": {
       "best": "大吉",

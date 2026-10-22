@@ -331,5 +331,21 @@
     "changed": "变卦",
     "extraNote": "六爻全动时才用{{tag}}，这里附上原文",
     "source": "卦辞、爻辞出自《{{title}}》，录自维基文库，保持原文。白话为奥半仙自撰。"
+  },
+  "share": {
+    "title": "分享今日",
+    "dateBig": "{{month}}月{{day}}日",
+    "lucky": "大吉",
+    "scan": "扫码看源码",
+    "lotTitle": "今日签 · {{number}} · {{grade}}",
+    "withLot": "附上今日签",
+    "noLot": "今天还没求签",
+    "hint": "复制到剪贴板，并存到「图片/奥半仙」文件夹",
+    "save": "复制并保存",
+    "saved": "已存好，拿去晒吧",
+    "savedTo": "已复制，并存到 {{path}}",
+    "failed": "没存成，再试一次",
+    "noYi": "诸事不宜",
+    "noJi": "百无禁忌"
   }
 }

@@ -1357,3 +1357,28 @@ select {
 .gua-line.is-moving i {
   background: var(--cinnabar);
 }
+
+/* ── 分享今日 ── */
+.share__actions {
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.share__actions .tool__summary {
+  margin: 0;
+  word-break: break-all;
+}
+.share__preview {
+  display: flex;
+  justify-content: center;
+  background: var(--ink-wash);
+}
+.share__preview canvas {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+.is-disabled {
+  opacity: 0.55;
+}
