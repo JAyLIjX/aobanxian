@@ -1,6 +1,6 @@
 /*
  * 字体都是按实际用到的字做过子集的 woff2（见 scripts/fonts/ 和 CLAUDE.md「字体」一节）。
- * 字表之外的字会回退到系统字体。
+ * 字表之外的字会回退到下一个字体。
  */
 @font-face {
   font-family: "WX WenKai";
@@ -20,13 +20,46 @@
   font-display: block;
 }
 
+/* 幡上的字（canvas 里栅格化）：像素字 12px / 10px，像素化行书 */
+@font-face {
+  font-family: "WX FusionPixel12";
+  src: url("./assets/fonts/FusionPixel12-banner.woff2") format("woff2");
+  font-display: block;
+}
+
+@font-face {
+  font-family: "WX FusionPixel10";
+  src: url("./assets/fonts/FusionPixel10-banner.woff2") format("woff2");
+  font-display: block;
+}
+
+@font-face {
+  font-family: "WX ZhiMangXing Banner";
+  src: url("./assets/fonts/ZhiMangXing-banner.woff2") format("woff2");
+  font-display: block;
+}
+
+/* 英文正文 */
+@font-face {
+  font-family: "WX Garamond";
+  src: url("./assets/fonts/EBGaramond-subset.woff2") format("woff2");
+  font-weight: 400 800;
+  font-display: block;
+}
+
 :root {
   --font-fallback: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif;
   --font-body: "WX WenKai", var(--font-fallback);
   --font-display: "WX MaShanZheng", var(--font-body);
 }
 
-/* 大字字体开关：config/appearance.json 的 displayFont */
+/* 大字字体开关：设置里的「大字字体」 */
 :root[data-display-font="B"] {
   --font-display: "WX ZhiMangXing", var(--font-body);
+}
+
+/* 英文界面：正文用 EB Garamond，里面夹的中文原词回退到霞鹜文楷 */
+:root[lang="en"] {
+  --font-body: "WX Garamond", "WX WenKai", var(--font-fallback);
+  --font-display: "WX Garamond", "WX WenKai", var(--font-fallback);
 }
