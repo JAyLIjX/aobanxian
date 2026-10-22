@@ -101,7 +101,7 @@ export function MainApp() {
   const todayFamous = useMemo(() => {
     const { poem } = poemForDay(today);
     const script = poemScript(lang);
-    return { text: poem.famous[script], title: `${poem.author[script]}《${shortTitle(poem.title[script])}》` };
+    return { text: poem.famous[script], title: `${poem.author[script]}《${shortTitle(poem.title[script])}》`, fullTitle: poem.title[script] };
   }, [today, lang]);
   const almanac = useMemo(() => getAlmanac(today), [today]);
   const ramp = useCallback((e: Element) => rules.pixelRamps[e].map((l) => l.hex) as Ramp, [rules]);

@@ -93,6 +93,8 @@ const poems = curated.map((c) => {
     lines["zh-CN"].push(b["zh-CN"]);
     lines["zh-TW"].push(b["zh-TW"]);
   }
+  // 诗题或诗句里明写「中秋」的只在中秋当天用（满月规则、当季规则都不选它们）
+  const onlyMidAutumn = `${raw.title}${paragraphs.join("")}`.includes("中秋");
   if (c.festival) festival[c.festival] = c.id;
   if (c.jieqi) jieqi[c.jieqi] = c.id;
   // 宋词的题目只有词牌：按习惯加首句作小题（「水调歌头·明月几时有」），词牌有别名（「摊破浣溪沙・山花子」）时只取第一个
@@ -104,6 +106,7 @@ const poems = curated.map((c) => {
     role: c.role,
     seasons: c.seasons,
     tags: c.tags,
+    ...(onlyMidAutumn ? { onlyMidAutumn } : {}),
     ...(c.festival ? { festival: c.festival } : {}),
     ...(c.jieqi ? { jieqi: c.jieqi } : {}),
     title: both(title, raw.script),

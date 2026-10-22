@@ -709,6 +709,12 @@ select {
 .tag--ink {
   background: var(--ink);
 }
+/* 浅色提示（择日「害你」）：不抢眼 */
+.tag--soft {
+  background: var(--ink-wash);
+  color: var(--ink-2);
+  border: 1px solid var(--line);
+}
 
 /* ── 设置窗口、关于窗口：普通窗口，宣纸底 ── */
 :root[data-view="settings"] body,

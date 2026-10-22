@@ -65,12 +65,36 @@ describe("选诗", () => {
         if (reason === "festival" || reason === "jieqi") continue;
         expect(poem.seasons, at).toContain(day.season);
         if (reason === "moon") expect(poem.role === "moon" || poem.tags.includes("月"), at).toBe(true);
-        seasonal.push(poem.id);
+        if (reason === "season") seasonal.push(poem.id);
       }
       // 同一年内尽量不重复：平常日子没有一首出现两次
       expect(new Set(seasonal).size, "重复").toBe(seasonal.length);
     });
   }
+
+  for (const year of [2026, 2027, 2028]) {
+    it(`${year} 年每个满月前后（农历十三到十七）：选出写月亮的当季诗；写「中秋」的诗只在中秋当天出现`, () => {
+      const midAutumnText = (p: (typeof POEMS)[number]) => `${p.title["zh-CN"]}${p.lines["zh-CN"].join("")}`.includes("中秋");
+      for (const { ymd, day } of poemDaysOfYear(year)) {
+        const { poem, reason } = poemForDay(ymd);
+        const at = `${ymd.year}-${ymd.month}-${ymd.day} ${poem.title["zh-CN"]}`;
+        if (day.festival !== "中秋") expect(midAutumnText(poem), at).toBe(false);
+        if (reason === "festival" || reason === "jieqi") continue;
+        if (day.lunarDay >= 13 && day.lunarDay <= 17) {
+          expect(reason, at).toBe("moon");
+          expect(poem.role === "moon" || poem.tags.includes("月"), at).toBe(true);
+          expect(poem.seasons, at).toContain(day.season);
+        }
+      }
+    });
+  }
+
+  it("今天（2026-10-22，九月十三）：秋季写月的诗，不是写中秋的", () => {
+    const { poem, reason } = poemForDay({ year: 2026, month: 10, day: 22 });
+    expect(reason).toBe("moon");
+    expect(poem.seasons).toContain("秋");
+    expect(`${poem.title["zh-CN"]}${poem.lines["zh-CN"].join("")}`).not.toContain("中秋");
+  });
 
   it("秋天绝不出现只标春天的诗", () => {
     for (const { ymd, day } of poemDaysOfYear(2026)) {

@@ -344,7 +344,8 @@
       "renovation": "Renovation",
       "bed": "Placing a bed",
       "worship": "Ancestral offerings"
-    }
+    },
+    "harmYou": "Harms you"
   },
   "anniv": {
     "title": "Anniversaries",
@@ -447,7 +448,7 @@
     "title": "Share Today",
     "dateBig": "{{monthName}} {{day}}",
     "lucky": "吉",
-    "scan": "Scan for the source",
+    "scan": "Scan to download",
     "lotTitle": "Today's lot · {{number}} · {{grade}}",
     "withLot": "Include today's lot",
     "noLot": "No lot drawn today yet",

@@ -1,7 +1,7 @@
 import jsQR from "jsqr";
 import { describe, expect, it } from "vitest";
 import branding from "../config/branding.json";
-import { qrMatrix, qrPixelRect, renderShareImage, shareLayout, SHARE_H, SHARE_W, type Rect, type ShareContent } from "../src/share/shareImage";
+import { latestReleaseUrl, qrMatrix, qrPixelRect, renderShareImage, shareLayout, SHARE_H, SHARE_W, type Rect, type ShareContent } from "../src/share/shareImage";
 
 /** 只实现 fillRect 的假 canvas：把实心色块画进 RGBA 缓冲区，文字、描边忽略 */
 function fakeCanvas() {
@@ -82,6 +82,7 @@ const content = (withLot: boolean): ShareContent => ({
   ji: ["动土", "安葬", "破土", "作灶"],
   brand: "奥半仙",
   url: branding.repository,
+  qrUrl: latestReleaseUrl(branding.repository),
   scanHint: "扫码看源码",
   lot: withLot ? { title: "今日签 · 第十八签 · 中", poem: ["知君指擬是空華", "底事茫茫未有涯", "牢把腳根踏實地", "善為善應永無差"] } : undefined,
   sprite: { pixels: new Uint8ClampedArray(79 * 115 * 4), w: 79, h: 115 },
@@ -109,16 +110,18 @@ describe("分享今日图片", () => {
     }
   });
 
-  it("二维码能扫出仓库地址（从画好的图里截出来解码）", () => {
-    expect(qrMatrix(branding.repository).length).toBeGreaterThanOrEqual(21);
+  it("二维码扫出来是最新版下载页（releases/latest）（从画好的图里截出来解码）", () => {
+    const download = latestReleaseUrl(branding.repository);
+    expect(download).toBe(`${branding.repository}/releases/latest`);
+    expect(qrMatrix(download).length).toBeGreaterThanOrEqual(21);
     for (const withLot of [false, true]) {
       const c = fakeCanvas();
       renderShareImage(c as unknown as HTMLCanvasElement, content(withLot));
-      const r = qrPixelRect(branding.repository, withLot);
+      const r = qrPixelRect(download, withLot);
       const px = c.pixels();
       const crop = new Uint8ClampedArray(r.w * r.h * 4);
       for (let y = 0; y < r.h; y++) crop.set(px.subarray(((r.y + y) * SHARE_W + r.x) * 4, ((r.y + y) * SHARE_W + r.x + r.w) * 4), y * r.w * 4);
-      expect(jsQR(crop, r.w, r.h)?.data).toBe(branding.repository);
+      expect(jsQR(crop, r.w, r.h)?.data).toBe(download);
     }
   });
 });

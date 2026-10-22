@@ -1,3 +1,4 @@
+import { latestReleaseUrl } from "../share/shareImage";
 import { pictureDir, join } from "@tauri-apps/api/path";
 import { writeImage } from "@tauri-apps/plugin-clipboard-manager";
 import { mkdir, writeFile } from "@tauri-apps/plugin-fs";
@@ -81,6 +82,7 @@ export function ShareApp() {
         ji: detail.ji.length ? detail.ji.slice(0, 4).map((w) => term("yiji", w, lang)) : [lang === "en" ? t("share.noJi") : branding.banner.noJi],
         brand: t("app.name"),
         url: branding.repository,
+        qrUrl: latestReleaseUrl(branding.repository),
         scanHint: t("share.scan"),
         lot:
           withLot && l

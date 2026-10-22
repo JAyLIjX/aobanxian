@@ -55,7 +55,7 @@ export function ZeriApp() {
       </section>
 
       <ol className="zeri__list">
-        {days.map(({ detail, almanac, matched, clashMe }) => (
+        {days.map(({ detail, almanac, matched, clashMe, harmMe }) => (
           <li key={detail.julianDay}>
             <button type="button" className={`zeri__day ${clashMe ? "is-clash" : ""}`} onClick={() => void requestOpenDetail(detail.ymd)}>
               <span className="zeri__date">
@@ -68,6 +68,7 @@ export function ZeriApp() {
                 {almanac.tianShenType === "黄道" && <span className="tag tag--red">{t("zeri.huangdao")}</span>}
                 {almanac.isTianshe && <span className="tag tag--red">{t("zeri.tianshe")}</span>}
                 {clashMe && <span className="tag tag--ink">{t("zeri.clashYou")}</span>}
+                {harmMe && <span className="tag tag--soft">{t("zeri.harmYou")}</span>}
                 <span className="muted">{t("zeri.matched", { words: matched.map((w) => term("yiji", w, lang)).join(lang === "en" ? ", " : "、") })}</span>
               </span>
             </button>

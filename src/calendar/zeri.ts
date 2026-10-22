@@ -22,8 +22,10 @@ export interface ZeriDay {
   almanac: DayAlmanac;
   /** 这一天「宜」里命中的词 */
   matched: string[];
-  /** 冲我的生肖（没设置生肖时总是 false） */
+  /** 冲我的生肖（没设置生肖时总是 false）：整行标灰 */
   clashMe: boolean;
+  /** 害我的生肖（六害）：只加一个浅色标签提示，不标灰 */
+  harmMe: boolean;
 }
 
 /** 某一天是否适合：宜里至少有一个词，忌里一个都没有 */
@@ -48,6 +50,7 @@ export function pickDays(event: ZeriEvent, start: Ymd, days: number, rules: Rule
       almanac: getAlmanac(ymd),
       matched: event.words.filter((w) => detail.yi.includes(w)),
       clashMe: myBranch ? personalRelation(detail.pillar.branch, myBranch) === "clash" : false,
+      harmMe: myBranch ? personalRelation(detail.pillar.branch, myBranch) === "harm" : false,
     });
   }
   return out;

@@ -26,7 +26,10 @@ export interface ShareContent {
   yi: string[];
   ji: string[];
   brand: string;
+  /** 落款下面那行仓库地址 */
   url: string;
+  /** 二维码指向的地址：GitHub Releases 的最新版下载页 */
+  qrUrl: string;
   scanHint: string;
   lot?: { title: string; poem: string[] };
   /** 道士：每格一个 RGBA 像素 */
@@ -65,6 +68,11 @@ export function shareLayout(withLot: boolean, spriteW = 79, spriteH = 115) {
 }
 
 /** 二维码点阵（true 为黑），纠错级别 M */
+/** GitHub Releases 的最新版下载页 */
+export function latestReleaseUrl(repository: string): string {
+  return `${repository.replace(/\/$/, "")}/releases/latest`;
+}
+
 export function qrMatrix(text: string): boolean[][] {
   const qr = qrcode(0, "M");
   qr.addData(text);
@@ -237,7 +245,7 @@ export function renderShareImage(canvas: HTMLCanvasElement, c: ShareContent): vo
   fitText(ctx, c.url, body, 26, ft.w);
   ctx.fillText(c.url, ft.x, ft.y + 104);
   const q = L.qr;
-  const m = qrMatrix(c.url);
+  const m = qrMatrix(c.qrUrl);
   const quiet = 2;
   const unit = Math.floor(q.w / (m.length + quiet * 2));
   const size = unit * (m.length + quiet * 2);

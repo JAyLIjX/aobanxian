@@ -19,7 +19,7 @@ interface Props {
   onOpenDetail: () => void;
   onToggleMonth: () => void;
   /** 今天这首诗最有名的两句；点击跳到详情的「物候与诗」 */
-  famous?: { text: string; title: string } | null;
+  famous?: { text: string; title: string; fullTitle: string } | null;
   onOpenPoem?: () => void;
 }
 
@@ -95,7 +95,7 @@ export function TodayCard({ detail, rules, personal, countdown, monthOpen, onOpe
           type="button"
           className="today__famous"
           lang={lang === "zh-TW" ? "zh-Hant" : "zh-Hans"}
-          title={t("card.poemHint")}
+          title={`${famous.fullTitle}\n${t("card.poemHint")}`}
           onClick={(e) => {
             e.stopPropagation();
             onOpenPoem?.();

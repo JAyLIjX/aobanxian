@@ -39,4 +39,16 @@ describe("择日", () => {
     for (const r of res) expect(r.clashMe).toBe(r.detail.pillar.branch === "巳");
     expect(pickDays(event, start, 90, defaultRules).every((r) => !r.clashMe)).toBe(true);
   });
+
+  it("相害的日子加「害你」提示（不标灰），相冲的仍标灰；两者不会同时出现", () => {
+    const event = ZERI_EVENTS.find((e) => e.id === "worship")!;
+    const res = pickDays(event, start, 120, defaultRules, "亥");
+    // 亥与申相害
+    for (const r of res) {
+      expect(r.harmMe).toBe(r.detail.pillar.branch === "申");
+      expect(r.harmMe && r.clashMe).toBe(false);
+    }
+    expect(res.some((r) => r.harmMe)).toBe(true);
+    expect(pickDays(event, start, 120, defaultRules).every((r) => !r.harmMe)).toBe(true);
+  });
 });

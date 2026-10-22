@@ -299,7 +299,8 @@
       "renovation": "装修",
       "bed": "安床",
       "worship": "祭祀"
-    }
+    },
+    "harmYou": "害你"
   },
   "anniv": {
     "title": "纪念日",
@@ -402,7 +403,7 @@
     "title": "分享今日",
     "dateBig": "{{month}}月{{day}}日",
     "lucky": "大吉",
-    "scan": "扫码看源码",
+    "scan": "扫码下载",
     "lotTitle": "今日签 · {{number}} · {{grade}}",
     "withLot": "附上今日签",
     "noLot": "今天还没求签",

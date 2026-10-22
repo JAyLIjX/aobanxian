@@ -4,7 +4,7 @@ import { todays, type Anniversary } from "../calendar/anniversary";
 import { getDayDetail } from "../calendar/day";
 import { getDayExtras, hourIndex } from "../calendar/extras";
 import { getAlmanac } from "../calendar/special";
-import { poemForDay, poemScript } from "../data/poems";
+import { poemForDay, poemScript, shortTitle } from "../data/poems";
 import { luckyNumbers } from "../core/luckyNumbers";
 import { Compass, MarkIcon, MoonIcon, type CompassMark } from "./AlmanacIcons";
 import type { Ymd } from "../core/dayBoundary";
@@ -324,8 +324,9 @@ export function DetailPanel({ ymd, rules, myZodiac, anniversaries, onChange, onC
             )}
           </h4>
           <p className="poem__title">
-            <span className="poem__name" lang={script === "zh-TW" ? "zh-Hant" : "zh-Hans"}>
-              {picked.poem.title[script]}
+            {/* 组诗只显示短题目，完整题目放在悬停提示里 */}
+            <span className="poem__name" lang={script === "zh-TW" ? "zh-Hant" : "zh-Hans"} title={picked.poem.title[script]}>
+              {shortTitle(picked.poem.title[script])}
             </span>
             <span className="poem__author muted">
               {t("detail.poemAuthor", { dynasty: picked.poem.dynasty === "唐" ? t("detail.dynasty.tang") : t("detail.dynasty.song"), author: picked.poem.author[script] })}

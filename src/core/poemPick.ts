@@ -2,8 +2,9 @@
  * 每日一诗的选诗规则（纯函数）。按优先级：
  *   1. 传统节日当天用专属诗（对照表 festival → 诗）
  *   2. 节气当天用专属诗（对照表 jieqi → 诗）
- *   3. 满月前后两天（农历十三到十七），从当季写月亮的诗里选
+ *   3. 满月前后两天（农历十三到十七），只从当季写月亮的诗里选（用完一轮才重复，不退回别的诗）
  *   4. 其他日子：只从当季标签的诗里选
+ * 诗题或诗句里明写「中秋」的诗（onlyMidAutumn）只在中秋当天用：3、4 都不选它们。
  * 3、4 在一年里按日期顺序分配：每个诗池按「年份 + 诗 id」的哈希排成固定顺序，依次取没用过的，
  * 用完一轮才重复。所以同一天永远是同一首，同一年内尽量不重复。
  */
@@ -15,6 +16,8 @@ export interface PoemMeta {
   role: "regular" | "moon" | "festival" | "jieqi";
   seasons: Season[];
   tags: string[];
+  /** 诗题或诗句里明写「中秋」：只在中秋当天用 */
+  onlyMidAutumn?: boolean;
 }
 
 export interface PoemDay {
@@ -51,8 +54,8 @@ function hash(s: string): number {
 
 /** 一年里每一天的诗：days 按日期顺序排（通常是 1 月 1 日到 12 月 31 日） */
 export function pickPoemsForYear(year: number, days: PoemDay[], poems: PoemMeta[], tables: PoemTables): { id: string; reason: PickReason }[] {
-  // 节日、节气的专属诗只在当天出现，别的日子不选
-  const reserved = new Set([...Object.values(tables.festival), ...Object.values(tables.jieqi)]);
+  // 节日、节气的专属诗只在当天出现，别的日子不选；写「中秋」的诗也只属于中秋
+  const reserved = new Set([...Object.values(tables.festival), ...Object.values(tables.jieqi), ...poems.filter((p) => p.onlyMidAutumn).map((p) => p.id)]);
   // 这一年已经用过的（所有诗池共用，写月亮的诗和当季的诗可能重叠）
   const used = new Set<string>();
   const pools = new Map<string, { order: string[]; next: number }>();
@@ -92,7 +95,7 @@ export function pickPoemsForYear(year: number, days: PoemDay[], poems: PoemMeta[
     if (jq) return { id: jq, reason: "jieqi" };
     const season = pool(`season:${d.season}`, (p) => inSeason(d.season)(p) && p.role === "regular");
     if (nearFullMoon(d.lunarDay)) {
-      const moon = take(pool(`moon:${d.season}`, (p) => inSeason(d.season)(p) && (p.role === "moon" || p.tags.includes("月"))), false);
+      const moon = take(pool(`moon:${d.season}`, (p) => inSeason(d.season)(p) && (p.role === "moon" || p.tags.includes("月"))), true);
       if (moon) return { id: moon, reason: "moon" };
     }
     const id = take(season, true);
