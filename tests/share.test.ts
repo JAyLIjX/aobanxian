@@ -118,7 +118,7 @@ describe("分享今日图片", () => {
       const px = c.pixels();
       const crop = new Uint8ClampedArray(r.w * r.h * 4);
       for (let y = 0; y < r.h; y++) crop.set(px.subarray(((r.y + y) * SHARE_W + r.x) * 4, ((r.y + y) * SHARE_W + r.x + r.w) * 4), y * r.w * 4);
-      expect(jsQR(crop, r.w, r.h)?.data).toBe("https://github.com/JAyLIjX/aobanxian");
+      expect(jsQR(crop, r.w, r.h)?.data).toBe("https://github.com/KhalilLiJX/aobanxian");
     }
   });
 });

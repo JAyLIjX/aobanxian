@@ -47,7 +47,7 @@
 
 ## 安装
 
-到 [Releases](https://github.com/JAyLIjX/aobanxian/releases) 下载：
+到 [Releases](https://github.com/KhalilLiJX/aobanxian/releases) 下载：
 
 - macOS：`AoBanxian_x.y.z_universal.dmg`（Intel 和 Apple 芯片通用）
 - Windows：`AoBanxian_x.y.z_x64-setup.exe`（推荐）或 `AoBanxian_x.y.z_x64.msi`
@@ -199,8 +199,8 @@ npm run tauri dev
 
 ## 关于
 
-- 作者：[JAyLIjX](https://github.com/JAyLIjX)
-- 仓库：https://github.com/JAyLIjX/aobanxian
+- 作者：[KhalilLiJX](https://github.com/KhalilLiJX)
+- 仓库：https://github.com/KhalilLiJX/aobanxian
 - 协议：代码以 [MIT](LICENSE) 开源；字体各自遵循 SIL Open Font License 1.1
 - 致谢：
   - [lunar-javascript](https://github.com/6tail/lunar-javascript)（6tail）——历法数据
