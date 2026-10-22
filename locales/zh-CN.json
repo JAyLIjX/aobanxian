@@ -344,5 +344,8 @@
   "muyu": {
     "knock": "敲木鱼",
     "merit": "功德 +1"
+  },
+  "textField": {
+    "tooLong": "最多 {{max}} 个字"
   }
 }

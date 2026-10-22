@@ -13,6 +13,7 @@
  * 每个字放在自己的格位里居中（区域沿排字方向平分成字数份），整列在区域里居中。
  * 扇面（书生）沿中线的弧排字，每个字按所在位置的扇骨方向旋转，字的上方朝外。
  */
+import { splitChars } from "../core/text";
 import { arcGlyph, areaExtent, inkLimits, inkScale, pixelScale, slotCenter, type WritingArea } from "./writingArea";
 
 export type BannerFont = "pixel" | "brush";
@@ -153,7 +154,7 @@ export function renderBannerText(text: string, font: BannerFont, area: WritingAr
   const W = area.box.w * unit;
   const H = area.box.h * unit;
   const mask = new Uint8Array(W * H);
-  const chars = [...text].slice(0, 4);
+  const chars = splitChars(text).slice(0, 4);
   const n = chars.length;
   const vertical = area.kind === "rect" && area.writing === "vertical";
   const ext = areaExtent(area);

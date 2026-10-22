@@ -5,6 +5,7 @@
  * 第一项平时是 bannerText（默认「奥半仙」），特殊日子换成特殊文字。
  * 每一项竖排，最多 4 个字。
  */
+import { splitChars } from "./text";
 
 export const MAX_BANNER_CHARS = 4;
 /** 停这么久没操作就回到第一项 */
@@ -48,7 +49,7 @@ export interface BannerInput {
   personal?: "harmony" | "clash" | "harm" | "neutral" | null;
 }
 
-const chars = (s: string) => [...s];
+const chars = (s: string) => splitChars(s);
 const fits = (s: string) => chars(s).length <= MAX_BANNER_CHARS;
 
 /** 截到最多 4 个字 */

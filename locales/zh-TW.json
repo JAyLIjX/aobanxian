@@ -345,6 +345,9 @@
     "knock": "敲木魚",
     "merit": "功德 +1"
   },
+  "textField": {
+    "tooLong": "最多 {{max}} 個字"
+  },
   "rulesText": {
     "tiers": {
       "best": "大吉",

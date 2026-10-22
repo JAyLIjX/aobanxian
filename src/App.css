@@ -1511,3 +1511,29 @@ html[data-view="textfit"] body {
   font-size: 11px;
   color: #888;
 }
+
+/* ── 有字数限制的输入框 ── */
+.text-field {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3px;
+}
+.text-field__foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--ink-3);
+}
+.text-field__error {
+  color: var(--cinnabar);
+}
+.text-field__count.is-over {
+  color: var(--cinnabar);
+  font-weight: bold;
+}
+.text-input.is-invalid {
+  border-color: var(--cinnabar);
+  background: var(--cinnabar-wash);
+}

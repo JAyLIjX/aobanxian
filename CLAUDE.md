@@ -32,6 +32,7 @@ locales/
 src/core/                  纯 TS，不依赖 React / Tauri / lunar-javascript
   elements.ts wuxing.ts zodiac.ts rules.ts dayBoundary.ts   五行与规则（第一轮）
   banner.ts                幡面换字循环、宜忌取值
+  text.ts                  按字（字素）拆分、计数
   layout.ts                卷轴放在哪、窗口多大
   opening.ts               开场白（纪念日 > 特殊日子 > 生肖相冲相合 > 黄道黑道）、特殊日子的幡面文字
   bubble.ts                气泡计时
@@ -60,7 +61,7 @@ src/windows/
   ZeriApp / AnniversariesApp / LotsApp / GuaApp / ShareApp   择日、纪念日、求签、每日一卦、分享今日（?view=zeri 等）
   useWindowSetup.ts        独立窗口的公共设置（语言、标题）
   PreviewApp.tsx           开发用预览页（?view=preview，只在开发模式）
-src/components/            Scroll（挂轴）/ TodayCard / MonthView / DetailPanel / ColorChip / Bubble / Sparkles
+src/components/            Scroll（挂轴）/ TodayCard / MonthView / DetailPanel / ColorChip / Bubble / Sparkles / TextField（有字数限制的输入框）
 src/settings/              设置类型与校验（纯函数）、tauri-plugin-store 读写、useSettings
 src/i18n/                  i18next 初始化、术语显示（terms.ts）、日期等格式化（format.ts）
 src/platform/
@@ -203,6 +204,15 @@ JSON 结构：`id`、`writing`（`vertical` 竖排 / `horizontal` 横排）、`b
 - 改动即时生效：设置窗口保存后 `emit("settings-changed")`，所有窗口的 `useSettings` 都更新。
 - 开机启动以系统里的实际状态为准（`plugin-autostart` 的 `isEnabled`）。
 - 浏览器里（`npm run dev`）退回 localStorage。
+
+## 文字输入框（字数限制、中文输入法）
+
+- 有字数限制或会在输入时处理文字的输入框，一律用 `src/components/TextField.tsx`（幡上文字 4 个字、纪念日名称 20 个字）。**不要**用 `<input maxLength>`，也**不要**在 onChange 里截断：中文输入法组字时拼音还没上屏就在输入框里（「奥半xi」），会被算进字数截掉，字就打不出来了（v0.3 出过）。
+- 组字期间（`compositionstart` 到 `compositionend`，或事件的 `isComposing`）什么都不做；组字结束后用 `Intl.Segmenter` 按字（字素）计数（`src/core/text.ts` 的 `countChars` / `splitChars`），emoji、国旗、带肤色或零宽连接的 emoji 都算 1 个字。
+- 超了不截断：输入框标红、下面提示「最多 N 个字」、显示「5/4」，不保存；合法时显示「3/4」并保存。失去焦点时不合法就恢复为上一次保存的值。表单（纪念日）用 `onValidChange` 在不合法时禁用保存按钮。
+- `tests/textField.test.tsx`（jsdom）模拟 composition 事件，并检查 `src/` 里没有 `maxLength`、文字 `<input>` 都换成了 TextField。
+- macOS 上实测过 WebKit 的组字事件顺序：组字中每次 `input`（isComposing）→ 上屏时 `input`（isComposing）→ `compositionend`。用透明的 WKWebView 按拼音输入法的调用（`setMarkedText` 组字、`insertText` 上屏）打出了「奥半仙」「宜红宜黄」：`scripts/ime-probe.swift`（用法见文件开头，不抢焦点、不碰正式版数据）。
+- **以后在 Windows 上要用微软拼音再测一次**（WebView2 / Chromium 的组字事件顺序和 WebKit 不同）：设置「外观 → 平时写的字」能完整打出「奥半仙」「宜红宜黄」，打第 5 个字时标红不截断，失焦后恢复；纪念日名称同样。
 
 ## 多语言
 

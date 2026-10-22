@@ -389,5 +389,8 @@
   "muyu": {
     "knock": "Tap the wooden fish",
     "merit": "Merit +1"
+  },
+  "textField": {
+    "tooLong": "Up to {{max}} characters"
   }
 }
