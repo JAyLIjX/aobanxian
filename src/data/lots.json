@@ -1,0 +1,1711 @@
+{
+ "$comment": "签诗原文来自维基文库《關聖帝君靈籤》（清刊本，姑蘇鈕氏藏板），公有领域，保持原文繁体。reading 是奥半仙自己写的白话解读和英文大意，不是古籍原文。",
+ "source": {
+  "title": "關聖帝君靈籤",
+  "edition": "清刊本，姑蘇鈕氏藏板",
+  "url": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4",
+  "site": "維基文庫"
+ },
+ "lots": [
+  {
+   "n": 1,
+   "grade": "上上",
+   "gradeRaw": "大吉",
+   "story": "漢高祖入關　十八學土登瀛洲",
+   "poem": [
+    "巍巍獨步向雲間",
+    "玉殿千官第一班",
+    "富貴榮華天付汝",
+    "福如東海壽如山"
+   ],
+   "reading": {
+    "zh-CN": "此签气象高远，好比一步步登上高处，在众人之中站到最前列。眼下的好运是水到渠成，福气与长久都在眼前。顺势而为、保持谦和，好运会更稳当。",
+    "zh-TW": "此籤氣象高遠，好比一步步登上高處，在眾人之中站到最前列。眼下的好運是水到渠成，福氣與長久都在眼前。順勢而為、保持謙和，好運會更穩當。",
+    "en": "You are rising to the top, standing first among many. Good fortune, honor and long-lasting blessings are coming your way; stay humble and the luck will hold."
+   }
+  },
+  {
+   "n": 2,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "張子房遊赤松　韓蘄王西湖騎驢",
+   "poem": [
+    "盈虛消息總天時",
+    "自此君當百事宜",
+    "若問前程歸縮地",
+    "更須方寸好修為"
+   ],
+   "reading": {
+    "zh-CN": "世事有盈有亏，关键看时机，如今时机已到，做事大多顺利。前路其实比想象中近，但最要紧的是守好本心、修养自身，福气才走得长远。",
+    "zh-TW": "世事有盈有虧，關鍵看時機，如今時機已到，做事大多順利。前路其實比想像中近，但最要緊的是守好本心、修養自身，福氣才走得長遠。",
+    "en": "Life ebbs and flows with timing, and now the timing favors you. The road ahead is shorter than it looks, but keep your heart steady and your character sound."
+   }
+  },
+  {
+   "n": 3,
+   "grade": "中",
+   "gradeRaw": "中吉",
+   "story": "賈誼遇漢文帝　張公藝九世同居",
+   "poem": [
+    "衣食自然生處有",
+    "勸君不用苦勞心",
+    "但能孝悌存忠信",
+    "福祿來成禍不侵"
+   ],
+   "reading": {
+    "zh-CN": "衣食自有来处，不必整天焦虑操心。只要孝敬家人、待人真诚守信，福气自然会来，麻烦也难以近身。踏实做人，比苦苦算计更有用。",
+    "zh-TW": "衣食自有來處，不必整天焦慮操心。只要孝敬家人、待人真誠守信，福氣自然會來，麻煩也難以近身。踏實做人，比苦苦算計更有用。",
+    "en": "Your basic needs will be met, so there is no need to worry so much. Be kind to family, honest and loyal to others, and blessings will follow while trouble stays away."
+   }
+  },
+  {
+   "n": 4,
+   "grade": "下",
+   "gradeRaw": "下吉",
+   "story": "小秦王三跳澗　張翰憶鱸魚",
+   "poem": [
+    "去年百事頗相宜",
+    "若較今年時運衰",
+    "好把瓣香告神佛",
+    "莫教福謝悔無追"
+   ],
+   "reading": {
+    "zh-CN": "去年事事顺心，今年运势比起来有所回落。这时更要收敛心性、心存敬意，珍惜手中已有的福分，别等失去了才后悔。稳住节奏，慢慢就会好转。",
+    "zh-TW": "去年事事順心，今年運勢比起來有所回落。這時更要收斂心性、心存敬意，珍惜手中已有的福分，別等失去了才後悔。穩住節奏，慢慢就會好轉。",
+    "en": "Last year went smoothly, but this year's luck is a bit weaker. Treasure what you already have, act with care and humility, and you will avoid regrets as things slowly improve."
+   }
+  },
+  {
+   "n": 5,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "呂蒙正守困",
+   "poem": [
+    "子有三般不自由",
+    "門庭蕭索冷如秋",
+    "若逢牛鼠交承日",
+    "萬事回春不用憂"
+   ],
+   "reading": {
+    "zh-CN": "眼下身不由己，家门冷清，好像秋天般萧瑟。但这只是暂时的，等时节一转，许多事都会像回春一样好起来，不必过分担忧。耐心等待转机。",
+    "zh-TW": "眼下身不由己，家門冷清，好像秋天般蕭瑟。但這只是暫時的，等時節一轉，許多事都會像回春一樣好起來，不必過分擔憂。耐心等待轉機。",
+    "en": "Right now you feel constrained and things seem bleak, like late autumn. This is temporary; when the season turns, matters will revive like spring. Be patient and don't over-worry."
+   }
+  },
+  {
+   "n": 6,
+   "grade": "下",
+   "gradeRaw": "下平",
+   "story": "相如完璧歸趙",
+   "poem": [
+    "何勞鼓瑟更吹笙",
+    "寸步如登萬里程",
+    "彼此懷疑不相信",
+    "休將私意憶濃情"
+   ],
+   "reading": {
+    "zh-CN": "不必再费心张罗热闹，眼前每一小步都走得很吃力。双方互相猜疑、缺乏信任，别再一厢情愿地执着旧情。先放下成见、坦诚沟通，局面才会松动。",
+    "zh-TW": "不必再費心張羅熱鬧，眼前每一小步都走得很吃力。雙方互相猜疑、缺乏信任，別再一廂情願地執著舊情。先放下成見、坦誠溝通，局面才會鬆動。",
+    "en": "Extra effort feels wasted and every small step seems hard. Mutual doubt is getting in the way; let go of one-sided attachment and rebuild trust through honest talk."
+   }
+  },
+  {
+   "n": 7,
+   "grade": "上上",
+   "gradeRaw": "大吉",
+   "story": "呂洞賓煉丹",
+   "poem": [
+    "仙風道骨本天生",
+    "又遇仙宗為主盟",
+    "指日丹成謝巖谷",
+    "一朝引領向天行"
+   ],
+   "reading": {
+    "zh-CN": "你天生有灵性和悟性，又遇到能指点你的贵人。只要用心修炼、积累功夫，不久便能有所成就，一飞冲天。珍惜机缘，专注到底。",
+    "zh-TW": "你天生有靈性和悟性，又遇到能指點你的貴人。只要用心修煉、積累功夫，不久便能有所成就，一飛沖天。珍惜機緣，專注到底。",
+    "en": "You have natural talent and have met a mentor who can guide you. Keep refining your craft and you will soon achieve your goal and rise high."
+   }
+  },
+  {
+   "n": 8,
+   "grade": "上上",
+   "gradeRaw": "上上",
+   "story": "大舜耕歷山　伊尹耕莘樂道",
+   "poem": [
+    "年來耕稼苦無收",
+    "今歲田疇定有秋",
+    "況遇太平無事日",
+    "士農工賈百無憂"
+   ],
+   "reading": {
+    "zh-CN": "过去几年辛苦耕耘却收获不多，今年终于要迎来丰收。大环境安稳太平，各行各业都少有烦忧。之前的付出没有白费，继续用心经营。",
+    "zh-TW": "過去幾年辛苦耕耘卻收穫不多，今年終於要迎來豐收。大環境安穩太平，各行各業都少有煩憂。之前的付出沒有白費，繼續用心經營。",
+    "en": "After years of hard work with little return, this year brings a real harvest. The times are calm and every line of work can thrive; your earlier effort pays off."
+   }
+  },
+  {
+   "n": 9,
+   "grade": "上上",
+   "gradeRaw": "大吉",
+   "story": "宋太祖陳橋即位　張京兆畫眉",
+   "poem": [
+    "望渠消息向長安",
+    "常把菱花仔細看",
+    "見說文書將入境",
+    "今朝喜色上眉端"
+   ],
+   "reading": {
+    "zh-CN": "一直盼望远方的消息，常常对镜细看、心中挂念。如今听说好消息就要到了，喜悦已经写在脸上。期待的事即将有着落，安心等候即可。",
+    "zh-TW": "一直盼望遠方的訊息，常常對鏡細看、心中掛念。如今聽說好訊息就要到了，喜悅已經寫在臉上。期待的事即將有著落，安心等候即可。",
+    "en": "You've been eagerly waiting for news from afar. Word is that good tidings are about to arrive, and joy is already showing on your face."
+   }
+  },
+  {
+   "n": 10,
+   "grade": "下",
+   "gradeRaw": "下吉",
+   "story": "冉伯牛染病　孟郊五十登第",
+   "poem": [
+    "病患時時命蹇衰",
+    "何須打瓦共鑽龜",
+    "宜教重見一陽復",
+    "始可求神仗佛持"
+   ],
+   "reading": {
+    "zh-CN": "近来身体与运气都有些低迷，与其四处问卜求签，不如先安顿好自己。等到阳气回升、转机出现，再去祈求帮助会更有成效。先调养、再出发。",
+    "zh-TW": "近來身體與運氣都有些低迷，與其四處問卜求籤，不如先安頓好自己。等到陽氣回升、轉機出現，再去祈求幫助會更有成效。先調養、再出發。",
+    "en": "Health and luck feel low lately. Rather than chasing fortune-telling, rest and take care of yourself first; once things start to turn, help and progress will come more easily."
+   }
+  },
+  {
+   "n": 11,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "韓信功勞不久",
+   "poem": [
+    "今年好事一番新",
+    "富貴榮華萃汝身",
+    "誰道機關難料處",
+    "到頭獨立轉傷神"
+   ],
+   "reading": {
+    "zh-CN": "今年看起来好事接连、风光一时，但世事变化难以预料。若只顾往上冲，最后可能落得孤单伤心。得意时多留余地、善待身边的人，才能走得稳。",
+    "zh-TW": "今年看起來好事接連、風光一時，但世事變化難以預料。若只顧往上沖，最後可能落得孤單傷心。得意時多留餘地、善待身邊的人，才能走得穩。",
+    "en": "This year looks bright and rewarding, but hidden twists are hard to foresee. Don't let success isolate you; leave some room, value the people around you, and you'll stay steady."
+   }
+  },
+  {
+   "n": 12,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "蘇武牧羊",
+   "poem": [
+    "營為期望在春前",
+    "誰料秋來又不然",
+    "直遇清江貴公子",
+    "一生活計始安全"
+   ],
+   "reading": {
+    "zh-CN": "原本盼着春天前把事情办成，没想到到了秋天仍不如意。要等到遇见合适的贵人相助，生活才会真正安稳下来。别急，留心身边可靠的人。",
+    "zh-TW": "原本盼著春天前把事情辦成，沒想到到了秋天仍不如意。要等到遇見合適的貴人相助，生活才會真正安穩下來。別急，留心身邊可靠的人。",
+    "en": "You hoped to finish things early, but even by autumn they haven't worked out. Stability comes once the right helper appears, so stay patient and watch for reliable people."
+   }
+  },
+  {
+   "n": 13,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "姜太公釣魚",
+   "poem": [
+    "君今庚甲未亨通",
+    "且向江頭作釣翁",
+    "玉兔重生應發跡",
+    "萬人頭上逞英雄"
+   ],
+   "reading": {
+    "zh-CN": "你现在时运还未通达，不妨像江边垂钓的人一样，沉住气耐心等待。等时机成熟，自然会有出头之日，在众人之中大放光彩。先蓄力，再出手。",
+    "zh-TW": "你現在時運還未通達，不妨像江邊垂釣的人一樣，沉住氣耐心等待。等時機成熟，自然會有出頭之日，在眾人之中大放光彩。先蓄力，再出手。",
+    "en": "Your luck hasn't opened up yet, so wait calmly like a fisherman by the river. When the right time comes, you'll rise and stand out among many."
+   }
+  },
+  {
+   "n": 14,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "郭華戀王月英",
+   "poem": [
+    "一見佳人便喜歡",
+    "誰知去後有多般",
+    "人情冷暖君休訝",
+    "歷涉應知行路難"
+   ],
+   "reading": {
+    "zh-CN": "一见钟情时满心欢喜，后来才发现事情远比想象复杂。人情有冷有暖，不必太过惊讶，经历过才懂得路不好走。放慢脚步、看清对方，再做决定。",
+    "zh-TW": "一見鍾情時滿心歡喜，後來才發現事情遠比想像複雜。人情有冷有暖，不必太過驚訝，經歷過才懂得路不好走。放慢腳步、看清對方，再做決定。",
+    "en": "Love at first sight brought joy, but things turned out more complicated later. People can be warm or cold; take it as experience, slow down, and see others clearly before committing."
+   }
+  },
+  {
+   "n": 15,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "張君瑞憶鶯鶯",
+   "poem": [
+    "兩家門戶各相當",
+    "不是姻緣莫較量",
+    "直待春風好消息",
+    "卻調琴瑟向蘭房"
+   ],
+   "reading": {
+    "zh-CN": "两家条件看起来相当，但若不是真正的缘分，就不必勉强比较争取。等到时机成熟、好消息到来，再谈结合也不迟。顺其自然，缘分自会显现。",
+    "zh-TW": "兩家條件看起來相當，但若不是真正的緣分，就不必勉強比較爭取。等到時機成熟、好訊息到來，再談結合也不遲。順其自然，緣分自會顯現。",
+    "en": "Two families may seem well matched, but if it isn't truly meant to be, don't force it. Wait for good news when the time is right, and let the relationship unfold naturally."
+   }
+  },
+  {
+   "n": 16,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "王祥臥冰",
+   "poem": [
+    "官事悠悠難辨明",
+    "不如息了且歸耕",
+    "傍人煽惑君休信",
+    "此事當謀親弟兄"
+   ],
+   "reading": {
+    "zh-CN": "纠纷拖得久，一时难以说清，不如暂且放下、回归日常生活。旁人的挑拨不要轻信，遇事最好和至亲之人商量。少争一口气，多一份安宁。",
+    "zh-TW": "糾紛拖得久，一時難以說清，不如暫且放下、迴歸日常生活。旁人的挑撥不要輕信，遇事最好和至親之人商量。少爭一口氣，多一份安寧。",
+    "en": "A drawn-out dispute is hard to settle, so it may be wiser to step back and return to normal life. Ignore those who stir things up, and talk it over with close family instead."
+   }
+  },
+  {
+   "n": 17,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "石崇被難",
+   "poem": [
+    "田園價貫好商量",
+    "事到公庭彼此傷",
+    "縱使機關圖得勝",
+    "定為後世子孫殃"
+   ],
+   "reading": {
+    "zh-CN": "房产田地之类的事，最好坐下来好好协商。一旦闹到对簿公堂，双方都会受伤，即使靠手段赢了，也会给后代留下隐患。以和为贵，各退一步。",
+    "zh-TW": "房產田地之類的事，最好坐下來好好協商。一旦鬧到對簿公堂，雙方都會受傷，即使靠手段贏了，也會給後代留下隱患。以和為貴，各退一步。",
+    "en": "Matters of property are best settled by calm negotiation. Fighting it out formally hurts both sides, and even a clever win can leave lasting trouble. Compromise is the better path."
+   }
+  },
+  {
+   "n": 18,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "孟嘗君招賢",
+   "poem": [
+    "知君指擬是空華",
+    "底事茫茫未有涯",
+    "牢把腳根踏實地",
+    "善為善應永無差"
+   ],
+   "reading": {
+    "zh-CN": "你心中所想的，可能只是镜花水月，事情茫茫看不到边。与其空想，不如脚踏实地，一步一步做好眼前的事。行善自有善报，这一点不会错。",
+    "zh-TW": "你心中所想的，可能只是鏡花水月，事情茫茫看不到邊。與其空想，不如腳踏實地，一步一步做好眼前的事。行善自有善報，這一點不會錯。",
+    "en": "What you're counting on may be an illusion, and the outcome is unclear. Instead of daydreaming, keep your feet on the ground and do good; good deeds bring good returns."
+   }
+  },
+  {
+   "n": 19,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "劉智遠得岳氏",
+   "poem": [
+    "嗟子從來未得時",
+    "今年星運頗相宜",
+    "營求動作都如意",
+    "和合婚姻誕貴兒"
+   ],
+   "reading": {
+    "zh-CN": "过去一直没遇上好时机，今年运势相当不错。想做的事、想求的事大多能如意，感情婚姻也和顺美满，家中或有喜事。把握这段好时光。",
+    "zh-TW": "過去一直沒遇上好時機，今年運勢相當不錯。想做的事、想求的事大多能如意，感情婚姻也和順美滿，家中或有喜事。把握這段好時光。",
+    "en": "Your chance never seemed to come before, but this year's luck is good. Plans and efforts go smoothly, relationships are harmonious, and happy family news may arrive."
+   }
+  },
+  {
+   "n": 20,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "嚴子陵登釣臺",
+   "poem": [
+    "一生心事向誰論",
+    "十八灘頭說與君",
+    "世事盡從流水去",
+    "功名富貴等浮雲"
+   ],
+   "reading": {
+    "zh-CN": "满腹心事无人可诉，只能对着流水倾吐。世事如流水般匆匆而去，名利富贵也像浮云一样难以长留。看淡得失、照顾好内心，反而能活得轻松。",
+    "zh-TW": "滿腹心事無人可訴，只能對著流水傾吐。世事如流水般匆匆而去，名利富貴也像浮雲一樣難以長留。看淡得失、照顧好內心，反而能活得輕鬆。",
+    "en": "Your worries feel hard to share with anyone. Like flowing water, events pass, and fame and wealth drift like clouds; holding them lightly will bring you more peace."
+   }
+  },
+  {
+   "n": 21,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "孫龐鬥智結仇",
+   "poem": [
+    "與君夙昔結成冤",
+    "今日相逢那得緣",
+    "好把經文多諷誦",
+    "祈求戶內保嬋娟"
+   ],
+   "reading": {
+    "zh-CN": "你与对方之间早有心结，如今再相逢也难有好缘分。与其纠缠，不如静下心来，多读些安定心神的经典，用心守护家人平安。化解怨气，从自己开始。",
+    "zh-TW": "你與對方之間早有心結，如今再相逢也難有好緣分。與其糾纏，不如靜下心來，多讀些安定心神的經典，用心守護家人平安。化解怨氣，從自己開始。",
+    "en": "There is old friction between you and someone, so this meeting may not go well. Instead of clinging on, calm your mind, focus on protecting your family, and let the grudge go first."
+   }
+  },
+  {
+   "n": 22,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "李太白遇唐明皇",
+   "poem": [
+    "碧玉池中開白蓮",
+    "莊嚴色相自天然",
+    "生來骨格超凡俗",
+    "正是人間第一仙"
+   ],
+   "reading": {
+    "zh-CN": "如同清池中盛开的白莲，你的气质纯净自然，天生不同凡俗。这是才华与品格受到肯定的时候，保持本色、自信展现自己即可。",
+    "zh-TW": "如同清池中盛開的白蓮，你的氣質純淨自然，天生不同凡俗。這是才華與品格受到肯定的時候，保持本色、自信展現自己即可。",
+    "en": "Like a white lotus blooming in a clear pond, your nature is pure and naturally outstanding. Your gifts and character are being recognized; stay true to yourself and shine."
+   }
+  },
+  {
+   "n": 23,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "吳王愛西施",
+   "poem": [
+    "花開花謝在春風",
+    "貴賤窮通百歲中",
+    "羨子榮華今已矣",
+    "到頭萬事總成空"
+   ],
+   "reading": {
+    "zh-CN": "花开花落都随春风，人生贵贱穷通也都在这百年之间。眼前的风光已经过去，执着下去只会落空。放下对过往荣华的留恋，重新出发更踏实。",
+    "zh-TW": "花開花落都隨春風，人生貴賤窮通也都在這百年之間。眼前的風光已經過去，執著下去只會落空。放下對過往榮華的留戀，重新出發更踏實。",
+    "en": "Flowers bloom and fade with the spring wind, and every fortune in life rises and falls. Past glory has gone; rather than clinging to it, let go and start fresh on firmer ground."
+   }
+  },
+  {
+   "n": 24,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "張騫誤入斗牛宮",
+   "poem": [
+    "一春萬事苦憂煎",
+    "夏裏營求始帖然",
+    "更遇秋成冬至後",
+    "恰如騎鶴與腰纏"
+   ],
+   "reading": {
+    "zh-CN": "春天诸事烦忧，到了夏天经营才渐渐顺手。再到秋收冬至之后，便会名利双收、称心如意。前难后易，坚持下去就会越来越好。",
+    "zh-TW": "春天諸事煩憂，到了夏天經營才漸漸順手。再到秋收冬至之後，便會名利雙收、稱心如意。前難後易，堅持下去就會越來越好。",
+    "en": "Spring is full of worries, but by summer your efforts start to settle. After the autumn harvest and the turn of winter, you'll gain both success and comfort; hard first, easier later."
+   }
+  },
+  {
+   "n": 25,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "唐明皇遊月宮",
+   "poem": [
+    "寅午戍年多阻滯",
+    "亥子丑月漸亨嘉",
+    "更逢玉兔金雞會",
+    "枯木逢春自放花"
+   ],
+   "reading": {
+    "zh-CN": "某些年份阻碍较多，进展不顺，但到了冬季前后便会渐渐顺利。若再逢合适的时机，就像枯木遇到春天，重新开出花来。耐心等待，转机一定会来。",
+    "zh-TW": "某些年份阻礙較多，進展不順，但到了冬季前後便會漸漸順利。若再逢合適的時機，就像枯木遇到春天，重新開出花來。耐心等待，轉機一定會來。",
+    "en": "Some periods bring delays, but things gradually improve around winter. When the right moment arrives, it's like a dead tree meeting spring and blossoming again. Patience brings the turn."
+   }
+  },
+  {
+   "n": 26,
+   "grade": "中",
+   "gradeRaw": "中吉",
+   "story": "邵堯夫告天",
+   "poem": [
+    "年來豐歉皆天數",
+    "自是今年旱較多",
+    "與子定期三日內",
+    "田疇霑足雨滂沱"
+   ],
+   "reading": {
+    "zh-CN": "收成好坏本有起落，眼下正是格外干旱、难熬的一段。签意说及时雨不久就会落下，困境快要过去。再稳住几天，别在最后关头泄气。",
+    "zh-TW": "收成好壞本有起落，眼下正是格外乾旱、難熬的一段。籤意說及時雨不久就會落下，困境快要過去。再穩住幾天，別在最後關頭洩氣。",
+    "en": "Good and lean years come and go, and right now things feel especially dry. Relief is close, like rain due within days, so hold steady a little longer."
+   }
+  },
+  {
+   "n": 27,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "江東得道",
+   "poem": [
+    "世間萬物各有主",
+    "一粒一毫君莫取",
+    "英雄豪傑自天生",
+    "也須步步循規矩"
+   ],
+   "reading": {
+    "zh-CN": "这支签提醒：不属于自己的东西，哪怕一点也别伸手。再有本事的人，也要一步一步按规矩来。守住分寸、踏实做事，麻烦自然会离你远一些。",
+    "zh-TW": "這支籤提醒：不屬於自己的東西，哪怕一點也別伸手。再有本事的人，也要一步一步按規矩來。守住分寸、踏實做事，麻煩自然會離你遠一些。",
+    "en": "Don't reach for anything that isn't yours, however small. Even the most capable people must follow the rules step by step; staying honest and patient keeps trouble away."
+   }
+  },
+  {
+   "n": 28,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "相如題橋",
+   "poem": [
+    "公侯將相本無種",
+    "好把勤勞契上天",
+    "人事盡從天理見",
+    "才高豈得困林泉"
+   ],
+   "reading": {
+    "zh-CN": "成就从来不看出身，靠的是勤勉和踏实。只要做事合乎情理、肯下功夫，真正的才华不会一直被埋没。放心努力，机会会找到你。",
+    "zh-TW": "成就從來不看出身，靠的是勤勉和踏實。只要做事合乎情理、肯下功夫，真正的才華不會一直被埋沒。放心努力，機會會找到你。",
+    "en": "Success isn't inherited; it is earned through hard work and doing things the right way. Real talent won't stay hidden for long, so keep at it and opportunities will come."
+   }
+  },
+  {
+   "n": 29,
+   "grade": "上上",
+   "gradeRaw": "上上",
+   "story": "司馬溫公嗟困",
+   "poem": [
+    "祖宗積德幾多年",
+    "源遠流長慶自然",
+    "若更操修無倦已",
+    "天須還汝舊青氈"
+   ],
+   "reading": {
+    "zh-CN": "前人留下的善缘与根基深厚，福气像长流的水一样自然而来。只要你继续修身、不懈怠，过去失去的好东西也有望重新回到手中。",
+    "zh-TW": "前人留下的善緣與根基深厚，福氣像長流的水一樣自然而來。只要你繼續修身、不懈怠，過去失去的好東西也有望重新回到手中。",
+    "en": "You stand on deep roots of goodwill built over generations, and blessings flow naturally from them. Keep improving yourself without slacking, and what you once lost may return."
+   }
+  },
+  {
+   "n": 30,
+   "grade": "中",
+   "gradeRaw": "中吉",
+   "story": "柳毅傳書",
+   "poem": [
+    "奉公謹守莫欺心",
+    "自有亨通吉利臨",
+    "目下營求且休矣",
+    "秋期與子定佳音"
+   ],
+   "reading": {
+    "zh-CN": "做事守本分、对人不欺心，顺利自会到来。只是眼下急着去求，未必有结果，不妨先放一放。耐心等到秋天前后，好消息更可能出现。",
+    "zh-TW": "做事守本分、對人不欺心，順利自會到來。只是眼下急著去求，未必有結果，不妨先放一放。耐心等到秋天前後，好訊息更可能出現。",
+    "en": "Stay honest and do your duty, and good fortune will follow. Pushing hard for results right now won't help much; ease off and expect better news around autumn."
+   }
+  },
+  {
+   "n": 31,
+   "grade": "中",
+   "gradeRaw": "中吉",
+   "story": "蘇卿負信",
+   "poem": [
+    "秋冬作事只尋常",
+    "春到門庭漸吉昌",
+    "千里信音符遠望",
+    "萱堂快樂未渠央"
+   ],
+   "reading": {
+    "zh-CN": "秋冬时节做事平平，不必强求；等到春天，家中气象会慢慢转好。远方的消息会合你心意，长辈身体安乐、家里喜气不断。",
+    "zh-TW": "秋冬時節做事平平，不必強求；等到春天，家中氣象會慢慢轉好。遠方的訊息會合你心意，長輩身體安樂、家裡喜氣不斷。",
+    "en": "Autumn and winter bring ordinary results, but spring gradually brightens your household. News from afar should match your hopes, and the elders at home have lasting reasons to be happy."
+   }
+  },
+  {
+   "n": 32,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "周公解夢",
+   "poem": [
+    "勞心汨汨竟何歸",
+    "疾病兼多是與非",
+    "事到頭來渾似夢",
+    "何如休要用心機"
+   ],
+   "reading": {
+    "zh-CN": "整日费尽心思，却不知最后落在哪里，还容易惹出身体劳累和口舌是非。回头看，很多事像一场梦。不如少些算计，放松心情，好好照顾自己。",
+    "zh-TW": "整日費盡心思，卻不知最後落在哪裡，還容易惹出身體勞累和口舌是非。回頭看，很多事像一場夢。不如少些算計，放鬆心情，好好照顧自己。",
+    "en": "Endless worry and scheming lead nowhere clear and invite stress and disputes. Much of it will feel like a dream later; let go of the calculations, rest, and look after yourself."
+   }
+  },
+  {
+   "n": 33,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "莊子慕道",
+   "poem": [
+    "不分南北與西東",
+    "眼底昏昏耳似聾",
+    "熟讀黃庭經一卷",
+    "不論貴賤與窮通"
+   ],
+   "reading": {
+    "zh-CN": "眼下有些分不清方向，看不明白也听不进去。与其四处乱找答案，不如静下来读书修心。心定了，无论顺境逆境都能从容面对。",
+    "zh-TW": "眼下有些分不清方向，看不明白也聽不進去。與其四處亂找答案，不如靜下來讀書修心。心定了，無論順境逆境都能從容面對。",
+    "en": "You feel lost and can't see or hear things clearly right now. Rather than chasing answers everywhere, quiet your mind and study; inner calm will carry you through good times and bad."
+   }
+  },
+  {
+   "n": 34,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "蕭何追韓信",
+   "poem": [
+    "春夏纔過秋又冬",
+    "紛紛謀慮攪心胸",
+    "貴人垂手來相援",
+    "休把私心情意濃"
+   ],
+   "reading": {
+    "zh-CN": "季节一轮轮过去，心里的盘算却越来越乱。好在会有贵人伸手相助。只是别把个人私心和情绪看得太重，放宽胸怀，事情才好推进。",
+    "zh-TW": "季節一輪輪過去，心裡的盤算卻越來越亂。好在會有貴人伸手相助。只是別把個人私心和情緒看得太重，放寬胸懷，事情才好推進。",
+    "en": "Time keeps passing while worries crowd your mind. Someone helpful will reach out to you, but don't let personal wants or strong feelings take over; an open heart lets things move."
+   }
+  },
+  {
+   "n": 35,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "王昭君和番",
+   "poem": [
+    "一山如畫對清江",
+    "門裏團圓事事雙",
+    "誰料半途分折去",
+    "空幃無語對銀缸"
+   ],
+   "reading": {
+    "zh-CN": "原本一切圆满，家中和和美美，却可能半路生出分离或变故，让人心里空落。这支签提醒你珍惜身边的人，多沟通、多包容，提早用心维护。",
+    "zh-TW": "原本一切圓滿，家中和和美美，卻可能半路生出分離或變故，讓人心裡空落。這支籤提醒你珍惜身邊的人，多溝通、多包容，提早用心維護。",
+    "en": "Things look complete and harmonious, yet an unexpected parting could arise midway and leave a quiet emptiness. Cherish the people close to you and keep communicating to protect what you share."
+   }
+  },
+  {
+   "n": 36,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "羅隱求官",
+   "poem": [
+    "功名富貴自能為",
+    "偶著仙鞭莫問伊",
+    "萬里鵬程君有分",
+    "吳山頂上好鑽龜"
+   ],
+   "reading": {
+    "zh-CN": "功名事业靠自己就能争取，偶然得到一股助力时，不必多问缘由，顺势而行即可。你的前程远大，时机到了，放手去做就好。",
+    "zh-TW": "功名事業靠自己就能爭取，偶然得到一股助力時，不必多問緣由，順勢而行即可。你的前程遠大，時機到了，放手去做就好。",
+    "en": "You can achieve your goals through your own effort. If a lucky push comes your way, don't question it, just ride it. A long, bright road lies ahead of you."
+   }
+  },
+  {
+   "n": 37,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "邵堯夫祝香",
+   "poem": [
+    "焚香來告復何辭",
+    "善惡平分汝自知",
+    "屏卻昧公心裏事",
+    "出門無礙是通時"
+   ],
+   "reading": {
+    "zh-CN": "来求问之前，其实你心里已清楚自己的好与不足。把那些不够光明的念头放下，做事坦荡一些，出门办事自然顺畅无阻。",
+    "zh-TW": "來求問之前，其實你心裡已清楚自己的好與不足。把那些不夠光明的念頭放下，做事坦蕩一些，出門辦事自然順暢無阻。",
+    "en": "Deep down you already know your own strengths and faults. Set aside any less-than-honest intentions and act openly; once you do, the way ahead will clear."
+   }
+  },
+  {
+   "n": 38,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "孟姜女思夫",
+   "poem": [
+    "蛩吟唧唧守孤幃",
+    "千里懸懸望信歸",
+    "等得榮華公子到",
+    "秋冬括括雨靡靡"
+   ],
+   "reading": {
+    "zh-CN": "长久独自守候，盼着远方的消息，等到的结果却仍像秋冬的冷雨一样清冷。别把所有希望都押在等待上，照顾好自己的生活，心才能暖起来。",
+    "zh-TW": "長久獨自守候，盼著遠方的訊息，等到的結果卻仍像秋冬的冷雨一樣清冷。別把所有希望都押在等待上，照顧好自己的生活，心才能暖起來。",
+    "en": "You have waited long and alone for word from afar, and even when it comes the mood may stay cold and grey. Don't stake everything on waiting; care for your own life too."
+   }
+  },
+  {
+   "n": 39,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "陶淵明賞菊",
+   "poem": [
+    "北山門下好安居",
+    "若問終時慎厥初",
+    "堪笑包藏許多事",
+    "鱗鴻雖便莫修書"
+   ],
+   "reading": {
+    "zh-CN": "此时宜安守原处、静心过日子。想知道结局，先看开头是否谨慎。心里藏着太多事并不好，但也别急着写信传话，先想清楚再开口。",
+    "zh-TW": "此時宜安守原處、靜心過日子。想知道結局，先看開頭是否謹慎。心裡藏著太多事並不好，但也別急著寫信傳話，先想清楚再開口。",
+    "en": "Now is a time to stay put and live quietly. Good endings start with careful beginnings. Don't bottle up too much, yet don't rush to send messages either; think things through first."
+   }
+  },
+  {
+   "n": 40,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "漢光武陷昆陽",
+   "poem": [
+    "新來換得好規模",
+    "何用隨他步與趨",
+    "只聽耳邊消息到",
+    "崎嶇歷盡見亨衢"
+   ],
+   "reading": {
+    "zh-CN": "你刚换了新的格局和做法，不必再跟着别人的脚步走。留意耳边传来的好消息，崎岖的路走完之后，前面就是宽敞大道。",
+    "zh-TW": "你剛換了新的格局和做法，不必再跟著別人的腳步走。留意耳邊傳來的好訊息，崎嶇的路走完之後，前面就是寬敞大道。",
+    "en": "You've just set up a better way of doing things, so there's no need to follow others. Listen for good news coming your way; after the rough stretch, an open road awaits."
+   }
+  },
+  {
+   "n": 41,
+   "grade": "中",
+   "gradeRaw": "中吉",
+   "story": "劉文龍求官",
+   "poem": [
+    "自南自北自東西",
+    "欲到天涯誰作梯",
+    "遇鼠逢牛三弄笛",
+    "好將名姓榜頭題"
+   ],
+   "reading": {
+    "zh-CN": "东奔西走想闯出一片天，却苦于没有人搭把手。签意说时机还在后头，等到合适的时节，努力会换来榜上有名的认可。先沉住气，继续准备。",
+    "zh-TW": "東奔西走想闖出一片天，卻苦於沒有人搭把手。籤意說時機還在後頭，等到合適的時節，努力會換來榜上有名的認可。先沉住氣，繼續準備。",
+    "en": "You've been running in every direction looking for a way up without help. The right moment is still coming; keep preparing, and your name will eventually be recognized."
+   }
+  },
+  {
+   "n": 42,
+   "grade": "中",
+   "gradeRaw": "中吉",
+   "story": "董永賣身",
+   "poem": [
+    "我曾許汝事和諧",
+    "誰料修為汝自乖",
+    "但改新圖莫依舊",
+    "營謀應得稱心懷"
+   ],
+   "reading": {
+    "zh-CN": "事情本来可以顺顺利利，却因为自己的做法出了偏差。只要肯改掉旧习惯、换个新思路，所求之事仍然有机会达成心愿。",
+    "zh-TW": "事情本來可以順順利利，卻因為自己的做法出了偏差。只要肯改掉舊習慣、換個新思路，所求之事仍然有機會達成心願。",
+    "en": "Things could have gone smoothly, but your own choices led them off course. Drop old habits and try a fresh plan, and what you're working toward can still turn out well."
+   }
+  },
+  {
+   "n": 43,
+   "grade": "中",
+   "gradeRaw": "中吉",
+   "story": "玄德公黃鶴樓赴宴",
+   "poem": [
+    "一紙官書火急催",
+    "扁舟速下浪如雷",
+    "雖然目下多驚險",
+    "保汝平安去復回"
+   ],
+   "reading": {
+    "zh-CN": "事情来得急，像小船在大浪里飞快前行，一路难免惊险。不过签意保你平安来回，只要冷静应对、按部就班，就能顺利度过。",
+    "zh-TW": "事情來得急，像小船在大浪裡飛快前行，一路難免驚險。不過籤意保你平安來回，只要冷靜應對、按部就班，就能順利度過。",
+    "en": "Urgent matters push you forward like a small boat racing through rough water, and there will be scary moments. Stay calm and steady, and you'll get there and back safely."
+   }
+  },
+  {
+   "n": 44,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "王莽篡漢",
+   "poem": [
+    "汝是人中最吉人",
+    "誤為誤作損精神",
+    "堅牢一念酬香願",
+    "富貴榮華萃汝身"
+   ],
+   "reading": {
+    "zh-CN": "你本是有福气的人，只是一些失误让自己身心疲惫。认准一个方向、守住自己许下的承诺，好的机缘会慢慢聚到你身上。",
+    "zh-TW": "你本是有福氣的人，只是一些失誤讓自己身心疲憊。認準一個方向、守住自己許下的承諾，好的機緣會慢慢聚到你身上。",
+    "en": "You are naturally fortunate, but some missteps have worn you down. Choose one clear direction and keep the promises you've made, and good things will gradually gather around you."
+   }
+  },
+  {
+   "n": 45,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "高祖遇丁公",
+   "poem": [
+    "好將心地力耕耘",
+    "彼此山頭總是墳",
+    "陰地不如心地好",
+    "修為到底卻輸君"
+   ],
+   "reading": {
+    "zh-CN": "与其在外在条件上费心比较，不如好好耕耘自己的心田。人终究殊途同归，品行与善心才是最可靠的根基，用心修养的人终会走得更好。",
+    "zh-TW": "與其在外在條件上費心比較，不如好好耕耘自己的心田。人終究殊途同歸，品行與善心才是最可靠的根基，用心修養的人終會走得更好。",
+    "en": "Rather than fussing over outside advantages, tend the field of your own heart. In the end everyone meets the same fate; good character is the most reliable foundation you can build."
+   }
+  },
+  {
+   "n": 46,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "孤兒報冤",
+   "poem": [
+    "君是山中萬戶侯",
+    "信知騎馬勝騎牛",
+    "今朝馬上看山色",
+    "爭似騎牛得自由"
+   ],
+   "reading": {
+    "zh-CN": "你已有不错的地位，骑马固然比骑牛体面。可站在高处看风景，未必比慢慢走来得自在。想想自己真正想要的是名声还是从容，取舍清楚了心更安。",
+    "zh-TW": "你已有不錯的地位，騎馬固然比騎牛體面。可站在高處看風景，未必比慢慢走來得自在。想想自己真正想要的是名聲還是從容，取捨清楚了心更安。",
+    "en": "You've reached a good position, and riding a horse beats riding an ox. Yet the view from above may not feel as free as a slower path; decide whether you value status or ease."
+   }
+  },
+  {
+   "n": 47,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "楚漢爭鋒",
+   "poem": [
+    "與君萬語復千言",
+    "祗欲平和雪爾冤",
+    "訟則終凶君記取",
+    "試於清夜把心捫"
+   ],
+   "reading": {
+    "zh-CN": "千言万语，只是希望你平和地化解委屈。争执闹到对簿公堂，往往两败俱伤。夜深人静时不妨扪心自问，退一步、好好沟通，才是更好的出路。",
+    "zh-TW": "千言萬語，只是希望你平和地化解委屈。爭執鬧到對簿公堂，往往兩敗俱傷。夜深人靜時不妨捫心自問，退一步、好好溝通，才是更好的出路。",
+    "en": "All this advice comes down to one thing: settle your grievances peacefully. Fighting it out rarely ends well for anyone. Reflect quietly tonight, and choose calm talk and compromise."
+   }
+  },
+  {
+   "n": 48,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "趙五娘尋夫",
+   "poem": [
+    "登山涉水正天寒",
+    "兄弟姻親那得安",
+    "幸遇虎頭人一喚",
+    "全家遂保汝重歡"
+   ],
+   "reading": {
+    "zh-CN": "眼下像在寒冬里跋山涉水，家人亲戚之间也不太安宁。不过会有一位有力的人出面招呼相助，全家因此重归和乐。撑住，转机会来。",
+    "zh-TW": "眼下像在寒冬裡跋山涉水，家人親戚之間也不太安寧。不過會有一位有力的人出面招呼相助，全家因此重歸和樂。撐住，轉機會來。",
+    "en": "Right now feels like trekking through mountains in the cold, and family ties are unsettled. A strong helper will step in and call you back together, bringing joy home again. Hang on."
+   }
+  },
+  {
+   "n": 49,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "張子房遁跡",
+   "poem": [
+    "彼此家居只一山",
+    "如何似隔鬼門關",
+    "日月如梭人易老",
+    "許多勞碌不如閒"
+   ],
+   "reading": {
+    "zh-CN": "明明住得很近，彼此却像隔着很远，难以亲近。时间过得飞快，人也容易老去，与其一味奔忙，不如放慢脚步，主动修补关系，留些闲暇给自己。",
+    "zh-TW": "明明住得很近，彼此卻像隔著很遠，難以親近。時間過得飛快，人也容易老去，與其一味奔忙，不如放慢腳步，主動修補關係，留些閒暇給自己。",
+    "en": "You live close by yet feel worlds apart. Time slips away quickly, so instead of endless rushing, slow down, reach out to mend the distance, and leave yourself some room to rest."
+   }
+  },
+  {
+   "n": 50,
+   "grade": "上",
+   "gradeRaw": "上平",
+   "story": "蘇東波勸民",
+   "poem": [
+    "人說今年勝舊年",
+    "也須步多要周旋",
+    "一家和氣多生福",
+    "萋菲讒言莫聽偏"
+   ],
+   "reading": {
+    "zh-CN": "大家都说今年比去年好，但仍要多走动、细心周旋。家里和和气气，福气自然多；遇到闲话挑拨，别偏听偏信，守住彼此的信任。",
+    "zh-TW": "大家都說今年比去年好，但仍要多走動、細心周旋。家裡和和氣氣，福氣自然多；遇到閒話挑撥，別偏聽偏信，守住彼此的信任。",
+    "en": "People say this year beats the last, but you still need to handle things with care. A harmonious home breeds good fortune; don't let gossip or one-sided talk sway you."
+   }
+  },
+  {
+   "n": 51,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "御溝流紅葉",
+   "poem": [
+    "君今百事且隨緣",
+    "水到渠成聽自然",
+    "莫嘆年來不如意",
+    "喜逢新運稱心田"
+   ],
+   "reading": {
+    "zh-CN": "这支签劝你凡事放宽心、顺其自然，条件成熟时事情会自己水到渠成。过去一年的不顺不必反复叹息，新的运势正在到来，心里期盼的事会渐渐如意。",
+    "zh-TW": "這支籤勸你凡事放寬心、順其自然，條件成熟時事情會自己水到渠成。過去一年的不順不必反覆嘆息，新的運勢正在到來，心裡期盼的事會漸漸如意。",
+    "en": "Let things take their natural course; when conditions are ready, results follow on their own. Stop dwelling on last year's disappointments, because a fresh, more satisfying turn of luck is arriving."
+   }
+  },
+  {
+   "n": 52,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "匡衡夜讀書",
+   "poem": [
+    "兀坐幽居歎寂寥",
+    "孤燈掩映度清宵",
+    "萬金忽報秋光好",
+    "活計扁舟渡北朝"
+   ],
+   "reading": {
+    "zh-CN": "眼下也许独守清冷，像孤灯伴长夜般寂寞难耐。但好消息会在秋天忽然传来，到时不妨主动出发、另寻出路，生计和机会都可能在远方打开。",
+    "zh-TW": "眼下也許獨守清冷，像孤燈伴長夜般寂寞難耐。但好訊息會在秋天忽然傳來，到時不妨主動出發、另尋出路，生計和機會都可能在遠方開啟。",
+    "en": "You may feel alone and quiet for now, like a single lamp through a long night. Good news is likely to arrive around autumn; when it does, be willing to set out and seek opportunity farther afield."
+   }
+  },
+  {
+   "n": 53,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "劉玄德入贅孫權妹",
+   "poem": [
+    "艱難險阻路蹊蹺",
+    "南鳥孤飛依北巢",
+    "今日貴人曾識面",
+    "相逢卻在夏秋交"
+   ],
+   "reading": {
+    "zh-CN": "眼前的路曲折难行，像孤鸟离群去投靠陌生的巢，难免辛苦不安。不过从前认识的贵人还会再出现，大约在夏秋之交重逢；先稳住脚步，留意旧日人脉。",
+    "zh-TW": "眼前的路曲折難行，像孤鳥離群去投靠陌生的巢，難免辛苦不安。不過從前認識的貴人還會再出現，大約在夏秋之交重逢；先穩住腳步，留意舊日人脈。",
+    "en": "The road ahead is winding and hard, like a lone bird seeking shelter far from home. Hold steady: someone helpful you have met before is likely to reappear around the turn of summer and autumn."
+   }
+  },
+  {
+   "n": 54,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "蘇秦刺股",
+   "poem": [
+    "萬人叢裏逞英豪",
+    "便欲飛騰霄漢高",
+    "爭奈承流風未便",
+    "青燈黃卷且勤勞"
+   ],
+   "reading": {
+    "zh-CN": "你有才干，也想在众人中出头、一飞冲天，可惜眼下时机和风向还不够顺。与其急于表现，不如沉下心来继续学习积累，等时机到了再发力。",
+    "zh-TW": "你有才幹，也想在眾人中出頭、一飛沖天，可惜眼下時機和風向還不夠順。與其急於表現，不如沉下心來繼續學習積累，等時機到了再發力。",
+    "en": "You have talent and want to rise above the crowd, but the winds are not yet in your favor. Instead of forcing it, keep studying and building your skills until the timing is right."
+   }
+  },
+  {
+   "n": 55,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "包龍圖勸農",
+   "poem": [
+    "勤耕力作莫蹉跎",
+    "衣食隨時安分過",
+    "縱使經商收倍利",
+    "不如逐歲廩禾多"
+   ],
+   "reading": {
+    "zh-CN": "这支签讲踏实做事、不要虚度光阴，日子安分平稳地过就好。追求一时的高回报不如年年稳定的积累，脚踏实地、细水长流才最可靠。",
+    "zh-TW": "這支籤講踏實做事、不要虛度光陰，日子安分平穩地過就好。追求一時的高回報不如年年穩定的積累，腳踏實地、細水長流才最可靠。",
+    "en": "Work steadily and don't let time slip away; a modest, settled life is enough. Chasing a quick windfall is less reliable than the steady harvest that patient, year-after-year effort brings."
+   }
+  },
+  {
+   "n": 56,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "王樞密奸險",
+   "poem": [
+    "心頭理曲強詞遮",
+    "直欲欺官行路斜",
+    "一旦醜形臨月鏡",
+    "身投憲網莫咨嗟"
+   ],
+   "reading": {
+    "zh-CN": "心里明知理亏，却想靠强辩和小聪明掩盖，走上歪路迟早会被照出真相。趁现在及时回头、坦诚面对、改正做法，事情还有补救的余地，不必等到后悔。",
+    "zh-TW": "心裡明知理虧，卻想靠強辯和小聰明掩蓋，走上歪路遲早會被照出真相。趁現在及時回頭、坦誠面對、改正做法，事情還有補救的餘地，不必等到後悔。",
+    "en": "Covering a known mistake with clever excuses or shortcuts will eventually be exposed. Turn back now, be honest, and set things right; there is still room to repair the situation before regret sets in."
+   }
+  },
+  {
+   "n": 57,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "爛柯觀棋",
+   "poem": [
+    "事端百出慮雖長",
+    "莫聽人言自主張",
+    "一著仙機君記取",
+    "紛紛鬧裏更思量"
+   ],
+   "reading": {
+    "zh-CN": "事情头绪繁多，虽然你已考虑很久，也别被旁人的议论左右，要有自己的主见。记住关键的那一步，越是纷乱嘈杂的时候，越要停下来冷静多想一想。",
+    "zh-TW": "事情頭緒繁多，雖然你已考慮很久，也別被旁人的議論左右，要有自己的主見。記住關鍵的那一步，越是紛亂嘈雜的時候，越要停下來冷靜多想一想。",
+    "en": "Many issues are arising at once. Don't let other people's chatter decide for you; trust your own judgment, remember the key move, and think even more calmly when things get noisy."
+   }
+  },
+  {
+   "n": 58,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "蘇秦背劍",
+   "poem": [
+    "蘇秦三寸足平生",
+    "富貴功名在此行",
+    "更好修為陰騭事",
+    "前程萬里自通亨"
+   ],
+   "reading": {
+    "zh-CN": "你的口才和能力足以成事，这一趟努力有望带来成就与认可。若能在顺利之时多做些不求回报的善事，积累好人缘，前路会更加宽广通达。",
+    "zh-TW": "你的口才和能力足以成事，這一趟努力有望帶來成就與認可。若能在順利之時多做些不求回報的善事，積累好人緣，前路會更加寬廣通達。",
+    "en": "Your skill with words and ideas can carry you far, and this effort is likely to bring recognition. Do quiet good deeds along the way, and the road ahead will open even wider."
+   }
+  },
+  {
+   "n": 59,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "鄧伯道無兒",
+   "poem": [
+    "門衰戶冷苦伶仃",
+    "自嘆祈求不一靈",
+    "幸有祖宗陰騭在",
+    "香煙未斷續螟蛉"
+   ],
+   "reading": {
+    "zh-CN": "眼下也许觉得冷清孤单，求了许多事都不见回应，心里难免失落。但前人留下的福泽仍在，事情可能以另一种方式延续下去；换个角度接纳新的安排，会看到希望。",
+    "zh-TW": "眼下也許覺得冷清孤單，求了許多事都不見回應，心裡難免失落。但前人留下的福澤仍在，事情可能以另一種方式延續下去；換個角度接納新的安排，會看到希望。",
+    "en": "You may feel lonely and that your wishes go unanswered. Yet the goodwill built before you still remains, and things may continue in an unexpected form; stay open to a different path."
+   }
+  },
+  {
+   "n": 60,
+   "grade": "上上",
+   "gradeRaw": "上上",
+   "story": "宋郊兄弟同科",
+   "poem": [
+    "羨君兄弟好名聲",
+    "只管謙撝莫自矜",
+    "丹詔槐黃相逼近",
+    "巍巍科甲兩同登"
+   ],
+   "reading": {
+    "zh-CN": "你和身边的手足伙伴都有好名声，好机会也已近在眼前，很可能一同取得成功。越是这时越要谦虚低调、不自夸，福气才会长久。",
+    "zh-TW": "你和身邊的手足夥伴都有好名聲，好機會也已近在眼前，很可能一同取得成功。越是這時越要謙虛低調、不自誇，福氣才會長久。",
+    "en": "You and those close to you enjoy a good reputation, and a shared success is near. Stay humble and avoid boasting; modesty is what keeps this good fortune lasting."
+   }
+  },
+  {
+   "n": 61,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "蒯輒見韓信",
+   "poem": [
+    "嘯聚山林兇惡儔",
+    "善良無事苦煎憂",
+    "主人大笑出門去",
+    "不用干戈盜賊休"
+   ],
+   "reading": {
+    "zh-CN": "身边或许有让人不安的麻烦人物，老实人也跟着担惊受怕。但只要你从容镇定、坦然应对，不必硬碰硬，风波往往会自己平息下去。",
+    "zh-TW": "身邊或許有讓人不安的麻煩人物，老實人也跟著擔驚受怕。但只要你從容鎮定、坦然應對，不必硬碰硬，風波往往會自己平息下去。",
+    "en": "Troublesome people or worries may be stirring around you. Meet them with calm good humor rather than confrontation, and the trouble is likely to settle down on its own."
+   }
+  },
+  {
+   "n": 62,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "韓信戰霸王",
+   "poem": [
+    "百千人面虎狼心",
+    "賴汝干戈用力深",
+    "得勝回時秋漸老",
+    "虎頭城裏喜相尋"
+   ],
+   "reading": {
+    "zh-CN": "要提防表面和善、心怀算计的人，同时靠自己的全力付出去争取。成果来得稍晚，大约在深秋时分，到时会有值得高兴的相聚和收获。",
+    "zh-TW": "要提防表面和善、心懷算計的人，同時靠自己的全力付出去爭取。成果來得稍晚，大約在深秋時分，到時會有值得高興的相聚和收穫。",
+    "en": "Be wary of people who look friendly but mean otherwise, and rely on your own hard effort. The win may come late, around deep autumn, bringing a happy reunion and reward."
+   }
+  },
+  {
+   "n": 63,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "楊令公撞李陵碑",
+   "poem": [
+    "曩時敗北且圖南",
+    "筋力雖衰尚一堪",
+    "欲識生前君大數",
+    "前三三與後三三"
+   ],
+   "reading": {
+    "zh-CN": "过去在一处受挫，不妨换个方向重新出发；精力虽不如从前，仍有能力做成事情。命数如何不必深究，把握眼前、量力而行就是最好的安排。",
+    "zh-TW": "過去在一處受挫，不妨換個方向重新出發；精力雖不如從前，仍有能力做成事情。命數如何不必深究，把握眼前、量力而行就是最好的安排。",
+    "en": "After a setback, try a new direction. Your energy may not be what it was, but you are still capable. Don't fixate on fate; focus on the present and act within your means."
+   }
+  },
+  {
+   "n": 64,
+   "grade": "上上",
+   "gradeRaw": "上上",
+   "story": "管鮑分金",
+   "poem": [
+    "吉人相遇本和同",
+    "況有持謀天水翁",
+    "人力不勞公論協",
+    "事成功倍笑談中"
+   ],
+   "reading": {
+    "zh-CN": "这是贵人相合、志同道合的好签，又有经验丰富的长者帮你出谋划策。不用费太多力气就能得到大家认同，事情在轻松谈笑间便能顺利办成。",
+    "zh-TW": "這是貴人相合、志同道合的好籤，又有經驗豐富的長者幫你出謀劃策。不用費太多力氣就能得到大家認同，事情在輕鬆談笑間便能順利辦成。",
+    "en": "Good people come together in harmony, and a wise, experienced helper offers guidance. With little strain and broad support, things fall into place easily, even with laughter along the way."
+   }
+  },
+  {
+   "n": 65,
+   "grade": "上上",
+   "gradeRaw": "上上",
+   "story": "蒙正木蘭和詩",
+   "poem": [
+    "朔風凜凜正窮冬",
+    "多羨門庭喜氣濃",
+    "更入新春人事後",
+    "衷言方得信先容"
+   ],
+   "reading": {
+    "zh-CN": "虽然眼下像寒冬一样冷清，但家门里的喜气已经让人羡慕。等到新春以后人事安排妥当，再借助他人的引荐说出真心话，就容易获得信任和认可。",
+    "zh-TW": "雖然眼下像寒冬一樣冷清，但家門裡的喜氣已經讓人羨慕。等到新春以後人事安排妥當，再借助他人的引薦說出真心話，就容易獲得信任和認可。",
+    "en": "Even in a cold, quiet season, joy is already gathering at home. After the new spring, once things are settled, speak sincerely with the help of a good introduction, and you will be trusted."
+   }
+  },
+  {
+   "n": 66,
+   "grade": "上上",
+   "gradeRaw": "上上",
+   "story": "杜甫遊春",
+   "poem": [
+    "耕耘只可在鄉邦",
+    "何用求謀向外方",
+    "見說今年新運好",
+    "門闌喜氣事雙雙"
+   ],
+   "reading": {
+    "zh-CN": "这支签说在熟悉的地方用心耕耘就好，不必急着往外奔波。今年运势正旺，家中喜事接连而来，好事往往成双成对。",
+    "zh-TW": "這支籤說在熟悉的地方用心耕耘就好，不必急著往外奔波。今年運勢正旺，家中喜事接連而來，好事往往成雙成對。",
+    "en": "Put your effort into familiar ground close to home rather than rushing elsewhere. This year's fortune is bright, and good news is likely to come in pairs."
+   }
+  },
+  {
+   "n": 67,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "江遺囑兒",
+   "poem": [
+    "纔發君心天已知",
+    "何須問我決狐疑",
+    "願子改圖從孝悌",
+    "不愁家室不相宜"
+   ],
+   "reading": {
+    "zh-CN": "你心里一动念，其实答案自己早已明白，不必再犹豫不决。若能把重心放回孝顺长辈、和睦亲人上，家庭关系自然会融洽顺遂。",
+    "zh-TW": "你心裡一動念，其實答案自己早已明白，不必再猶豫不決。若能把重心放回孝順長輩、和睦親人上，家庭關係自然會融洽順遂。",
+    "en": "Deep down you already know the answer, so there's no need to keep doubting. Turn your focus toward caring for family and keeping harmony at home, and things will settle well."
+   }
+  },
+  {
+   "n": 68,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "錢大王販鹽",
+   "poem": [
+    "南販珍珠北販鹽",
+    "年來幾倍貨財添",
+    "勸君止此求田舍",
+    "心欲多時何日厭"
+   ],
+   "reading": {
+    "zh-CN": "这些年辛苦奔走，收获已经翻了几番。签意提醒你见好就收，把成果安顿下来、守住根基；欲望没有尽头，懂得知足才能过得安稳。",
+    "zh-TW": "這些年辛苦奔走，收穫已經翻了幾番。籤意提醒你見好就收，把成果安頓下來、守住根基；慾望沒有盡頭，懂得知足才能過得安穩。",
+    "en": "Years of hard work have already multiplied your gains. Know when enough is enough: settle and secure what you have, since endless wanting never brings peace."
+   }
+  },
+  {
+   "n": 69,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "孫龐鬥智",
+   "poem": [
+    "捨舟遵路總相宜",
+    "慎勿嬉遊逐貴兒",
+    "一夜樽前兄與弟",
+    "明朝仇敵又相隨"
+   ],
+   "reading": {
+    "zh-CN": "换一条更稳妥的路走是合适的，但要小心别跟着爱玩乐、讲排场的人一起厮混。酒桌上称兄道弟，转眼可能翻脸；交友多看人品，保持分寸就能少些麻烦。",
+    "zh-TW": "換一條更穩妥的路走是合適的，但要小心別跟著愛玩樂、講排場的人一起廝混。酒桌上稱兄道弟，轉眼可能翻臉；交友多看人品，保持分寸就能少些麻煩。",
+    "en": "Switching to a steadier route is fine, but avoid partying with flashy company. Friends made over drinks can turn on you overnight, so choose people by character and keep healthy boundaries."
+   }
+  },
+  {
+   "n": 70,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "王曾祈禱",
+   "poem": [
+    "雷雨風雲各有司",
+    "至誠禱告莫生疑",
+    "與君定約為霖日",
+    "正是蘊隆中伏時"
+   ],
+   "reading": {
+    "zh-CN": "天时变化各有规律，只要诚心去做、不要多疑，期盼的事会有回应。转机往往出现在最闷热难熬的时候，坚持下去，及时雨就会到来。",
+    "zh-TW": "天時變化各有規律，只要誠心去做、不要多疑，期盼的事會有回應。轉機往往出現在最悶熱難熬的時候，堅持下去，及時雨就會到來。",
+    "en": "Everything has its own season. Be sincere and don't doubt; the relief you hope for often arrives at the most stifling, difficult moment, so keep going."
+   }
+  },
+  {
+   "n": 71,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "蘇武還鄉",
+   "poem": [
+    "喜鵲簷前報好音",
+    "知君千里欲歸心",
+    "繡幃重結鴛鴦帶",
+    "葉落霜飛寒色侵"
+   ],
+   "reading": {
+    "zh-CN": "喜讯将至，远方的人或你自己都有归来团聚的心愿，感情有望重新结合。只是时节已近深秋，难免带些清冷，提前做好准备，好事才能稳稳落地。",
+    "zh-TW": "喜訊將至，遠方的人或你自己都有歸來團聚的心願，感情有望重新結合。只是時節已近深秋，難免帶些清冷，提前做好準備，好事才能穩穩落地。",
+    "en": "Good news is coming, and a longed-for return or reunion is likely. It may arrive as the season turns cold, so prepare ahead and the happy outcome will settle in well."
+   }
+  },
+  {
+   "n": 72,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "范蠡歸湖",
+   "poem": [
+    "河渠傍路有高低",
+    "可歎長途日已西",
+    "縱有榮華好時節",
+    "直須猴犬換金雞"
+   ],
+   "reading": {
+    "zh-CN": "前路高低不平，天色已晚，赶路难免吃力。即使好时机终会到来，也要耐心等到时运转换之后；现在不宜急进，先调整步伐、养精蓄锐。",
+    "zh-TW": "前路高低不平，天色已晚，趕路難免吃力。即使好時機終會到來，也要耐心等到時運轉換之後；現在不宜急進，先調整步伐、養精蓄銳。",
+    "en": "The road is uneven and the day is late, so pushing on feels hard. Better times will come, but only after the cycle turns; for now, slow down, rest, and gather your strength."
+   }
+  },
+  {
+   "n": 73,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "王昭君憶漢帝",
+   "poem": [
+    "憶昔蘭房分半釵",
+    "而今忽把信音乖",
+    "痴心指望成連理",
+    "到底誰知事不諧"
+   ],
+   "reading": {
+    "zh-CN": "曾经的约定与情意，如今音信渐渐断了，一味痴心盼望恐怕难有圆满结果。不妨坦然接受变化，把心思放回自己身上，好好照顾自己，新的缘分才有空间到来。",
+    "zh-TW": "曾經的約定與情意，如今音信漸漸斷了，一味痴心盼望恐怕難有圓滿結果。不妨坦然接受變化，把心思放回自己身上，好好照顧自己，新的緣分才有空間到來。",
+    "en": "A past bond seems to have faded, and clinging to hope may not bring the ending you want. Accept the change gently and care for yourself; that makes room for something new."
+   }
+  },
+  {
+   "n": 74,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "崔武求官",
+   "poem": [
+    "崔巍崔魏復崔巍",
+    "履險如夷去復來",
+    "身似菩提心似鏡",
+    "長安一道放春回"
+   ],
+   "reading": {
+    "zh-CN": "前路虽然高山重重，你却能化险为夷、来去自如。只要保持内心清明、不被杂念干扰，事情会顺利推进，好消息如春天般回到身边。",
+    "zh-TW": "前路雖然高山重重，你卻能化險為夷、來去自如。只要保持內心清明、不被雜念干擾，事情會順利推進，好訊息如春天般回到身邊。",
+    "en": "Though the path looks steep, you can cross it as if it were level ground. Keep your mind clear and calm, and things will move forward, bringing good news like a returning spring."
+   }
+  },
+  {
+   "n": 75,
+   "grade": "中",
+   "gradeRaw": "中吉",
+   "story": "劉小姐愛蒙正",
+   "poem": [
+    "生前結得好緣姻",
+    "一笑相逢情自親",
+    "相當人物無高下",
+    "得意休論富與貧"
+   ],
+   "reading": {
+    "zh-CN": "这是一段有缘的好姻缘，初次相见就觉亲近自然。两人彼此相配，不分高低，相处顺心时不必计较贫富，真心相待最重要。",
+    "zh-TW": "這是一段有緣的好姻緣，初次相見就覺親近自然。兩人彼此相配，不分高低，相處順心時不必計較貧富，真心相待最重要。",
+    "en": "This points to a well-matched bond that feels natural from the first smile. You suit each other as equals, so don't measure it by wealth; sincerity matters most."
+   }
+  },
+  {
+   "n": 76,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "蕭何註律",
+   "poem": [
+    "三千法律八千文",
+    "此事何如說與君",
+    "善惡兩途君自作",
+    "一生禍福此中分"
+   ],
+   "reading": {
+    "zh-CN": "世间规矩条文再多，归根到底还是看你自己怎么选。走正路还是走偏，都由自己决定，一生的顺与不顺也就在这些选择里分开。守住底线、按规矩办事，心安路自稳。",
+    "zh-TW": "世間規矩條文再多，歸根到底還是看你自己怎麼選。走正路還是走偏，都由自己決定，一生的順與不順也就在這些選擇裡分開。守住底線、按規矩辦事，心安路自穩。",
+    "en": "However many rules exist, your own choices between right and wrong shape how life turns out. Keep to your principles and act fairly, and your path stays steady."
+   }
+  },
+  {
+   "n": 77,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "呂后害韓信",
+   "poem": [
+    "木有根荄水有源",
+    "君當自此究其原",
+    "莫隨道路人閒話",
+    "訟到終凶是至言"
+   ],
+   "reading": {
+    "zh-CN": "凡事都有来龙去脉，遇到纠纷先冷静追查根源，别被旁人的闲话牵着走。争执一旦闹到对簿公堂，往往两败俱伤。能沟通就沟通，退一步反而更容易把事情了结。",
+    "zh-TW": "凡事都有來龍去脈，遇到糾紛先冷靜追查根源，別被旁人的閒話牽著走。爭執一旦鬧到對簿公堂，往往兩敗俱傷。能溝通就溝通，退一步反而更容易把事情了結。",
+    "en": "Every problem has a root, so look for the real cause instead of listening to gossip. Fighting it out to the bitter end rarely helps anyone; talking things through and giving a little usually works better."
+   }
+  },
+  {
+   "n": 78,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "袁安守困",
+   "poem": [
+    "家道豊腴自飽溫",
+    "也須肚裏立乾坤",
+    "財多害己君當省",
+    "福有胚胎禍有門"
+   ],
+   "reading": {
+    "zh-CN": "眼下衣食无忧，但心里要有自己的主心骨。钱财多了未必全是好事，容易招来是非或让人松懈，要时常自省。福气靠慢慢培养，麻烦常从小处进门，守住本分才能长久安稳。",
+    "zh-TW": "眼下衣食無憂，但心裡要有自己的主心骨。錢財多了未必全是好事，容易招來是非或讓人鬆懈，要時常自省。福氣靠慢慢培養，麻煩常從小處進門，守住本分才能長久安穩。",
+    "en": "Life is comfortable now, but keep a firm inner compass. Plenty of money can bring its own troubles, so stay humble and watchful; good fortune grows from small habits, and so do problems."
+   }
+  },
+  {
+   "n": 79,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "宋神宗誤圩牛頭山",
+   "poem": [
+    "乾亥來龍仔細看",
+    "坎居午向自當安",
+    "若移丑艮陰陽逆",
+    "門戶凋零家道難"
+   ],
+   "reading": {
+    "zh-CN": "这签借看风水的说法讲道理：方位选对了，家宅自然安稳；随意改动、逆着来，就容易不顺。放到生活里，就是做事先看清基础和方向，别轻易推翻原本合适的安排。",
+    "zh-TW": "這籤借看風水的說法講道理：方位選對了，家宅自然安穩；隨意改動、逆著來，就容易不順。放到生活裡，就是做事先看清基礎和方向，別輕易推翻原本合適的安排。",
+    "en": "Using the image of choosing a house's orientation, this lot says a sound foundation brings stability while careless changes bring trouble. Check your direction carefully and don't overturn arrangements that already work."
+   }
+  },
+  {
+   "n": 80,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "陶侃卜牛眠",
+   "poem": [
+    "一朝無事忽遭官",
+    "也是門衰墳未安",
+    "改換陰陽移禍福",
+    "勸君莫作等閒看"
+   ],
+   "reading": {
+    "zh-CN": "平静日子里突然冒出意外的麻烦，往往是有些根本问题一直没处理好。与其抱怨，不如认真检查家里和自己的状况，调整该调整的地方。别把小征兆当耳旁风，及早改变就能扭转局面。",
+    "zh-TW": "平靜日子裡突然冒出意外的麻煩，往往是有些根本問題一直沒處理好。與其抱怨，不如認真檢查家裡和自己的狀況，調整該調整的地方。別把小徵兆當耳旁風，及早改變就能扭轉局面。",
+    "en": "Sudden trouble out of a quiet life often points to an old issue left unattended. Take it seriously, look at what needs fixing at home and in yourself, and timely changes can turn things around."
+   }
+  },
+  {
+   "n": 81,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "寇公任雷陽",
+   "poem": [
+    "假君財物自當還",
+    "謀賴心欺他自奸",
+    "幸有高臺明月鏡",
+    "請來對照破機關"
+   ],
+   "reading": {
+    "zh-CN": "借来的东西终究要还，存心赖账、欺瞒别人的人，最后吃亏的是自己。如果你正被人算计，也不必慌，事情总有水落石出的一天。保留好凭据，冷静把来龙去脉讲清楚，真相自然会显现。",
+    "zh-TW": "借來的東西終究要還，存心賴賬、欺瞞別人的人，最後吃虧的是自己。如果你正被人算計，也不必慌，事情總有水落石出的一天。保留好憑據，冷靜把來龍去脈講清楚，真相自然會顯現。",
+    "en": "What is borrowed should be returned, and those who scheme to cheat only hurt themselves. If someone is playing tricks on you, stay calm and keep your records; the truth will come to light."
+   }
+  },
+  {
+   "n": 82,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "宋仁宗認母",
+   "poem": [
+    "彼亦儔中一輩賢",
+    "勸君特達與周旋",
+    "此時賓主歡相會",
+    "他日王侯卻並肩"
+   ],
+   "reading": {
+    "zh-CN": "身边这个人值得结交，不妨主动放下架子、真诚相待。现在彼此相处愉快，将来很可能一同成长、互相成就。好的人脉靠用心经营，眼下正是建立情谊的好时机。",
+    "zh-TW": "身邊這個人值得結交，不妨主動放下架子、真誠相待。現在彼此相處愉快，將來很可能一同成長、互相成就。好的人脈靠用心經營，眼下正是建立情誼的好時機。",
+    "en": "The person you are dealing with is worth knowing, so reach out openly and sincerely. A friendship that starts warmly now may grow into a partnership where you both rise together."
+   }
+  },
+  {
+   "n": 83,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "諸葛孔明學道",
+   "poem": [
+    "隨分堂前赴粥饘",
+    "何須妄想苦憂煎",
+    "主張門戶誠難事",
+    "百歲安閒得幾年"
+   ],
+   "reading": {
+    "zh-CN": "粗茶淡饭也能过得踏实，不必胡思乱想、自寻烦恼。撑起一个家本来就不容易，人生真正清闲的日子也不多。与其为得不到的东西发愁，不如珍惜眼前，知足量力，日子反而轻松。",
+    "zh-TW": "粗茶淡飯也能過得踏實，不必胡思亂想、自尋煩惱。撐起一個家本來就不容易，人生真正清閒的日子也不多。與其為得不到的東西發愁，不如珍惜眼前，知足量力，日子反而輕鬆。",
+    "en": "A simple life can be a good one, so don't torment yourself with wishful thinking. Running a household is hard and easy days are few; appreciate what you have and live within your means."
+   }
+  },
+  {
+   "n": 84,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "須賈害范雎",
+   "poem": [
+    "箇中事緒更紛然",
+    "當局須知一著先",
+    "長舌婦人休酷聽",
+    "力行禮義要心堅"
+   ],
+   "reading": {
+    "zh-CN": "眼前的事头绪很多，越拖越乱，关键是先想清楚、走好第一步。别轻信那些搬弄是非的话，以免被带偏。坚持做人做事的分寸，心定了，局面自然慢慢理顺。",
+    "zh-TW": "眼前的事頭緒很多，越拖越亂，關鍵是先想清楚、走好第一步。別輕信那些搬弄是非的話，以免被帶偏。堅持做人做事的分寸，心定了，局面自然慢慢理順。",
+    "en": "Things are tangled, so think ahead and make the right first move. Don't be swayed by people who stir up gossip; hold firmly to decency and good conduct, and matters will sort themselves out."
+   }
+  },
+  {
+   "n": 85,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "姜女尋夫",
+   "poem": [
+    "一春風雨正瀟瀟",
+    "千里行人去路遙",
+    "移寡就多君得計",
+    "如何歸路轉無聊"
+   ],
+   "reading": {
+    "zh-CN": "外面风雨不断，出门在外的路还很长。你选择投向条件更好的一方，算盘打得不错，可回头时难免觉得空落落。做选择时别只算得失，也要顾及心里真正在意的人和事。",
+    "zh-TW": "外面風雨不斷，出門在外的路還很長。你選擇投向條件更好的一方，算盤打得不錯，可回頭時難免覺得空落落。做選擇時別隻算得失，也要顧及心裡真正在意的人和事。",
+    "en": "The road is long and the weather rough. Choosing the side with more to offer may seem smart, yet it can leave you feeling empty later; weigh what truly matters to your heart, not just the gains."
+   }
+  },
+  {
+   "n": 86,
+   "grade": "上上",
+   "gradeRaw": "上上",
+   "story": "管飽為賈",
+   "poem": [
+    "一舟行貨好招邀",
+    "積少成多自富饒",
+    "常把他人比自己",
+    "管須日後勝今朝"
+   ],
+   "reading": {
+    "zh-CN": "事业正好有机会，一点一滴积累下去，自然越来越丰足。待人时多换位思考，把别人的处境当成自己的来体谅，人缘和口碑都会跟着变好。坚持下去，往后一定比现在更好。",
+    "zh-TW": "事業正好有機會，一點一滴積累下去，自然越來越豐足。待人時多換位思考，把別人的處境當成自己的來體諒，人緣和口碑都會跟著變好。堅持下去，往後一定比現在更好。",
+    "en": "Opportunity is here: build steadily, little by little, and abundance follows. Treat others as you would wish to be treated, and your future will surely be better than today."
+   }
+  },
+  {
+   "n": 87,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "武侯與子敬同舟",
+   "poem": [
+    "陰裏詳看怪爾曹",
+    "舟中敵圖笑中刀",
+    "藩籬剖破渾無事",
+    "一種天生惜羽毛"
+   ],
+   "reading": {
+    "zh-CN": "有些人表面笑脸相迎，背地里未必安好心，同处一条船也要多留个心眼。不过只要把话说开、把界限摆明，事情也就没什么大不了。爱惜自己的名声，谨慎行事，就能平安度过。",
+    "zh-TW": "有些人表面笑臉相迎，背地裡未必安好心，同處一條船也要多留個心眼。不過只要把話說開、把界限擺明，事情也就沒什麼大不了。愛惜自己的名聲，謹慎行事，就能平安度過。",
+    "en": "Some smiling faces may hide other intentions, so stay alert even among companions. Being open and setting clear boundaries defuses most of it; guard your good name and act carefully."
+   }
+  },
+  {
+   "n": 88,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "高文定守困",
+   "poem": [
+    "從前作事總徒勞",
+    "纔見新春時漸遭",
+    "百計營求都得意",
+    "更須守己莫心高"
+   ],
+   "reading": {
+    "zh-CN": "过去的努力好像总是白费，但随着新的时节到来，运势正在慢慢好转。接下来想办的事多半能如愿。只是越顺利越要守住本分，别因得意而心高气傲。",
+    "zh-TW": "過去的努力好像總是白費，但隨著新的時節到來，運勢正在慢慢好轉。接下來想辦的事多半能如願。只是越順利越要守住本分，別因得意而心高氣傲。",
+    "en": "Past efforts may have seemed wasted, but a new season is bringing better luck and your plans are likely to succeed. As things go well, stay grounded and don't let pride get ahead of you."
+   }
+  },
+  {
+   "n": 89,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "班超歸玉門關",
+   "poem": [
+    "樽前無事且高歌",
+    "時未來時奈若何",
+    "白馬渡江嘶日暮",
+    "虎頭城裏看巍峨"
+   ],
+   "reading": {
+    "zh-CN": "时机还没到的时候，着急也没用，不如放宽心，该吃吃该唱唱。走过一段长路、熬过日落时分，终会看到气象开阔的景象。耐心等待，把心态放稳，好事在后头。",
+    "zh-TW": "時機還沒到的時候，著急也沒用，不如放寬心，該吃吃該唱唱。走過一段長路、熬過日落時分，終會看到氣象開闊的景象。耐心等待，把心態放穩，好事在後頭。",
+    "en": "When the time hasn't come, worrying won't hurry it, so relax and enjoy what you can. After a long journey and some waiting, a grand view opens up; patience will be rewarded."
+   }
+  },
+  {
+   "n": 90,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "楊文廣陷柳州",
+   "poem": [
+    "崆峒城裏事如麻",
+    "無事如君有幾家",
+    "勸汝不須勤致禱",
+    "徒勞生事苦咨嘆"
+   ],
+   "reading": {
+    "zh-CN": "外面的世界纷纷扰扰，像你这样还算平静无事的，其实并不多见。既然本来安好，就不必反复求问、四处折腾。少些多余的担心和叹气，安心过好眼下就是福。",
+    "zh-TW": "外面的世界紛紛擾擾，像你這樣還算平靜無事的，其實並不多見。既然本來安好，就不必反覆求問、四處折騰。少些多餘的擔心和嘆氣，安心過好眼下就是福。",
+    "en": "The world around you is busy and chaotic, yet your own life is calmer than most. There's no need to keep asking or stirring things up; let go of extra worry and enjoy the peace you have."
+   }
+  },
+  {
+   "n": 91,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "趙子龍抱太子",
+   "poem": [
+    "佛說淘沙始見金",
+    "只緣君子不勞心",
+    "榮華總得詩書效",
+    "妙裏工夫仔細尋"
+   ],
+   "reading": {
+    "zh-CN": "金子要从沙里一遍遍淘才能见到，好结果也需要耐心与细功夫。真正的收获来自踏实学习、慢慢积累，而不是投机取巧。静下心来琢磨其中门道，功夫到了自然有回报。",
+    "zh-TW": "金子要從沙裡一遍遍淘才能見到，好結果也需要耐心與細功夫。真正的收穫來自踏實學習、慢慢積累，而不是投機取巧。靜下心來琢磨其中門道，功夫到了自然有回報。",
+    "en": "Gold appears only after much panning, and good results need patient, careful work. Success comes from real study and steady effort, not shortcuts; dig into the details and it will pay off."
+   }
+  },
+  {
+   "n": 92,
+   "grade": "下下",
+   "gradeRaw": "下下",
+   "story": "高祖治漢民",
+   "poem": [
+    "今年禾穀不如前",
+    "物價喧騰倍百年",
+    "災數流行多疫癘",
+    "一陽復後始安全"
+   ],
+   "reading": {
+    "zh-CN": "这段时间大环境不太好，收成不如从前，花销也变大，各方面都有些吃紧。此时宜节俭持家、照顾好自己和家人，少冒风险。熬过最冷的时候，转机自会到来，局面会渐渐安稳。",
+    "zh-TW": "這段時間大環境不太好，收成不如從前，花銷也變大，各方面都有些吃緊。此時宜節儉持家、照顧好自己和家人，少冒風險。熬過最冷的時候，轉機自會到來，局面會漸漸安穩。",
+    "en": "Times are lean: less coming in, more going out, and a general sense of strain. Live frugally, look after yourself and your family, avoid risks, and things will steady once the coldest stretch has passed."
+   }
+  },
+  {
+   "n": 93,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "邵康節定陰陽",
+   "poem": [
+    "春來雨水太連綿",
+    "入夏晴乾雨又愆",
+    "節氣直交三伏始",
+    "喜逢滂沛足田園"
+   ],
+   "reading": {
+    "zh-CN": "开头雨水太多，后来又干旱缺雨，事情的节奏总不太如意。不过等到某个节点一到，就会迎来充足的滋润。眼下的忽多忽少只是过程，耐心等待合适的时机，收获终会到来。",
+    "zh-TW": "開頭雨水太多，後來又幹旱缺雨，事情的節奏總不太如意。不過等到某個節點一到，就會迎來充足的滋潤。眼下的忽多忽少只是過程，耐心等待合適的時機，收穫終會到來。",
+    "en": "First too much rain, then too little; the timing of things feels off. But when the right moment arrives, plenty will come; ups and downs are part of the process, so wait patiently for your season."
+   }
+  },
+  {
+   "n": 94,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "提結過長者門",
+   "poem": [
+    "一般器用與人同",
+    "巧斲輪輿梓匠工",
+    "凡事有緣且隨分",
+    "秋冬方遇主人翁"
+   ],
+   "reading": {
+    "zh-CN": "你的本事和别人差不多，但只要像好工匠那样用心打磨，就能做出精品。凡事讲缘分，不必强求，先安守本分把手艺练好。到了秋冬时节，自会遇到赏识你的人。",
+    "zh-TW": "你的本事和別人差不多，但只要像好工匠那樣用心打磨，就能做出精品。凡事講緣分，不必強求，先安守本分把手藝練好。到了秋冬時節，自會遇到賞識你的人。",
+    "en": "Your tools are the same as everyone's, but careful craftsmanship sets you apart. Don't force things; keep honing your skills, and later in the year someone who values your work will appear."
+   }
+  },
+  {
+   "n": 95,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "張文遠求官",
+   "poem": [
+    "知君袖內有驪珠",
+    "生不逢辰亦強圖",
+    "可歎頭顱已如許",
+    "而今方得貴人扶"
+   ],
+   "reading": {
+    "zh-CN": "你身怀真本事，只是时运一直不太配合，却仍在努力争取。虽然等了很久，岁月不饶人，但现在终于有贵人愿意拉你一把。好好把握这次机会，迟来的扶持同样珍贵。",
+    "zh-TW": "你身懷真本事，只是時運一直不太配合，卻仍在努力爭取。雖然等了很久，歲月不饒人，但現在終於有貴人願意拉你一把。好好把握這次機會，遲來的扶持同樣珍貴。",
+    "en": "You have real talent that hasn't met its moment, yet you kept trying. After a long wait, someone is finally ready to help you; seize the chance, since late support is still precious."
+   }
+  },
+  {
+   "n": 96,
+   "grade": "上",
+   "gradeRaw": "上吉",
+   "story": "山濤見王衍",
+   "poem": [
+    "婚姻子息莫嫌遲",
+    "但把精神仗佛持",
+    "四十年前須報應",
+    "功圓行滿育馨兒"
+   ],
+   "reading": {
+    "zh-CN": "姻缘和子女的事不要嫌来得晚，保持好的心态和信念最重要。平日里积下的善意，终会有所回报。把该做的事做圆满，好消息自然会在合适的时候到来。",
+    "zh-TW": "姻緣和子女的事不要嫌來得晚，保持好的心態和信念最重要。平日裡積下的善意，終會有所回報。把該做的事做圓滿，好訊息自然會在合適的時候到來。",
+    "en": "Don't fret if marriage or family matters seem slow; keep a hopeful spirit and steady faith. The kindness you have built up will be returned, and good news arrives in its own time."
+   }
+  },
+  {
+   "n": 97,
+   "grade": "上上",
+   "gradeRaw": "上上",
+   "story": "買臣五十富貴",
+   "poem": [
+    "五十功名心已灰",
+    "那知富貴逼人來",
+    "更行好事存方寸",
+    "壽比岡陵位鼎台"
+   ],
+   "reading": {
+    "zh-CN": "原以为年纪大了、心也淡了，没想到好运偏偏在这时找上门来。别灰心，转机常在意料之外。继续多做好事、守住良心，福气会更长久，日子也越过越好。",
+    "zh-TW": "原以為年紀大了、心也淡了，沒想到好運偏偏在這時找上門來。別灰心，轉機常在意料之外。繼續多做好事、守住良心，福氣會更長久，日子也越過越好。",
+    "en": "Just when you thought ambition had faded, good fortune comes knocking. Turning points often arrive unexpectedly; keep doing good and staying kind, and the blessings will last."
+   }
+  },
+  {
+   "n": 98,
+   "grade": "中",
+   "gradeRaw": "中平",
+   "story": "薛仁貴投軍",
+   "poem": [
+    "經營百出費精神",
+    "南北奔馳運未新",
+    "玉兔交時當得意",
+    "恰如枯木再逢春"
+   ],
+   "reading": {
+    "zh-CN": "你为了事情四处奔波、想尽办法，却总觉得运气还没跟上。别泄气，时机一到就会顺心起来，就像枯树逢春重新发芽。先保存体力，稳住节奏，等待转运的那一刻。",
+    "zh-TW": "你為了事情四處奔波、想盡辦法，卻總覺得運氣還沒跟上。別洩氣，時機一到就會順心起來，就像枯樹逢春重新發芽。先儲存體力，穩住節奏，等待轉運的那一刻。",
+    "en": "You have been rushing around trying everything while luck lags behind. Don't lose heart; when the time comes things will click, like a bare tree budding in spring. Pace yourself until then."
+   }
+  },
+  {
+   "n": 99,
+   "grade": "上上",
+   "gradeRaw": "上上",
+   "story": "百里奚投秦",
+   "poem": [
+    "貴人遭遇水雲鄉",
+    "冷淡交情滋味長",
+    "黃閣開時延故客",
+    "驊騮應得驟康莊"
+   ],
+   "reading": {
+    "zh-CN": "在不起眼的地方，你会遇到真正赏识你的人。看似平淡的交情，反而最经得起时间。等机会之门打开时，对方会记得你，你的前路也将宽阔顺畅。",
+    "zh-TW": "在不起眼的地方，你會遇到真正賞識你的人。看似平淡的交情，反而最經得起時間。等機會之門開啟時，對方會記得你，你的前路也將寬闊順暢。",
+    "en": "In an unlikely place you will meet someone who truly values you. A quiet, low-key friendship proves the most lasting, and when doors open they will remember you, putting you on a smooth, wide road."
+   }
+  },
+  {
+   "n": 100,
+   "grade": "上上",
+   "gradeRaw": "上上",
+   "story": "唐明宗禱告天",
+   "poem": [
+    "我本天仙雷雨師",
+    "吉凶禍福我先知",
+    "至誠禱祝皆靈應",
+    "抽得終籤百事宜"
+   ],
+   "reading": {
+    "zh-CN": "这是最后一签，寓意圆满。心怀诚意、踏实做事，所求之事多会有好的回应。保持真诚与善意，各方面都会顺遂合宜。",
+    "zh-TW": "這是最後一簽，寓意圓滿。心懷誠意、踏實做事，所求之事多會有好的回應。保持真誠與善意，各方面都會順遂合宜。",
+    "en": "The final lot signals completion and harmony. Act with sincerity and steady effort, and what you hope for tends to be answered; keep an honest heart and things will fall into place."
+   }
+  }
+ ]
+}

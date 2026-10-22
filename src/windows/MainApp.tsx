@@ -24,7 +24,8 @@ import { term, translate } from "../i18n/terms";
 import { useToday } from "../hooks/useToday";
 import { popupContextMenu, syncTray, type MenuModel } from "../platform/menu";
 import { notify } from "../platform/notify";
-import { onOpenDetailRequest, openView } from "../platform/windows";
+import { onOpenDetailRequest, onSayRequest, openView } from "../platform/windows";
+import { todaysLot } from "../settings/lotBook";
 import {
   focusWindow,
   onWindowMoved,
@@ -302,7 +303,13 @@ export function MainApp() {
           setJump((n) => n + 1);
           sayOpening();
         },
-        lots: () => openView("lots", t("lots.title")),
+        lots: () => {
+          // 今天已经求过：道士先说一句，再打开签纸
+          void todaysLot(today).then((rec) => {
+            if (rec) bubbleCtl.show(t("lots.already"), settings.bubbleSeconds);
+            openView("lots", t("lots.title"));
+          });
+        },
         gua: () => openView("gua", t("gua.title")),
         detail: () => setDetailDay(today),
         toggleCalendar,
@@ -316,7 +323,7 @@ export function MainApp() {
         quit: quitApp,
       },
     }),
-    [t, expanded, settings.size, settings.onTop, sayOpening, today, toggleCalendar, update],
+    [t, expanded, settings.size, settings.onTop, settings.bubbleSeconds, sayOpening, today, toggleCalendar, update, bubbleCtl],
   );
   const menuRef = useRef(menuModel);
   menuRef.current = menuModel;
@@ -327,6 +334,13 @@ export function MainApp() {
 
   // 择日、纪念日窗口里点某一天：在主窗口打开那天的详情
   useEffect(() => onOpenDetailRequest((ymd) => setDetailDay(ymd)), []);
+  // 求签等窗口请道士说话
+  const sayRef = useRef<(key: string) => void>(() => {});
+  sayRef.current = (key: string) => {
+    setJump((n) => n + 1);
+    bubbleCtl.show(t(key), settings.bubbleSeconds);
+  };
+  useEffect(() => onSayRequest((key) => sayRef.current(key)), []);
 
   // 正式版里关掉 WebView 默认的右键菜单
   useEffect(() => {

@@ -1116,3 +1116,151 @@ select {
   display: flex;
   gap: 6px;
 }
+
+/* ── 求签 ── */
+.lots .settings__tabs {
+  flex: none;
+}
+.lots__body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.lots__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding-top: 12px;
+}
+.lots__cylinder {
+  position: relative;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  margin: 40px 0 70px;
+}
+.lots__cylinder canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  image-rendering: pixelated;
+  transform-origin: 50% 100%;
+}
+.lots__cylinder .lots__stick {
+  left: 36px;
+  top: 0;
+  visibility: hidden;
+  transform-origin: 50% 50%;
+}
+.lots__again {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.lots__notice {
+  color: var(--cinnabar);
+  font-size: 13px;
+}
+.lot-paper {
+  border: 3px double var(--cinnabar);
+  background: var(--paper);
+  padding: 14px 18px 12px;
+  animation: lot-unfold 0.36s steps(6, end);
+  transform-origin: 50% 0;
+}
+@keyframes lot-unfold {
+  from {
+    transform: scaleY(0.05);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lot-paper {
+    animation: none;
+  }
+}
+.lot-paper__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.lot-paper__number {
+  font-size: 24px;
+  color: var(--ink);
+}
+.lot-paper__date {
+  font-size: 12px;
+}
+.lot-paper__grade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.lot-paper__seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 4px;
+  border: 2px solid var(--cinnabar);
+  color: var(--cinnabar);
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.grade-best .lot-paper__seal,
+.grade-good .lot-paper__seal {
+  background: var(--cinnabar);
+  color: var(--paper);
+}
+.grade-low .lot-paper__seal,
+.grade-worst .lot-paper__seal {
+  border-color: var(--ink-2);
+  color: var(--ink-2);
+}
+.lot-paper__grade-en {
+  font-size: 11px;
+  color: var(--ink-2);
+}
+.lot-paper__poem {
+  writing-mode: vertical-rl;
+  width: fit-content;
+  margin: 14px auto 6px;
+  font-size: 20px;
+  letter-spacing: 4px;
+  line-height: 1.9;
+}
+.lot-paper__poem p {
+  margin: 0;
+}
+.lot-paper__meta {
+  font-size: 12px;
+  text-align: center;
+  margin: 4px 0 10px;
+}
+.lot-paper__reading {
+  border-top: 1px dashed var(--line);
+  padding-top: 8px;
+}
+.lot-paper__reading h3 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--cinnabar);
+}
+.lot-paper__reading p {
+  margin: 0;
+  line-height: 1.7;
+}
+.lot-paper__source {
+  margin-top: 10px;
+  font-size: 11px;
+  line-height: 1.5;
+}

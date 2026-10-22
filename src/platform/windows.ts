@@ -51,3 +51,16 @@ export function onOpenDetailRequest(cb: (ymd: Ymd) => void): () => void {
   const un = listen<Ymd>(OPEN_DETAIL, (e) => cb(e.payload));
   return () => void un.then((f) => f());
 }
+
+const SAY = "say";
+
+/** 其他窗口请道士说一句话（主窗口头顶冒气泡）；传语言文件里的键，主窗口按自己的语言显示 */
+export async function requestSay(key: string): Promise<void> {
+  if (inTauri) await emit(SAY, key);
+}
+
+export function onSayRequest(cb: (key: string) => void): () => void {
+  if (!inTauri) return () => {};
+  const un = listen<string>(SAY, (e) => cb(e.payload));
+  return () => void un.then((f) => f());
+}

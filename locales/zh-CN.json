@@ -296,5 +296,29 @@
     "notifyToday": "今日是{{title}}",
     "notifyTomorrow": "明天就是{{title}}",
     "notifyAhead": "还有 {{n}} 天就是{{title}}（{{date}}）"
+  },
+  "lots": {
+    "title": "求签",
+    "today": "今日之签",
+    "book": "签册",
+    "hint": "心里默念想问的事，点签筒摇一摇",
+    "shake": "摇签",
+    "shaking": "摇签中……",
+    "again": "再求一签",
+    "already": "今日已求，明日再来",
+    "number": "第{{n}}签",
+    "originalGrade": "原签：{{grade}}",
+    "story": "典故：{{story}}",
+    "reading": "白话",
+    "bookEmpty": "还没有求过签",
+    "backToBook": "签册",
+    "source": "签诗出自《{{title}}》（{{edition}}），录自维基文库，保持原文。白话为奥半仙自撰。",
+    "gradeEn": {
+      "上上": "Excellent",
+      "上": "Good",
+      "中": "Fair",
+      "下": "Poor",
+      "下下": "Very poor"
+    }
   }
 }

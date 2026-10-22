@@ -341,5 +341,29 @@
     "notifyToday": "Today is {{title}}!",
     "notifyTomorrow": "{{title}} is tomorrow",
     "notifyAhead": "{{title}} is in {{n}} days ({{date}})"
+  },
+  "lots": {
+    "title": "Draw a Lot",
+    "today": "Today's lot",
+    "book": "Lot book",
+    "hint": "Hold your question in mind, then click the cylinder to shake it",
+    "shake": "Shake",
+    "shaking": "Shaking…",
+    "again": "Draw again",
+    "already": "You've drawn today — come back tomorrow.",
+    "number": "Lot No. {{n}}",
+    "originalGrade": "Original grade: {{grade}}",
+    "story": "Story: {{story}}",
+    "reading": "In plain words",
+    "bookEmpty": "No lots drawn yet",
+    "backToBook": "Lot book",
+    "source": "Poem from “{{title}}” ({{edition}}), via Chinese Wikisource, in the original text. The English gist is our own.",
+    "gradeEn": {
+      "上上": "Excellent",
+      "上": "Good",
+      "中": "Fair",
+      "下": "Poor",
+      "下下": "Very poor"
+    }
   }
 }

@@ -297,6 +297,30 @@
     "notifyTomorrow": "明天就是{{title}}",
     "notifyAhead": "還有 {{n}} 天就是{{title}}（{{date}}）"
   },
+  "lots": {
+    "title": "求籤",
+    "today": "今日之籤",
+    "book": "籤冊",
+    "hint": "心裡默唸想問的事，點籤筒搖一搖",
+    "shake": "搖籤",
+    "shaking": "搖籤中……",
+    "again": "再求一簽",
+    "already": "今日已求，明日再來",
+    "number": "第{{n}}籤",
+    "originalGrade": "原籤：{{grade}}",
+    "story": "典故：{{story}}",
+    "reading": "白話",
+    "bookEmpty": "還沒有求過籤",
+    "backToBook": "籤冊",
+    "source": "籤詩出自《{{title}}》（{{edition}}），錄自維基文庫，保持原文。白話為奧半仙自撰。",
+    "gradeEn": {
+      "上上": "Excellent",
+      "上": "Good",
+      "中": "Fair",
+      "下": "Poor",
+      "下下": "Very poor"
+    }
+  },
   "rulesText": {
     "tiers": {
       "best": "大吉",

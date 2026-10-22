@@ -47,6 +47,7 @@ function walk(dir: string, exts: string[], sets: Set<string>[]) {
   }
 }
 walk(join(ROOT, "src"), [".ts", ".tsx", ".css"], [body]);
+walk(join(ROOT, "src", "data"), [".json"], [body]); // 签诗、周易原文
 walk(join(ROOT, "rules"), [".json"], [body]);
 walk(join(ROOT, "config"), [".json"], [body]);
 walk(join(ROOT, "locales"), [".json"], [body]);
@@ -55,6 +56,7 @@ for (const ch of body) if (!isCJK(ch) && ch.codePointAt(0)! < 0x2000 + 0x100) la
 
 // 3. 历法数据：1901–2099 年每一天
 addAll(display, "0123456789/年月日农历農曆星期天闰閏奥半仙奧");
+addAll(display, "第签籤一二三四五六七八九十百"); // 签纸上的「第十八签」
 const bannerWords = new Set<string>([branding.bannerText, branding.special.tianshe, branding.special.yanggong, branding.banner.noYi, branding.banner.noJi]);
 for (let d = new Date(1901, 0, 1); d <= new Date(2099, 11, 31); d.setDate(d.getDate() + 1)) {
   const ymd = { year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate() };
