@@ -53,6 +53,19 @@ export interface DayDetail extends DayInfo {
   tip: string | null;
 }
 
+/** lunar-javascript 公历节日表里较冷门或名字过长的，不在界面上显示 */
+const HIDDEN_FESTIVALS = new Set([
+  "消费者权益日",
+  "愚人节",
+  "万圣节前夜",
+  "万圣节",
+  "感恩节",
+  "全国中小学生安全教育日",
+  "全国助残日",
+  "全民国防教育日",
+  "世界住房日",
+]);
+
 function lunarOf(ymd: Ymd): Lunar {
   return Solar.fromYmd(ymd.year, ymd.month, ymd.day).getLunar();
 }
@@ -65,7 +78,7 @@ export function getDayInfo(ymd: Ymd): DayInfo {
   const monthName = `${lunar.getMonthInChinese()}月`;
   const dayName = lunar.getDayInChinese();
   const jieqi = lunar.getJieQi() || null;
-  const festivals = [...lunar.getFestivals(), ...solar.getFestivals()];
+  const festivals = [...lunar.getFestivals(), ...solar.getFestivals()].filter((f) => !HIDDEN_FESTIVALS.has(f));
 
   let cell: DayInfo["cell"];
   if (jieqi) cell = { text: jieqi, kind: "jieqi" };
