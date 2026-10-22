@@ -34,6 +34,8 @@ export interface SpriteData {
   banner: Rect;
   /** 整面幡的形状，相对 banner 矩形，'1' 表示属于幡（点击判定、展开时隐藏用） */
   bannerMask: string[];
+  /** 扇面（书生）：环形扇区，圆心、内外半径（格）、起止角度（弧度，y 向下）。有它就沿弧排字 */
+  writingArc?: { cx: number; cy: number; r0: number; r1: number; a0: number; a1: number };
   /** 道士头顶所在的行（气泡放在它上面） */
   headTop: number;
 }

@@ -1,27 +1,22 @@
 /**
- * 幡上的字：按幡面大小自动选字号，竖排居中，栅格化成像素点阵。
+ * 书写物（幡、扇面、告示、木牌）上的字：按写字区域和字数自动定字号，栅格化成设备像素点阵。
  *
- * 字宽占幡面宽度的 70%–80%（WIDTH_MAX），整体上下居中；字数多放不下时自动缩小到刚好放下。
- * 所有尺寸都在设备像素上算，保证每个点都是整数个设备像素，不会糊：
- *   像素字（A 版）：Fusion Pixel 原生 12px / 10px，按整数倍放大（每个字体像素 = p 个设备像素），
- *                  在满足宽度和高度的前提下取最大的字。
- *   像素化行书（B 版）：志莽行书画到「半格」网格（每格设备像素为奇数时用整格）后按透明度二值化。
- *                  行书字形四周留白很大，按字号算会显得很小，所以按**墨迹**的实际大小排：
- *                  最宽的字的墨迹占幡面宽度约 76%，整列字放得下。
- * 横排的书写区域（扇面、告示）同样排法，只是「宽度」换成高度、字从左往右排，字形不转。
+ * 字号规则见 writingArea.ts：按**墨迹**的实际大小算——竖排每个字墨迹高 = 区域高 ÷ 字数 × 0.9、
+ * 横排每个字墨迹宽 = 区域宽 ÷ 字数 × 0.9，另一个方向不超过区域的 90%，取较小的。
+ * 字的墨迹用渲染后的包围盒量（行书字形四周留白很大，按字号算会显得很小）。
+ *
+ *   像素字（A 版）：Fusion Pixel 原生 12px / 10px。能整数倍放大就整数倍（像素格整齐）；
+ *                  整数倍明显小于目标（不到 80%）时，中、大尺寸改成按精确倍数最近邻放大——宁可字大清楚，不死守像素网格。
+ *   像素化行书（B 版）：志莽行书按墨迹缩放到目标大小，画到「半格」网格（每格设备像素为奇数时用整格）后二值化；
+ *                  扇面上的字要旋转，改用 1 个设备像素的网格，不然笔画会被转断。
+ *
+ * 每个字放在自己的格位里居中（区域沿排字方向平分成字数份），整列在区域里居中。
+ * 扇面（书生）沿中线的弧排字，每个字按所在位置的扇骨方向旋转，字的上方朝外。
  */
-import type { Rect } from "./sprite";
+import { arcGlyph, areaExtent, inkLimits, inkScale, pixelScale, slotCenter, type WritingArea } from "./writingArea";
 
 export type BannerFont = "pixel" | "brush";
 export type Writing = "vertical" | "horizontal";
-
-/** 字宽最多占幡面宽度的比例 */
-const WIDTH_MAX = 0.8;
-/** 上下各留一点边（占幡面高度的比例） */
-const V_MARGIN = 0.04;
-/** 字间距（占字号的比例）；行书字形自带留白，间距小一些 */
-const GAP_RATIO = 0.12;
-const GAP_RATIO_BRUSH = 0.05;
 
 const FAMILY = {
   pixel12: "WX FusionPixel12",
@@ -29,69 +24,17 @@ const FAMILY = {
   brush: "WX ZhiMangXing Banner",
 };
 
-/** 一次排版：在幡面里怎么画（单位都是设备像素） */
-export interface BannerPlan {
-  /** 幡面宽、高（设备像素） */
-  faceW: number;
-  faceH: number;
-  /** 一个点有多大（设备像素） */
-  dot: number;
-  /** 字号（点） */
-  size: number;
-  /** 字间距（点） */
-  gap: number;
-  family: string;
-  threshold: number;
-  /** 横排：字从左往右排 */
-  horizontal?: boolean;
-}
-
-/** 幡面上的点阵，faceW × faceH 设备像素，1 表示印墨 */
+/** 书写区上的点阵，box.w × box.h 格 = w × h 设备像素，1 表示印墨 */
 export type BannerMask = Uint8Array;
 
-/** 按字数、字体、幡面和每格设备像素选字号 */
-export function planBannerText(count: number, font: BannerFont, face: Rect, unit: number, writing: Writing = "vertical"): BannerPlan {
-  if (writing === "horizontal") {
-    // 横排 = 把书写区域转 90° 按竖排算字号，排的时候再按横向放
-    const plan = planBannerText(count, font, { ...face, w: face.h, h: face.w }, unit);
-    return { ...plan, faceW: face.w * unit, faceH: face.h * unit, horizontal: true };
-  }
-  const faceW = face.w * unit;
-  const faceH = face.h * unit;
-  const n = Math.max(1, count);
-  const usableH = faceH * (1 - V_MARGIN * 2);
-  const maxW = faceW * WIDTH_MAX;
-
-  if (font === "pixel") {
-    let best: BannerPlan | null = null;
-    for (const [native, family] of [
-      [12, FAMILY.pixel12],
-      [10, FAMILY.pixel10],
-    ] as const) {
-      // 先按正常字间距排，放不下再去掉字间距试一次（像素字自带 1 像素边）
-      for (const gap of [Math.max(1, Math.round(native * GAP_RATIO)), 0]) {
-        for (let p = Math.floor(maxW / native); p >= 1; p--) {
-          const total = (n * native + (n - 1) * gap) * p;
-          if (native * p > maxW || total > faceH) continue;
-          if (total > usableH && gap > 0) continue;
-          if (!best || native * p > best.size * best.dot) {
-            best = { faceW, faceH, dot: p, size: native, gap, family, threshold: 128 };
-          }
-          break;
-        }
-      }
-    }
-    // 幡面小到连 1 倍都放不下时，退回 10px 的 1 倍（字会超出一点，但不会消失）
-    return best ?? { faceW, faceH, dot: 1, size: 10, gap: 0, family: FAMILY.pixel10, threshold: 128 };
-  }
-
-  const dot = unit % 2 === 0 ? unit / 2 : unit;
-  const byWidth = Math.floor(maxW / dot);
-  // n 个字 + (n-1) 个间距放进可用高度：n·s + (n-1)·s·GAP ≤ H（间距取整后可能多 1 点，测试会兜住）
-  const byHeight = Math.floor(usableH / dot / (n + (n - 1) * GAP_RATIO_BRUSH));
-  const size = Math.max(6, Math.min(byWidth, byHeight));
-  const gap = Math.max(1, Math.round(size * GAP_RATIO_BRUSH));
-  return { faceW, faceH, dot, size, gap, family: FAMILY.brush, threshold: 110 };
+export interface BannerRender {
+  mask: BannerMask;
+  w: number;
+  h: number;
+  /** 最大的字墨迹：沿排字方向、垂直方向（设备像素） */
+  ink: { along: number; across: number };
+  /** integer：像素字整数倍；smooth：像素字按精确倍数放大；brush：行书 */
+  mode: "integer" | "smooth" | "brush";
 }
 
 /** 等字体加载好（字体文件是本地的，很快） */
@@ -103,10 +46,10 @@ export async function ensureBannerFonts(text: string, font: BannerFont): Promise
 
 let scratch: HTMLCanvasElement | null = null;
 
-/** 把一个字画成 size × size 的点阵（按墨迹居中、对齐整数像素） */
-function rasterizeChar(ch: string, family: string, size: number, threshold: number): Uint8Array {
+/** 把一个字画成 size × size 的点阵（留出边，量墨迹用） */
+function rasterizeChar(ch: string, family: string, size: number, threshold: number): Glyph {
   scratch ??= document.createElement("canvas");
-  const pad = 4;
+  const pad = Math.ceil(size * 0.25);
   const dim = size + pad * 2;
   scratch.width = dim;
   scratch.height = dim;
@@ -122,10 +65,10 @@ function rasterizeChar(ch: string, family: string, size: number, threshold: numb
   const x = Math.round(pad + (size - inkW) / 2 + m.actualBoundingBoxLeft);
   const y = Math.round(pad + (size - inkH) / 2 + m.actualBoundingBoxAscent);
   ctx.fillText(ch, x, y);
-  const data = ctx.getImageData(pad, pad, size, size).data;
-  const bits = new Uint8Array(size * size);
+  const data = ctx.getImageData(0, 0, dim, dim).data;
+  const bits = new Uint8Array(dim * dim);
   for (let i = 0; i < bits.length; i++) bits[i] = data[i * 4 + 3] >= threshold ? 1 : 0;
-  return bits;
+  return cropInk(bits, dim);
 }
 
 interface Glyph {
@@ -134,7 +77,7 @@ interface Glyph {
   bits: Uint8Array;
 }
 
-/** 裁到墨迹的外接框 */
+/** 裁到墨迹的外接框（墨迹按渲染结果量，不按字号） */
 function cropInk(bits: Uint8Array, size: number): Glyph {
   let x0 = size;
   let y0 = size;
@@ -149,85 +92,122 @@ function cropInk(bits: Uint8Array, size: number): Glyph {
       if (y > y1) y1 = y;
     }
   }
-  if (x1 < 0) return { w: 0, h: 0, bits: new Uint8Array(0) };
-  const w = x1 - x0 + 1;
-  const h = y1 - y0 + 1;
+  const w = x1 < 0 ? 0 : x1 - x0 + 1;
+  const h = x1 < 0 ? 0 : y1 - y0 + 1;
   const out = new Uint8Array(w * h);
   for (let y = 0; y < h; y++) out.set(bits.subarray((y0 + y) * size + x0, (y0 + y) * size + x0 + w), y * w);
   return { w, h, bits: out };
 }
 
-/** 把点阵按 dot 放大，画到幡面的 (left, top)（设备像素） */
-function blit(out: Uint8Array, faceW: number, faceH: number, g: Glyph, left: number, top: number, dot: number) {
-  for (let y = 0; y < g.h; y++) {
-    for (let x = 0; x < g.w; x++) {
-      if (!g.bits[y * g.w + x]) continue;
-      for (let dy = 0; dy < dot; dy++) {
-        const py = top + y * dot + dy;
-        if (py < 0 || py >= faceH) continue;
-        for (let dx = 0; dx < dot; dx++) {
-          const px = left + x * dot + dx;
-          if (px >= 0 && px < faceW) out[py * faceW + px] = 1;
-        }
+/**
+ * 把字形放大 k 倍（最近邻）、绕墨迹中心旋转 rot，印到 out 上，墨迹中心落在 (cx, cy)（设备像素）。
+ * 不转、k 为整数时，左上角对齐到整数像素，每个字体像素正好是 k × k 个设备像素。
+ */
+function stamp(out: Uint8Array, W: number, H: number, g: Glyph, k: number, cx: number, cy: number, rot = 0) {
+  if (!g.w || !g.h) return;
+  const gw = g.w * k;
+  const gh = g.h * k;
+  if (rot === 0) {
+    const left = Math.round(cx - gw / 2);
+    const top = Math.round(cy - gh / 2);
+    for (let py = Math.max(0, top); py < Math.min(H, top + Math.ceil(gh)); py++) {
+      const gy = Math.floor((py - top + 0.5) / k);
+      if (gy >= g.h) continue;
+      for (let px = Math.max(0, left); px < Math.min(W, left + Math.ceil(gw)); px++) {
+        const gx = Math.floor((px - left + 0.5) / k);
+        if (gx < g.w && g.bits[gy * g.w + gx]) out[py * W + px] = 1;
       }
+    }
+    return;
+  }
+  const cos = Math.cos(rot);
+  const sin = Math.sin(rot);
+  const r = Math.ceil(Math.hypot(gw, gh) / 2) + 1;
+  for (let py = Math.max(0, Math.floor(cy - r)); py < Math.min(H, Math.ceil(cy + r)); py++) {
+    for (let px = Math.max(0, Math.floor(cx - r)); px < Math.min(W, Math.ceil(cx + r)); px++) {
+      const dx = px + 0.5 - cx;
+      const dy = py + 0.5 - cy;
+      // 反转回字形坐标
+      const u = dx * cos + dy * sin;
+      const v = -dx * sin + dy * cos;
+      const gx = Math.floor(u / k + g.w / 2);
+      const gy = Math.floor(v / k + g.h / 2);
+      if (gx >= 0 && gy >= 0 && gx < g.w && gy < g.h && g.bits[gy * g.w + gx]) out[py * W + px] = 1;
     }
   }
 }
 
-/** 行书：按墨迹排版 */
-function renderBrush(chars: string[], plan: BannerPlan, out: BannerMask) {
-  const { faceW, faceH, dot, family, threshold, horizontal } = plan;
-  // across：和排字方向垂直的一边；along：排字方向
-  const acrossPx = horizontal ? faceH : faceW;
-  const alongPx = horizontal ? faceW : faceH;
-  const A = Math.floor(acrossPx / dot);
-  const L = Math.floor((alongPx * (1 - V_MARGIN * 2)) / dot);
-  const REF = 96;
-  const ref = chars.map((ch) => cropInk(rasterizeChar(ch, family, REF, threshold), REF));
-  const across = (g: Glyph) => (horizontal ? g.h : g.w);
-  const along = (g: Glyph) => (horizontal ? g.w : g.h);
-  const maxA = Math.max(1, ...ref.map(across));
-  const sumL = ref.reduce((a, g) => a + along(g), 0) || 1;
-  const gapRef = REF * GAP_RATIO_BRUSH * 1.5;
-  const k = Math.min((A * 0.76) / maxA, L / (sumL + gapRef * (chars.length - 1)));
-  const size = Math.max(6, Math.floor(REF * k));
-  const glyphs = chars.map((ch) => cropInk(rasterizeChar(ch, family, size, threshold), size));
-  const gap = Math.max(1, Math.round(gapRef * k));
-  const total = glyphs.reduce((a, g) => a + along(g), 0) + gap * (glyphs.length - 1);
-  let pos = Math.round((alongPx / dot - total) / 2) * dot;
-  for (const g of glyphs) {
-    const off = Math.round((A - across(g)) / 2) * dot;
-    if (horizontal) blit(out, faceW, faceH, g, pos, off, dot);
-    else blit(out, faceW, faceH, g, off, pos, dot);
-    pos += (along(g) + gap) * dot;
-  }
+/** 一组字形里最大的墨迹：沿排字方向、垂直方向（竖排沿高度，横排和扇面沿宽度） */
+function maxInk(glyphs: Glyph[], vertical: boolean) {
+  const along = Math.max(1, ...glyphs.map((g) => (vertical ? g.h : g.w)));
+  const across = Math.max(1, ...glyphs.map((g) => (vertical ? g.w : g.h)));
+  return { along, across };
 }
 
-/** 竖排（或横排）、居中，画成书写区域大小的设备像素点阵 */
-export function renderBannerText(text: string, plan: BannerPlan): BannerMask {
-  const { faceW, faceH, dot, size, gap, horizontal } = plan;
-  const out = new Uint8Array(faceW * faceH);
+/**
+ * 把文字排进写字区域，画成点阵。
+ * @param unit 每格设备像素
+ * @param cssCell 每格 CSS 像素（小 / 中 / 大 = 1 / 2 / 3），中、大尺寸才允许像素字不按整数倍放大
+ */
+export function renderBannerText(text: string, font: BannerFont, area: WritingArea, unit: number, cssCell: number): BannerRender {
+  const W = area.box.w * unit;
+  const H = area.box.h * unit;
+  const mask = new Uint8Array(W * H);
   const chars = [...text].slice(0, 4);
-  if (chars.length === 0) return out;
-  if (plan.family === FAMILY.brush) {
-    renderBrush(chars, plan, out);
-    return out;
+  const n = chars.length;
+  const vertical = area.kind === "rect" && area.writing === "vertical";
+  const ext = areaExtent(area);
+  const limits = inkLimits(n, { along: ext.along * unit, across: ext.across * unit });
+  if (!n) return { mask, w: W, h: H, ink: { along: 0, across: 0 }, mode: font === "brush" ? "brush" : "integer" };
+
+  let glyphs: Glyph[];
+  let k: number;
+  let mode: BannerRender["mode"];
+  if (font === "pixel") {
+    // 12px、10px 两种原生字号，取放大后墨迹更大的
+    let best: { glyphs: Glyph[]; k: number; mode: "integer" | "smooth"; size: number } | null = null;
+    for (const [native, family] of [
+      [12, FAMILY.pixel12],
+      [10, FAMILY.pixel10],
+    ] as const) {
+      const gs = chars.map((ch) => rasterizeChar(ch, family, native, 128));
+      const ink = maxInk(gs, vertical);
+      const s = pixelScale(inkScale(ink, limits), cssCell);
+      const size = s.k * ink.along;
+      if (!best || size > best.size) best = { glyphs: gs, k: s.k, mode: s.mode, size };
+    }
+    ({ glyphs, k, mode } = best!);
+  } else {
+    // 行书：先在参考字号下量墨迹，算出目标字号，再在「半格」网格上重画（像素化）
+    const REF = 96;
+    const ref = chars.map((ch) => rasterizeChar(ch, FAMILY.brush, REF, 110));
+    const scale = inkScale(maxInk(ref, vertical), limits).exact;
+    // 半格网格（像素化）；扇面上的字要旋转，按半格转会把笔画转断，改用 1 个设备像素（更清楚）
+    const dot = area.kind === "arc" ? 1 : unit % 2 === 0 ? unit / 2 : unit;
+    // 重画后墨迹可能比按参考字号算的大一两个点：超出上限就把字号减一再画，直到放得下（点的大小不变）
+    let size = Math.max(6, Math.floor((REF * scale) / dot));
+    for (;;) {
+      glyphs = chars.map((ch) => rasterizeChar(ch, FAMILY.brush, size, 110));
+      const ink = maxInk(glyphs, vertical);
+      if (size <= 6 || (ink.along * dot <= limits.alongMax && ink.across * dot <= limits.acrossMax)) break;
+      size--;
+    }
+    k = dot;
+    mode = "brush";
   }
-  const acrossPx = horizontal ? faceH : faceW;
-  const alongPx = horizontal ? faceW : faceH;
-  const glyph = size * dot;
-  const total = (chars.length * size + (chars.length - 1) * gap) * dot;
-  // 起点对齐到点的整数倍，点阵边界和像素网格对齐
-  const a0 = Math.round((acrossPx - glyph) / 2 / dot) * dot;
-  const l0 = Math.round((alongPx - total) / 2 / dot) * dot;
-  chars.forEach((ch, i) => {
-    const bits = rasterizeChar(ch, plan.family, size, plan.threshold);
-    const start = l0 + i * (size + gap) * dot;
-    const left = horizontal ? start : a0;
-    const top = horizontal ? a0 : start;
-    blit(out, faceW, faceH, { w: size, h: size, bits }, left, top, dot);
+
+  glyphs.forEach((g, i) => {
+    if (area.kind === "arc") {
+      const p = arcGlyph(area, i, n);
+      stamp(mask, W, H, g, k, (p.x - area.box.x) * unit, (p.y - area.box.y) * unit, p.rotate);
+    } else if (vertical) {
+      stamp(mask, W, H, g, k, W / 2, slotCenter(i, n, 0, H));
+    } else {
+      stamp(mask, W, H, g, k, slotCenter(i, n, 0, W), H / 2);
+    }
   });
-  return out;
+  const ink = maxInk(glyphs, vertical);
+  return { mask, w: W, h: H, ink: { along: ink.along * k, across: ink.across * k }, mode };
 }
 
 /**

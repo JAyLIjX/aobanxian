@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { ELEMENTS, generatedBy, type Element } from "../src/core/elements";
 import { defaultRules } from "../src/core/rules";
-import { planBannerText } from "../src/sprite/bannerText";
+import { areaExtent, writingArea } from "../src/sprite/writingArea";
 import { CHARACTERS, getCharacter } from "../src/sprite/characters";
 import { hitTest, inBanner, renderSprite, type Outfit, type Ramp } from "../src/sprite/sprite";
 
@@ -91,26 +91,13 @@ describe.each(CHARACTERS.filter((c) => c.id !== "daoshi").map((c) => [c.id, c.da
     }
   });
 
-  it("写字面上「奥半仙」三个字按书写区的方向排得下", () => {
-    for (const unit of [1, 2, 4, 6]) {
-      const p = planBannerText(3, "pixel", data.bannerFace, unit, data.writing);
-      const glyph = p.size * p.dot;
-      const across = data.writing === "horizontal" ? p.faceH : p.faceW;
-      // 书生的扇面只有 9 格高：最小尺寸、普通屏（每格 1 个设备像素）时连 10px 的像素字都放不下，
-      // 退回 10px 一倍（超出的 1px 被裁掉）；Retina 或中、大尺寸都放得下
-      if (across < 10) {
-        expect([p.size, p.dot]).toEqual([10, 1]);
-        continue;
-      }
-      const along = (3 * p.size + 2 * p.gap) * p.dot;
-      if (data.writing === "horizontal") {
-        expect(glyph, `unit ${unit}`).toBeLessThanOrEqual(p.faceH);
-        expect(along).toBeLessThanOrEqual(p.faceW);
-      } else {
-        expect(glyph).toBeLessThanOrEqual(p.faceW);
-        expect(along).toBeLessThanOrEqual(p.faceH);
-      }
-    }
+  it("写字区域在书写物里面，扣掉边距后还有地方写字", () => {
+    const a = writingArea(data);
+    const b = data.banner;
+    expect(a.box.x >= b.x && a.box.y >= b.y && a.box.x + a.box.w <= b.x + b.w && a.box.y + a.box.h <= b.y + b.h).toBe(true);
+    const ext = areaExtent(a);
+    expect(ext.along).toBeGreaterThan(20);
+    expect(ext.across).toBeGreaterThan(7);
   });
 });
 

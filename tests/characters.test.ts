@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { describe, expect, it } from "vitest";
 import { CHARACTERS, getCharacter } from "../src/sprite/characters";
 import { mergeSettings } from "../src/settings/settings";
-import { planBannerText } from "../src/sprite/bannerText";
+import { areaExtent, inkLimits } from "../src/sprite/writingArea";
 import { hitTest, sprite } from "../src/sprite/sprite";
 
 /** 键排序后的 JSON，和 Python json.dumps(sort_keys=True, separators=(",", ":")) 一致 */
@@ -46,19 +46,9 @@ describe("角色框架", () => {
     expect(mergeSettings({ character: "nobody" }).character).toBe("daoshi");
   });
 
-  it("横排书写区：字高不超过 80%，整行放得下", () => {
-    const face = { x: 0, y: 0, w: 42, h: 16 };
-    for (const unit of [2, 4]) {
-      for (const n of [2, 3, 4]) {
-        const p = planBannerText(n, "pixel", face, unit, "horizontal");
-        expect(p.horizontal).toBe(true);
-        expect([p.faceW, p.faceH]).toEqual([42 * unit, 16 * unit]);
-        expect(p.size * p.dot).toBeLessThanOrEqual(p.faceH * 0.8);
-        expect((n * p.size + (n - 1) * p.gap) * p.dot).toBeLessThanOrEqual(p.faceW);
-        // 和把书写区转 90° 按竖排算出的字号一样
-        const v = planBannerText(n, "pixel", { x: 0, y: 0, w: 16, h: 42 }, unit);
-        expect([p.size, p.dot, p.gap]).toEqual([v.size, v.dot, v.gap]);
-      }
-    }
+  it("横排书写区：字的墨迹沿横向排，按区域宽 ÷ 字数 × 0.9 算", () => {
+    const ext = areaExtent({ kind: "rect", writing: "horizontal", box: { x: 0, y: 0, w: 40, h: 14 } });
+    expect(ext).toEqual({ along: 40, across: 14 });
+    expect(inkLimits(4, ext).alongMax).toBe(9);
   });
 });

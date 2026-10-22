@@ -1475,3 +1475,39 @@ select {
   font-size: 13px;
 }
 
+
+/* ── 开发用：字号效果图 ── */
+html[data-view="textfit"],
+html[data-view="textfit"] body {
+  background: #f4eedf;
+}
+.tf {
+  padding: 16px 20px;
+  font-size: 13px;
+  color: #2a2420;
+}
+.tf h1 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+.tf h2 {
+  font-size: 14px;
+  margin: 14px 0 6px;
+}
+.tf__grid {
+  display: flex;
+  gap: 18px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.tf__cell {
+  margin: 0;
+}
+.tf__cell figcaption {
+  margin-top: 4px;
+  font-size: 12px;
+}
+.tf__font {
+  font-size: 11px;
+  color: #888;
+}

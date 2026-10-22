@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent, type PointerEvent } from "react";
 import { startWindowDrag } from "../platform/window";
-import { dissolve, ensureBannerFonts, planBannerText, renderBannerText, type BannerFont, type BannerMask } from "./bannerText";
+import { dissolve, ensureBannerFonts, renderBannerText, type BannerFont, type BannerMask } from "./bannerText";
+import { writingArea } from "./writingArea";
 import { hitTest, renderSprite, type HitPart, type Outfit, type SpriteData } from "./sprite";
 
 /** 幡上字的颜色：深墨 */
@@ -65,7 +66,9 @@ export function Daoshi(props: Props) {
   const jumpRef = useRef<HTMLDivElement>(null);
   const bannerRef = useRef<HTMLCanvasElement>(null);
   const b = sprite.banner;
-  const face = sprite.bannerFace;
+  // 写字区域（已扣 1 格边距）；扇面是扇区，点阵画在它的外接框里
+  const area = useMemo(() => writingArea(sprite), [sprite]);
+  const face = area.box;
 
   const body = useMemo(() => renderSprite(sprite, outfit, { hideBanner: true }), [sprite, outfit]);
   const bannerPixels = useMemo(() => {
@@ -116,8 +119,7 @@ export function Daoshi(props: Props) {
 
     void ensureBannerFonts(bannerText, bannerFont).then(() => {
       if (cancelled) return;
-      const plan = planBannerText([...bannerText].length, bannerFont, face, unit, sprite.writing);
-      const next = renderBannerText(bannerText, plan);
+      const next = renderBannerText(bannerText, bannerFont, area, unit, cssCell).mask;
       const prev = shown.current;
       if (!prev || prev.style !== style || prev.text === bannerText) {
         shown.current = { text: bannerText, style, mask: next };
@@ -139,7 +141,7 @@ export function Daoshi(props: Props) {
       cancelled = true;
       cancelAnimationFrame(raf);
     };
-  }, [bannerText, bannerFont, bannerPixels, unit, b, face]);
+  }, [bannerText, bannerFont, bannerPixels, unit, cssCell, b, face, area]);
 
   // 轻跳、晃幡：用 Web Animations 播放，按格跳变（steps），保持像素感；不重新挂载 canvas
   useEffect(() => {

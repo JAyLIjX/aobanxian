@@ -23,6 +23,7 @@
 6. 用 rules/default.json 的像素色阶画出五种配色的预览，并检查没有残留洋红 / 青色
 """
 import colorsys
+import math
 import json
 import sys
 from collections import Counter
@@ -431,11 +432,53 @@ def process(cid):
         "bannerMask": banner_mask,
         "headTop": int(head_top),
     }
+    if meta.get("writingShape") == "fan":
+        # 扇面是扇形（环形扇区），写字时沿弧排；矩形 bannerFace 只框得到中间一小块
+        data["writingArc"] = fit_fan(paper & mask)
+        a = data["writingArc"]
+        print(f"扇面：圆心 ({a['cx']}, {a['cy']})，半径 {a['r0']}–{a['r1']}，角度 {math.degrees(a['a0']):.0f}°–{math.degrees(a['a1']):.0f}°")
     out_json.parent.mkdir(parents=True, exist_ok=True)
     out_json.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"→ {out_json.relative_to(ROOT)}")
 
     write_previews(data, ROOT / "preview/character" / cid)
+
+
+def fit_fan(paper):
+    """
+    扇面 = 以扇轴为圆心的环形扇区。在留白下方搜索圆心，对每个候选算留白格的半径、角度分布（去掉两头 3% / 2%），
+    取「扇区里留白的密度 × 覆盖的留白比例」最大的一组。坐标都是格（格中心 +0.5），角度按屏幕坐标（y 向下），弧度。
+    """
+    ys, xs = np.nonzero(paper)
+    P = np.stack([xs + 0.5, ys + 0.5], axis=1)
+    pset = set(zip(xs.tolist(), ys.tolist()))
+    x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
+    h = y1 - y0 + 1
+    best = None
+    for cy in np.arange(y1, y1 + 2 * h, 0.5):
+        for cx in np.arange(x0, x1 + 1, 0.5):
+            dx, dy = P[:, 0] - cx, P[:, 1] - cy
+            if (dy > 0).any():
+                continue  # 留白都在扇轴上方
+            r = np.hypot(dx, dy)
+            a = np.arctan2(dy, dx)
+            r0, r1 = np.percentile(r, 3), np.percentile(r, 97)
+            a0, a1 = np.percentile(a, 2), np.percentile(a, 98)
+            cnt = inside = 0
+            for yy in range(int(cy - r1) - 1, int(cy) + 1):
+                for xx in range(int(cx - r1) - 1, int(cx + r1) + 2):
+                    rr = math.hypot(xx + 0.5 - cx, yy + 0.5 - cy)
+                    aa = math.atan2(yy + 0.5 - cy, xx + 0.5 - cx)
+                    if r0 <= rr <= r1 and a0 <= aa <= a1:
+                        cnt += 1
+                        inside += (xx, yy) in pset
+            if cnt == 0:
+                continue
+            score = (inside / cnt) * (inside / len(P))
+            if best is None or score > best[0]:
+                best = (score, cx, cy, r0, r1, a0, a1)
+    _, cx, cy, r0, r1, a0, a1 = best
+    return {"cx": float(cx), "cy": float(cy), "r0": round(float(r0), 2), "r1": round(float(r1), 2), "a0": round(float(a0), 4), "a1": round(float(a1), 4)}
 
 
 def horizontal_mask(paper, cell_a, cell_rgb, region, face, H, W, frame=H_FRAME, shape=None):

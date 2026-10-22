@@ -1,5 +1,5 @@
 {
-  "$comment": "角色说明。key.png 是色键版（换色区域：洋红 = 大面积主色，青色 = 小面积配色），ref.png 是原配色参考。写字的地方是扇面，writing 是排法：vertical（竖排）或 horizontal（横排）。 writingFrame：扇面外只多算 2 格（扇骨、扇边），再往外是衣服的轮廓线。 unroll：点人展开日历时，writing = 书写物收起、卡片在人物上下展开（幡），inPlace = 书写物原地展开成卡片（告示），body = 书写物不动、卡片从人物下方展开（扇面、木牌）。 voice：这个角色的口吻（右键菜单第一项的名字 divine，和开场白），简体、英文手写，繁体由 scripts/i18n/build-zh-tw.ts 生成。",
+  "$comment": "角色说明。key.png 是色键版（换色区域：洋红 = 大面积主色，青色 = 小面积配色），ref.png 是原配色参考。写字的地方是扇面，writing 是排法：vertical（竖排）或 horizontal（横排）。 writingFrame：扇面外只多算 2 格（扇骨、扇边），再往外是衣服的轮廓线。 unroll：点人展开日历时，writing = 书写物收起、卡片在人物上下展开（幡），inPlace = 书写物原地展开成卡片（告示），body = 书写物不动、卡片从人物下方展开（扇面、木牌）。 voice：这个角色的口吻（右键菜单第一项的名字 divine，和开场白），简体、英文手写，繁体由 scripts/i18n/build-zh-tw.ts 生成。 writingShape: fan：扇面是扇形，脚本拟合出圆心、内外半径和张开角度（writingArc），字沿弧排、按扇骨方向转。",
   "id": "shusheng",
   "name": {
     "zh-CN": "书生",
@@ -46,5 +46,6 @@
       "personalHarmony": "My friend, born in the Year of the {{animal}}: today is in harmony with you.",
       "anniversary": "Today is {{name}}, my friend — don't forget!"
     }
-  }
+  },
+  "writingShape": "fan"
 }

@@ -18,7 +18,8 @@ import { inTauri } from "../platform/window";
 import { requestSay } from "../platform/windows";
 import { rulesWith } from "../settings/settings";
 import { todaysLot } from "../settings/lotBook";
-import { ensureBannerFonts, planBannerText, renderBannerText } from "../sprite/bannerText";
+import { ensureBannerFonts, renderBannerText } from "../sprite/bannerText";
+import { writingArea } from "../sprite/writingArea";
 import { getCharacter } from "../sprite/characters";
 import { renderSprite, type Ramp } from "../sprite/sprite";
 import { renderShareImage, SHARE_H, SHARE_W, SPRITE_CELL, type ShareContent } from "../share/shareImage";
@@ -60,8 +61,8 @@ export function ShareApp() {
       await ensureBannerFonts(settings.bannerText, settings.bannerFont);
       await Promise.all([document.fonts.load(`40px ${display}`, "奥半仙0"), document.fonts.load(`40px ${body}`, "宜忌")]).catch(() => {});
       const sprite = getCharacter(settings.character).data;
-      const face = sprite.bannerFace;
-      const plan = planBannerText([...settings.bannerText].length, settings.bannerFont, face, SPRITE_CELL, sprite.writing);
+      const area = writingArea(sprite);
+      const face = area.box;
       const sep = lang === "en" ? " · " : " · ";
       const l = lot ? getLot(lot.n) : null;
       const content: ShareContent = {
@@ -90,7 +91,7 @@ export function ShareApp() {
               }
             : undefined,
         sprite: { pixels: renderSprite(sprite, outfit), w: sprite.width, h: sprite.height },
-        banner: { x: face.x, y: face.y, w: face.w, h: face.h, mask: renderBannerText(settings.bannerText, plan) },
+        banner: { x: face.x, y: face.y, w: face.w, h: face.h, mask: renderBannerText(settings.bannerText, settings.bannerFont, area, SPRITE_CELL, SPRITE_CELL).mask },
         fonts: { display, body },
       };
       if (!cancelled && canvasRef.current) renderShareImage(canvasRef.current, content);
