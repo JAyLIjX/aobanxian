@@ -18,13 +18,26 @@
 - **幡上印字**：平时印「奥半仙」。点一下幡，幡晃一下，字按顺序换成 宜事 → 忌事 → 大吉色（如「宜红宜绿」）→ 吉生肖 → 回到「奥半仙」，停 8 秒自动回到第一项。字号按幡面大小自动选：3 个字的字宽约占幡面 75%，4 个字自动缩小到刚好放下。
 - **挂轴日历**：点道士身体，幡展开成挂轴：日期、农历、干支、今日五行和两个大吉色系；点纸面看当天详情，点「月历」展开月历，点任意一天看那天的详情。再点道士、按 Esc 或点桌面其他地方就卷回去。
 - **每日开场白**：每天第一次见面，道士头顶冒一句话——黄道日「掐指一算，今日黄道吉日」，黑道日「今日宜稳不宜急」；天赦日、传统节日、节气、杨公忌日有各自的说法，幡上也换成对应的字。天赦日和春节，道士周围会闪光。
-- **右键菜单**：在道士或卷轴上右键（Mac 双指轻点、Control+点击）：掐指一算、今日详情、展开 / 收起日历、小人尺寸、置顶、设置、关于、退出。托盘 / 菜单栏图标里也是同样的菜单。
-- **设置**：通用、外观、规则、提醒四页，改动即时生效。
+- **宜忌解释**：详情里把鼠标放在宜忌词上，会解释这个词是什么意思（如「纳采：订婚时男方送聘礼」）。
+- **我的生肖**：在设置里选自己的生肖（只存在本机），卡片上显示「今日与你：相合 / 相冲 / 相害 / 平常」，相合、相冲的日子幡上和开场白也会说。
+- **择日**：选一件事（搬家、出行、开业、结婚、签约、装修、安床、祭祀）和范围（30 / 60 / 90 天），列出宜做且不忌的日子，标出黄道、天赦，和你生肖相冲的日子变灰。
+- **纪念日**：生日、纪念日，公历或农历都行；农历会处理闰月和小月（没有三十按廿九）。列表里显示下次是哪天、还有几天；当天道士会说「今日是妈妈的农历生日」，月历上那一天有小红点，还能用系统通知提前提醒。卡片底部是最近的纪念日、传统节日或节气的倒计时。可以导出 / 导入 JSON。
+- **求签**：摇像素签筒，掉出一根签，展开签纸：签号、签等、签诗（《關聖帝君靈籤》原文）和白话解读。每天一签，签册里按日期翻看。
+- **每日一卦**：梅花易数按时间起卦（以你今天第一次起卦的时辰为准），显示本卦、动爻、变卦的《周易》原文和白话解读。
+- **分享今日**：生成一张 1080×1440 的图（日期、农历、五行、大吉色、宜忌、像素道士、仓库二维码，可附上今日签），复制到剪贴板并存到「图片/奥半仙」。
+- **右键菜单**：在道士或卷轴上右键（Mac 双指轻点、Control+点击）：掐指一算、求签、每日一卦 ／ 今日详情、展开 / 收起日历 ／ 择日、纪念日、分享今日 ／ 小人尺寸、置顶、设置 ／ 关于、退出。托盘 / 菜单栏图标里也是同样的菜单。
+- **设置**：通用、外观、规则、提醒四页，改动即时生效。外观里可以换角色（现在只有道士）。
 - **三种语言**：简体中文、繁體中文、English。英文界面里，宜忌、纳音、干支这些词写成「中文原词 + 英文解释」。
 
 | 收起 | 展开成挂轴 |
 | --- | --- |
 | <img src="preview/collapsed.png" height="220"> | <img src="preview/scroll.png" height="220"> |
+
+| 求签 | 每日一卦 | 分享今日 |
+| --- | --- | --- |
+| <img src="preview/v0.2/lot.png" height="300"> | <img src="preview/v0.2/gua.png" height="300"> | <img src="preview/v0.2/share.png" height="300"> |
+
+签诗、卦辞、爻辞录自维基文库（《關聖帝君靈籤》清刊本、《周易》），公有领域，保持原文；白话解读和英文大意是本项目自己写的。
 
 ## 安装
 
@@ -190,6 +203,8 @@ npm run tauri dev
   - [Fusion Pixel 缝合像素字体](https://github.com/TakWolf/fusion-pixel-font)（含 Ark Pixel、Cubic 11、Galmuri）——幡上像素字
   - [EB Garamond](https://github.com/googlefonts/ebgaramond)——英文正文
   - [OpenCC](https://github.com/BYVoid/OpenCC) / [opencc-js](https://github.com/nk2028/opencc-js)——繁简转换
+  - [维基文库](https://zh.wikisource.org/)——《[關聖帝君靈籤](https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4)》签诗、《[周易](https://zh.wikisource.org/wiki/%E5%91%A8%E6%98%93)》卦辞爻辞（公有领域原文）
+  - [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator)（Kazuhiko Arase，MIT）——离线二维码
 
 字体文件是按本项目用字做的子集，许可全文在 `src/assets/fonts/`。
 
@@ -197,7 +212,7 @@ npm run tauri dev
 
 ## English
 
-**Ao Banxian** (奥半仙, "Half-Immortal Ao") is a pixel-art Taoist who lives on your desktop (macOS / Windows). Every day he wears robes in the "lucky colours" of the Five Elements, and the banner he holds shows the day's suggested and avoided activities from the traditional Chinese almanac. Click the banner to flip through its messages; click him and the banner unrolls into a hanging-scroll calendar with the lunar date, stem-branch, element of the day and a month view. He greets you each morning (auspicious "Yellow Path" days, the Day of Heavenly Pardon, festivals and solar terms each have their own line), and right-clicking him opens a native menu with settings and an About window.
+**Ao Banxian** (奥半仙, "Half-Immortal Ao") is a pixel-art Taoist who lives on your desktop (macOS / Windows). Every day he wears robes in the "lucky colours" of the Five Elements, and the banner he holds shows the day's suggested and avoided activities from the traditional Chinese almanac. Click the banner to flip through its messages; click him and the banner unrolls into a hanging-scroll calendar with the lunar date, stem-branch, element of the day and a month view. He greets you each morning (auspicious "Yellow Path" days, the Day of Heavenly Pardon, festivals and solar terms each have their own line), and right-clicking him opens a native menu: draw a daily fortune lot (poems from the public-domain *Guansheng Dijun Lingqian*), cast the day's I Ching hexagram (Meihua time method, original *Zhouyi* text), pick auspicious days for moving, weddings and more, keep birthdays and anniversaries (lunar dates included, with system notifications), and export a 1080×1440 "share today" card. Plain-language readings of the lots and hexagrams are our own writing.
 
 The UI is available in Simplified Chinese, Traditional Chinese and English; in English, culture-specific terms are shown as "Chinese original · English gloss" (see `locales/glossary.json`). Calendar data comes from [lunar-javascript](https://github.com/6tail/lunar-javascript); the colour rules live in `rules/default.json` and are fully configurable, since folk traditions differ — PRs adding other schools are welcome. Everything here is folk tradition, just for fun.
 

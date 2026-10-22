@@ -34,19 +34,32 @@ src/core/                  纯 TS，不依赖 React / Tauri / lunar-javascript
   elements.ts wuxing.ts zodiac.ts rules.ts dayBoundary.ts   五行与规则（第一轮）
   banner.ts                幡面换字循环、宜忌取值
   layout.ts                卷轴放在哪、窗口多大
-  opening.ts               开场白、特殊日子的幡面文字
+  opening.ts               开场白（纪念日 > 特殊日子 > 生肖相冲相合 > 黄道黑道）、特殊日子的幡面文字
   bubble.ts                气泡计时
+  zodiac.ts                六合、三合、六冲、六害；我的生肖和今天的关系
+  lots.ts                  求签：每日签号（日期 + 本机种子）、签册
+  gua.ts                   梅花易数时间起卦（纯函数）
 src/calendar/
   day.ts                   lunar-javascript → DayInfo / DayDetail
   special.ts               值神黄道黑道、天赦日、杨公忌日、特殊日子优先级
+  zeri.ts                  择日：事件 → 宜忌用词（config/zeri.json），筛出宜做且不忌的日子
+  anniversary.ts           纪念日：下次日期（闰月、小月、2/29）、提醒、月历记号、导入校验
+  countdown.ts             卡片底部倒计时（纪念日、传统节日、节气）
+  guaDay.ts                某天某时 → 农历年支、月、日、时支 → 起卦
+src/data/                  古籍原文 + 自撰白话：lots.json（關聖帝君靈籤一百签）、zhouyi.json（周易六十四卦）
+src/share/shareImage.ts    分享图（1080×1440）版式、离线二维码
 src/sprite/
   sprite.ts                精灵数据、换色渲染（纯函数）、点击分区
-  bannerText.ts            幡上文字栅格化（像素字 / 像素化行书）、像素溶解
+  bannerText.ts            幡上文字栅格化（像素字 / 像素化行书，竖排 / 横排）、像素溶解
+  characters.ts            角色清单（自动收集 assets/character/*）
+  lotCylinder.ts           求签的像素签筒（代码画）
   Daoshi.tsx               canvas 绘制道士：身体层 + 幡层，呼吸、轻跳、晃幡、点击 / 拖动
 src/windows/
   MainApp.tsx              主窗口：道士、幡面循环、卷轴、详情、气泡、闪光、布局、点穿区域、菜单
   SettingsApp.tsx          设置窗口（?view=settings）
   AboutApp.tsx             关于窗口（?view=about）
+  ZeriApp / AnniversariesApp / LotsApp / GuaApp / ShareApp   择日、纪念日、求签、每日一卦、分享今日（?view=zeri 等）
+  useWindowSetup.ts        独立窗口的公共设置（语言、标题）
   PreviewApp.tsx           开发用预览页（?view=preview，只在开发模式）
 src/components/            Scroll（挂轴）/ TodayCard / MonthView / DetailPanel / ColorChip / Bubble / Sparkles
 src/settings/              设置类型与校验（纯函数）、tauri-plugin-store 读写、useSettings
@@ -54,6 +67,8 @@ src/i18n/                  i18next 初始化、术语显示（terms.ts）、日�
 src/platform/
   window.ts                Tauri 窗口封装（浏览器里是空操作）
   menu.ts                  右键菜单与托盘菜单（同一份定义）
+  windows.ts               打开独立窗口；其他窗口请主窗口开详情（open-detail）、请道士说话（say）
+  notify.ts                系统通知
 src-tauri/src/lib.rs       点穿线程、set_window_rect、quit_app、插件、macOS 隐藏 Dock 图标
 scripts/process-sprite.py  素材处理（一次性）
 scripts/fonts/             字体下载、字表收集、子集化
@@ -215,8 +230,17 @@ GitHub Actions（`.github/workflows/release.yml`）推送 `v*` 标签时用 taur
 - **WebView2 运行时**：Windows 10 可能没有，NSIS 安装包默认会下载引导程序。
 - 需要在 Windows 上确认：透明边缘没有黑边、点穿、拖动、卷轴展开不超出屏幕（含任务栏）、右键菜单位置、设置窗口、字体（canvas 文字栅格化在 ClearType 下仍按阈值取点）。
 
+## v0.2 功能要点
+
+- **数据都在本机**：我的生肖在设置里；纪念日（`anniversaries`）、签册（`lotBook`）、求签种子（`lotSalt`）、今天第一次起卦的钟点（`guaCast`）、已发过的纪念日提醒（`annivNotified`）都在 store 的 `settings.json` 里。
+- **古籍原文**（签诗、卦辞、爻辞）保持维基文库原文繁体，简体界面也不转换；白话和英文是自撰。**不要编造或改写原文**；换版本时整份替换 `src/data/*.json` 并注明出处。
+- **每天一签**：签号 = hash(本机种子 + 日期) mod 100 + 1，同一天怎么求都一样。
+- **起卦**：年支按农历年（正月初一换年），闰月按本月数，时辰 23 点起算子时。
+- **择日**：`config/zeri.json` 里每件事对应的宜忌用词；要求「宜」里有、「忌」里没有。和我的生肖相冲的日子变灰并标「冲你」。
+- **分享图**：文字按界面语言；存到 `图片/奥半仙/奥半仙-日期.png`（附签加「-签」），需要 fs 的 `$PICTURE` 权限；导出 / 导入纪念日走对话框选的路径（对话框会把选中的路径加进 fs 权限范围）。
+
 ## 测试
 
-`tests/`：规则、历法、精灵图（五种日子不残留色键色、底层不变、两层叠加、点击分区、幡外的手和肩膀算点人、透明处点穿）、幡面循环与宜忌取值、特殊日子（真实日期、优先级）、开场白与气泡计时、卷轴布局（四个角不超出屏幕、道士不动）、设置（每项改动读回、只存改过的项、恢复默认）、多语言（键一致、繁体无简体字、术语表覆盖十年内所有历法词）。
+`tests/`：v0.2 新增 生肖关系（六合、三合、六冲、六害）、择日（结果里没有一个在忌里）、纪念日（闰月、小月、跨年、提醒、导入）、开场白优先级、求签（同日同签、一百签齐全）、起卦（观梅占等固定例子、64 卦 384 爻用九用六齐全）、分享图（尺寸、二维码解码）、角色框架（道士搬家后数据不变、横排排版）；以及第一、二轮的 规则、历法、精灵图（五种日子不残留色键色、底层不变、两层叠加、点击分区、幡外的手和肩膀算点人、透明处点穿）、幡面循环与宜忌取值、特殊日子（真实日期、优先级）、开场白与气泡计时、卷轴布局（四个角不超出屏幕、道士不动）、设置（每项改动读回、只存改过的项、恢复默认）、多语言（键一致、繁体无简体字、术语表覆盖十年内所有历法词）。
 
 界面交互（点击、拖动、右键、设置即时生效）需要在真实窗口里验证：`npm run tauri dev`。

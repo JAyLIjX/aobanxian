@@ -57,8 +57,8 @@ export function shareLayout(withLot: boolean, spriteW = 79, spriteH = 115) {
     sprite: { x: SHARE_W - M - 50 - sw, y: 110, w: sw, h: sh },
     text: { x: 110, y: 110, w: SHARE_W - M - 50 - sw - 130, h: 470 },
     lucky: { x: 110, y: 640, w: SHARE_W - 220, h: 90 },
-    yiji: { x: 110, y: 770, w: SHARE_W - 220, h: 280 },
-    lot: withLot ? { x: 110, y: 1065, w: SHARE_W - 220, h: 105 } : null,
+    yiji: { x: 110, y: 770, w: SHARE_W - 220, h: 250 },
+    lot: withLot ? { x: 110, y: 1035, w: SHARE_W - 220, h: 132 } : null,
     footer: { x: 110, y: 1220, w: SHARE_W - 220 - qr - 30, h: 130 },
     qr: { x: SHARE_W - 110 - qr, y: 1190, w: qr, h: qr },
   };
@@ -218,11 +218,14 @@ export function renderShareImage(canvas: HTMLCanvasElement, c: ShareContent): vo
     ctx.strokeRect(lt.x, lt.y, lt.w, lt.h);
     ctx.fillStyle = CINNABAR;
     fitText(ctx, c.lot.title, body, 30, lt.w - 40);
-    ctx.fillText(c.lot.title, lt.x + 20, lt.y + 42);
+    ctx.fillText(c.lot.title, lt.x + 20, lt.y + 40);
     ctx.fillStyle = INK;
-    const poem = c.lot.poem.join("，") + "。";
-    fitText(ctx, poem, body, 30, lt.w - 40);
-    ctx.fillText(poem, lt.x + 20, lt.y + 86);
+    // 四句分两行：一、二句一行，三、四句一行
+    const rows = [`${c.lot.poem[0]}，${c.lot.poem[1]}，`, `${c.lot.poem[2]}，${c.lot.poem[3]}。`];
+    rows.forEach((row, i) => {
+      fitText(ctx, row, body, 30, lt.w - 40);
+      ctx.fillText(row, lt.x + 20, lt.y + 82 + i * 36);
+    });
   }
 
   // 落款与二维码
