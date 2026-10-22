@@ -368,50 +368,62 @@ def main():
     fx, fy, fw, fh = (int(v) for v in face)
     print(f"幡面空白 x={fx} y={fy} {fw}×{fh} 格")
 
-    # 整面幡：以幡面为中心，向左右扩到上下木轴的两端，向上到旗杆顶，向下到下木轴再往下一段旗杆
-    def row_span(y, lo, hi):
-        xs_ = [x for x in range(lo, hi + 1) if cell_a[y, x] and not region[y, x]]
-        return (min(xs_), max(xs_)) if xs_ else None
+    # 整面幡：上下木轴、红框、米白幡面、旗杆上半段。
+    # 1) 左右范围：上下木轴所在的行里，从幡面中心列向两边连续的不透明格（木轴两端有金色端头）
+    cx = fx + fw // 2
 
-    band_lo, band_hi = max(0, fx - 8), min(W - 1, fx + fw + 7)
+    def run_from_center(y):
+        if not (cell_a[y, cx] and not region[y, cx]):
+            return None
+        l = r = cx
+        while l - 1 >= 0 and cell_a[y, l - 1] and not region[y, l - 1]:
+            l -= 1
+        while r + 1 < W and cell_a[y, r + 1] and not region[y, r + 1]:
+            r += 1
+        return l, r
+
     left, right = fx, fx + fw - 1
     top = fy
-    while top > 0 and row_span(top - 1, band_lo, band_hi):
+    while top > 0 and run_from_center(top - 1):
         top -= 1
-        s = row_span(top, band_lo, band_hi)
-        left, right = min(left, s[0]), max(right, s[1])
-    # 下木轴：幡面下方第一段比幡面还宽的行
+        l, r = run_from_center(top)
+        left, right = min(left, l), max(right, r)
     y = fy + fh
     rod_bottom = y
     while y < H:
-        s = row_span(y, band_lo, band_hi)
-        if s and s[1] - s[0] + 1 >= fw:
-            left, right = min(left, s[0]), max(right, s[1])
+        span = run_from_center(y)
+        if span and span[1] - span[0] + 1 >= fw:
+            left, right = min(left, span[0]), max(right, span[1])
             rod_bottom = y
-            y += 1
-        elif y - (fy + fh) < 6:
-            y += 1
-        else:
+        elif y - (fy + fh) >= 6:
             break
-    for yy in range(fy, rod_bottom + 1):
-        s = row_span(yy, band_lo, band_hi)
-        if s:
-            left, right = min(left, s[0]), max(right, s[1])
-    # 旗杆上半段：下木轴到手之间
+        y += 1
+    # 2) 旗杆上半段：下木轴往下，直到握杆的手（幡的左右范围内第一次出现皮肤色）
     pole_end = rod_bottom
-    cx = (fx + fx + fw - 1) // 2
-    pole_cols = range(cx - 3, cx + 4)
     for yy in range(rod_bottom + 1, H):
         if any(cell_a[yy, x] and is_skin(cell_rgb[yy, x]) for x in range(left, right + 1)):
             break
         pole_end = yy
-    banner = {"x": int(left), "y": int(top), "w": int(right - left + 1), "h": int(pole_end - top + 1)}
-    print(f"整面幡 x={banner['x']} y={banner['y']} {banner['w']}×{banner['h']} 格")
+    # 3) 从幡面出发做连通填充（不走换色区，限定在手以上、幡的左右范围内），得到幡的形状。
+    #    顶上的金色宝珠颜色接近皮肤，所以这里不按皮肤色拦
+    inside = lambda yy, xx: top <= yy <= pole_end and left <= xx <= right
+    mask = np.zeros((H, W), dtype=bool)
+    stack = [(fy + fh // 2, cx)]
+    mask[fy + fh // 2, cx] = True
+    while stack:
+        yy, xx = stack.pop()
+        for ny, nx in ((yy - 1, xx), (yy + 1, xx), (yy, xx - 1), (yy, xx + 1)):
+            if inside(ny, nx) and not mask[ny, nx] and cell_a[ny, nx] and not region[ny, nx]:
+                mask[ny, nx] = True
+                stack.append((ny, nx))
+    ys_m, xs_m = np.nonzero(mask)
+    bx0, bx1, by0, by1 = xs_m.min(), xs_m.max(), ys_m.min(), ys_m.max()
+    banner = {"x": int(bx0), "y": int(by0), "w": int(bx1 - bx0 + 1), "h": int(by1 - by0 + 1)}
+    banner_mask = ["".join("1" if mask[yy, xx] else "0" for xx in range(bx0, bx1 + 1)) for yy in range(by0, by1 + 1)]
+    print(f"整面幡 x={banner['x']} y={banner['y']} {banner['w']}×{banner['h']} 格，共 {int(mask.sum())} 格")
 
     # 头顶：道士头部最高处（幡以外的不透明格）
-    head_top = next(
-        y for y in range(H) if any(cell_a[y, x] for x in range(W) if not (banner["x"] <= x < banner["x"] + banner["w"]))
-    )
+    head_top = next(y for y in range(H) if any(cell_a[y, x] and not mask[y, x] for x in range(W)))
 
     data = {
         "$comment": "由 scripts/process-sprite.py 从 assets/character/daoshi-key.png 生成，不要手改",
@@ -424,6 +436,7 @@ def main():
         "regions": regions,
         "bannerFace": {"x": fx, "y": fy, "w": fw, "h": fh},
         "banner": banner,
+        "bannerMask": banner_mask,
         "headTop": int(head_top),
     }
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)

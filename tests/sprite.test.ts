@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { ELEMENTS, generatedBy, type Element } from "../src/core/elements";
 import { defaultRules } from "../src/core/rules";
-import { hitTest, isOpaque, renderSprite, sprite, type Outfit, type Ramp } from "../src/sprite/sprite";
+import { hitTest, inBanner, isOpaque, renderSprite, sprite, type Outfit, type Ramp } from "../src/sprite/sprite";
 
 const ramp = (e: Element): Ramp => defaultRules.pixelRamps[e].map((l) => l.hex) as Ramp;
 /** 道袍 = 相（D 所生），腰带 = 旺（D） */
@@ -82,11 +82,24 @@ describe("五种五行日子的换色", () => {
     });
   }
 
-  it("展开成卷轴时整面幡不画", () => {
+  it("展开成卷轴时整面幡不画，道士其他部分照常", () => {
+    const full = renderSprite(sprite, outfitOf("木"));
     const px = renderSprite(sprite, outfitOf("木"), { hideBanner: true });
-    const b = sprite.banner;
-    for (let y = b.y; y < b.y + b.h; y++) {
-      for (let x = b.x; x < b.x + b.w; x++) expect(px[(y * sprite.width + x) * 4 + 3]).toBe(0);
+    for (let y = 0; y < sprite.height; y++) {
+      for (let x = 0; x < sprite.width; x++) {
+        const i = (y * sprite.width + x) * 4 + 3;
+        expect(px[i]).toBe(inBanner(sprite, x, y) ? 0 : full[i]);
+      }
+    }
+  });
+
+  it("幡层 + 身体层 = 完整的道士", () => {
+    const full = renderSprite(sprite, outfitOf("火"));
+    const body = renderSprite(sprite, outfitOf("火"), { hideBanner: true });
+    const banner = renderSprite(sprite, outfitOf("火"), { onlyBanner: true });
+    for (let i = 0; i < full.length; i += 4) {
+      const src = body[i + 3] ? body : banner;
+      expect([src[i], src[i + 1], src[i + 2], src[i + 3]]).toEqual([full[i], full[i + 1], full[i + 2], full[i + 3]]);
     }
   });
 });
@@ -101,6 +114,21 @@ describe("点击分区", () => {
 
     expect(hitTest(sprite, 0, sprite.height - 1)).toBe(isOpaque(sprite, 0, sprite.height - 1) ? "body" : null);
     expect(hitTest(sprite, -5, -5)).toBe(null);
+  });
+
+  it("幡外接矩形里、幡形状以外的不透明格（手、肩膀）算点人", () => {
+    const b = sprite.banner;
+    let checked = 0;
+    for (let y = b.y; y < b.y + b.h; y++) {
+      for (let x = b.x; x < b.x + b.w; x++) {
+        if (isOpaque(sprite, x, y) && !inBanner(sprite, x, y)) {
+          expect(hitTest(sprite, x, y)).toBe("body");
+          checked++;
+        }
+      }
+    }
+    expect(sprite.bannerMask.length).toBe(b.h);
+    expect(checked).toBeGreaterThan(0);
   });
 
   it("幡范围内的透明格也点穿（不是整块矩形都能点）", () => {

@@ -26,8 +26,10 @@ export interface SpriteData {
   regions: string[];
   /** 幡面米白空白处（印字） */
   bannerFace: Rect;
-  /** 整面幡：上下木轴、红框、旗杆上半段（点击判定、卷轴动画） */
+  /** 整面幡的外接矩形：宝珠、上下木轴、红框、幡面、旗杆上半段（卷轴动画定位用） */
   banner: Rect;
+  /** 整面幡的形状，相对 banner 矩形，'1' 表示属于幡（点击判定、展开时隐藏用） */
+  bannerMask: string[];
   /** 道士头顶所在的行（气泡放在它上面） */
   headTop: number;
 }
@@ -47,22 +49,31 @@ function hexToRgb(hex: string): [number, number, number] {
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
 
+/** 某格是否属于整面幡 */
+export function inBanner(data: SpriteData, x: number, y: number): boolean {
+  const b = data.banner;
+  if (!inRect(b, x, y)) return false;
+  return data.bannerMask[y - b.y][x - b.x] === "1";
+}
+
 /**
  * 按格渲染成 RGBA（width × height，每格一个像素）。
- * hideBanner 为 true 时整面幡不画（展开成卷轴时）。
+ * hideBanner：整面幡不画（身体层、展开成卷轴时）；onlyBanner：只画整面幡（幡层）。
  */
-export function renderSprite(data: SpriteData, outfit: Outfit, opts: { hideBanner?: boolean } = {}): Uint8ClampedArray {
+export function renderSprite(data: SpriteData, outfit: Outfit, opts: { hideBanner?: boolean; onlyBanner?: boolean } = {}): Uint8ClampedArray {
   const { width, height } = data;
   const out = new Uint8ClampedArray(width * height * 4);
   const basePalette = data.palette.map(hexToRgb);
   const ramps = { robe: outfit.robe.map(hexToRgb), sash: outfit.sash.map(hexToRgb) };
-  const b = data.banner;
 
   for (let y = 0; y < height; y++) {
     const baseRow = data.base[y];
     const regionRow = data.regions[y];
     for (let x = 0; x < width; x++) {
-      if (opts.hideBanner && x >= b.x && x < b.x + b.w && y >= b.y && y < b.y + b.h) continue;
+      if (opts.hideBanner || opts.onlyBanner) {
+        const banner = inBanner(data, x, y);
+        if ((opts.hideBanner && banner) || (opts.onlyBanner && !banner)) continue;
+      }
       const r = regionRow[x];
       let rgb: [number, number, number] | undefined;
       if (r !== ".") {
@@ -94,10 +105,10 @@ export function inRect(r: Rect, x: number, y: number): boolean {
 
 export type HitPart = "banner" | "body" | null;
 
-/** 按格判断点击落在哪：整面幡范围内的不透明格算幡，其他不透明格算人，透明处为 null */
+/** 按格判断点击落在哪：幡的像素算幡，其他不透明像素算人，透明处为 null */
 export function hitTest(data: SpriteData, x: number, y: number): HitPart {
   const cx = Math.floor(x);
   const cy = Math.floor(y);
   if (!isOpaque(data, cx, cy)) return null;
-  return inRect(data.banner, cx, cy) ? "banner" : "body";
+  return inBanner(data, cx, cy) ? "banner" : "body";
 }
