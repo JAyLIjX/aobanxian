@@ -1,6 +1,6 @@
 [package]
 name = "aobanxian"
-version = "0.3.0"
+version = "0.4.0"
 description = "Ao Banxian 奥半仙 — pixel Taoist almanac desktop widget"
 license = "MIT"
 edition = "2024"
