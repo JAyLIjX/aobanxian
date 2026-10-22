@@ -8,6 +8,9 @@
  *                             + rulesText（四档文字、解释句、小贴士等，来自 rules/default.json）
  *   locales/zh-TW.terms.json  历法与宜忌词条的繁体对照（OpenCC cn→tw，只换字形、保持传统写法）
  *   locales/glossary.json     给缺少 zh-TW 的词补上（已有的不覆盖）
+ *   assets/character/<id>/character.json   各角色口吻的 voice["zh-TW"]
+ *   src/data/lots.json        签的白话总解、典故故事、分事项的 zh-TW（签诗原文不动）
+ *   src/data/poems.json       每日一诗白话大意的 zh-TW（诗的原文不动）
  *
  * 人工检查后要改的词写进 UI_FIXES / TERM_FIXES，重新运行即可。
  */
@@ -43,11 +46,18 @@ const KEY_FIXES: Record<string, string> = {
 };
 
 /** 历法词条的人工修正 */
-const TERM_FIXES: [string, string][] = [["衝", "沖"]];
+const TERM_FIXES: [string, string][] = [
+  ["衝", "沖"],
+  ["醜", "丑"], // 地支「丑」（丑时、丑土、乙丑）不是美醜的「醜」
+];
+
+/** 签文白话（叙事散文）的人工修正。不套 UI_FIXES：「衝→沖」只适用于黄历的沖煞，散文里「衝突」「衝動」要保留 */
+const PROSE_FIXES: [string, string][] = [];
 
 const fix = (s: string, fixes: [string, string][]) => fixes.reduce((acc, [a, b]) => acc.split(a).join(b), s);
 const ui = (s: string) => fix(toTwp(s), UI_FIXES);
 const term = (s: string) => fix(toTw(s), TERM_FIXES);
+const prose = (s: string) => fix(toTwp(s), PROSE_FIXES);
 
 function mapStrings(value: unknown, f: (s: string) => string): unknown {
   if (typeof value === "string") return f(value);
@@ -124,5 +134,25 @@ for (const id of readdirSync(join(ROOT, "assets/character"))) {
   meta.voice["zh-TW"] = mapStrings(meta.voice["zh-CN"], ui);
   write(file, meta);
 }
+
+// 5. 签文：白话总解、典故故事、分事项（自撰的简体 → 繁体）。签诗、典故标题是古籍原文，本来就是繁体，不动
+type Tri = Record<string, string>;
+const lotsFile = read("src/data/lots.json");
+for (const lot of lotsFile.lots as { reading: Tri; tale?: Tri; aspects?: Record<string, Tri> }[]) {
+  const tw = (x?: Tri) => {
+    if (x?.["zh-CN"]) x["zh-TW"] = prose(x["zh-CN"]);
+  };
+  tw(lot.reading);
+  tw(lot.tale);
+  for (const a of Object.values(lot.aspects ?? {})) tw(a);
+}
+write("src/data/lots.json", lotsFile);
+
+// 6. 每日一诗的白话大意
+const poemsFile = read("src/data/poems.json");
+for (const poem of poemsFile.poems as { gist: Tri }[]) {
+  if (poem.gist["zh-CN"]) poem.gist["zh-TW"] = prose(poem.gist["zh-CN"]);
+}
+write("src/data/poems.json", poemsFile);
 
 console.log(`zh-TW.json 已生成；历法词条 ${terms.size} 个，其中 ${Object.keys(termMap).length} 个字形不同`);

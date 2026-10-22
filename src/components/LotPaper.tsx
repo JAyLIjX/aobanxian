@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import type { Lot } from "../data/lots";
-import { LOT_SOURCE } from "../data/lots";
+import { LOT_ASPECTS, LOT_SOURCE } from "../data/lots";
 import type { Lang } from "../i18n";
 
 const CN_NUM = "〇一二三四五六七八九";
@@ -13,7 +13,7 @@ export function chineseNumber(n: number): string {
   return `${tens === 1 ? "" : CN_NUM[tens]}十${ones ? CN_NUM[ones] : ""}`;
 }
 
-/** 签纸：签号、签等、签诗（竖排原文）、白话解读 */
+/** 签纸：签号、签等、签诗（竖排原文）、白话总解、分事项、典故故事 */
 export function LotPaper({ lot, date }: { lot: Lot; date?: string }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as Lang;
@@ -35,12 +35,30 @@ export function LotPaper({ lot, date }: { lot: Lot; date?: string }) {
           <p key={line}>{line}</p>
         ))}
       </div>
-      <p className="lot-paper__meta muted">
-        {t("lots.originalGrade", { grade: lot.gradeRaw })}　{t("lots.story", { story: lot.story })}
-      </p>
+      <p className="lot-paper__meta muted">{t("lots.originalGrade", { grade: lot.gradeRaw })}</p>
       <section className="lot-paper__reading">
         <h3>{t("lots.reading")}</h3>
         <p>{lot.reading[lang]}</p>
+      </section>
+      <section className="lot-paper__reading">
+        <h3>{t("lots.aspectsTitle")}</h3>
+        <dl className="lot-paper__aspects">
+          {LOT_ASPECTS.map((k) => (
+            <div key={k}>
+              <dt>{t(`lots.aspects.${k}`)}</dt>
+              <dd>{lot.aspects[k][lang]}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+      <section className="lot-paper__reading">
+        <h3>
+          {t("lots.taleTitle")}
+          <span className="lot-paper__tale-title" lang="zh-Hant">
+            {lot.story}
+          </span>
+        </h3>
+        <p>{lot.tale[lang]}</p>
       </section>
       <footer className="lot-paper__source muted">
         {t("lots.source", { title: LOT_SOURCE.title, edition: LOT_SOURCE.edition })}

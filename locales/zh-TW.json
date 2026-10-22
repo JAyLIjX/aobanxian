@@ -67,7 +67,21 @@
     "xiu": "值日星宿",
     "you": "你（屬{{animal}}）",
     "tianShen": "{{type}} · {{shen}}",
-    "foot": "傳統民俗趣味參考，圖個好心情"
+    "foot": "傳統民俗趣味參考，圖個好心情",
+    "sectionMore": "更多農民曆",
+    "zhiXing": "值星",
+    "zhiXingValue": "{{name}}日",
+    "luckyHours": "吉時",
+    "luckyHoursNone": "今日沒有黃道時辰",
+    "hour": "{{branch}}時 {{start}}–{{end}}",
+    "positions": "吉神方位",
+    "positionsValue": "喜神{{xi}}　福神{{fu}}　財神{{cai}}",
+    "pengzu": "彭祖百忌",
+    "wuhou": "物候",
+    "wuhouValue": "{{jieqi}}{{hou}}：{{name}}",
+    "yueXiang": "月相",
+    "sectionPoem": "每日一詩",
+    "poemSource": "詩出自《唐詩三百首》，錄自維基文庫，保持原文。大意為奧半仙自撰。"
   },
   "phase": {
     "wang": "旺",
@@ -301,17 +315,27 @@
     "already": "今日已求，明日再來",
     "number": "第{{n}}籤",
     "originalGrade": "原籤：{{grade}}",
-    "story": "典故：{{story}}",
-    "reading": "白話",
+    "reading": "白話總解",
     "bookEmpty": "還沒有求過籤",
     "backToBook": "籤冊",
-    "source": "籤詩出自《{{title}}》（{{edition}}），錄自維基文庫，保持原文。白話為奧半仙自撰。",
+    "source": "籤詩出自《{{title}}》（{{edition}}），錄自維基文庫，保持原文。白話總解、分事項、典故故事為奧半仙依據該籤的聖意、解曰、釋義和故事記載自撰，僅供參考。",
     "gradeEn": {
       "上上": "Excellent",
       "上": "Good",
       "中": "Fair",
       "下": "Poor",
       "下下": "Very poor"
+    },
+    "aspectsTitle": "分事項",
+    "taleTitle": "典故",
+    "aspects": {
+      "career": "事業",
+      "wealth": "求財",
+      "love": "感情",
+      "travel": "出行",
+      "exam": "考試",
+      "lost": "失物",
+      "health": "健康"
     }
   },
   "gua": {

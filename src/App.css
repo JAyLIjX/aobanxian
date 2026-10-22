@@ -1537,3 +1537,66 @@ html[data-view="textfit"] body {
   border-color: var(--cinnabar);
   background: var(--cinnabar-wash);
 }
+.lot-paper__reading + .lot-paper__reading {
+  margin-top: 10px;
+}
+.lot-paper__tale-title {
+  margin-left: 8px;
+  color: var(--ink-2);
+  font-weight: normal;
+}
+.lot-paper__aspects {
+  margin: 0;
+  display: grid;
+  gap: 4px;
+}
+.lot-paper__aspects > div {
+  display: grid;
+  grid-template-columns: 4.5em 1fr;
+  gap: 6px;
+  line-height: 1.6;
+}
+.lot-paper__aspects dt {
+  color: var(--ink-2);
+}
+.lot-paper__aspects dd {
+  margin: 0;
+}
+
+/* ── 详情：更多黄历、每日一诗 ── */
+.detail__hours {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+}
+.poem__title {
+  margin: 0 0 4px;
+}
+.poem__en {
+  display: block;
+  font-size: 12px;
+}
+.poem__lines {
+  margin: 6px 0;
+  font-size: 17px;
+  letter-spacing: 1px;
+  line-height: 1.7;
+}
+.poem__lines p {
+  margin: 0;
+}
+.poem__gist {
+  margin: 4px 0 0;
+  line-height: 1.7;
+}
+.poem__source {
+  margin: 6px 0 0;
+  font-size: 11px;
+}
+.poem__name {
+  font-size: 18px;
+}
+.poem__author {
+  margin-left: 10px;
+  font-size: 13px;
+}

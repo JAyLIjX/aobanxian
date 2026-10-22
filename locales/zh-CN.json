@@ -67,7 +67,21 @@
     "xiu": "值日星宿",
     "you": "你（属{{animal}}）",
     "tianShen": "{{type}} · {{shen}}",
-    "foot": "传统民俗趣味参考，图个好心情"
+    "foot": "传统民俗趣味参考，图个好心情",
+    "sectionMore": "更多黄历",
+    "zhiXing": "值星",
+    "zhiXingValue": "{{name}}日",
+    "luckyHours": "吉时",
+    "luckyHoursNone": "今日没有黄道时辰",
+    "hour": "{{branch}}时 {{start}}–{{end}}",
+    "positions": "吉神方位",
+    "positionsValue": "喜神{{xi}}　福神{{fu}}　财神{{cai}}",
+    "pengzu": "彭祖百忌",
+    "wuhou": "物候",
+    "wuhouValue": "{{jieqi}}{{hou}}：{{name}}",
+    "yueXiang": "月相",
+    "sectionPoem": "每日一诗",
+    "poemSource": "诗出自《唐诗三百首》，录自维基文库，保持原文。大意为奥半仙自撰。"
   },
   "phase": {
     "wang": "旺",
@@ -301,17 +315,27 @@
     "already": "今日已求，明日再来",
     "number": "第{{n}}签",
     "originalGrade": "原签：{{grade}}",
-    "story": "典故：{{story}}",
-    "reading": "白话",
+    "reading": "白话总解",
     "bookEmpty": "还没有求过签",
     "backToBook": "签册",
-    "source": "签诗出自《{{title}}》（{{edition}}），录自维基文库，保持原文。白话为奥半仙自撰。",
+    "source": "签诗出自《{{title}}》（{{edition}}），录自维基文库，保持原文。白话总解、分事项、典故故事为奥半仙依据该签的圣意、解曰、释义和故事记载自撰，仅供参考。",
     "gradeEn": {
       "上上": "Excellent",
       "上": "Good",
       "中": "Fair",
       "下": "Poor",
       "下下": "Very poor"
+    },
+    "aspectsTitle": "分事项",
+    "taleTitle": "典故",
+    "aspects": {
+      "career": "事业",
+      "wealth": "求财",
+      "love": "感情",
+      "travel": "出行",
+      "exam": "考试",
+      "lost": "失物",
+      "health": "健康"
     }
   },
   "gua": {

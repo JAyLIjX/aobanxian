@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { chineseNumber } from "../src/components/LotPaper";
 import { addToBook, GRADE_OF, LOT_GRADES, lotOfDay } from "../src/core/lots";
-import { LOTS, LOT_SOURCE } from "../src/data/lots";
+import { LOT_ASPECTS, LOTS, LOT_SOURCE } from "../src/data/lots";
+import { countChars } from "../src/core/text";
 
 const day = (s: string) => {
   const [year, month, day] = s.split("-").map(Number);
@@ -59,6 +60,52 @@ describe("求签", () => {
     // 签诗不重复
     expect(new Set(LOTS.map((l) => l.poem.join(""))).size).toBe(100);
     expect(LOT_SOURCE.url).toMatch(/^https:\/\/zh\.wikisource\.org\//);
+  });
+
+  it("每签都有典故故事、白话总解、七项分事项（三种语言）", () => {
+    const langs = ["zh-CN", "zh-TW", "en"] as const;
+    for (const lot of LOTS) {
+      const at = `第 ${lot.n} 签`;
+      expect(["record", "history", "legend", "brief"], at).toContain(lot.taleBasis);
+      for (const lang of langs) {
+        expect(lot.tale[lang], `${at} 典故 ${lang}`).toBeTruthy();
+        for (const k of LOT_ASPECTS) expect(lot.aspects[k]?.[lang], `${at} ${k} ${lang}`).toBeTruthy();
+      }
+      expect(Object.keys(lot.aspects).sort()).toEqual([...LOT_ASPECTS].sort());
+      const tale = lot.tale["zh-CN"];
+      if (lot.taleBasis !== "brief") {
+        // 典故 150–250 字，最后一句接回签意
+        const n = countChars(tale);
+        expect(n, `${at} 典故 ${n} 字`).toBeGreaterThanOrEqual(150);
+        expect(n, `${at} 典故 ${n} 字`).toBeLessThanOrEqual(250);
+        const last = tale.split(/(?<=[。！？])/).filter((x) => x.trim()).at(-1)!;
+        expect(last, `${at} 典故最后一句`).toMatch(/签/);
+      }
+      // 出自小说、戏曲、传说的，开头注明
+      if (lot.taleBasis === "legend") expect(tale.split("。")[0], at).toMatch(/相传|传说|据[^，。]{0,12}《/);
+      // 白话总解三到五句
+      const sentences = lot.reading["zh-CN"].split(/(?<=[。！？])/).filter((x) => x.trim());
+      expect(sentences.length, `${at} 总解 ${sentences.length} 句`).toBeGreaterThanOrEqual(3);
+      expect(sentences.length, `${at} 总解 ${sentences.length} 句`).toBeLessThanOrEqual(5);
+    }
+  });
+
+  it("自撰的文字：不出现「凶」「施主」；分事项、总解不谈生男生女和诉讼；健康不预测病情", () => {
+    for (const lot of LOTS) {
+      const at = `第 ${lot.n} 签`;
+      for (const lang of ["zh-CN", "zh-TW"] as const) {
+        const all = [lot.reading[lang], lot.tale[lang], ...Object.values(lot.aspects).map((a) => a[lang])].join("");
+        expect(all, at).not.toContain("凶");
+        expect(all, at).not.toContain("施主");
+        const advice = [lot.reading[lang], ...Object.values(lot.aspects).map((a) => a[lang])].join("");
+        expect(advice, `${at} ${lang}`).not.toMatch(/生男|生女|男孩|女孩|怀孕|懷孕|孕|六甲|诉讼|訴訟|官司|讼|訟/);
+      }
+      const health = lot.aspects.health["zh-CN"];
+      expect(health, `${at} 健康：${health}`).toMatch(/休息|就医|作息|起居|调养|放松|睡眠|劳逸|医生|就诊/);
+      expect(health, `${at} 健康：${health}`).not.toMatch(/痊|愈|九死|病重|无碍|难治|好转|加重|康复/);
+      const en = [lot.reading.en, ...Object.values(lot.aspects).map((a) => a.en)].join(" ");
+      expect(en, `${at} en`).not.toMatch(/lawsuit|litigation|\bson\b|pregnan/i);
+    }
   });
 
   it("中文签号", () => {
