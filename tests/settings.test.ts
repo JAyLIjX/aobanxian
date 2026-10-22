@@ -53,6 +53,7 @@ describe("设置", () => {
       bubbleSeconds: 3,
       annivNotify: false,
       annivNotifyDays: 7,
+      muyuSound: false,
     };
     expect(Object.keys(alt).sort()).toEqual(Object.keys(DEFAULT_SETTINGS).sort());
     const merged = mergeSettings(alt);

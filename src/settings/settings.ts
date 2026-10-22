@@ -41,6 +41,8 @@ export interface Settings {
   annivNotify: boolean;
   /** 提前几天提醒（当天总会再提醒一次） */
   annivNotifyDays: 0 | 1 | 3 | 7;
+  /** 小和尚敲木鱼的声音 */
+  muyuSound: boolean;
 }
 
 export type SettingsPage = "general" | "appearance" | "rules" | "reminders";
@@ -50,7 +52,7 @@ export const SETTINGS_PAGES: Record<SettingsPage, (keyof Settings)[]> = {
   general: ["autostart", "onTop", "size", "language", "myZodiac", "expandOnLaunch", "collapseOnBlur"],
   appearance: ["character", "displayFont", "bannerFont", "bannerText"],
   rules: ["elementSource", "topPriority", "dayBoundary"],
-  reminders: ["openingEnabled", "effectsEnabled", "bubbleSeconds", "annivNotify", "annivNotifyDays"],
+  reminders: ["openingEnabled", "effectsEnabled", "bubbleSeconds", "annivNotify", "annivNotifyDays", "muyuSound"],
 };
 
 // 去掉 JSON 里 "$comment" 这类注释字段

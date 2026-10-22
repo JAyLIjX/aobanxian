@@ -76,7 +76,12 @@ export function stickGrid(): string[] {
 }
 
 /** 把格子画到 canvas 上；返回 CSS 尺寸 */
-export function drawGrid(canvas: HTMLCanvasElement, grid: string[], cssCell: number): { w: number; h: number } {
+export function drawGrid(
+  canvas: HTMLCanvasElement,
+  grid: string[],
+  cssCell: number,
+  palette: Record<string, string> = PALETTE,
+): { w: number; h: number } {
   const dpr = window.devicePixelRatio || 1;
   const px = Math.max(1, Math.round(cssCell * dpr));
   const w = grid[0].length;
@@ -87,7 +92,7 @@ export function drawGrid(canvas: HTMLCanvasElement, grid: string[], cssCell: num
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (let y = 0; y < h; y++) {
     for (let x = 0; x < w; x++) {
-      const c = PALETTE[grid[y][x]];
+      const c = palette[grid[y][x]];
       if (!c) continue;
       ctx.fillStyle = c;
       ctx.fillRect(x * px, y * px, px, px);

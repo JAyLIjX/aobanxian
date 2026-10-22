@@ -32,6 +32,8 @@ export interface CharacterMeta {
    * inPlace = 书写物原地展开成卡片、把它盖住（青天大老爷的告示）；body = 书写物不动，卡片从人物下方展开（扇面、木牌）
    */
   unroll: "writing" | "inPlace" | "body";
+  /** 小和尚专属：右键菜单第一项「敲木鱼」时身边出现木鱼 */
+  muyu?: boolean;
   /** 三种语言的口吻（繁体由 scripts/i18n/build-zh-tw.ts 生成） */
   voice: Record<Lang, Voice>;
 }

@@ -209,7 +209,10 @@
     "imported": "已导入 {{n}} 条",
     "importFailed": "文件读不出来，没有导入",
     "character": "角色",
-    "characterHint": "点一下就换，位置不变；开场白和右键菜单第一项跟着换口吻"
+    "characterHint": "点一下就换，位置不变；开场白和右键菜单第一项跟着换口吻",
+    "muyuSound": "木鱼声音",
+    "muyuSoundHint": "小和尚敲木鱼时「笃」一声",
+    "meritTotal": "累计功德：{{n}}"
   },
   "about": {
     "title": "关于奥半仙",
@@ -337,5 +340,9 @@
     "failed": "没存成，再试一次",
     "noYi": "诸事不宜",
     "noJi": "百无禁忌"
+  },
+  "muyu": {
+    "knock": "敲木鱼",
+    "merit": "功德 +1"
   }
 }

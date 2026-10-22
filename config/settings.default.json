@@ -14,5 +14,6 @@
   "effectsEnabled": true,
   "bubbleSeconds": 5,
   "annivNotify": true,
-  "annivNotifyDays": 1
+  "annivNotifyDays": 1,
+  "muyuSound": true
 }

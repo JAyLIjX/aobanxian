@@ -8,6 +8,7 @@ import { getAlmanac } from "../calendar/special";
 import { DetailPanel } from "../components/DetailPanel";
 import { MonthView } from "../components/MonthView";
 import { Bubble } from "../components/Bubble";
+import { Muyu } from "../components/Muyu";
 import { Scroll } from "../components/Scroll";
 import { Sparkles } from "../components/Sparkles";
 import { TodayCard } from "../components/TodayCard";
@@ -40,6 +41,9 @@ import {
 } from "../platform/window";
 import { rulesWith, SIZE_SCALE } from "../settings/settings";
 import { useAnniversaries } from "../settings/anniversaries";
+import { knockMerit } from "../settings/merit";
+import { playWoodBlock } from "../platform/sound";
+import { MUYU_H, MUYU_W } from "../sprite/muyu";
 import { getState, setState } from "../settings/store";
 import { useSettings } from "../settings/useSettings";
 import { Daoshi } from "../sprite/Daoshi";
@@ -53,6 +57,16 @@ const GAP = 6;
 const SCREEN_MARGIN = 8;
 /** 卷轴 / 详情的阴影留边 */
 const SHADOW = 10;
+/** 木鱼出现几秒（每敲一下重新计时） */
+const MUYU_SECONDS = 5;
+
+/** 木鱼（连木槌）在窗口里的位置：小和尚左边、腰的高度 */
+function muyuRect(spriteRect: { x: number; y: number }, spriteHeight: number, cell: number) {
+  const w = (MUYU_W + 4) * cell;
+  const h = (MUYU_H + 9) * cell;
+  return { x: spriteRect.x - w + 2 * cell, y: spriteRect.y + spriteHeight * 0.52 * cell - 9 * cell, w, h };
+}
+
 /** 失焦后等一会儿再判断，避开原生下拉框、菜单等短暂失焦 */
 const BLUR_DELAY = 150;
 
@@ -279,6 +293,32 @@ export function MainApp() {
     }
   };
 
+  // ── 小和尚敲木鱼：木鱼出现几秒，期间点木鱼可以连续敲，每敲一下功德 +1 ──
+  const [muyuVisible, setMuyuVisible] = useState(false);
+  const [muyuStrike, setMuyuStrike] = useState(0);
+  const [meritFloats, setMeritFloats] = useState<number[]>([]);
+  const muyuTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const showMuyu = useCallback(() => {
+    setMuyuVisible(true);
+    clearTimeout(muyuTimer.current);
+    muyuTimer.current = setTimeout(() => setMuyuVisible(false), MUYU_SECONDS * 1000);
+  }, []);
+  const knock = useCallback(() => {
+    showMuyu();
+    setMuyuStrike((n) => n + 1);
+    // 木槌落到木鱼上时出声、飘字
+    setTimeout(() => {
+      if (settings.muyuSound) playWoodBlock();
+      const id = Date.now() + Math.random();
+      setMeritFloats((list) => [...list, id]);
+      setTimeout(() => setMeritFloats((list) => list.filter((x) => x !== id)), 1200);
+    }, 110);
+    void knockMerit();
+  }, [showMuyu, settings.muyuSound]);
+  useEffect(() => () => clearTimeout(muyuTimer.current), []);
+  // 换了角色就收起木鱼
+  useEffect(() => setMuyuVisible(false), [character]);
+
   // ── 右键菜单与托盘 ──
   const menuModel: MenuModel = useMemo(
     () => ({
@@ -304,7 +344,14 @@ export function MainApp() {
       actions: {
         divine: () => {
           setJump((n) => n + 1);
-          sayOpening();
+          if (!character.muyu) {
+            sayOpening();
+            return;
+          }
+          // 敲木鱼：木鱼出现，木槌敲一下，飘「功德 +1」，然后照常说开场白
+          showMuyu();
+          setTimeout(knock, 250);
+          setTimeout(sayOpening, 900);
         },
         lots: () => {
           // 今天已经求过：道士先说一句，再打开签纸
@@ -326,7 +373,7 @@ export function MainApp() {
         quit: quitApp,
       },
     }),
-    [t, lang, character, expanded, settings.size, settings.onTop, settings.bubbleSeconds, sayOpening, today, toggleCalendar, update, bubbleCtl],
+    [t, lang, character, showMuyu, knock, expanded, settings.size, settings.onTop, settings.bubbleSeconds, sayOpening, today, toggleCalendar, update, bubbleCtl],
   );
   const menuRef = useRef(menuModel);
   menuRef.current = menuModel;
@@ -509,8 +556,12 @@ export function MainApp() {
     const rects: [number, number, number, number][] = [];
     if (layout.scroll && scrollSize) rects.push([layout.scroll.x, layout.scroll.y, scrollSize.w, scrollSize.h]);
     if (layout.detail && detailSize) rects.push([layout.detail.x, layout.detail.y, detailSize.w, detailSize.h]);
+    if (muyuVisible) {
+      const m = muyuRect(layout.sprite, sprite.height, cell);
+      rects.push([m.x, m.y, m.w, m.h]);
+    }
     setHitRegions({ rects, masks: [mask] });
-  }, [layout, sprite, unrollWriting, expanded, cell, scrollSize, detailSize]);
+  }, [layout, sprite, unrollWriting, expanded, cell, scrollSize, detailSize, muyuVisible]);
 
   const onScrollResize = useCallback((w: number, h: number) => setScrollSize({ w, h }), []);
   const detailRef = useRef<HTMLDivElement>(null);
@@ -609,6 +660,16 @@ export function MainApp() {
 
       {bubble && <Bubble text={bubble} x={headX} y={headTop - 4} side="above-left" maxWidth={220} />}
       {translation && <Bubble text={translation} x={bannerRight + 4} y={faceTop + 8} side="right" maxWidth={160} small />}
+
+      {muyuVisible && (() => {
+        const m = muyuRect(layout.sprite, sprite.height, cell);
+        return <Muyu x={m.x} y={m.y + 9 * cell} cell={cell} strike={muyuStrike} onKnock={knock} />;
+      })()}
+      {meritFloats.map((id) => (
+        <span key={id} className="merit-float" style={{ left: layout.sprite.x + sprite.width * 0.45 * cell, top: headTop - 22 }}>
+          {t("muyu.merit")}
+        </span>
+      ))}
     </main>
   );
 }

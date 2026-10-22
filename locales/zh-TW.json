@@ -209,7 +209,10 @@
     "imported": "已匯入 {{n}} 條",
     "importFailed": "檔案讀不出來，沒有匯入",
     "character": "角色",
-    "characterHint": "點一下就換，位置不變；開場白和右鍵選單第一項跟著換口吻"
+    "characterHint": "點一下就換，位置不變；開場白和右鍵選單第一項跟著換口吻",
+    "muyuSound": "木魚聲音",
+    "muyuSoundHint": "小和尚敲木魚時「篤」一聲",
+    "meritTotal": "累計功德：{{n}}"
   },
   "about": {
     "title": "關於奧半仙",
@@ -337,6 +340,10 @@
     "failed": "沒存成，再試一次",
     "noYi": "諸事不宜",
     "noJi": "百無禁忌"
+  },
+  "muyu": {
+    "knock": "敲木魚",
+    "merit": "功德 +1"
   },
   "rulesText": {
     "tiers": {

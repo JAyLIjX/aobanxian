@@ -209,7 +209,10 @@
     "imported": "Imported {{n}}",
     "importFailed": "Couldn't read that file — nothing imported",
     "character": "Character",
-    "characterHint": "Click to switch — the position stays; greetings and the first menu item change voice"
+    "characterHint": "Click to switch — the position stays; greetings and the first menu item change voice",
+    "muyuSound": "Wooden fish sound",
+    "muyuSoundHint": "A soft “tok” when the little monk taps the wooden fish",
+    "meritTotal": "Total merit: {{n}}"
   },
   "about": {
     "title": "About Ao Banxian",
@@ -382,5 +385,9 @@
     "failed": "Couldn't save — please try again",
     "noYi": "Nothing in particular",
     "noJi": "No taboos"
+  },
+  "muyu": {
+    "knock": "Tap the wooden fish",
+    "merit": "Merit +1"
   }
 }

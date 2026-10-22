@@ -13,6 +13,7 @@ import { CHARACTERS } from "../sprite/characters";
 import type { Lang } from "../i18n";
 import { useSettings } from "../settings/useSettings";
 import { exportPayload, mergeImported, useAnniversaries } from "../settings/anniversaries";
+import { useMerit } from "../settings/merit";
 
 const PAGES: SettingsPage[] = ["general", "appearance", "rules", "reminders"];
 
@@ -55,6 +56,7 @@ export function SettingsApp() {
   const [page, setPage] = useState<SettingsPage>("general");
   const [bannerDraft, setBannerDraft] = useState(settings.bannerText);
   const anniv = useAnniversaries();
+  const merit = useMerit();
   const [dataMsg, setDataMsg] = useState<string | null>(null);
 
   useEffect(() => setLanguage(settings.language), [settings.language]);
@@ -197,6 +199,7 @@ export function SettingsApp() {
                 ))}
               </select>
             </Row>
+            <p className="set-merit">{t("settings.meritTotal", { n: merit })}</p>
             <Row label={t("settings.displayFont")} hint={t("settings.displayFontHint")}>
               <Segmented value={settings.displayFont} options={opts(["A", "B"] as const, "settings.displayFontOptions")} onChange={(v) => set("displayFont", v)} />
             </Row>
@@ -248,6 +251,9 @@ export function SettingsApp() {
                 options={([3, 5, 8] as const).map((n) => ({ value: n, label: t("settings.seconds", { n }) }))}
                 onChange={(v) => set("bubbleSeconds", v)}
               />
+            </Row>
+            <Row label={t("settings.muyuSound")} hint={t("settings.muyuSoundHint")}>
+              <Toggle checked={settings.muyuSound} onChange={(v) => set("muyuSound", v)} label={t("settings.muyuSound")} />
             </Row>
             <Row label={t("settings.annivNotify")} hint={t("settings.annivNotifyHint")}>
               <Toggle checked={settings.annivNotify} onChange={(v) => set("annivNotify", v)} label={t("settings.annivNotify")} />
