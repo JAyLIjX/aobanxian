@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import type { Lot } from "../data/lots";
-import { LOT_ASPECTS, LOT_SOURCE } from "../data/lots";
+import { LOT_ASPECTS, LOT_CLASSIC, LOT_SOURCE } from "../data/lots";
 import type { Lang } from "../i18n";
 
 const CN_NUM = "〇一二三四五六七八九";
@@ -60,6 +60,21 @@ export function LotPaper({ lot, date }: { lot: Lot; date?: string }) {
         </h3>
         <p>{lot.tale[lang]}</p>
       </section>
+      {/* 古人怎么解：签书原文，默认折叠 */}
+      <details className="lot-paper__classic">
+        <summary>{t("lots.classicTitle")}</summary>
+        <p className="muted lot-paper__classic-note">{t("lots.classicNote")}</p>
+        {LOT_CLASSIC.map((k) => (
+          <div key={k} className="lot-paper__classic-part">
+            <h4>{t(`lots.classic.${k}`)}</h4>
+            <div lang="zh-Hant">
+              {lot.classic[k].map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
+            </div>
+          </div>
+        ))}
+      </details>
       <footer className="lot-paper__source muted">
         {t("lots.source", { title: LOT_SOURCE.title, edition: LOT_SOURCE.edition })}
       </footer>

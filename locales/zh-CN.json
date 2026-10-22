@@ -336,6 +336,15 @@
       "exam": "考试",
       "lost": "失物",
       "health": "健康"
+    },
+    "classicTitle": "古人怎么解",
+    "classicNote": "以下是签书原文（清刊本），保持繁体，仅供参考。",
+    "classic": {
+      "shengyi": "圣意",
+      "dongpo": "东坡解",
+      "bixian": "碧仙注",
+      "jieyue": "解曰",
+      "shiyi": "释义"
     }
   },
   "gua": {

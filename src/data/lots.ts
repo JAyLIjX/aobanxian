@@ -15,6 +15,10 @@ export type LotAspect = (typeof LOT_ASPECTS)[number];
  * 典故故事的依据：record 维基文库「故事及記載」；history 正史；
  * legend 小说、戏曲、民间传说（故事开头注明「相传」或「据《××》」）；brief 找不到可靠出处，只有简介
  */
+/** 「古人怎么解」：签书原文的几段注解，按显示顺序 */
+export const LOT_CLASSIC = ["shengyi", "dongpo", "bixian", "jieyue", "shiyi"] as const;
+export type LotClassic = (typeof LOT_CLASSIC)[number];
+
 export type TaleBasis = "record" | "history" | "legend" | "brief";
 
 export interface Lot {
@@ -32,6 +36,8 @@ export interface Lot {
   taleBasis: TaleBasis;
   /** 分事项，每项一句 */
   aspects: Record<LotAspect, Record<Lang, string>>;
+  /** 签书原文：聖意、東坡解、碧仙註、解曰、釋義（繁体，每段若干行） */
+  classic: Record<LotClassic, string[]>;
 }
 
 export const LOTS = data.lots as Lot[];

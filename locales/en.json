@@ -381,6 +381,15 @@
       "exam": "Exams",
       "lost": "Lost items",
       "health": "Health"
+    },
+    "classicTitle": "What the old commentaries say",
+    "classicNote": "The original commentary from the Qing-dynasty lot book, in classical Chinese — for reference.",
+    "classic": {
+      "shengyi": "Divine meaning · 聖意",
+      "dongpo": "Dongpo's reading · 東坡解",
+      "bixian": "Bixian's note · 碧仙註",
+      "jieyue": "Commentary · 解曰",
+      "shiyi": "Explanation · 釋義"
     }
   },
   "gua": {

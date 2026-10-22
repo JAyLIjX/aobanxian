@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { chineseNumber } from "../src/components/LotPaper";
 import { addToBook, GRADE_OF, LOT_GRADES, lotOfDay } from "../src/core/lots";
-import { LOT_ASPECTS, LOTS, LOT_SOURCE } from "../src/data/lots";
+import { LOT_ASPECTS, LOT_CLASSIC, LOTS, LOT_SOURCE } from "../src/data/lots";
 import { countChars } from "../src/core/text";
 
 const day = (s: string) => {
@@ -106,6 +106,18 @@ describe("求签", () => {
       const en = [lot.reading.en, ...Object.values(lot.aspects).map((a) => a.en)].join(" ");
       expect(en, `${at} en`).not.toMatch(/lawsuit|litigation|\bson\b|pregnan/i);
     }
+  });
+
+  it("古人怎么解：一百签都有聖意、東坡解、碧仙註、解曰、釋義原文，没有异文校记", () => {
+    for (const lot of LOTS) {
+      for (const k of LOT_CLASSIC) {
+        expect(lot.classic[k].length, `第 ${lot.n} 签 ${k}`).toBeGreaterThan(0);
+        for (const line of lot.classic[k]) expect(line, `第 ${lot.n} 签 ${k}`).not.toMatch(/■|\{\{|<|^..：/);
+      }
+    }
+    // 抽查：第 1 签聖意、第 50 签碧仙註
+    expect(LOTS[0].classic.shengyi[0]).toBe("功名遂　福祿全　訟得理　病即痊　桑麻熟　婚姻聯　孕生子　行人還");
+    expect(LOTS[49].classic.bixian).toEqual(["此心有主何憂懼。須管今番勝舊番。", "婦人言語君休聽。家道興衰在此間。"]);
   });
 
   it("中文签号", () => {
