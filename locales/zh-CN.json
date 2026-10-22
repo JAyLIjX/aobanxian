@@ -1,0 +1,201 @@
+{
+  "app": {
+    "name": "奥半仙",
+    "tagline": "像素道士黄历"
+  },
+  "date": {
+    "full": "{{year}}年{{month}}月{{day}}日",
+    "yearMonth": "{{year}}年{{month}}月",
+    "year": "{{year}}年",
+    "month": "{{month}}月",
+    "lunar": "农历{{month}}{{day}}",
+    "leap": "闰",
+    "ganzhi": "{{year}}年 {{month}}月 {{day}}日",
+    "weekHead": [
+      "日",
+      "一",
+      "二",
+      "三",
+      "四",
+      "五",
+      "六"
+    ]
+  },
+  "card": {
+    "todayElement": "今日{{label}}",
+    "wear": "穿",
+    "with": "配",
+    "hint": "点纸面看今日详情",
+    "month": "月历",
+    "closeMonth": "收起月历"
+  },
+  "month": {
+    "prev": "上个月",
+    "next": "下个月",
+    "backToday": "回到今天",
+    "yearLabel": "年份",
+    "monthLabel": "月份"
+  },
+  "detail": {
+    "label": "当日详情",
+    "prevDay": "前一天",
+    "nextDay": "后一天",
+    "close": "关闭",
+    "element": "当日五行",
+    "sourceNote": "（按{{source}}取 {{label}}）",
+    "sectionOutfit": "穿衣",
+    "sectionYiji": "宜忌",
+    "sectionZodiac": "生肖与星宿",
+    "robe": "道袍",
+    "sash": "腰带",
+    "yi": "宜",
+    "ji": "忌",
+    "luckyZodiac": "吉生肖",
+    "sixHarmony": "六合",
+    "threeHarmony": "三合",
+    "clashLabel": "今日冲",
+    "clash": "冲{{animal}}",
+    "sha": "煞{{direction}}",
+    "xiu": "值日星宿",
+    "tianShen": "{{type}} · {{shen}}",
+    "foot": "传统民俗趣味参考，图个好心情"
+  },
+  "source": {
+    "nayin": "纳音",
+    "stem": "日干",
+    "branch": "日支"
+  },
+  "phase": {
+    "wang": "旺",
+    "xiang": "相",
+    "xiu": "休",
+    "qiu": "囚",
+    "si": "死"
+  },
+  "opening": {
+    "huangdao": "掐指一算，今日黄道吉日",
+    "heidao": "今日宜稳不宜急",
+    "tianshe": "今日天赦，百无禁忌",
+    "yanggong": "今日诸事从简",
+    "festival": "掐指一算，今日{{name}}",
+    "jieqi": "今日{{name}}，顺时而行"
+  },
+  "specialTag": {
+    "tianshe": "天赦日",
+    "yanggong": "杨公忌",
+    "festival": "{{name}}",
+    "jieqi": "{{name}}"
+  },
+  "bannerTranslation": {
+    "brand": "",
+    "special": "",
+    "yi": "",
+    "ji": "",
+    "noYi": "",
+    "noJi": "",
+    "outfit": "",
+    "zodiac": ""
+  },
+  "menu": {
+    "divine": "掐指一算",
+    "detail": "今日详情",
+    "expand": "展开日历",
+    "collapse": "收起日历",
+    "size": "小人尺寸",
+    "sizeSmall": "小",
+    "sizeMedium": "中",
+    "sizeLarge": "大",
+    "onTop": "置顶",
+    "settings": "设置…",
+    "about": "关于",
+    "quit": "退出"
+  },
+  "settings": {
+    "title": "设置",
+    "restoreDefaults": "恢复默认",
+    "tabs": {
+      "general": "通用",
+      "appearance": "外观",
+      "rules": "规则",
+      "reminders": "提醒"
+    },
+    "autostart": "开机启动",
+    "autostartHint": "登录电脑后自动出现在桌面上",
+    "onTop": "置顶",
+    "onTopHint": "关闭时道士待在其他窗口下面，像桌面小组件",
+    "size": "小人尺寸",
+    "sizeHint": "按整数倍放大像素，保持锐利",
+    "sizeOptions": {
+      "small": "小",
+      "medium": "中",
+      "large": "大"
+    },
+    "language": "语言",
+    "languageOptions": {
+      "system": "跟随系统",
+      "zh-CN": "简体中文",
+      "zh-TW": "繁體中文",
+      "en": "English"
+    },
+    "expandOnLaunch": "启动时展开日历",
+    "collapseOnBlur": "点击桌面其他地方时收起日历",
+    "displayFont": "大字字体",
+    "displayFontHint": "日期数字、农历标题等大字",
+    "displayFontOptions": {
+      "A": "马善政毛笔楷书",
+      "B": "志莽行书"
+    },
+    "bannerFont": "幡上字体",
+    "bannerFontOptions": {
+      "pixel": "像素字体",
+      "brush": "像素化行书"
+    },
+    "bannerText": "幡上平时显示的文字",
+    "bannerTextHint": "最多 4 个字，竖排印在幡上",
+    "elementSource": "当日五行取法",
+    "elementSourceOptions": {
+      "nayin": "纳音",
+      "stem": "日干",
+      "branch": "日支"
+    },
+    "elementSourceHints": {
+      "nayin": "纳音：老黄历上写的五行，如大林木",
+      "stem": "日干：取当天天干的五行，如庚日属金",
+      "branch": "日支：取当天地支的五行，如子日属水"
+    },
+    "topPriority": "道袍主色",
+    "topPriorityOptions": {
+      "xiang": "相",
+      "wang": "旺"
+    },
+    "topPriorityHints": {
+      "xiang": "相：当日五行所生的颜色当道袍，与日同气的颜色当腰带",
+      "wang": "旺：与当日五行相同的颜色当道袍，所生的颜色当腰带"
+    },
+    "dayBoundary": "换日时间",
+    "dayBoundaryOptions": {
+      "midnight": "午夜 0:00",
+      "zi": "子时 23:00"
+    },
+    "dayBoundaryHints": {
+      "midnight": "午夜：和日常日历一样，0 点换到新的一天",
+      "zi": "子时：传统算法，23 点起就算第二天"
+    },
+    "openingEnabled": "每日开场白",
+    "openingEnabledHint": "每天第一次见面时，道士头顶冒一句话",
+    "effectsEnabled": "特殊日子特效",
+    "effectsEnabledHint": "天赦日和春节，道士周围闪光",
+    "bubbleSeconds": "气泡停留时间",
+    "seconds": "{{n}} 秒"
+  },
+  "about": {
+    "title": "关于奥半仙",
+    "version": "版本 {{version}}",
+    "author": "作者",
+    "repo": "GitHub 仓库",
+    "license": "MIT 协议开源",
+    "thanks": "致谢",
+    "thanksList": "历法数据：lunar-javascript（6tail）\n字体：霞鹜文楷、马善政毛笔楷书、志莽行书、Fusion Pixel 像素字体、EB Garamond",
+    "disclaimer": "黄历、宜忌、五行穿衣均为传统民俗说法，仅作趣味参考。"
+  }
+}

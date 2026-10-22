@@ -1,0 +1,1339 @@
+{
+  "$comment": "术语表：历法、宜忌、颜色等文化专有词的翻译。键是简体原词；每个语言一个字段。zh-TW 由 scripts/i18n/build-zh-tw.ts 用 OpenCC 逐字转换（历法和宜忌用词保持传统写法），可手动修改，再次运行脚本不会覆盖已有值。英文界面里这些词显示成「中文原词 · 英文解释」（干支是「戊辰 Wu-Chen」，传统色是「Vermilion 银朱」），格式见 src/i18n/terms.ts。新增语言时，给每个词加一个该语言的字段即可。",
+  "element": {
+    "木": {
+      "en": "Wood",
+      "zh-TW": "木"
+    },
+    "火": {
+      "en": "Fire",
+      "zh-TW": "火"
+    },
+    "土": {
+      "en": "Earth",
+      "zh-TW": "土"
+    },
+    "金": {
+      "en": "Metal",
+      "zh-TW": "金"
+    },
+    "水": {
+      "en": "Water",
+      "zh-TW": "水"
+    }
+  },
+  "stem": {
+    "甲": {
+      "en": "Jia",
+      "zh-TW": "甲"
+    },
+    "乙": {
+      "en": "Yi",
+      "zh-TW": "乙"
+    },
+    "丙": {
+      "en": "Bing",
+      "zh-TW": "丙"
+    },
+    "丁": {
+      "en": "Ding",
+      "zh-TW": "丁"
+    },
+    "戊": {
+      "en": "Wu",
+      "zh-TW": "戊"
+    },
+    "己": {
+      "en": "Ji",
+      "zh-TW": "己"
+    },
+    "庚": {
+      "en": "Geng",
+      "zh-TW": "庚"
+    },
+    "辛": {
+      "en": "Xin",
+      "zh-TW": "辛"
+    },
+    "壬": {
+      "en": "Ren",
+      "zh-TW": "壬"
+    },
+    "癸": {
+      "en": "Gui",
+      "zh-TW": "癸"
+    }
+  },
+  "branch": {
+    "子": {
+      "en": "Zi",
+      "zh-TW": "子"
+    },
+    "丑": {
+      "en": "Chou",
+      "zh-TW": "醜"
+    },
+    "寅": {
+      "en": "Yin",
+      "zh-TW": "寅"
+    },
+    "卯": {
+      "en": "Mao",
+      "zh-TW": "卯"
+    },
+    "辰": {
+      "en": "Chen",
+      "zh-TW": "辰"
+    },
+    "巳": {
+      "en": "Si",
+      "zh-TW": "巳"
+    },
+    "午": {
+      "en": "Wu",
+      "zh-TW": "午"
+    },
+    "未": {
+      "en": "Wei",
+      "zh-TW": "未"
+    },
+    "申": {
+      "en": "Shen",
+      "zh-TW": "申"
+    },
+    "酉": {
+      "en": "You",
+      "zh-TW": "酉"
+    },
+    "戌": {
+      "en": "Xu",
+      "zh-TW": "戌"
+    },
+    "亥": {
+      "en": "Hai",
+      "zh-TW": "亥"
+    }
+  },
+  "zodiac": {
+    "鼠": {
+      "en": "Rat",
+      "zh-TW": "鼠"
+    },
+    "牛": {
+      "en": "Ox",
+      "zh-TW": "牛"
+    },
+    "虎": {
+      "en": "Tiger",
+      "zh-TW": "虎"
+    },
+    "兔": {
+      "en": "Rabbit",
+      "zh-TW": "兔"
+    },
+    "龙": {
+      "en": "Dragon",
+      "zh-TW": "龍"
+    },
+    "蛇": {
+      "en": "Snake",
+      "zh-TW": "蛇"
+    },
+    "马": {
+      "en": "Horse",
+      "zh-TW": "馬"
+    },
+    "羊": {
+      "en": "Goat",
+      "zh-TW": "羊"
+    },
+    "猴": {
+      "en": "Monkey",
+      "zh-TW": "猴"
+    },
+    "鸡": {
+      "en": "Rooster",
+      "zh-TW": "雞"
+    },
+    "狗": {
+      "en": "Dog",
+      "zh-TW": "狗"
+    },
+    "猪": {
+      "en": "Pig",
+      "zh-TW": "豬"
+    }
+  },
+  "direction": {
+    "东": {
+      "en": "East",
+      "zh-TW": "東"
+    },
+    "南": {
+      "en": "South",
+      "zh-TW": "南"
+    },
+    "西": {
+      "en": "West",
+      "zh-TW": "西"
+    },
+    "北": {
+      "en": "North",
+      "zh-TW": "北"
+    }
+  },
+  "nayin": {
+    "海中金": {
+      "en": "Gold in the Sea",
+      "zh-TW": "海中金"
+    },
+    "沙中金": {
+      "en": "Gold in the Sand",
+      "zh-TW": "沙中金"
+    },
+    "炉中火": {
+      "en": "Fire in the Furnace",
+      "zh-TW": "爐中火"
+    },
+    "山下火": {
+      "en": "Fire at the Mountain's Foot",
+      "zh-TW": "山下火"
+    },
+    "大林木": {
+      "en": "Great Forest Wood",
+      "zh-TW": "大林木"
+    },
+    "平地木": {
+      "en": "Flatland Wood",
+      "zh-TW": "平地木"
+    },
+    "路旁土": {
+      "en": "Roadside Earth",
+      "zh-TW": "路旁土"
+    },
+    "壁上土": {
+      "en": "Wall Earth",
+      "zh-TW": "壁上土"
+    },
+    "剑锋金": {
+      "en": "Sword-edge Metal",
+      "zh-TW": "劍鋒金"
+    },
+    "金箔金": {
+      "en": "Gold Leaf Metal",
+      "zh-TW": "金箔金"
+    },
+    "山头火": {
+      "en": "Mountaintop Fire",
+      "zh-TW": "山頭火"
+    },
+    "覆灯火": {
+      "en": "Lamplight Fire",
+      "zh-TW": "覆燈火"
+    },
+    "涧下水": {
+      "en": "Stream Water",
+      "zh-TW": "澗下水"
+    },
+    "天河水": {
+      "en": "Heavenly River Water",
+      "zh-TW": "天河水"
+    },
+    "城头土": {
+      "en": "City-wall Earth",
+      "zh-TW": "城頭土"
+    },
+    "大驿土": {
+      "en": "Great Post-road Earth",
+      "zh-TW": "大驛土"
+    },
+    "白蜡金": {
+      "en": "White Wax Metal",
+      "zh-TW": "白蠟金"
+    },
+    "钗钏金": {
+      "en": "Hairpin Gold",
+      "zh-TW": "釵釧金"
+    },
+    "杨柳木": {
+      "en": "Willow Wood",
+      "zh-TW": "楊柳木"
+    },
+    "桑柘木": {
+      "en": "Mulberry Wood",
+      "zh-TW": "桑柘木"
+    },
+    "泉中水": {
+      "en": "Spring Water",
+      "zh-TW": "泉中水"
+    },
+    "大溪水": {
+      "en": "Great Brook Water",
+      "zh-TW": "大溪水"
+    },
+    "屋上土": {
+      "en": "Rooftop Earth",
+      "zh-TW": "屋上土"
+    },
+    "沙中土": {
+      "en": "Sand Earth",
+      "zh-TW": "沙中土"
+    },
+    "霹雳火": {
+      "en": "Thunderbolt Fire",
+      "zh-TW": "霹靂火"
+    },
+    "天上火": {
+      "en": "Heavenly Fire",
+      "zh-TW": "天上火"
+    },
+    "松柏木": {
+      "en": "Pine and Cypress Wood",
+      "zh-TW": "松柏木"
+    },
+    "石榴木": {
+      "en": "Pomegranate Wood",
+      "zh-TW": "石榴木"
+    },
+    "长流水": {
+      "en": "Long-flowing Water",
+      "zh-TW": "長流水"
+    },
+    "大海水": {
+      "en": "Great Ocean Water",
+      "zh-TW": "大海水"
+    }
+  },
+  "jieqi": {
+    "立春": {
+      "en": "Start of Spring",
+      "zh-TW": "立春"
+    },
+    "雨水": {
+      "en": "Rain Water",
+      "zh-TW": "雨水"
+    },
+    "惊蛰": {
+      "en": "Awakening of Insects",
+      "zh-TW": "驚蟄"
+    },
+    "春分": {
+      "en": "Spring Equinox",
+      "zh-TW": "春分"
+    },
+    "清明": {
+      "en": "Pure Brightness",
+      "zh-TW": "清明"
+    },
+    "谷雨": {
+      "en": "Grain Rain",
+      "zh-TW": "穀雨"
+    },
+    "立夏": {
+      "en": "Start of Summer",
+      "zh-TW": "立夏"
+    },
+    "小满": {
+      "en": "Grain Buds",
+      "zh-TW": "小滿"
+    },
+    "芒种": {
+      "en": "Grain in Ear",
+      "zh-TW": "芒種"
+    },
+    "夏至": {
+      "en": "Summer Solstice",
+      "zh-TW": "夏至"
+    },
+    "小暑": {
+      "en": "Minor Heat",
+      "zh-TW": "小暑"
+    },
+    "大暑": {
+      "en": "Major Heat",
+      "zh-TW": "大暑"
+    },
+    "立秋": {
+      "en": "Start of Autumn",
+      "zh-TW": "立秋"
+    },
+    "处暑": {
+      "en": "End of Heat",
+      "zh-TW": "處暑"
+    },
+    "白露": {
+      "en": "White Dew",
+      "zh-TW": "白露"
+    },
+    "秋分": {
+      "en": "Autumn Equinox",
+      "zh-TW": "秋分"
+    },
+    "寒露": {
+      "en": "Cold Dew",
+      "zh-TW": "寒露"
+    },
+    "霜降": {
+      "en": "Frost's Descent",
+      "zh-TW": "霜降"
+    },
+    "立冬": {
+      "en": "Start of Winter",
+      "zh-TW": "立冬"
+    },
+    "小雪": {
+      "en": "Minor Snow",
+      "zh-TW": "小雪"
+    },
+    "大雪": {
+      "en": "Major Snow",
+      "zh-TW": "大雪"
+    },
+    "冬至": {
+      "en": "Winter Solstice",
+      "zh-TW": "冬至"
+    },
+    "小寒": {
+      "en": "Minor Cold",
+      "zh-TW": "小寒"
+    },
+    "大寒": {
+      "en": "Major Cold",
+      "zh-TW": "大寒"
+    }
+  },
+  "festival": {
+    "春节": {
+      "en": "Spring Festival",
+      "zh-TW": "春節"
+    },
+    "元宵节": {
+      "en": "Lantern Festival",
+      "zh-TW": "元宵節"
+    },
+    "龙头节": {
+      "en": "Dragon Head Festival",
+      "zh-TW": "龍頭節"
+    },
+    "端午节": {
+      "en": "Dragon Boat Festival",
+      "zh-TW": "端午節"
+    },
+    "七夕节": {
+      "en": "Qixi Festival",
+      "zh-TW": "七夕節"
+    },
+    "中秋节": {
+      "en": "Mid-Autumn Festival",
+      "zh-TW": "中秋節"
+    },
+    "重阳节": {
+      "en": "Double Ninth Festival",
+      "zh-TW": "重陽節"
+    },
+    "腊八节": {
+      "en": "Laba Festival",
+      "zh-TW": "臘八節"
+    },
+    "除夕": {
+      "en": "Lunar New Year's Eve",
+      "zh-TW": "除夕"
+    },
+    "元旦节": {
+      "en": "New Year's Day",
+      "zh-TW": "元旦節"
+    },
+    "情人节": {
+      "en": "Valentine's Day",
+      "zh-TW": "情人節"
+    },
+    "妇女节": {
+      "en": "Women's Day",
+      "zh-TW": "婦女節"
+    },
+    "植树节": {
+      "en": "Arbor Day",
+      "zh-TW": "植樹節"
+    },
+    "劳动节": {
+      "en": "Labour Day",
+      "zh-TW": "勞動節"
+    },
+    "青年节": {
+      "en": "Youth Day",
+      "zh-TW": "青年節"
+    },
+    "母亲节": {
+      "en": "Mother's Day",
+      "zh-TW": "母親節"
+    },
+    "儿童节": {
+      "en": "Children's Day",
+      "zh-TW": "兒童節"
+    },
+    "父亲节": {
+      "en": "Father's Day",
+      "zh-TW": "父親節"
+    },
+    "建党节": {
+      "en": "CPC Founding Day",
+      "zh-TW": "建黨節"
+    },
+    "建军节": {
+      "en": "Army Day",
+      "zh-TW": "建軍節"
+    },
+    "教师节": {
+      "en": "Teachers' Day",
+      "zh-TW": "教師節"
+    },
+    "国庆节": {
+      "en": "National Day",
+      "zh-TW": "國慶節"
+    },
+    "平安夜": {
+      "en": "Christmas Eve",
+      "zh-TW": "平安夜"
+    },
+    "圣诞节": {
+      "en": "Christmas",
+      "zh-TW": "聖誕節"
+    }
+  },
+  "xiu": {
+    "角": {
+      "en": "Horn",
+      "zh-TW": "角"
+    },
+    "亢": {
+      "en": "Neck",
+      "zh-TW": "亢"
+    },
+    "氐": {
+      "en": "Root",
+      "zh-TW": "氐"
+    },
+    "房": {
+      "en": "Room",
+      "zh-TW": "房"
+    },
+    "心": {
+      "en": "Heart",
+      "zh-TW": "心"
+    },
+    "尾": {
+      "en": "Tail",
+      "zh-TW": "尾"
+    },
+    "箕": {
+      "en": "Winnowing Basket",
+      "zh-TW": "箕"
+    },
+    "斗": {
+      "en": "Dipper",
+      "zh-TW": "鬥"
+    },
+    "牛": {
+      "en": "Ox",
+      "zh-TW": "牛"
+    },
+    "女": {
+      "en": "Girl",
+      "zh-TW": "女"
+    },
+    "虚": {
+      "en": "Emptiness",
+      "zh-TW": "虛"
+    },
+    "危": {
+      "en": "Rooftop",
+      "zh-TW": "危"
+    },
+    "室": {
+      "en": "Encampment",
+      "zh-TW": "室"
+    },
+    "壁": {
+      "en": "Wall",
+      "zh-TW": "壁"
+    },
+    "奎": {
+      "en": "Legs",
+      "zh-TW": "奎"
+    },
+    "娄": {
+      "en": "Bond",
+      "zh-TW": "婁"
+    },
+    "胃": {
+      "en": "Stomach",
+      "zh-TW": "胃"
+    },
+    "昴": {
+      "en": "Hairy Head",
+      "zh-TW": "昴"
+    },
+    "毕": {
+      "en": "Net",
+      "zh-TW": "畢"
+    },
+    "觜": {
+      "en": "Turtle Beak",
+      "zh-TW": "觜"
+    },
+    "参": {
+      "en": "Three Stars",
+      "zh-TW": "參"
+    },
+    "井": {
+      "en": "Well",
+      "zh-TW": "井"
+    },
+    "鬼": {
+      "en": "Ghost",
+      "zh-TW": "鬼"
+    },
+    "柳": {
+      "en": "Willow",
+      "zh-TW": "柳"
+    },
+    "星": {
+      "en": "Star",
+      "zh-TW": "星"
+    },
+    "张": {
+      "en": "Extended Net",
+      "zh-TW": "張"
+    },
+    "翼": {
+      "en": "Wings",
+      "zh-TW": "翼"
+    },
+    "轸": {
+      "en": "Chariot",
+      "zh-TW": "軫"
+    }
+  },
+  "tianshen": {
+    "青龙": {
+      "en": "Azure Dragon",
+      "zh-TW": "青龍"
+    },
+    "明堂": {
+      "en": "Bright Hall",
+      "zh-TW": "明堂"
+    },
+    "天刑": {
+      "en": "Heavenly Punishment",
+      "zh-TW": "天刑"
+    },
+    "朱雀": {
+      "en": "Vermilion Bird",
+      "zh-TW": "朱雀"
+    },
+    "金匮": {
+      "en": "Golden Coffer",
+      "zh-TW": "金匱"
+    },
+    "天德": {
+      "en": "Heavenly Virtue",
+      "zh-TW": "天德"
+    },
+    "白虎": {
+      "en": "White Tiger",
+      "zh-TW": "白虎"
+    },
+    "玉堂": {
+      "en": "Jade Hall",
+      "zh-TW": "玉堂"
+    },
+    "天牢": {
+      "en": "Heavenly Prison",
+      "zh-TW": "天牢"
+    },
+    "玄武": {
+      "en": "Black Tortoise",
+      "zh-TW": "玄武"
+    },
+    "司命": {
+      "en": "Arbiter of Fate",
+      "zh-TW": "司命"
+    },
+    "勾陈": {
+      "en": "Gouchen",
+      "zh-TW": "勾陳"
+    },
+    "黄道": {
+      "en": "Yellow Path (auspicious)",
+      "zh-TW": "黃道"
+    },
+    "黑道": {
+      "en": "Black Path",
+      "zh-TW": "黑道"
+    }
+  },
+  "special": {
+    "天赦日": {
+      "en": "Day of Heavenly Pardon",
+      "zh-TW": "天赦日"
+    },
+    "杨公忌": {
+      "en": "Yang Gong taboo day",
+      "zh-TW": "楊公忌"
+    },
+    "宜静": {
+      "en": "Keep it quiet",
+      "zh-TW": "宜靜"
+    },
+    "诸事不宜": {
+      "en": "Nothing advised",
+      "zh-TW": "諸事不宜"
+    },
+    "百无禁忌": {
+      "en": "No taboos",
+      "zh-TW": "百無禁忌"
+    },
+    "奥半仙": {
+      "en": "Ao Banxian",
+      "zh-TW": "奧半仙"
+    }
+  },
+  "color": {
+    "绿": {
+      "en": "Green",
+      "zh-TW": "綠"
+    },
+    "青": {
+      "en": "Qing (blue-green)",
+      "zh-TW": "青"
+    },
+    "翠": {
+      "en": "Emerald",
+      "zh-TW": "翠"
+    },
+    "浅绿": {
+      "en": "Light green",
+      "zh-TW": "淺綠"
+    },
+    "墨绿": {
+      "en": "Dark green",
+      "zh-TW": "墨綠"
+    },
+    "红": {
+      "en": "Red",
+      "zh-TW": "紅"
+    },
+    "紫": {
+      "en": "Purple",
+      "zh-TW": "紫"
+    },
+    "粉": {
+      "en": "Pink",
+      "zh-TW": "粉"
+    },
+    "橙": {
+      "en": "Orange",
+      "zh-TW": "橙"
+    },
+    "黄": {
+      "en": "Yellow",
+      "zh-TW": "黃"
+    },
+    "棕": {
+      "en": "Brown",
+      "zh-TW": "棕"
+    },
+    "卡其": {
+      "en": "Khaki",
+      "zh-TW": "卡其"
+    },
+    "米": {
+      "en": "Beige",
+      "zh-TW": "米"
+    },
+    "咖啡": {
+      "en": "Coffee",
+      "zh-TW": "咖啡"
+    },
+    "白": {
+      "en": "White",
+      "zh-TW": "白"
+    },
+    "金": {
+      "en": "Gold",
+      "zh-TW": "金"
+    },
+    "银": {
+      "en": "Silver",
+      "zh-TW": "銀"
+    },
+    "香槟": {
+      "en": "Champagne",
+      "zh-TW": "香檳"
+    },
+    "黑": {
+      "en": "Black",
+      "zh-TW": "黑"
+    },
+    "蓝": {
+      "en": "Blue",
+      "zh-TW": "藍"
+    },
+    "藏青": {
+      "en": "Navy",
+      "zh-TW": "藏青"
+    },
+    "灰": {
+      "en": "Grey",
+      "zh-TW": "灰"
+    }
+  },
+  "traditionalColor": {
+    "松柏绿": {
+      "en": "Pine Green",
+      "zh-TW": "松柏綠"
+    },
+    "青碧": {
+      "en": "Celadon Jade",
+      "zh-TW": "青碧"
+    },
+    "葱青": {
+      "en": "Scallion Green",
+      "zh-TW": "蔥青"
+    },
+    "艾绿": {
+      "en": "Mugwort Green",
+      "zh-TW": "艾綠"
+    },
+    "松花绿": {
+      "en": "Pine-pollen Green",
+      "zh-TW": "松花綠"
+    },
+    "银朱": {
+      "en": "Vermilion",
+      "zh-TW": "銀硃"
+    },
+    "紫色": {
+      "en": "Purple",
+      "zh-TW": "紫色"
+    },
+    "粉红": {
+      "en": "Pink",
+      "zh-TW": "粉紅"
+    },
+    "橙色": {
+      "en": "Orange",
+      "zh-TW": "橙色"
+    },
+    "缃色": {
+      "en": "Pale Straw Yellow",
+      "zh-TW": "緗色"
+    },
+    "棕色": {
+      "en": "Brown",
+      "zh-TW": "棕色"
+    },
+    "驼色": {
+      "en": "Camel",
+      "zh-TW": "駝色"
+    },
+    "牙色": {
+      "en": "Ivory",
+      "zh-TW": "牙色"
+    },
+    "褐色": {
+      "en": "Tawny",
+      "zh-TW": "褐色"
+    },
+    "象牙白": {
+      "en": "Ivory White",
+      "zh-TW": "象牙白"
+    },
+    "赤金": {
+      "en": "Red Gold",
+      "zh-TW": "赤金"
+    },
+    "银白": {
+      "en": "Silver White",
+      "zh-TW": "銀白"
+    },
+    "缟": {
+      "en": "Undyed Silk",
+      "zh-TW": "縞"
+    },
+    "漆黑": {
+      "en": "Lacquer Black",
+      "zh-TW": "漆黑"
+    },
+    "靛蓝": {
+      "en": "Indigo",
+      "zh-TW": "靛藍"
+    },
+    "藏青": {
+      "en": "Navy",
+      "zh-TW": "藏青"
+    },
+    "苍色": {
+      "en": "Slate Grey",
+      "zh-TW": "蒼色"
+    }
+  },
+  "yiji": {
+    "塑绘": {
+      "en": "Painting & sculpting",
+      "zh-TW": "塑繪"
+    },
+    "斋醮": {
+      "en": "Taoist rites",
+      "zh-TW": "齋醮"
+    },
+    "出行": {
+      "en": "Travel",
+      "zh-TW": "出行"
+    },
+    "拆卸": {
+      "en": "Demolition",
+      "zh-TW": "拆卸"
+    },
+    "解除": {
+      "en": "Cleansing",
+      "zh-TW": "解除"
+    },
+    "修造": {
+      "en": "Building & repairs",
+      "zh-TW": "修造"
+    },
+    "移徙": {
+      "en": "Moving house",
+      "zh-TW": "移徙"
+    },
+    "造船": {
+      "en": "Shipbuilding",
+      "zh-TW": "造船"
+    },
+    "入殓": {
+      "en": "Encoffining",
+      "zh-TW": "入殮"
+    },
+    "除服": {
+      "en": "Ending mourning",
+      "zh-TW": "除服"
+    },
+    "成服": {
+      "en": "Putting on mourning",
+      "zh-TW": "成服"
+    },
+    "移柩": {
+      "en": "Moving a coffin",
+      "zh-TW": "移柩"
+    },
+    "启钻": {
+      "en": "Exhumation",
+      "zh-TW": "啟鑽"
+    },
+    "修坟": {
+      "en": "Tomb repair",
+      "zh-TW": "修墳"
+    },
+    "立碑": {
+      "en": "Erecting a tombstone",
+      "zh-TW": "立碑"
+    },
+    "谢土": {
+      "en": "Thanking the earth god",
+      "zh-TW": "謝土"
+    },
+    "祭祀": {
+      "en": "Ancestral offerings",
+      "zh-TW": "祭祀"
+    },
+    "沐浴": {
+      "en": "Bathing",
+      "zh-TW": "沐浴"
+    },
+    "安床": {
+      "en": "Placing a bed",
+      "zh-TW": "安床"
+    },
+    "纳财": {
+      "en": "Receiving wealth",
+      "zh-TW": "納財"
+    },
+    "畋猎": {
+      "en": "Hunting",
+      "zh-TW": "畋獵"
+    },
+    "捕捉": {
+      "en": "Catching pests",
+      "zh-TW": "捕捉"
+    },
+    "订盟": {
+      "en": "Making agreements",
+      "zh-TW": "訂盟"
+    },
+    "纳采": {
+      "en": "Betrothal gifts",
+      "zh-TW": "納采"
+    },
+    "祈福": {
+      "en": "Praying for blessings",
+      "zh-TW": "祈福"
+    },
+    "动土": {
+      "en": "Breaking ground",
+      "zh-TW": "動土"
+    },
+    "上梁": {
+      "en": "Raising the ridgepole",
+      "zh-TW": "上梁"
+    },
+    "破土": {
+      "en": "Breaking ground for burial",
+      "zh-TW": "破土"
+    },
+    "理发": {
+      "en": "Haircut",
+      "zh-TW": "理髮"
+    },
+    "补垣": {
+      "en": "Mending walls",
+      "zh-TW": "補垣"
+    },
+    "塞穴": {
+      "en": "Sealing holes",
+      "zh-TW": "塞穴"
+    },
+    "教牛马": {
+      "en": "Training livestock",
+      "zh-TW": "教牛馬"
+    },
+    "馀事勿取": {
+      "en": "Nothing else advised",
+      "zh-TW": "餘事勿取"
+    },
+    "造畜稠": {
+      "en": "Building animal pens",
+      "zh-TW": "造畜稠"
+    },
+    "会亲友": {
+      "en": "Visiting family & friends",
+      "zh-TW": "會親友"
+    },
+    "嫁娶": {
+      "en": "Weddings",
+      "zh-TW": "嫁娶"
+    },
+    "开光": {
+      "en": "Consecration",
+      "zh-TW": "開光"
+    },
+    "出火": {
+      "en": "Moving the hearth",
+      "zh-TW": "出火"
+    },
+    "进人口": {
+      "en": "Welcoming new members",
+      "zh-TW": "進人口"
+    },
+    "入宅": {
+      "en": "Moving into a new home",
+      "zh-TW": "入宅"
+    },
+    "栽种": {
+      "en": "Planting",
+      "zh-TW": "栽種"
+    },
+    "起基": {
+      "en": "Laying foundations",
+      "zh-TW": "起基"
+    },
+    "交易": {
+      "en": "Trading",
+      "zh-TW": "交易"
+    },
+    "立券": {
+      "en": "Signing contracts",
+      "zh-TW": "立券"
+    },
+    "安葬": {
+      "en": "Burial",
+      "zh-TW": "安葬"
+    },
+    "平治道涂": {
+      "en": "Repairing roads",
+      "zh-TW": "平治道塗"
+    },
+    "安机械": {
+      "en": "Installing machinery",
+      "zh-TW": "安機械"
+    },
+    "盖屋": {
+      "en": "Roofing",
+      "zh-TW": "蓋屋"
+    },
+    "定磉": {
+      "en": "Setting pillar bases",
+      "zh-TW": "定磉"
+    },
+    "安香": {
+      "en": "Setting up an altar",
+      "zh-TW": "安香"
+    },
+    "挂匾": {
+      "en": "Hanging a plaque",
+      "zh-TW": "掛匾"
+    },
+    "置产": {
+      "en": "Buying property",
+      "zh-TW": "置產"
+    },
+    "整手足甲": {
+      "en": "Trimming nails",
+      "zh-TW": "整手足甲"
+    },
+    "破屋": {
+      "en": "Tearing down houses",
+      "zh-TW": "破屋"
+    },
+    "坏垣": {
+      "en": "Pulling down walls",
+      "zh-TW": "壞垣"
+    },
+    "开仓": {
+      "en": "Opening granaries",
+      "zh-TW": "開倉"
+    },
+    "出货财": {
+      "en": "Shipping goods",
+      "zh-TW": "出貨財"
+    },
+    "开市": {
+      "en": "Opening a business",
+      "zh-TW": "開市"
+    },
+    "纳畜": {
+      "en": "Buying livestock",
+      "zh-TW": "納畜"
+    },
+    "牧养": {
+      "en": "Animal husbandry",
+      "zh-TW": "牧養"
+    },
+    "断蚁": {
+      "en": "Termite control",
+      "zh-TW": "斷蟻"
+    },
+    "问名": {
+      "en": "Matchmaking inquiry",
+      "zh-TW": "問名"
+    },
+    "冠笄": {
+      "en": "Coming-of-age rites",
+      "zh-TW": "冠笄"
+    },
+    "裁衣": {
+      "en": "Tailoring",
+      "zh-TW": "裁衣"
+    },
+    "作灶": {
+      "en": "Building a stove",
+      "zh-TW": "作灶"
+    },
+    "竖柱": {
+      "en": "Erecting pillars",
+      "zh-TW": "豎柱"
+    },
+    "作梁": {
+      "en": "Making beams",
+      "zh-TW": "作梁"
+    },
+    "开柱眼": {
+      "en": "Drilling pillar holes",
+      "zh-TW": "開柱眼"
+    },
+    "伐木": {
+      "en": "Felling trees",
+      "zh-TW": "伐木"
+    },
+    "架马": {
+      "en": "Setting up sawhorses",
+      "zh-TW": "架馬"
+    },
+    "安门": {
+      "en": "Installing doors",
+      "zh-TW": "安門"
+    },
+    "掘井": {
+      "en": "Digging a well",
+      "zh-TW": "掘井"
+    },
+    "求医": {
+      "en": "Seeing a doctor",
+      "zh-TW": "求醫"
+    },
+    "治病": {
+      "en": "Treating illness",
+      "zh-TW": "治病"
+    },
+    "入学": {
+      "en": "Starting school",
+      "zh-TW": "入學"
+    },
+    "扫舍": {
+      "en": "House cleaning",
+      "zh-TW": "掃舍"
+    },
+    "开生坟": {
+      "en": "Preparing a tomb",
+      "zh-TW": "開生墳"
+    },
+    "合寿木": {
+      "en": "Making a coffin in advance",
+      "zh-TW": "合壽木"
+    },
+    "求嗣": {
+      "en": "Praying for children",
+      "zh-TW": "求嗣"
+    },
+    "习艺": {
+      "en": "Learning a craft",
+      "zh-TW": "習藝"
+    },
+    "经络": {
+      "en": "Spinning & weaving",
+      "zh-TW": "經絡"
+    },
+    "结网": {
+      "en": "Net-making",
+      "zh-TW": "結網"
+    },
+    "安碓磑": {
+      "en": "Installing mills",
+      "zh-TW": "安碓磑"
+    },
+    "放水": {
+      "en": "Releasing water",
+      "zh-TW": "放水"
+    },
+    "造仓": {
+      "en": "Building a granary",
+      "zh-TW": "造倉"
+    },
+    "开池": {
+      "en": "Digging a pond",
+      "zh-TW": "開池"
+    },
+    "合帐": {
+      "en": "Hanging bed curtains",
+      "zh-TW": "合帳"
+    },
+    "修饰垣墙": {
+      "en": "Decorating walls",
+      "zh-TW": "修飾垣牆"
+    },
+    "取渔": {
+      "en": "Fishing",
+      "zh-TW": "取漁"
+    },
+    "造庙": {
+      "en": "Building a temple",
+      "zh-TW": "造廟"
+    },
+    "酬神": {
+      "en": "Thanking the gods",
+      "zh-TW": "酬神"
+    },
+    "针灸": {
+      "en": "Acupuncture",
+      "zh-TW": "針灸"
+    },
+    "造车器": {
+      "en": "Making carts & tools",
+      "zh-TW": "造車器"
+    },
+    "合脊": {
+      "en": "Finishing the roof ridge",
+      "zh-TW": "合脊"
+    },
+    "纳婿": {
+      "en": "Taking in a son-in-law",
+      "zh-TW": "納婿"
+    },
+    "赴任": {
+      "en": "Taking up a post",
+      "zh-TW": "赴任"
+    },
+    "诸事不宜": {
+      "en": "Nothing advised",
+      "zh-TW": "諸事不宜"
+    },
+    "雕刻": {
+      "en": "Carving",
+      "zh-TW": "雕刻"
+    },
+    "无": {
+      "en": "None",
+      "zh-TW": "無"
+    },
+    "开渠": {
+      "en": "Digging channels",
+      "zh-TW": "開渠"
+    },
+    "开厕": {
+      "en": "Building a toilet",
+      "zh-TW": "開廁"
+    },
+    "造桥": {
+      "en": "Bridge building",
+      "zh-TW": "造橋"
+    },
+    "归岫": {
+      "en": "Returning home",
+      "zh-TW": "歸岫"
+    },
+    "割蜜": {
+      "en": "Harvesting honey",
+      "zh-TW": "割蜜"
+    },
+    "普渡": {
+      "en": "Salvation rites",
+      "zh-TW": "普渡"
+    },
+    "筑堤": {
+      "en": "Building embankments",
+      "zh-TW": "築堤"
+    },
+    "分居": {
+      "en": "Separating households",
+      "zh-TW": "分居"
+    },
+    "雇佣": {
+      "en": "Hiring",
+      "zh-TW": "僱傭"
+    },
+    "归宁": {
+      "en": "Visiting the bride's parents",
+      "zh-TW": "歸寧"
+    },
+    "修门": {
+      "en": "Repairing doors",
+      "zh-TW": "修門"
+    },
+    "行丧": {
+      "en": "Funeral procession",
+      "zh-TW": "行喪"
+    },
+    "探病": {
+      "en": "Visiting the sick",
+      "zh-TW": "探病"
+    },
+    "词讼": {
+      "en": "Lawsuits",
+      "zh-TW": "詞訟"
+    },
+    "乘船": {
+      "en": "Boat trips",
+      "zh-TW": "乘船"
+    }
+  }
+}

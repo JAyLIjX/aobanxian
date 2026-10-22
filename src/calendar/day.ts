@@ -20,6 +20,9 @@ export interface DayInfo {
     /** 如「十二」「初一」 */
     dayName: string;
     isLeapMonth: boolean;
+    /** 农历月、日的数字（英文界面用） */
+    month: number;
+    day: number;
     /** 如「农历九月十二」 */
     text: string;
   };
@@ -90,7 +93,14 @@ export function getDayInfo(ymd: Ymd): DayInfo {
     ymd,
     weekday: `星期${solar.getWeekInChinese()}`,
     weekIndex: solar.getWeek(),
-    lunar: { monthName, dayName, isLeapMonth, text: `农历${monthName}${dayName}` },
+    lunar: {
+      monthName,
+      dayName,
+      isLeapMonth,
+      month: Math.abs(lunar.getMonth()),
+      day: lunar.getDay(),
+      text: `农历${monthName}${dayName}`,
+    },
     ganzhi: {
       year: lunar.getYearInGanZhiByLiChun(),
       month: lunar.getMonthInGanZhi(),

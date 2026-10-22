@@ -1,0 +1,249 @@
+{
+  "app": {
+    "name": "奧半仙",
+    "tagline": "像素道士農民曆"
+  },
+  "date": {
+    "full": "{{year}}年{{month}}月{{day}}日",
+    "yearMonth": "{{year}}年{{month}}月",
+    "year": "{{year}}年",
+    "month": "{{month}}月",
+    "lunar": "農曆{{month}}{{day}}",
+    "leap": "閏",
+    "ganzhi": "{{year}}年 {{month}}月 {{day}}日",
+    "weekHead": [
+      "日",
+      "一",
+      "二",
+      "三",
+      "四",
+      "五",
+      "六"
+    ]
+  },
+  "card": {
+    "todayElement": "今日{{label}}",
+    "wear": "穿",
+    "with": "配",
+    "hint": "點紙面看今日詳情",
+    "month": "月曆",
+    "closeMonth": "收起月曆"
+  },
+  "month": {
+    "prev": "上個月",
+    "next": "下個月",
+    "backToday": "回到今天",
+    "yearLabel": "年份",
+    "monthLabel": "月份"
+  },
+  "detail": {
+    "label": "當日詳情",
+    "prevDay": "前一天",
+    "nextDay": "後一天",
+    "close": "關閉",
+    "element": "當日五行",
+    "sourceNote": "（按{{source}}取 {{label}}）",
+    "sectionOutfit": "穿衣",
+    "sectionYiji": "宜忌",
+    "sectionZodiac": "生肖與星宿",
+    "robe": "道袍",
+    "sash": "腰帶",
+    "yi": "宜",
+    "ji": "忌",
+    "luckyZodiac": "吉生肖",
+    "sixHarmony": "六合",
+    "threeHarmony": "三合",
+    "clashLabel": "今日沖",
+    "clash": "沖{{animal}}",
+    "sha": "煞{{direction}}",
+    "xiu": "值日星宿",
+    "tianShen": "{{type}} · {{shen}}",
+    "foot": "傳統民俗趣味參考，圖個好心情"
+  },
+  "source": {
+    "nayin": "納音",
+    "stem": "日干",
+    "branch": "日支"
+  },
+  "phase": {
+    "wang": "旺",
+    "xiang": "相",
+    "xiu": "休",
+    "qiu": "囚",
+    "si": "死"
+  },
+  "opening": {
+    "huangdao": "掐指一算，今日黃道吉日",
+    "heidao": "今日宜穩不宜急",
+    "tianshe": "今日天赦，百無禁忌",
+    "yanggong": "今日諸事從簡",
+    "festival": "掐指一算，今日{{name}}",
+    "jieqi": "今日{{name}}，順時而行"
+  },
+  "specialTag": {
+    "tianshe": "天赦日",
+    "yanggong": "楊公忌",
+    "festival": "{{name}}",
+    "jieqi": "{{name}}"
+  },
+  "bannerTranslation": {
+    "brand": "",
+    "special": "",
+    "yi": "",
+    "ji": "",
+    "noYi": "",
+    "noJi": "",
+    "outfit": "",
+    "zodiac": ""
+  },
+  "menu": {
+    "divine": "掐指一算",
+    "detail": "今日詳情",
+    "expand": "展開日曆",
+    "collapse": "收起日曆",
+    "size": "小人尺寸",
+    "sizeSmall": "小",
+    "sizeMedium": "中",
+    "sizeLarge": "大",
+    "onTop": "置頂",
+    "settings": "設定…",
+    "about": "關於",
+    "quit": "結束"
+  },
+  "settings": {
+    "title": "設定",
+    "restoreDefaults": "恢復預設",
+    "tabs": {
+      "general": "通用",
+      "appearance": "外觀",
+      "rules": "規則",
+      "reminders": "提醒"
+    },
+    "autostart": "開機啟動",
+    "autostartHint": "登入電腦後自動出現在桌面上",
+    "onTop": "置頂",
+    "onTopHint": "關閉時道士待在其他視窗下面，像桌面小元件",
+    "size": "小人尺寸",
+    "sizeHint": "按整數倍放大像素，保持銳利",
+    "sizeOptions": {
+      "small": "小",
+      "medium": "中",
+      "large": "大"
+    },
+    "language": "語言",
+    "languageOptions": {
+      "system": "跟随系统",
+      "zh-CN": "简体中文",
+      "zh-TW": "繁體中文",
+      "en": "English"
+    },
+    "expandOnLaunch": "啟動時展開日曆",
+    "collapseOnBlur": "點選桌面其他地方時收起日曆",
+    "displayFont": "大字字型",
+    "displayFontHint": "日期數字、農曆標題等大字",
+    "displayFontOptions": {
+      "A": "馬善政毛筆楷書",
+      "B": "志莽行書"
+    },
+    "bannerFont": "幡上字型",
+    "bannerFontOptions": {
+      "pixel": "像素字型",
+      "brush": "像素化行書"
+    },
+    "bannerText": "幡上平時顯示的文字",
+    "bannerTextHint": "最多 4 個字，豎排印在幡上",
+    "elementSource": "當日五行取法",
+    "elementSourceOptions": {
+      "nayin": "納音",
+      "stem": "日干",
+      "branch": "日支"
+    },
+    "elementSourceHints": {
+      "nayin": "納音：農民曆上寫的五行，如大林木",
+      "stem": "日干：取當天天干的五行，如庚日屬金",
+      "branch": "日支：取當天地支的五行，如子日屬水"
+    },
+    "topPriority": "道袍主色",
+    "topPriorityOptions": {
+      "xiang": "相",
+      "wang": "旺"
+    },
+    "topPriorityHints": {
+      "xiang": "相：當日五行所生的顏色當道袍，與日同氣的顏色當腰帶",
+      "wang": "旺：與當日五行相同的顏色當道袍，所生的顏色當腰帶"
+    },
+    "dayBoundary": "換日時間",
+    "dayBoundaryOptions": {
+      "midnight": "午夜 0:00",
+      "zi": "子時 23:00"
+    },
+    "dayBoundaryHints": {
+      "midnight": "午夜：和日常日曆一樣，0 點換到新的一天",
+      "zi": "子時：傳統算法，23 點起就算第二天"
+    },
+    "openingEnabled": "每日開場白",
+    "openingEnabledHint": "每天第一次見面時，道士頭頂冒一句話",
+    "effectsEnabled": "特殊日子特效",
+    "effectsEnabledHint": "天赦日和春節，道士周圍閃光",
+    "bubbleSeconds": "氣泡停留時間",
+    "seconds": "{{n}} 秒"
+  },
+  "about": {
+    "title": "關於奧半仙",
+    "version": "版本 {{version}}",
+    "author": "作者",
+    "repo": "GitHub 儲存庫",
+    "license": "以 MIT 授權開源",
+    "thanks": "致謝",
+    "thanksList": "曆法資料：lunar-javascript（6tail）\n字型：霞鶩文楷、馬善政毛筆楷書、志莽行書、Fusion Pixel 像素字型、EB Garamond",
+    "disclaimer": "農民曆、宜忌、五行穿衣均為傳統民俗說法，僅作趣味參考。"
+  },
+  "rulesText": {
+    "tiers": {
+      "best": "大吉",
+      "neutral": "平",
+      "caution": "慎穿",
+      "avoid": "不宜"
+    },
+    "explanation": {
+      "xiang": "今日{{label}}，{{wang}}生{{xiang}}，{{primaryColor}}色得日之生",
+      "wang": "今日{{label}}，{{wang}}氣當旺，{{primaryColor}}色與日同氣"
+    },
+    "xiuLuck": {
+      "吉": "吉",
+      "凶": "宜謹慎"
+    },
+    "tips": {
+      "木": [
+        "木氣舒展，適合出門走走，看看樹和草地。",
+        "給家裡的綠植澆澆水，順手開窗通通風。",
+        "伸個懶腰，做幾分鐘拉伸，讓筋骨舒展開。",
+        "今天適合開個新頭，把想做的事列個清單。"
+      ],
+      "火": [
+        "火氣明亮，適合約朋友見面聊聊天。",
+        "曬曬太陽，但記得多喝水。",
+        "把房間收拾得亮堂一點，心情也會跟著亮。",
+        "適合表達想法，開會時不妨多說兩句。"
+      ],
+      "土": [
+        "土氣厚實，適合把手頭的事一件件落實。",
+        "好好吃頓飯，細嚼慢嚥，照顧一下脾胃。",
+        "整理一下抽屜或桌面，踏實感會多一點。",
+        "適合陪家人，做些穩穩當當的小事。"
+      ],
+      "金": [
+        "金氣清爽，適合做決定、斷舍離。",
+        "深呼吸幾次，出門注意添減衣物。",
+        "把檔案和賬目理一理，條理分明心不亂。",
+        "適合定規矩、做計劃，給自己一點儀式感。"
+      ],
+      "水": [
+        "水氣靈動，適合讀書、學點新東西。",
+        "多喝溫水，晚上早點休息。",
+        "聽聽音樂或者泡個腳，讓心靜下來。",
+        "適合復盤和思考，寫幾行日記也不錯。"
+      ]
+    }
+  }
+}

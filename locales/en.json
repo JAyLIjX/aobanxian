@@ -1,0 +1,241 @@
+{
+  "app": {
+    "name": "Ao Banxian",
+    "tagline": "A pixel Taoist almanac"
+  },
+  "date": {
+    "full": "{{monthName}} {{day}}, {{year}}",
+    "yearMonth": "{{monthName}} {{year}}",
+    "year": "{{year}}",
+    "month": "{{monthName}}",
+    "lunar": "Lunar {{month}}, day {{day}}",
+    "leap": "leap ",
+    "ganzhi": "Year {{year}} · Month {{month}} · Day {{day}}",
+    "weekHead": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
+  },
+  "card": {
+    "todayElement": "Today: {{label}}",
+    "wear": "Wear",
+    "with": "with",
+    "hint": "Click the paper for today's details",
+    "month": "Month",
+    "closeMonth": "Hide month"
+  },
+  "month": {
+    "prev": "Previous month",
+    "next": "Next month",
+    "backToday": "Today",
+    "yearLabel": "Year",
+    "monthLabel": "Month"
+  },
+  "detail": {
+    "label": "Day details",
+    "prevDay": "Previous day",
+    "nextDay": "Next day",
+    "close": "Close",
+    "element": "Element of the day",
+    "sourceNote": " (by {{source}}: {{label}})",
+    "sectionOutfit": "What to wear",
+    "sectionYiji": "宜忌 · Do's and don'ts",
+    "sectionZodiac": "Zodiac & lunar mansion",
+    "robe": "robe",
+    "sash": "sash",
+    "yi": "宜",
+    "ji": "忌",
+    "luckyZodiac": "Lucky signs",
+    "sixHarmony": "六合 Six Harmonies",
+    "threeHarmony": "三合 Three Harmonies",
+    "clashLabel": "Clash",
+    "clash": "{{animal}}",
+    "sha": "Sha: {{direction}}",
+    "xiu": "Lunar mansion",
+    "tianShen": "{{type}} · {{shen}}",
+    "foot": "Folk tradition, just for fun"
+  },
+  "source": {
+    "nayin": "Nayin",
+    "stem": "day stem",
+    "branch": "day branch"
+  },
+  "phase": {
+    "wang": "旺 Prosperous",
+    "xiang": "相 Supported",
+    "xiu": "休 Resting",
+    "qiu": "囚 Confined",
+    "si": "死 Dormant"
+  },
+  "opening": {
+    "huangdao": "My fingers tell me: an auspicious Yellow Path day!",
+    "heidao": "Steady wins today — no need to rush.",
+    "tianshe": "Day of Heavenly Pardon — no taboos today!",
+    "yanggong": "Keep things simple today.",
+    "festival": "Happy {{name}}!",
+    "jieqi": "It's {{name}} — go with the season."
+  },
+  "specialTag": {
+    "tianshe": "天赦日 · Day of Heavenly Pardon",
+    "yanggong": "杨公忌 · Yang Gong taboo day",
+    "festival": "{{name}}",
+    "jieqi": "{{name}}"
+  },
+  "bannerTranslation": {
+    "brand": "Ao Banxian",
+    "special": "{{text}}",
+    "yi": "Good for: {{term}}",
+    "ji": "Avoid: {{term}}",
+    "noYi": "Nothing advised today",
+    "noJi": "No taboos today",
+    "outfit": "Wear {{primary}} with {{accent}}",
+    "zodiac": "Lucky signs: {{animals}}"
+  },
+  "menu": {
+    "divine": "Divine",
+    "detail": "Today's details",
+    "expand": "Open calendar",
+    "collapse": "Close calendar",
+    "size": "Size",
+    "sizeSmall": "Small",
+    "sizeMedium": "Medium",
+    "sizeLarge": "Large",
+    "onTop": "Always on top",
+    "settings": "Settings…",
+    "about": "About",
+    "quit": "Quit"
+  },
+  "settings": {
+    "title": "Settings",
+    "restoreDefaults": "Restore defaults",
+    "tabs": {
+      "general": "General",
+      "appearance": "Appearance",
+      "rules": "Rules",
+      "reminders": "Reminders"
+    },
+    "autostart": "Launch at login",
+    "autostartHint": "Show up on your desktop after you log in",
+    "onTop": "Always on top",
+    "onTopHint": "When off, he stays below other windows like a desktop widget",
+    "size": "Size",
+    "sizeHint": "Pixels are scaled by whole numbers to stay sharp",
+    "sizeOptions": {
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large"
+    },
+    "language": "Language",
+    "languageOptions": {
+      "system": "Follow system",
+      "zh-CN": "简体中文",
+      "zh-TW": "繁體中文",
+      "en": "English"
+    },
+    "expandOnLaunch": "Open the calendar at launch",
+    "collapseOnBlur": "Close the calendar when clicking elsewhere",
+    "displayFont": "Display font",
+    "displayFontHint": "Used for dates and lunar titles",
+    "displayFontOptions": {
+      "A": "马善政 Ma Shan Zheng (brush kaishu)",
+      "B": "志莽行书 Zhi Mang Xing (running script)"
+    },
+    "bannerFont": "Banner font",
+    "bannerFontOptions": {
+      "pixel": "Pixel font",
+      "brush": "Pixelated brush script"
+    },
+    "bannerText": "Default banner text",
+    "bannerTextHint": "Up to 4 Chinese characters, written vertically",
+    "elementSource": "Element of the day",
+    "elementSourceOptions": {
+      "nayin": "纳音 Nayin",
+      "stem": "日干 Day stem",
+      "branch": "日支 Day branch"
+    },
+    "elementSourceHints": {
+      "nayin": "Nayin: the element printed in traditional almanacs, e.g. 大林木 Great Forest Wood",
+      "stem": "Day stem: the element of the day's heavenly stem, e.g. 庚 Geng is Metal",
+      "branch": "Day branch: the element of the day's earthly branch, e.g. 子 Zi is Water"
+    },
+    "topPriority": "Robe colour",
+    "topPriorityOptions": {
+      "xiang": "相 Supported",
+      "wang": "旺 Prosperous"
+    },
+    "topPriorityHints": {
+      "xiang": "相: the robe takes the colour the day's element gives birth to; the sash matches the day",
+      "wang": "旺: the robe matches the day's element; the sash takes the colour it gives birth to"
+    },
+    "dayBoundary": "New day starts at",
+    "dayBoundaryOptions": {
+      "midnight": "Midnight 0:00",
+      "zi": "Zi hour 23:00"
+    },
+    "dayBoundaryHints": {
+      "midnight": "Midnight: like a normal calendar",
+      "zi": "Zi hour: the traditional way — from 23:00 it counts as the next day"
+    },
+    "openingEnabled": "Daily greeting",
+    "openingEnabledHint": "A speech bubble the first time you meet each day",
+    "effectsEnabled": "Special-day sparkles",
+    "effectsEnabledHint": "Sparkles on the Day of Heavenly Pardon and Spring Festival",
+    "bubbleSeconds": "Bubble duration",
+    "seconds": "{{n}} s"
+  },
+  "about": {
+    "title": "About Ao Banxian",
+    "version": "Version {{version}}",
+    "author": "Author",
+    "repo": "GitHub repository",
+    "license": "Open source under the MIT License",
+    "thanks": "Thanks",
+    "thanksList": "Calendar data: lunar-javascript (6tail)\nFonts: LXGW WenKai, Ma Shan Zheng, Zhi Mang Xing, Fusion Pixel, EB Garamond",
+    "disclaimer": "The almanac, do's and don'ts and Five Elements colours are folk traditions — just for fun."
+  },
+  "rulesText": {
+    "tiers": {
+      "best": "Best",
+      "neutral": "Fine",
+      "caution": "Careful",
+      "avoid": "Avoid"
+    },
+    "explanation": {
+      "xiang": "Today is {{label}}: {{wang}} gives birth to {{xiang}}, so {{primaryColor}} is nourished by the day",
+      "wang": "Today is {{label}}: {{wang}} is at its peak, so {{primaryColor}} shares the day's energy"
+    },
+    "xiuLuck": {
+      "吉": "Favourable",
+      "凶": "Take care"
+    },
+    "tips": {
+      "木": [
+        "Wood energy is unfolding — take a walk and look at some trees.",
+        "Water the plants at home and open a window for fresh air.",
+        "Stretch for a few minutes and loosen up.",
+        "A good day to start something new — write a to-do list."
+      ],
+      "火": [
+        "Fire energy is bright — meet a friend for a chat.",
+        "Soak up some sun, but drink plenty of water.",
+        "Brighten up your room and your mood will follow.",
+        "A good day to speak up in meetings."
+      ],
+      "土": [
+        "Earth energy is steady — finish things one by one.",
+        "Enjoy a proper meal and eat slowly.",
+        "Tidy a drawer or your desk for a grounded feeling.",
+        "Spend time with family doing small, steady things."
+      ],
+      "金": [
+        "Metal energy is crisp — a good day to decide and declutter.",
+        "Take a few deep breaths and dress for the weather.",
+        "Sort out your files and accounts for a clear mind.",
+        "Set some rules or plans — give yourself a little ritual."
+      ],
+      "水": [
+        "Water energy flows — read or learn something new.",
+        "Drink warm water and go to bed a little earlier.",
+        "Listen to music or soak your feet to calm down.",
+        "Reflect on things — a few lines of journal would be nice."
+      ]
+    }
+  }
+}
