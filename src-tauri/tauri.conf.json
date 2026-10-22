@@ -15,7 +15,7 @@
         "label": "main",
         "title": "五行小历",
         "width": 420,
-        "height": 240,
+        "height": 210,
         "resizable": false,
         "maximizable": false,
         "minimizable": false,

@@ -1,51 +1,59 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/core";
+import { useCallback, useEffect, useMemo, useState, type MouseEvent } from "react";
+import { getDayDetail } from "./calendar/day";
+import { DetailPanel } from "./components/DetailPanel";
+import { MonthView } from "./components/MonthView";
+import { TodayCard } from "./components/TodayCard";
+import type { Ymd } from "./core/dayBoundary";
+import { defaultRules } from "./core/rules";
+import { Figure } from "./figure";
+import { useToday } from "./hooks/useToday";
+import { resizeWindow, startWindowDrag } from "./platform/window";
 import "./App.css";
 
-function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
+/** 窗口尺寸（逻辑像素）：收起时只放今日卡片和小人，展开月历或打开详情时变高 */
+const WIDTH = 420;
+const COMPACT_HEIGHT = 210;
+const EXPANDED_HEIGHT = 600;
 
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
-  }
+/** 按住空白处拖动窗口；按钮、下拉框和标了 data-no-drag 的区域除外 */
+function handleDragStart(e: MouseEvent) {
+  if (e.button !== 0) return;
+  const target = e.target as HTMLElement;
+  if (target.closest("button, select, input, a, [data-no-drag]")) return;
+  startWindowDrag();
+}
+
+export default function App() {
+  const rules = defaultRules;
+  const today = useToday(rules.dayBoundary);
+  const todayDetail = useMemo(() => getDayDetail(today, rules), [today, rules]);
+
+  const [monthOpen, setMonthOpen] = useState(false);
+  const [detailDay, setDetailDay] = useState<Ymd | null>(null);
+  const closeDetail = useCallback(() => setDetailDay(null), []);
+
+  const expanded = monthOpen || detailDay !== null;
+  useEffect(() => {
+    resizeWindow(WIDTH, expanded ? EXPANDED_HEIGHT : COMPACT_HEIGHT);
+  }, [expanded]);
+
+  const { primary, accent } = todayDetail.outfit;
 
   return (
-    <main className="container">
-      <h1>Welcome to Tauri + React</h1>
-
-      <div className="row">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
-
-      <form
-        className="row"
-        onSubmit={(e) => {
-          e.preventDefault();
-          greet();
-        }}
-      >
-        <input
-          id="greet-input"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
+    <main className="app" onMouseDown={handleDragStart}>
+      <div className="app__top">
+        <TodayCard detail={todayDetail} monthOpen={monthOpen} onToggleMonth={() => setMonthOpen((v) => !v)} />
+        <Figure
+          primary={primary.hex}
+          accent={accent.hex}
+          title={`今日穿${primary.name}配${accent.name}，点我看详情`}
+          onClick={() => setDetailDay(today)}
         />
-        <button type="submit">Greet</button>
-      </form>
-      <p>{greetMsg}</p>
+      </div>
+
+      {monthOpen && <MonthView today={today} onPick={setDetailDay} />}
+
+      {detailDay && <DetailPanel ymd={detailDay} rules={rules} onChange={setDetailDay} onClose={closeDetail} />}
     </main>
   );
 }
-
-export default App;
