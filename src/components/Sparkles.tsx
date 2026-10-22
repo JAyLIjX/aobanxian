@@ -11,7 +11,7 @@ interface Props {
 }
 
 const COLORS = ["#FFF6C8", "#F2BE45", "#FFFFFF", "#FFD86B"];
-const COUNT = 18;
+const COUNT = 28;
 
 /** 像素闪光粒子：天赦日和春节绕着道士一闪一闪 */
 export function Sparkles({ x, y, w, h, cell }: Props) {
@@ -49,7 +49,7 @@ export function Sparkles({ x, y, w, h, cell }: Props) {
         ctx.fillStyle = p.color;
         // 十字形小星：中心一格 + 亮的时候四周再各一格
         ctx.fillRect(px, py, unit, unit);
-        if (v > 0.7) {
+        if (v > 0.55) {
           ctx.fillRect(px - unit, py, unit, unit);
           ctx.fillRect(px + unit, py, unit, unit);
           ctx.fillRect(px, py - unit, unit, unit);

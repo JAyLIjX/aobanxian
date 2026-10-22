@@ -1,0 +1,61 @@
+# 推送 v* 标签时自动构建 macOS（universal）和 Windows（.msi / .exe），生成草稿 Release。
+#   git tag v0.2.0 && git push origin v0.2.0
+# 暂时不做代码签名，打开方法见 README「安装」一节。
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: macos-latest
+            args: --target universal-apple-darwin
+            rust-targets: aarch64-apple-darwin,x86_64-apple-darwin
+          - platform: windows-latest
+            args: ""
+            rust-targets: ""
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.rust-targets }}
+
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: "./src-tauri -> target"
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.ref_name }}
+          releaseName: "奥半仙 Ao Banxian ${{ github.ref_name }}"
+          releaseBody: |
+            像素道士黄历桌面小组件。下载对应平台的安装包：
+            - macOS：`*_universal.dmg`（Intel 和 Apple 芯片通用）
+            - Windows：`*_x64-setup.exe` 或 `*_x64_zh-CN.msi`
+
+            暂未做代码签名，首次打开的方法见 README「安装」一节。
+          releaseDraft: true
+          prerelease: false
+          args: ${{ matrix.args }}
