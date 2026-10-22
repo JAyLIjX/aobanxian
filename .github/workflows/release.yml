@@ -57,7 +57,7 @@ jobs:
 
             暂未做代码签名，首次打开的方法见 README「安装」一节。
           # GitHub 会去掉附件名里的中文（产品名「奥半仙」），所以附件名用拼音
-          releaseAssetNamePattern: "AoBanxian_[version]_[arch][setup][ext]"
+          assetNamePattern: "AoBanxian_[version]_[arch][setup][ext]"
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
