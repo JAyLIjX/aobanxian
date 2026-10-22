@@ -71,7 +71,8 @@ describe("「施主」只有小和尚用", () => {
   });
 
   it("界面文字、配置、代码里也没有「施主」（小和尚的 character.json 和这个测试除外）", () => {
-    const files = ["locales", "config", "rules", "src", "assets/character"].flatMap((d) => textFiles(d));
+    // 统一成正斜杠（Windows 上 join 出来是反斜杠）
+    const files = ["locales", "config", "rules", "src", "assets/character"].flatMap((d) => textFiles(d)).map((f) => f.replace(/\\/g, "/"));
     const hits = files
       .filter((f) => !f.includes("assets/character/heshang/") && !f.startsWith("src/data/"))
       .filter((f) => readFileSync(f, "utf8").includes("施主"));
