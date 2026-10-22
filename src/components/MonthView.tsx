@@ -1,21 +1,26 @@
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { getMonthGrid } from "../calendar/day";
 import { sameYmd, type Ymd } from "../core/dayBoundary";
+import type { Lang } from "../i18n";
+import { cellText, fmtDate, lunarText, monthName } from "../i18n/format";
 
 interface Props {
   today: Ymd;
   onPick: (ymd: Ymd) => void;
 }
 
-const WEEK_HEAD = ["日", "一", "二", "三", "四", "五", "六"];
 const MIN_YEAR = 1901;
 const MAX_YEAR = 2099;
 const YEARS = Array.from({ length: MAX_YEAR - MIN_YEAR + 1 }, (_, i) => MIN_YEAR + i);
 const MONTHS = Array.from({ length: 12 }, (_, i) => i + 1);
 
 export function MonthView({ today, onPick }: Props) {
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language as Lang;
   const [view, setView] = useState({ year: today.year, month: today.month });
   const grid = useMemo(() => getMonthGrid(view.year, view.month), [view]);
+  const weekHead = t("date.weekHead", { returnObjects: true }) as string[];
 
   const shift = (delta: number) => {
     setView(({ year, month }) => {
@@ -27,34 +32,26 @@ export function MonthView({ today, onPick }: Props) {
   const isCurrentMonth = view.year === today.year && view.month === today.month;
 
   return (
-    <section className="card paper month">
+    <section className="month">
       <header className="month__bar">
-        <button type="button" className="icon-btn" onClick={() => shift(-1)} aria-label="上个月">
+        <button type="button" className="icon-btn" onClick={() => shift(-1)} aria-label={t("month.prev")}>
           ‹
         </button>
-        <select
-          value={view.year}
-          onChange={(e) => setView((v) => ({ ...v, year: Number(e.target.value) }))}
-          aria-label="年份"
-        >
+        <select value={view.year} onChange={(e) => setView((v) => ({ ...v, year: Number(e.target.value) }))} aria-label={t("month.yearLabel")}>
           {YEARS.map((y) => (
             <option key={y} value={y}>
-              {y}年
+              {t("date.year", { year: y })}
             </option>
           ))}
         </select>
-        <select
-          value={view.month}
-          onChange={(e) => setView((v) => ({ ...v, month: Number(e.target.value) }))}
-          aria-label="月份"
-        >
+        <select value={view.month} onChange={(e) => setView((v) => ({ ...v, month: Number(e.target.value) }))} aria-label={t("month.monthLabel")}>
           {MONTHS.map((m) => (
             <option key={m} value={m}>
-              {m}月
+              {t("date.month", { month: m, monthName: monthName(m, lang) })}
             </option>
           ))}
         </select>
-        <button type="button" className="icon-btn" onClick={() => shift(1)} aria-label="下个月">
+        <button type="button" className="icon-btn" onClick={() => shift(1)} aria-label={t("month.next")}>
           ›
         </button>
         <button
@@ -63,12 +60,12 @@ export function MonthView({ today, onPick }: Props) {
           disabled={isCurrentMonth}
           onClick={() => setView({ year: today.year, month: today.month })}
         >
-          回到今天
+          {t("month.backToday")}
         </button>
       </header>
 
       <div className="month__grid">
-        {WEEK_HEAD.map((w, i) => (
+        {weekHead.map((w, i) => (
           <div key={w} className={`month__week ${i === 0 || i === 6 ? "is-weekend" : ""}`}>
             {w}
           </div>
@@ -86,10 +83,10 @@ export function MonthView({ today, onPick }: Props) {
               key={`${info.ymd.month}-${info.ymd.day}`}
               className={classes}
               onClick={() => onPick(info.ymd)}
-              title={`${info.ymd.year}年${info.ymd.month}月${info.ymd.day}日 ${info.lunar.text}`}
+              title={`${fmtDate(info.ymd, lang, t)} ${lunarText(info, lang, t)}`}
             >
               <span className="month__solar">{info.ymd.day}</span>
-              <span className={`month__sub kind-${info.cell.kind}`}>{info.cell.text}</span>
+              <span className={`month__sub kind-${info.cell.kind}`}>{cellText(info, lang)}</span>
             </button>
           );
         })}

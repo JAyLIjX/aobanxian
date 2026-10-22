@@ -1,8 +1,12 @@
 import { useEffect, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { getDayDetail } from "../calendar/day";
+import { getAlmanac } from "../calendar/special";
 import type { Ymd } from "../core/dayBoundary";
 import type { Rules } from "../core/rules";
-import { PHASE_NAMES } from "../core/wuxing";
+import type { Lang } from "../i18n";
+import { dayLabel, explanation, fmtDate, ganzhiLine, lunarText, phaseLabel, tierLabel, weekday, xiuLuck, xiuName } from "../i18n/format";
+import { ganzhi, term, translate } from "../i18n/terms";
 import { ColorChip } from "./ColorChip";
 
 interface Props {
@@ -12,16 +16,17 @@ interface Props {
   onClose: () => void;
 }
 
-const SOURCE_NAMES = { nayin: "纳音", stem: "日干", branch: "日支" } as const;
-
 function addDays(ymd: Ymd, delta: number): Ymd {
   const d = new Date(ymd.year, ymd.month - 1, ymd.day + delta);
   return { year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate() };
 }
 
 export function DetailPanel({ ymd, rules, onChange, onClose }: Props) {
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language as Lang;
   const d = useMemo(() => getDayDetail(ymd, rules), [ymd, rules]);
-  const { outfit, zodiac, xiu } = d;
+  const almanac = useMemo(() => getAlmanac(ymd), [ymd]);
+  const { outfit, zodiac } = d;
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -32,123 +37,126 @@ export function DetailPanel({ ymd, rules, onChange, onClose }: Props) {
     return () => window.removeEventListener("keydown", onKey);
   }, [ymd, onChange]);
 
+  const tianShenTag = t("detail.tianShen", {
+    type: term("tianshen", almanac.tianShenType, lang),
+    shen: term("tianshen", almanac.tianShen, lang),
+  });
+  const special = almanac.special;
+  const specialTag = special
+    ? t(`specialTag.${special.kind}`, { name: special.name ? term(special.kind === "festival" ? "festival" : "jieqi", special.name, lang) : "" })
+    : null;
+  const marks = [
+    ...(d.jieqi ? [term("jieqi", d.jieqi, lang)] : []),
+    ...d.festivals.map((f) => term("festival", f, lang)),
+  ];
+  const animal = (a: string) => term("zodiac", a, lang);
+
   return (
-    <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
-      <article className="card paper detail" role="dialog" aria-label="当日详情">
-        {/* 1. 日期与当日五行 */}
-        <header className="detail__head">
-          <button type="button" className="icon-btn" onClick={() => onChange(addDays(ymd, -1))} aria-label="前一天">
-            ‹
-          </button>
-          <div className="detail__title">
-            <h2 className="display">
-              {d.ymd.year}年{d.ymd.month}月{d.ymd.day}日
-            </h2>
-            <p>
-              {d.weekday}　{d.lunar.text}
-              {[d.jieqi, ...d.festivals].filter(Boolean).map((m) => (
-                <span key={m} className="mark">
-                  {m}
-                </span>
-              ))}
-            </p>
-            <p>
-              {d.ganzhi.year}年 {d.ganzhi.month}月 <b>{d.ganzhi.day}日</b>
-            </p>
-            <p className="detail__element">
-              当日五行：<b>{d.pillar.nayin}</b>
-              {outfit.day.source !== "nayin" && (
-                <span className="muted">
-                  （按{SOURCE_NAMES[outfit.day.source]}取 {outfit.day.label}）
-                </span>
-              )}
-            </p>
+    <article className="detail paper" role="dialog" aria-label={t("detail.label")}>
+      <header className="detail__head">
+        <button type="button" className="icon-btn" onClick={() => onChange(addDays(ymd, -1))} aria-label={t("detail.prevDay")}>
+          ‹
+        </button>
+        <div className="detail__title">
+          <div className="detail__tags">
+            <span className={`tag ${almanac.tianShenType === "黄道" ? "tag--red" : "tag--ink"}`}>{tianShenTag}</span>
+            {specialTag && <span className="tag tag--red">{specialTag}</span>}
           </div>
-          <button type="button" className="icon-btn" onClick={() => onChange(addDays(ymd, 1))} aria-label="后一天">
-            ›
-          </button>
-          <button type="button" className="icon-btn detail__close" onClick={onClose} aria-label="关闭">
-            ×
-          </button>
-        </header>
-
-        {/* 2. 穿衣 */}
-        <section className="detail__section">
-          <h3>穿衣</h3>
-          <div className="tiers">
-            {outfit.tiers.map((tier) => (
-              <div key={tier.key} className={`tier tier--${tier.key}`}>
-                <span className="tier__label">{tier.label}</span>
-                <div className="tier__body">
-                  {tier.entries.map((entry) => (
-                    <div key={entry.phase} className="tier__entry">
-                      <span className="tier__element" title={`${entry.element}：${PHASE_NAMES[entry.phase]}`}>
-                        {entry.element}
-                        {entry.phase === outfit.primary.phase && <small>上衣</small>}
-                        {entry.phase === outfit.accent.phase && <small>围巾</small>}
-                      </span>
-                      {entry.colors.map((c) => (
-                        <ColorChip key={c.name} color={c} />
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
+          <h2 className="display">{fmtDate(d.ymd, lang, t)}</h2>
+          <p>
+            {weekday(d.ymd, lang)}　{lunarText(d, lang, t)}
+            {marks.map((m) => (
+              <span key={m} className="mark">
+                {m}
+              </span>
             ))}
-          </div>
-          <p className="detail__explain">{outfit.explanation}</p>
-        </section>
+          </p>
+          <p>{ganzhiLine(d, lang, t)}</p>
+          <p className="detail__element">
+            {t("detail.element")}：<b>{term("nayin", d.pillar.nayin, lang)}</b>
+            {outfit.day.source !== "nayin" && (
+              <span className="muted">{t("detail.sourceNote", { source: t(`source.${outfit.day.source}`), label: dayLabel(outfit, lang) })}</span>
+            )}
+          </p>
+        </div>
+        <button type="button" className="icon-btn" onClick={() => onChange(addDays(ymd, 1))} aria-label={t("detail.nextDay")}>
+          ›
+        </button>
+        <button type="button" className="icon-btn detail__close" onClick={onClose} aria-label={t("detail.close")}>
+          ×
+        </button>
+      </header>
 
-        {/* 3. 宜忌 */}
-        <section className="detail__section">
-          <h3>宜忌</h3>
-          <div className="yiji">
-            <span className="yiji__label yiji__label--yi">宜</span>
+      <section className="detail__section">
+        <h3>{t("detail.sectionOutfit")}</h3>
+        <div className="tiers">
+          {outfit.tiers.map((tier) => (
+            <div key={tier.key} className={`tier tier--${tier.key}`}>
+              <span className="tier__label">{tierLabel(tier.key, rules, lang, t)}</span>
+              <div className="tier__body">
+                {tier.entries.map((entry) => (
+                  <div key={entry.phase} className="tier__entry">
+                    <span className="tier__element" title={phaseLabel(entry.phase, t)}>
+                      {lang === "en" ? `${entry.element} ${translate("element", entry.element, lang)}` : term("element", entry.element, lang)}
+                      {entry.phase === outfit.primary.phase && <small>{t("detail.robe")}</small>}
+                      {entry.phase === outfit.accent.phase && <small>{t("detail.sash")}</small>}
+                    </span>
+                    {entry.colors.map((c) => (
+                      <ColorChip key={c.name} color={c} />
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="detail__explain">{explanation(outfit, rules, lang, t)}</p>
+      </section>
+
+      <section className="detail__section">
+        <h3>{t("detail.sectionYiji")}</h3>
+        {(
+          [
+            ["yi", d.yi],
+            ["ji", d.ji],
+          ] as const
+        ).map(([key, list]) => (
+          <div key={key} className="yiji">
+            <span className={`yiji__label yiji__label--${key}`}>{t(`detail.${key}`)}</span>
             <div className="words">
-              {d.yi.map((x) => (
+              {list.map((x) => (
                 <span key={x} className="word">
-                  {x}
+                  {term("yiji", x, lang)}
                 </span>
               ))}
             </div>
           </div>
-          <div className="yiji">
-            <span className="yiji__label yiji__label--ji">忌</span>
-            <div className="words">
-              {d.ji.map((x) => (
-                <span key={x} className="word">
-                  {x}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
+        ))}
+      </section>
 
-        {/* 4. 生肖与星宿 */}
-        <section className="detail__section">
-          <h3>生肖与星宿</h3>
-          <dl className="facts">
-            <dt>吉生肖</dt>
-            <dd>
-              六合 {zodiac.sixHarmony.animal}
-              <span className="muted">（{zodiac.sixHarmony.branch}）</span>　三合{" "}
-              {zodiac.threeHarmony.map((r) => r.animal).join("、")}
-              <span className="muted">（{zodiac.threeHarmony.map((r) => r.branch).join("")}）</span>
-            </dd>
-            <dt>今日冲</dt>
-            <dd>
-              冲{zodiac.clash.animal}
-              <span className="muted">（{zodiac.clash.ganzhi}）</span>　煞{zodiac.sha}
-            </dd>
-            <dt>值日星宿</dt>
-            <dd>
-              {xiu.fullName}　<span className="mark">{xiu.luckLabel}</span>
-            </dd>
-          </dl>
-        </section>
+      <section className="detail__section">
+        <h3>{t("detail.sectionZodiac")}</h3>
+        <dl className="facts">
+          <dt>{t("detail.luckyZodiac")}</dt>
+          <dd>
+            {t("detail.sixHarmony")} {animal(zodiac.sixHarmony.animal)}
+            <br />
+            {t("detail.threeHarmony")} {zodiac.threeHarmony.map((r) => animal(r.animal)).join(lang === "en" ? ", " : "、")}
+          </dd>
+          <dt>{t("detail.clashLabel")}</dt>
+          <dd>
+            {t("detail.clash", { animal: animal(zodiac.clash.animal) })}
+            <span className="muted">（{ganzhi(zodiac.clash.ganzhi, lang)}）</span>
+            {t("detail.sha", { direction: term("direction", zodiac.sha, lang) })}
+          </dd>
+          <dt>{t("detail.xiu")}</dt>
+          <dd>
+            {xiuName(d, lang)}　<span className="mark">{xiuLuck(d, rules, lang, t)}</span>
+          </dd>
+        </dl>
+      </section>
 
-        <footer className="detail__foot">传统民俗趣味参考，图个好心情</footer>
-      </article>
-    </div>
+      <footer className="detail__foot">{t("detail.foot")}</footer>
+    </article>
   );
 }
