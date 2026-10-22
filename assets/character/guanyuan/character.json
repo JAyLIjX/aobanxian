@@ -1,5 +1,5 @@
 {
-  "$comment": "角色说明。key.png 是色键版（换色区域：洋红 = 大面积主色，青色 = 小面积配色），ref.png 是原配色参考。写字的地方是告示，writing 是排法：vertical（竖排）或 horizontal（横排）。 writingFrame / writingShape：告示是卷轴，两头的木轴和金头伸出纸面较多，边框多算几格；中间上下只算一两格（再往外是衣领、胡子）。",
+  "$comment": "角色说明。key.png 是色键版（换色区域：洋红 = 大面积主色，青色 = 小面积配色），ref.png 是原配色参考。写字的地方是告示，writing 是排法：vertical（竖排）或 horizontal（横排）。 writingFrame / writingShape：告示是卷轴，两头的木轴和金头伸出纸面较多，边框多算几格；中间上下只算一两格（再往外是衣领、胡子）。 unroll：点人展开日历时，writing = 书写物收起、卡片在人物上下展开（幡），inPlace = 书写物原地展开成卡片、盖住它（告示后面的原画没有衣服），body = 书写物不动、卡片从人物下方展开（扇面、木牌）。",
   "id": "guanyuan",
   "name": {
     "zh-CN": "青天大老爷",
@@ -7,6 +7,7 @@
     "en": "Magistrate"
   },
   "writing": "horizontal",
+  "unroll": "inPlace",
   "writingFrame": 6,
   "writingShape": "scroll"
 }

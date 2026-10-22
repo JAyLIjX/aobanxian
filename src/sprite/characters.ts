@@ -7,19 +7,29 @@
 import type { Lang } from "../i18n";
 import type { SpriteData } from "./sprite";
 
-export interface CharacterDef {
+export interface CharacterMeta {
   id: string;
   name: Record<Lang, string>;
+  writing: "vertical" | "horizontal";
+  /**
+   * 点人展开日历时：writing = 书写物收起，卡片在人物上下展开（道士的幡）；
+   * inPlace = 书写物原地展开成卡片、把它盖住（青天大老爷的告示）；body = 书写物不动，卡片从人物下方展开（扇面、木牌）
+   */
+  unroll: "writing" | "inPlace" | "body";
+}
+
+export interface CharacterDef extends CharacterMeta {
   data: SpriteData;
 }
 
 const sprites = import.meta.glob<{ default: SpriteData }>("../assets/sprite/*.json", { eager: true });
-const metas = import.meta.glob<{ default: { id: string; name: Record<Lang, string> } }>("../../assets/character/*/character.json", { eager: true });
+const metas = import.meta.glob<{ default: CharacterMeta }>("../../assets/character/*/character.json", { eager: true });
 
 export const CHARACTERS: CharacterDef[] = Object.values(metas)
   .map(({ default: meta }) => {
     const data = Object.values(sprites).find((m) => m.default.id === meta.id)?.default;
-    return data ? { id: meta.id, name: meta.name, data } : null;
+    const unroll = meta.unroll === "body" || meta.unroll === "inPlace" ? meta.unroll : "writing";
+    return data ? { ...meta, unroll, data } : null;
   })
   .filter((c): c is CharacterDef => !!c)
   // 道士永远排第一（默认角色）

@@ -85,3 +85,19 @@ export function toLocal(r: Rect, win: Rect): Rect {
 function clamp(v: number, lo: number, hi: number) {
   return Math.min(hi, Math.max(lo, v));
 }
+
+/**
+ * 书写物本身就是卷轴（青天大老爷的告示）：卡片的上木轴对齐告示的上边、以告示为中心向下展开，
+ * 把告示整个盖住（告示后面的原画没有衣服，藏起告示会露出一个洞）。人的头和帽子露在外面，点它们收起。
+ * 屏幕下方放不下时整体往上推，仍然盖住告示；左右贴边时压回屏幕内。
+ */
+export function placeOverWriting(opts: { work: Rect; writing: Rect; panel: Size; margin: number }): PanelPlacement {
+  const { work, writing, panel, margin } = opts;
+  const minX = work.x + margin;
+  const maxX = work.x + work.w - margin - panel.w;
+  const x = Math.round(maxX < minX ? minX : clamp(writing.x + writing.w / 2 - panel.w / 2, minX, maxX));
+  const minY = work.y + margin;
+  const maxY = work.y + work.h - margin - panel.h;
+  const y = Math.round(maxY < minY ? minY : clamp(writing.y, minY, maxY));
+  return { rect: { x, y, w: panel.w, h: panel.h }, direction: "down" };
+}

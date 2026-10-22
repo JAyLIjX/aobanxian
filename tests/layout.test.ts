@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { placePanel, toLocal, windowRect, type Rect } from "../src/core/layout";
+import { placePanel, toLocal, windowRect, type Rect, placeOverWriting } from "../src/core/layout";
 
 const work: Rect = { x: 0, y: 25, w: 1512, h: 920 };
 const spriteSize = { w: 158, h: 230 };
@@ -63,5 +63,34 @@ describe("卷轴布局", () => {
     expect(placement.direction).toBe("down");
     expect(placement.rect.y + placement.rect.h).toBeLessThanOrEqual(work.y + work.h - margin);
     expect(placement.rect.y).toBeGreaterThanOrEqual(work.y + margin);
+  });
+});
+
+describe("告示原地展开成卡片", () => {
+  const work = { x: 0, y: 25, w: 1512, h: 957 };
+  const writing = { x: 1000, y: 300, w: 142, h: 60 };
+  const panel = { w: 320, h: 230 };
+  const covers = (r: { x: number; y: number; w: number; h: number }) =>
+    r.x <= writing.x && r.y <= writing.y && r.x + r.w >= writing.x + writing.w && r.y + r.h >= writing.y + writing.h;
+
+  it("卡片上边对齐告示上边，以告示为中心，盖住告示", () => {
+    const p = placeOverWriting({ work, writing, panel, margin: 8 });
+    expect(p.rect.y).toBe(writing.y);
+    expect(p.rect.x + p.rect.w / 2).toBe(writing.x + writing.w / 2);
+    expect(covers(p.rect)).toBe(true);
+    expect(p.direction).toBe("down");
+  });
+
+  it("贴着屏幕底部、右边时压回屏幕内，仍然盖住告示", () => {
+    for (const w of [
+      { ...writing, y: 900 },
+      { ...writing, x: 1400 },
+      { ...writing, x: 1400, y: 900 },
+    ]) {
+      const p = placeOverWriting({ work, writing: w, panel, margin: 8 });
+      expect(p.rect.y + p.rect.h).toBeLessThanOrEqual(work.y + work.h - 8);
+      expect(p.rect.x + p.rect.w).toBeLessThanOrEqual(work.x + work.w - 8);
+      expect(p.rect.x <= w.x && p.rect.y <= w.y && p.rect.y + p.rect.h >= w.y + w.h).toBe(true);
+    }
   });
 });

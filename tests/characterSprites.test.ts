@@ -30,6 +30,15 @@ describe("四个角色", () => {
     expect(getCharacter("heshang").data.writing).toBe("vertical");
   });
 
+  it("展开日历：幡收起、告示原地展开成卡片；扇面、木牌不动，卡片从人物下方展开", () => {
+    expect(Object.fromEntries(CHARACTERS.map((c) => [c.id, c.unroll]))).toEqual({
+      daoshi: "writing",
+      guanyuan: "inPlace",
+      shusheng: "body",
+      heshang: "body",
+    });
+  });
+
   it("精灵图高度和道士相差 10% 以内（桌面上看起来一样大）", () => {
     const h = getCharacter("daoshi").data.height;
     for (const c of CHARACTERS) expect(Math.abs(c.data.height - h) / h, c.id).toBeLessThanOrEqual(0.1);

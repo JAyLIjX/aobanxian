@@ -15,7 +15,7 @@ import { BANNER_RESET_MS, buildBannerItems, nextBannerIndex, type BannerItem } f
 import { createBubble } from "../core/bubble";
 import { ymdKey, type Ymd } from "../core/dayBoundary";
 import type { Element } from "../core/elements";
-import { placePanel, toLocal, union, windowRect, type Chrome, type Rect } from "../core/layout";
+import { placeOverWriting, placePanel, toLocal, union, windowRect, type Chrome, type Rect } from "../core/layout";
 import { openingFor, specialBannerText } from "../core/opening";
 import { personalRelation, ZODIAC, zodiacRelations, type Branch } from "../core/zodiac";
 import { setLanguage, type Lang } from "../i18n";
@@ -90,7 +90,10 @@ export function MainApp() {
   );
 
   // ── 角色与几何 ──
-  const sprite = useMemo(() => getCharacter(settings.character).data, [settings.character]);
+  const character = useMemo(() => getCharacter(settings.character), [settings.character]);
+  const sprite = character.data;
+  /** 书写物本身变成卡片（幡收起、告示原地展开）；否则书写物不动，卡片从人物下方展开（扇面、木牌） */
+  const unrollWriting = character.unroll !== "body";
   const scale = SIZE_SCALE[settings.size];
   const cell = Math.max(1, Math.round(scale * (window.devicePixelRatio || 1))) / (window.devicePixelRatio || 1);
   const spriteW = sprite.width * cell;
@@ -266,8 +269,8 @@ export function MainApp() {
       toggleCalendar();
       return;
     }
-    // 展开期间幡变成了卷轴，点幡换字暂停
-    if (expanded) return;
+    // 展开期间幡（告示）变成了卷轴，点它换字暂停；扇面、木牌不动，照常换字
+    if (expanded && unrollWriting) return;
     setSway((n) => n + 1);
     const next = nextBannerIndex(bannerIndex, bannerItems.length);
     setBannerIndex(next);
@@ -435,10 +438,22 @@ export function MainApp() {
         return;
       }
       const spriteRect = { x: anchor.x, y: anchor.y, w: spriteW, h: spriteH };
-      const bannerCenterX = anchor.x + (sprite.banner.x + sprite.banner.w / 2) * cell;
+      // 卡片水平中心：从书写物展开时对着书写物，否则对着人
+      const bannerCenterX = anchor.x + (unrollWriting ? sprite.banner.x + sprite.banner.w / 2 : sprite.width / 2) * cell;
       const place = (size: { w: number; h: number }) =>
         placePanel({ work, sprite: spriteRect, bannerCenterX, panel: size, gap: GAP, margin: SCREEN_MARGIN });
-      const scroll = expanded && scrollSize ? place(scrollSize) : null;
+      const writingRect = {
+        x: anchor.x + sprite.banner.x * cell,
+        y: anchor.y + sprite.banner.y * cell,
+        w: sprite.banner.w * cell,
+        h: sprite.banner.h * cell,
+      };
+      const scroll =
+        expanded && scrollSize
+          ? character.unroll === "inPlace"
+            ? placeOverWriting({ work, writing: writingRect, panel: scrollSize, margin: SCREEN_MARGIN })
+            : place(scrollSize)
+          : null;
       const det = detailDay && detailSize ? place(detailSize) : null;
       const panels = [scroll?.rect, det?.rect]
         .filter((r): r is Rect => !!r)
@@ -471,13 +486,13 @@ export function MainApp() {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [anchor, loaded, sprite, spriteW, spriteH, cell, expanded, scrollSize, detailDay, detailSize]);
+  }, [anchor, loaded, character, sprite, unrollWriting, spriteW, spriteH, cell, expanded, scrollSize, detailDay, detailSize]);
 
   // ── 点穿：告诉 Rust 哪里能点 ──
   useEffect(() => {
     if (!layout) return;
     const rows: string[] = [];
-    const opaqueAt = (x: number, y: number) => isOpaque(sprite, x, y) && !(expanded && inBanner(sprite, x, y));
+    const opaqueAt = (x: number, y: number) => isOpaque(sprite, x, y) && !(expanded && unrollWriting && inBanner(sprite, x, y));
     // 遮罩从道士上方一格开始，共 height + 1 行
     for (let y = 0; y <= sprite.height; y++) {
       let row = "";
@@ -497,7 +512,7 @@ export function MainApp() {
     if (layout.scroll && scrollSize) rects.push([layout.scroll.x, layout.scroll.y, scrollSize.w, scrollSize.h]);
     if (layout.detail && detailSize) rects.push([layout.detail.x, layout.detail.y, detailSize.w, detailSize.h]);
     setHitRegions({ rects, masks: [mask] });
-  }, [layout, sprite, expanded, cell, scrollSize, detailSize]);
+  }, [layout, sprite, unrollWriting, expanded, cell, scrollSize, detailSize]);
 
   const onScrollResize = useCallback((w: number, h: number) => setScrollSize({ w, h }), []);
   const detailRef = useRef<HTMLDivElement>(null);
@@ -536,7 +551,7 @@ export function MainApp() {
           scale={scale}
           bannerText={bannerItems[bannerIndex]?.text ?? settings.bannerText}
           bannerFont={settings.bannerFont}
-          hideBanner={expanded}
+          hideBanner={expanded && unrollWriting}
           breathing={!expanded}
           jumpSignal={jump}
           swaySignal={sway}
@@ -551,8 +566,12 @@ export function MainApp() {
             x={layout.scroll ? layout.scroll.x : null}
             y={layout.scroll ? layout.scroll.y : null}
             direction={layout.scroll?.direction ?? "down"}
-            fromWidth={sprite.banner.w * cell}
-            fromCenterX={layout.scroll ? layout.sprite.x + (sprite.banner.x + sprite.banner.w / 2) * cell - layout.scroll.x : 0}
+            fromWidth={(unrollWriting ? sprite.banner.w : sprite.width * 0.5) * cell}
+            fromCenterX={
+              layout.scroll
+                ? layout.sprite.x + (unrollWriting ? sprite.banner.x + sprite.banner.w / 2 : sprite.width / 2) * cell - layout.scroll.x
+                : 0
+            }
             cell={cell}
             closing={scrollState === "closing"}
             onClosed={onScrollClosed}
