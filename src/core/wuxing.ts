@@ -97,11 +97,14 @@ export interface Tier {
 export interface Outfit {
   day: DayElement;
   phases: Record<Phase, Element>;
-  /** 四档，顺序固定为 大吉 / 平 / 慎穿 / 不宜 */
+  /**
+   * 四档，顺序固定为 大吉 / 平 / 慎穿 / 不宜。
+   * 大吉的两个（相、旺）地位平等，界面上总是相在前、旺在后。
+   */
   tiers: Tier[];
-  /** 上衣颜色 */
+  /** 小人身上大面积的颜色（道袍）。只用于画小人，界面文字不区分主次 */
   primary: ColorSwatch & { element: Element; phase: Phase };
-  /** 围巾颜色 */
+  /** 小人身上小面积的颜色（腰带） */
   accent: ColorSwatch & { element: Element; phase: Phase };
   explanation: string;
 }
@@ -115,9 +118,10 @@ export function buildOutfit(pillar: DayPillar, rules: Rules): Outfit {
   const day = dayElement(pillar, rules.elementSource);
   const phases = phasesOf(day.element);
 
-  // 大吉档内，主色那一档排在前面
-  const bestOrder: Phase[] = rules.topPriority === "xiang" ? ["xiang", "wang"] : ["wang", "xiang"];
-  const order: Phase[] = [...bestOrder, "xiu", "qiu", "si"];
+  // 大吉的相、旺平等，界面上总是相在前
+  const order: Phase[] = ["xiang", "wang", "xiu", "qiu", "si"];
+  // topPriority 只决定哪个颜色画在小人身上的大面积（道袍）
+  const bodyOrder: Phase[] = rules.topPriority === "xiang" ? ["xiang", "wang"] : ["wang", "xiang"];
 
   const tiers: Tier[] = (["best", "neutral", "caution", "avoid"] as const).map((key) => ({
     key,
@@ -127,7 +131,7 @@ export function buildOutfit(pillar: DayPillar, rules: Rules): Outfit {
       .map((phase) => ({ phase, element: phases[phase], colors: rules.palettes[phases[phase]] })),
   }));
 
-  const [primaryPhase, accentPhase] = bestOrder;
+  const [primaryPhase, accentPhase] = bodyOrder;
   const swatch = (phase: Phase) => ({
     ...rules.palettes[phases[phase]][0],
     element: phases[phase],
@@ -136,7 +140,8 @@ export function buildOutfit(pillar: DayPillar, rules: Rules): Outfit {
   const primary = swatch(primaryPhase);
   const accent = swatch(accentPhase);
 
-  const explanation = fillTemplate(rules.explanation[rules.topPriority], {
+  const fam = rules.colorFamilies;
+  const explanation = fillTemplate(rules.explanation, {
     label: day.label,
     D: day.element,
     wang: phases.wang,
@@ -144,8 +149,10 @@ export function buildOutfit(pillar: DayPillar, rules: Rules): Outfit {
     xiu: phases.xiu,
     qiu: phases.qiu,
     si: phases.si,
-    primaryColor: primary.name,
-    accentColor: accent.name,
+    wangChar: fam[phases.wang].char,
+    xiangChar: fam[phases.xiang].char,
+    wangFamily: fam[phases.wang].name,
+    xiangFamily: fam[phases.xiang].name,
   });
 
   return { day, phases, tiers, primary, accent, explanation };

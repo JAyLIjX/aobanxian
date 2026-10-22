@@ -36,7 +36,8 @@ for (const tier of o.tiers) {
   );
   line(tier.label, parts.join("　|　"));
 }
-line("小人", `上衣 ${o.primary.name}（${o.primary.hex}）　围巾 ${o.accent.name}（${o.accent.hex}）`);
+const fam = (e: keyof typeof defaultRules.colorFamilies) => defaultRules.colorFamilies[e].name;
+line("大吉色", `${fam(o.phases.xiang)}、${fam(o.phases.wang)}（相、旺，平等）`);
 line("解释", o.explanation);
 
 console.log("\n── 宜忌 ──");

@@ -21,7 +21,7 @@ Python 工具（精灵图、字体）用项目里的 `.venv-tools`（已在 .git
 ## 架构
 
 ```
-rules/default.json         五行规则（流派）：取法、主色、换日、色系、像素色阶、四档文字、解释句、小贴士
+rules/default.json         五行规则（流派）：取法、小人配色、换日、色系名、色系、像素色阶、四档文字、解释句、小贴士
 config/
   settings.default.json    应用设置的默认值
   branding.json            幡上的字（bannerText、宜忌前缀、兜底文字、特殊日子文字）
@@ -68,7 +68,9 @@ preview/                   效果图
 
 - 当日五行 D 由 `elementSource` 决定：`nayin`（纳音末字）/ `stem`（日干）/ `branch`（日支）。
 - `phasesOf(D)`：旺 = D，相 = D 所生，休 = 生 D 者，囚 = 克 D 者，死 = D 所克。档位：旺、相 → 大吉；休 → 平；囚 → 慎穿；死 → 不宜。
-- 道袍（主色）/ 腰带（点缀色）：`topPriority = xiang` 时为 相 / 旺，`wang` 时互换。
+- **大吉的相、旺地位平等**。界面上永远并列（相在前）：卡片「大吉 红色系 ■■■ 绿色系 ■■■」，详情「红色系（火） / 绿色系（木）」，幡上「宜红宜绿」，解释句同时说两个。界面文字里**不能**出现「穿 X 配 Y」「道袍」「腰带」（英文不能有 robe / sash），`tests/i18n.test.ts` 会检查。
+- `topPriority` 只决定小人身上哪个颜色画在道袍（大面积）：`xiang` 时相在道袍、旺在腰带，`wang` 时互换。`Outfit.primary / accent` 只给画小人用。
+- 色系名和幡上的单字在 `rules/default.json` 的 `colorFamilies`（红色系 / 红、绿色系 / 绿、黄色系 / 黄、白色系 / 白、黑蓝色系 / 蓝）。
 - 设置窗口「规则」页里的三项覆盖 `rules/default.json` 的同名项（`rulesWith`），只存在用户的 store 里。
 
 ## 精灵图
@@ -88,15 +90,19 @@ JSON 结构：`base`（每格一个字符，指向 `palette`）、`regions`（`a
 
 - canvas 按格画，每格的**设备像素**取整（`round(scale × devicePixelRatio)`），`image-rendering: pixelated`。小 / 中 / 大 = 每格 1 / 2 / 3 个 CSS 像素。
 - 身体层（`hideBanner`）和幡层（`onlyBanner`）分开画：幡单独晃、展开成卷轴时单独隐藏。测试保证两层叠起来 = 完整的道士。
-- 换色：区域格按深浅档换成 `pixelRamps[五行]` 的三个颜色；道袍用主色五行，腰带用点缀色五行。
-- 幡上的字：每格设备像素为偶数时用半格网格 + Fusion Pixel 12px（幡面 32×84 个文字点，4 个字竖排放得下）；奇数时用整格网格 + 10px，保证每个文字点都是整数设备像素。行书版把志莽行书画到同一网格、按透明度二值化。字体在 canvas 里先画到临时画布，按墨迹居中并对齐整数像素再取点。
+- 换色：区域格按深浅档换成 `pixelRamps[五行]` 的三个颜色；道袍、腰带分别用哪个五行由 `topPriority` 决定。
+- 幡上的字（`bannerText.ts`）：按幡面大小和字数自动选字号，字宽占幡面宽度 70%–80%，整列上下居中。所有尺寸在设备像素上算：
+  - 像素字：Fusion Pixel 原生 12px / 10px 按**整数倍**放大（每个字体像素 = p 个设备像素），在宽度 ≤ 80%、整列放得下的前提下取最大；放不下时去掉字间距再试。3 个字一般落在 75%，4 个字自动降一档。
+  - 像素化行书：画到半格网格（每格设备像素为奇数时用整格）后二值化。行书字形四周留白很大，按字号算会显得很小，所以按**墨迹**排：先用参考字号量出每个字的墨迹框，再缩放到最宽的墨迹占幡面约 76%、整列放得下。
+  - `tests/bannerText.test.ts` 覆盖小 / 中 / 大 × 普通屏 / Retina 的字号比例。`bash scripts/render-previews.sh` 出 `preview/banner-size.png`。
+  - 换字时新旧两段的字号可能不同（3 个字 → 4 个字），像素溶解在设备像素上按小块混合。
 - 动画都按格跳变（CSS `steps()` / Web Animations 的 `steps(1, end)`）：呼吸每秒浮动一格，点人轻跳三格，点幡左右晃一格，换字像素溶解 0.2 秒。**不要**用改 `key` 的方式重播动画，那会让 canvas 重新挂载、画好的内容丢失。
 
 ## 交互
 
 | 操作 | 结果 |
 | --- | --- |
-| 点幡 | 晃一下，换下一项（奥半仙 → 宜事 → 忌事 → 穿色 → 吉生肖），8 秒没操作回到第一项；展开期间暂停 |
+| 点幡 | 晃一下，换下一项（奥半仙 → 宜事 → 忌事 → 宜红宜绿 → 吉生肖），8 秒没操作回到第一项；展开期间暂停 |
 | 点人 | 轻跳，幡展开成挂轴 / 卷回 |
 | 点挂轴纸面 / 「月历」/ 月历某天 | 详情 / 月历 / 那天的详情 |
 | 按住道士移动 > 4px | 拖动窗口 |
@@ -136,7 +142,7 @@ JSON 结构：`base`（每格一个字符，指向 `palette`）、`regions`（`a
 ## 设置
 
 - `tauri-plugin-store` 存在应用数据目录的 `settings.json`，`settings` 键只存和默认值不同的项（`diffFromDefaults`）；`anchor`、`lastOpening` 也在这个文件里。
-- 默认值：`config/settings.default.json` + `rules/default.json`（取法、主色、换日）+ `config/branding.json`（幡上文字）。
+- 默认值：`config/settings.default.json` + `rules/default.json`（取法、小人配色、换日）+ `config/branding.json`（幡上文字）。
 - 改动即时生效：设置窗口保存后 `emit("settings-changed")`，所有窗口的 `useSettings` 都更新。
 - 开机启动以系统里的实际状态为准（`plugin-autostart` 的 `isEnabled`）。
 - 浏览器里（`npm run dev`）退回 localStorage。

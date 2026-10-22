@@ -21,6 +21,12 @@ export interface ColorSwatch {
   traditional?: string;
 }
 
+/** 一个五行的色系：界面上的名字（如「红色系」）和幡上用的单字（如「红」） */
+export interface ColorFamily {
+  name: string;
+  char: string;
+}
+
 /** 像素道士换色用的一档颜色 */
 export interface RampLevel {
   level: string;
@@ -37,12 +43,14 @@ export interface Rules {
   topPriority: TopPriority;
   dayBoundary: DayBoundary;
   tierLabels: Record<TierKey, string>;
-  /** 每个五行的色系；列表第一个颜色是该五行的代表色，小人穿的就是它 */
+  /** 每个五行的色系名和单字 */
+  colorFamilies: Record<Element, ColorFamily>;
+  /** 每个五行的色系；列表第一个颜色是该五行的代表色 */
   palettes: Record<Element, ColorSwatch[]>;
   /** 每个五行的像素色阶（暗、中、亮），道袍、腰带按深浅档替换成这三个颜色 */
   pixelRamps: Record<Element, PixelRamp>;
-  /** 解释句模板，按 topPriority 选用 */
-  explanation: Record<TopPriority, string>;
+  /** 解释句模板：两个大吉色一起说，见 README 的占位符说明 */
+  explanation: string;
   /** 星宿吉凶的显示文字（界面不出现「凶」字） */
   xiuLuckLabels: Record<string, string>;
   /** 按当日五行轮换显示的生活小贴士 */
@@ -81,6 +89,16 @@ export function parseRules(input: unknown): Rules {
     tierLabels[k] = v;
   }
 
+  if (!isRecord(r.colorFamilies)) fail("缺少 colorFamilies");
+  const colorFamilies = {} as Record<Element, ColorFamily>;
+  for (const e of ELEMENTS) {
+    const f = r.colorFamilies[e];
+    if (!isRecord(f) || typeof f.name !== "string" || typeof f.char !== "string" || [...f.char].length !== 1) {
+      fail(`colorFamilies.${e} 应为 { name, char }，char 是一个字`);
+    }
+    colorFamilies[e] = { name: f.name, char: f.char };
+  }
+
   if (!isRecord(r.palettes)) fail("缺少 palettes");
   const palettes = {} as Record<Element, ColorSwatch[]>;
   for (const e of ELEMENTS) {
@@ -112,13 +130,8 @@ export function parseRules(input: unknown): Rules {
     }) as PixelRamp;
   }
 
-  if (!isRecord(r.explanation)) fail("缺少 explanation");
-  const explanation = {} as Record<TopPriority, string>;
-  for (const k of ["xiang", "wang"] as const) {
-    const v = r.explanation[k];
-    if (typeof v !== "string") fail(`explanation.${k} 应为字符串`);
-    explanation[k] = v;
-  }
+  if (typeof r.explanation !== "string") fail("explanation 应为字符串");
+  const explanation = r.explanation;
 
   const xiuLuckLabels: Record<string, string> = {};
   if (r.xiuLuckLabels !== undefined) {
@@ -141,6 +154,7 @@ export function parseRules(input: unknown): Rules {
     topPriority,
     dayBoundary,
     tierLabels,
+    colorFamilies,
     palettes,
     pixelRamps,
     explanation,

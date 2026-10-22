@@ -355,17 +355,32 @@ select {
   margin-top: 2px;
 }
 
-.today__outfit {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2px 8px;
+
+.today__element {
   font-size: 12px;
   color: var(--ink-2);
 }
-.today__outfit .color-chip {
-  color: var(--ink);
+
+/* 大吉 红色系 ■■■ 绿色系 ■■■ */
+.today__lucky {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 8px;
+  margin-top: 2px;
+  font-size: 12px;
+}
+.today__lucky-label {
+  color: var(--cinnabar);
+  font-weight: 600;
+}
+.today__family {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.today__sep {
+  color: var(--ink-3);
 }
 
 .today__tip {
@@ -572,26 +587,29 @@ select {
 }
 
 .tier__body {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
+}
+/* 大吉的两个色系平等并列 */
+.tier__body--pair {
+  flex-direction: row;
+  gap: 16px;
+}
+.tier__body--pair .tier__family {
+  flex: 1;
 }
 
-.tier__entry {
+.tier__family-name {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.tier__colors {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 2px 8px;
-}
-
-.tier__element {
-  font-weight: 600;
-  min-width: 14px;
-}
-.tier__element small {
-  font-weight: normal;
-  color: var(--ink-3);
-  margin-left: 2px;
 }
 
 .detail__explain {
@@ -659,11 +677,6 @@ select {
   color: var(--ink-3);
 }
 
-.today__wear {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
 
 /* ── 标签 ── */
 .detail__tags {

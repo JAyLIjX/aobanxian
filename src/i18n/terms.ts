@@ -23,6 +23,7 @@ export type Category =
   | "tianshen"
   | "special"
   | "color"
+  | "colorFamily"
   | "traditionalColor"
   | "yiji";
 

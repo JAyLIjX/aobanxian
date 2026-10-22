@@ -13,17 +13,22 @@ import {
 const base: BannerInput = {
   yi: ["祭祀", "出行"],
   ji: ["动土", "安葬"],
-  primaryColor: "红",
-  accentColor: "绿",
+  luckyColors: ["红", "绿"],
   luckyAnimals: ["鸡", "鼠", "猴"],
   specialText: null,
 };
 
 describe("幡面换字循环", () => {
-  it("顺序：奥半仙 → 宜事 → 忌事 → 穿色 → 吉生肖", () => {
+  it("顺序：奥半仙 → 宜事 → 忌事 → 大吉色 → 吉生肖", () => {
     const items = buildBannerItems(base, branding);
-    expect(items.map((i) => i.text)).toEqual(["奥半仙", "宜祭祀", "忌动土", "穿红配绿", "喜鸡鼠猴"]);
-    expect(items.map((i) => i.kind)).toEqual(["brand", "yi", "ji", "outfit", "zodiac"]);
+    expect(items.map((i) => i.text)).toEqual(["奥半仙", "宜祭祀", "忌动土", "宜红宜绿", "喜鸡鼠猴"]);
+    expect(items.map((i) => i.kind)).toEqual(["brand", "yi", "ji", "colors", "zodiac"]);
+  });
+
+  it("两个大吉色平等，相的颜色在前；不出现「穿」「配」", () => {
+    const items = buildBannerItems({ ...base, luckyColors: ["白", "黄"] }, branding);
+    expect(items[3].text).toBe("宜白宜黄");
+    for (const item of items) expect(item.text).not.toMatch(/穿|配/);
   });
 
   it("点到最后一项再点回到第一项", () => {
@@ -44,11 +49,10 @@ describe("幡面换字循环", () => {
 
   it("每一项最多 4 个字", () => {
     const items = buildBannerItems(
-      { ...base, specialText: "全国中小学生安全教育日", primaryColor: "藏青", accentColor: "香槟" },
+      { ...base, specialText: "全国中小学生安全教育日" },
       { ...branding, bannerText: "这是一个很长的名字" },
     );
     for (const item of items) expect([...item.text].length).toBeLessThanOrEqual(4);
-    expect(items[3].text).toBe("穿藏青");
   });
 
   it("8 秒没操作回到第一项", () => {

@@ -49,11 +49,10 @@ describe("旺相休囚死分档", () => {
     });
   }
 
-  it("木日：红上衣配绿围巾，解释句与需求示例一致", () => {
+  it("木日：红、绿皆为大吉，解释句同时说两个", () => {
     const outfit = buildOutfit(PILLAR_OF.木, defaultRules);
-    expect(outfit.primary.name).toBe("红");
-    expect(outfit.accent.name).toBe("绿");
-    expect(outfit.explanation).toBe("今日松柏木，木生火，红色得日之生");
+    expect(outfit.tiers[0].entries.map((e) => defaultRules.colorFamilies[e.element].name)).toEqual(["红色系", "绿色系"]);
+    expect(outfit.explanation).toBe("今日松柏木：木为同气，木生火，红、绿皆为大吉");
   });
 
   it("每档带上完整色系", () => {
@@ -82,7 +81,7 @@ describe("elementSource 三种取法", () => {
     expect(stem.day.element).toBe("金");
     expect(stem.primary.element).toBe("水");
     expect(stem.accent.element).toBe("金");
-    expect(stem.explanation).toBe("今日庚金，金生水，黑色得日之生");
+    expect(stem.explanation).toBe("今日庚金：金为同气，金生水，蓝、白皆为大吉");
   });
 });
 
@@ -96,13 +95,11 @@ describe("topPriority 切换", () => {
       expect(wang.accent.element).toBe(EXPECTED[d].xiang);
       expect(wang.primary).toEqual(xiang.accent);
       expect(wang.accent).toEqual(xiang.primary);
-      // 大吉档里主色那一档排在前面
-      expect(wang.tiers[0].entries.map((x) => x.phase)).toEqual(["wang", "xiang"]);
+      // 大吉的两个平等：不管哪个画在小人身上，界面上总是相在前
+      expect(wang.tiers[0].entries.map((x) => x.phase)).toEqual(["xiang", "wang"]);
+      expect(wang.explanation).toBe(xiang.explanation);
     });
   }
 
-  it("wang 优先时使用对应的解释句模板", () => {
-    const outfit = buildOutfit(PILLAR_OF.木, withRules({ topPriority: "wang" }));
-    expect(outfit.explanation).toBe("今日松柏木，木气当旺，绿色与日同气");
-  });
+
 });

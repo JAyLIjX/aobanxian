@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import type { DayDetail } from "../calendar/day";
 import type { Rules } from "../core/rules";
 import type { Lang } from "../i18n";
-import { dayLabel, fmtYearMonth, ganzhiLine, lunarText, tip as tipText, weekday } from "../i18n/format";
+import { dayLabel, familyName, fmtYearMonth, ganzhiLine, lunarText, tip as tipText, weekday } from "../i18n/format";
 import { term } from "../i18n/terms";
 import { ColorChip } from "./ColorChip";
 
@@ -61,14 +61,19 @@ export function TodayCard({ detail, rules, monthOpen, onOpenDetail, onToggleMont
         </div>
       </div>
 
-      <div className="today__outfit">
-        <span>{t("card.todayElement", { label: dayLabel(outfit, lang) })}</span>
-        <span className="today__wear">
-          {t("card.wear")}
-          <ColorChip color={outfit.primary} />
-          {t("card.with")}
-          <ColorChip color={outfit.accent} />
-        </span>
+      <div className="today__element">{t("card.todayElement", { label: dayLabel(outfit, lang) })}</div>
+      {/* 两个大吉色平等并列，相在前；每个色系 3 个小色块，悬停显示传统色名 */}
+      <div className="today__lucky">
+        <span className="today__lucky-label">{t("card.lucky")}</span>
+        {outfit.tiers[0].entries.map((entry, i) => (
+          <span key={entry.phase} className="today__family">
+            {i > 0 && <span className="today__sep">{t("card.familySep")}</span>}
+            {familyName(entry.element, rules, lang, true)}
+            {entry.colors.slice(0, 3).map((c) => (
+              <ColorChip key={c.name} color={c} label="none" />
+            ))}
+          </span>
+        ))}
       </div>
       {tip && <div className="today__tip">{tip}</div>}
 

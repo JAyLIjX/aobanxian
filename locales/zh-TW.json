@@ -23,8 +23,8 @@
   },
   "card": {
     "todayElement": "今日{{label}}",
-    "wear": "穿",
-    "with": "配",
+    "lucky": "大吉",
+    "familySep": " ",
     "hint": "點紙面看今日詳情",
     "month": "月曆",
     "closeMonth": "收起月曆"
@@ -44,10 +44,9 @@
     "element": "當日五行",
     "sourceNote": "（按{{source}}取 {{label}}）",
     "sectionOutfit": "穿衣",
+    "family": "{{family}}（{{element}}）",
     "sectionYiji": "宜忌",
     "sectionZodiac": "生肖與星宿",
-    "robe": "道袍",
-    "sash": "腰帶",
     "yi": "宜",
     "ji": "忌",
     "luckyZodiac": "吉生肖",
@@ -93,7 +92,7 @@
     "ji": "",
     "noYi": "",
     "noJi": "",
-    "outfit": "",
+    "colors": "",
     "zodiac": ""
   },
   "menu": {
@@ -163,14 +162,14 @@
       "stem": "日干：取當天天干的五行，如庚日屬金",
       "branch": "日支：取當天地支的五行，如子日屬水"
     },
-    "topPriority": "道袍主色",
+    "topPriority": "小人身上的配色",
     "topPriorityOptions": {
-      "xiang": "相",
-      "wang": "旺"
+      "xiang": "相色為主",
+      "wang": "旺色為主"
     },
     "topPriorityHints": {
-      "xiang": "相：當日五行所生的顏色當道袍，與日同氣的顏色當腰帶",
-      "wang": "旺：與當日五行相同的顏色當道袍，所生的顏色當腰帶"
+      "xiang": "兩個顏色都是大吉，這裡只決定小人身上哪個顏色佔的面積大。相：當日五行所生的顏色為主",
+      "wang": "兩個顏色都是大吉，這裡只決定小人身上哪個顏色佔的面積大。旺：與當日五行相同的顏色為主"
     },
     "dayBoundary": "換日時間",
     "dayBoundaryOptions": {
@@ -205,10 +204,7 @@
       "caution": "慎穿",
       "avoid": "不宜"
     },
-    "explanation": {
-      "xiang": "今日{{label}}，{{wang}}生{{xiang}}，{{primaryColor}}色得日之生",
-      "wang": "今日{{label}}，{{wang}}氣當旺，{{primaryColor}}色與日同氣"
-    },
+    "explanation": "今日{{label}}：{{wang}}為同氣，{{wang}}生{{xiang}}，{{xiangChar}}、{{wangChar}}皆為大吉",
     "xiuLuck": {
       "吉": "吉",
       "凶": "宜謹慎"

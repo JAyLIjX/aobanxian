@@ -788,6 +788,28 @@
       "zh-TW": "灰"
     }
   },
+  "colorFamily": {
+    "绿色系": {
+      "en": "green family",
+      "zh-TW": "綠色系"
+    },
+    "红色系": {
+      "en": "red family",
+      "zh-TW": "紅色系"
+    },
+    "黄色系": {
+      "en": "yellow family",
+      "zh-TW": "黃色系"
+    },
+    "白色系": {
+      "en": "white family",
+      "zh-TW": "白色系"
+    },
+    "黑蓝色系": {
+      "en": "black & blue family",
+      "zh-TW": "黑藍色系"
+    }
+  },
   "traditionalColor": {
     "松柏绿": {
       "en": "Pine Green",

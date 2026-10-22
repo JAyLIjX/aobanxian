@@ -5,8 +5,20 @@ import { getAlmanac } from "../calendar/special";
 import type { Ymd } from "../core/dayBoundary";
 import type { Rules } from "../core/rules";
 import type { Lang } from "../i18n";
-import { dayLabel, explanation, fmtDate, ganzhiLine, lunarText, phaseLabel, tierLabel, weekday, xiuLuck, xiuName } from "../i18n/format";
-import { ganzhi, term, translate } from "../i18n/terms";
+import {
+  dayLabel,
+  explanation,
+  familyWithElement,
+  fmtDate,
+  ganzhiLine,
+  lunarText,
+  phaseLabel,
+  tierLabel,
+  weekday,
+  xiuLuck,
+  xiuName,
+} from "../i18n/format";
+import { ganzhi, term } from "../i18n/terms";
 import { ColorChip } from "./ColorChip";
 
 interface Props {
@@ -93,17 +105,18 @@ export function DetailPanel({ ymd, rules, onChange, onClose }: Props) {
           {outfit.tiers.map((tier) => (
             <div key={tier.key} className={`tier tier--${tier.key}`}>
               <span className="tier__label">{tierLabel(tier.key, rules, lang, t)}</span>
-              <div className="tier__body">
+              {/* 每档写色系名和五行，下面列传统色名；大吉的两个色系平等并列 */}
+              <div className={`tier__body ${tier.entries.length > 1 ? "tier__body--pair" : ""}`}>
                 {tier.entries.map((entry) => (
-                  <div key={entry.phase} className="tier__entry">
-                    <span className="tier__element" title={phaseLabel(entry.phase, t)}>
-                      {lang === "en" ? `${entry.element} ${translate("element", entry.element, lang)}` : term("element", entry.element, lang)}
-                      {entry.phase === outfit.primary.phase && <small>{t("detail.robe")}</small>}
-                      {entry.phase === outfit.accent.phase && <small>{t("detail.sash")}</small>}
-                    </span>
-                    {entry.colors.map((c) => (
-                      <ColorChip key={c.name} color={c} />
-                    ))}
+                  <div key={entry.phase} className="tier__family">
+                    <div className="tier__family-name" title={phaseLabel(entry.phase, t)}>
+                      {familyWithElement(entry.element, rules, lang, t)}
+                    </div>
+                    <div className="tier__colors">
+                      {entry.colors.map((c) => (
+                        <ColorChip key={c.name} color={c} />
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>

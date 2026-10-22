@@ -71,10 +71,7 @@ for (const [path, value] of Object.entries(KEY_FIXES)) {
 const rules = read("rules/default.json");
 zhTW.rulesText = {
   tiers: mapStrings(rules.tierLabels, ui),
-  explanation: mapStrings(
-    { xiang: rules.explanation.xiang, wang: rules.explanation.wang },
-    (s) => ui(s).replace(/\{(\w+)\}/g, "{{$1}}"),
-  ),
+  explanation: ui(rules.explanation).replace(/\{(\w+)\}/g, "{{$1}}"),
   xiuLuck: mapStrings(rules.xiuLuckLabels, ui),
   tips: mapStrings(rules.tips, ui),
 };

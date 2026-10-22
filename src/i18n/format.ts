@@ -6,6 +6,7 @@
 import type { TFunction } from "i18next";
 import type { DayDetail, DayInfo } from "../calendar/day";
 import type { Ymd } from "../core/dayBoundary";
+import type { Element } from "../core/elements";
 import type { Rules, TierKey } from "../core/rules";
 import { pickTip, type Outfit, type Phase } from "../core/wuxing";
 import type { Lang } from "./index";
@@ -86,16 +87,32 @@ export function dayLabel(outfit: Outfit, lang: Lang): string {
   return lang === "zh-TW" ? toTW(d.label) : d.label;
 }
 
+/** 色系名：简体用规则里的名字（红色系……），其他语言查术语表；capital 为 true 时英文首字母大写 */
+export function familyName(e: Element, rules: Rules, lang: Lang, capital = false): string {
+  const zh = rules.colorFamilies[e].name;
+  const name = lang === "zh-CN" ? zh : translate("colorFamily", zh, lang);
+  return capital && lang === "en" ? name.charAt(0).toUpperCase() + name.slice(1) : name;
+}
+
+/** 色系名 + 五行，如「红色系（火）」「Red family (Fire)」 */
+export function familyWithElement(e: Element, rules: Rules, lang: Lang, t: TFunction): string {
+  return t("detail.family", { family: familyName(e, rules, lang, true), element: translate("element", e, lang) });
+}
+
+/** 解释句：两个大吉色一起说 */
 export function explanation(outfit: Outfit, rules: Rules, lang: Lang, t: TFunction): string {
   if (lang === "zh-CN") return outfit.explanation;
   const el = (e: string) => translate("element", e, lang);
-  return t(`rulesText.explanation.${rules.topPriority}`, {
+  const p = outfit.phases;
+  return t("rulesText.explanation", {
     label: dayLabel(outfit, lang),
     D: el(outfit.day.element),
-    wang: el(outfit.phases.wang),
-    xiang: el(outfit.phases.xiang),
-    primaryColor: translate("color", outfit.primary.name, lang),
-    accentColor: translate("color", outfit.accent.name, lang),
+    wang: el(p.wang),
+    xiang: el(p.xiang),
+    wangChar: translate("color", rules.colorFamilies[p.wang].char, lang),
+    xiangChar: translate("color", rules.colorFamilies[p.xiang].char, lang),
+    wangFamily: familyName(p.wang, rules, lang),
+    xiangFamily: familyName(p.xiang, rules, lang),
   });
 }
 

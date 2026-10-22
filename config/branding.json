@@ -6,7 +6,7 @@
     "jiPrefix": "忌",
     "noYi": "诸事不宜",
     "noJi": "百无禁忌",
-    "outfit": "穿{primary}配{accent}",
+    "luckyColors": "宜{first}宜{second}",
     "zodiac": "喜{animals}",
     "skipWords": ["馀事勿取", "余事勿取", "诸事不宜", "诸事不忌", "无"]
   },

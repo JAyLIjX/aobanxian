@@ -127,14 +127,17 @@ export function MainApp() {
       {
         yi: detail.yi,
         ji: detail.ji,
-        primaryColor: detail.outfit.primary.name,
-        accentColor: detail.outfit.accent.name,
+        // 两个大吉色平等，相在前（幡上写「宜红宜绿」）
+        luckyColors: [
+          rules.colorFamilies[detail.outfit.phases.xiang].char,
+          rules.colorFamilies[detail.outfit.phases.wang].char,
+        ],
         luckyAnimals: [rel.sixHarmony.animal, ...rel.threeHarmony.map((r) => r.animal)],
         specialText: specialBannerText(almanac.special, branding.special),
       },
       { ...branding, bannerText: settings.bannerText },
     );
-  }, [detail, almanac, settings.bannerText]);
+  }, [detail, almanac, settings.bannerText, rules]);
   const [bannerIndex, setBannerIndex] = useState(0);
   // 停 8 秒没操作回到第一项
   useEffect(() => {
@@ -156,8 +159,8 @@ export function MainApp() {
           return item.terms[0] ? t("bannerTranslation.yi", { term: en("yiji", item.terms[0]) }) : t("bannerTranslation.noYi");
         case "ji":
           return item.terms[0] ? t("bannerTranslation.ji", { term: en("yiji", item.terms[0]) }) : t("bannerTranslation.noJi");
-        case "outfit":
-          return t("bannerTranslation.outfit", { primary: en("color", item.terms[0]).toLowerCase(), accent: en("color", item.terms[1]).toLowerCase() });
+        case "colors":
+          return t("bannerTranslation.colors", { first: en("color", item.terms[0]).toLowerCase(), second: en("color", item.terms[1]).toLowerCase() });
         case "zodiac":
           return t("bannerTranslation.zodiac", { animals: item.terms.map((a) => en("zodiac", a)).join(", ") });
       }

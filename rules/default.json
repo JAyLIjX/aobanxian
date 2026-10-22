@@ -1,5 +1,5 @@
 {
-  "$comment": "奥半仙默认规则（流派：纳音取五行 + 旺相为吉）。色值取自常见的中国传统色名，traditional 是对应的传统色名；pixelRamps 是像素道士换色用的 暗 / 中 / 亮 三档色阶。各字段含义见 README「规则配置」一节。",
+  "$comment": "奥半仙默认规则（流派：纳音取五行 + 旺相为吉）。色值取自常见的中国传统色名，traditional 是对应的传统色名；colorFamilies 是每个五行的色系名（界面显示）和单字（幡上用）；pixelRamps 是像素道士换色用的 暗 / 中 / 亮 三档色阶。各字段含义见 README「规则配置」一节。",
   "name": "默认流派",
   "elementSource": "nayin",
   "topPriority": "xiang",
@@ -9,6 +9,13 @@
     "neutral": "平",
     "caution": "慎穿",
     "avoid": "不宜"
+  },
+  "colorFamilies": {
+    "木": { "name": "绿色系", "char": "绿" },
+    "火": { "name": "红色系", "char": "红" },
+    "土": { "name": "黄色系", "char": "黄" },
+    "金": { "name": "白色系", "char": "白" },
+    "水": { "name": "黑蓝色系", "char": "蓝" }
   },
   "palettes": {
     "木": [
@@ -71,10 +78,7 @@
       { "level": "亮", "traditional": "群青", "hex": "#4C8DAE" }
     ]
   },
-  "explanation": {
-    "xiang": "今日{label}，{wang}生{xiang}，{primaryColor}色得日之生",
-    "wang": "今日{label}，{wang}气当旺，{primaryColor}色与日同气"
-  },
+  "explanation": "今日{label}：{wang}为同气，{wang}生{xiang}，{xiangChar}、{wangChar}皆为大吉",
   "xiuLuckLabels": {
     "吉": "吉",
     "凶": "宜谨慎"

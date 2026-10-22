@@ -73,13 +73,13 @@ describe("已知日期的锚点", () => {
     expect(info.cell).toEqual({ text: "闰六月", kind: "month" });
   });
 
-  it("2026-10-21 戊辰日，大林木：红上衣、绿围巾", () => {
+  it("2026-10-21 戊辰日，大林木：红、绿皆为大吉", () => {
     const detail = getDayDetail({ year: 2026, month: 10, day: 21 }, defaultRules);
     expect(detail.ganzhi).toEqual({ year: "丙午", month: "戊戌", day: "戊辰" });
     expect(detail.lunar.text).toBe("农历九月十二");
     expect(detail.outfit.primary.name).toBe("红");
     expect(detail.outfit.accent.name).toBe("绿");
-    expect(detail.outfit.explanation).toBe("今日大林木，木生火，红色得日之生");
+    expect(detail.outfit.explanation).toBe("今日大林木：木为同气，木生火，红、绿皆为大吉");
   });
 });
 

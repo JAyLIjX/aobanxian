@@ -32,7 +32,7 @@ describe("三种语言的文字键", () => {
   it("rulesText 覆盖规则里的所有显示文字", () => {
     for (const loc of [en, zhTW]) {
       expect(Object.keys(loc.rulesText.tiers).sort()).toEqual(Object.keys(defaultRules.tierLabels).sort());
-      expect(Object.keys(loc.rulesText.explanation).sort()).toEqual(["wang", "xiang"]);
+      expect(typeof loc.rulesText.explanation).toBe("string");
       expect(Object.keys(loc.rulesText.xiuLuck).sort()).toEqual(Object.keys(defaultRules.xiuLuckLabels).sort());
       expect(Object.keys(loc.rulesText.tips).sort()).toEqual(Object.keys(defaultRules.tips).sort());
     }
@@ -68,6 +68,30 @@ describe("三种语言的文字键", () => {
     expect(zhTW.menu.settings).toBe("設定…");
     expect(zhTW.settings.restoreDefaults).toBe("恢復預設");
     expect(zhTW.detail.clash).toBe("沖{{animal}}");
+  });
+});
+
+describe("两个大吉色平等", () => {
+  const texts = (o: unknown): string[] =>
+    typeof o === "string" ? [o] : Array.isArray(o) ? o.flatMap(texts) : o && typeof o === "object" ? Object.values(o).flatMap(texts) : [];
+
+  it("界面文字里没有「道袍」「腰带」「穿 X 配 Y」，英文里没有 robe / sash", () => {
+    for (const [name, loc] of [
+      ["zh-CN", zhCN],
+      ["zh-TW", zhTW],
+      ["en", en],
+    ] as const) {
+      for (const s of texts(loc)) {
+        expect(s, name).not.toMatch(/道袍|腰帶|腰带|穿.{1,4}配/);
+        expect(s, name).not.toMatch(/\brobe|\bsash/i);
+      }
+    }
+    for (const s of texts(defaultRules)) expect(s).not.toMatch(/道袍|腰带|穿.{1,4}配/);
+  });
+
+  it("英文：大吉写成 Lucky colors，色系写成 … family", () => {
+    expect(en.card.lucky).toBe("Lucky colors:");
+    expect(term("colorFamily", "红色系", "en")).toBe("红色系 · red family");
   });
 });
 

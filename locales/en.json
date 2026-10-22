@@ -11,12 +11,20 @@
     "lunar": "Lunar {{month}}, day {{day}}",
     "leap": "leap ",
     "ganzhi": "Year {{year}} · Month {{month}} · Day {{day}}",
-    "weekHead": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
+    "weekHead": [
+      "Su",
+      "Mo",
+      "Tu",
+      "We",
+      "Th",
+      "Fr",
+      "Sa"
+    ]
   },
   "card": {
     "todayElement": "Today: {{label}}",
-    "wear": "Wear",
-    "with": "with",
+    "lucky": "Lucky colors:",
+    "familySep": " · ",
     "hint": "Click the paper for today's details",
     "month": "Month",
     "closeMonth": "Hide month"
@@ -36,10 +44,9 @@
     "element": "Element of the day",
     "sourceNote": " (by {{source}}: {{label}})",
     "sectionOutfit": "What to wear",
+    "family": "{{family}} ({{element}})",
     "sectionYiji": "宜忌 · Do's and don'ts",
     "sectionZodiac": "Zodiac & lunar mansion",
-    "robe": "robe",
-    "sash": "sash",
     "yi": "宜",
     "ji": "忌",
     "luckyZodiac": "Lucky signs",
@@ -85,7 +92,7 @@
     "ji": "Avoid: {{term}}",
     "noYi": "Nothing advised today",
     "noJi": "No taboos today",
-    "outfit": "Wear {{primary}} with {{accent}}",
+    "colors": "Lucky colors: {{first}} & {{second}}",
     "zodiac": "Lucky signs: {{animals}}"
   },
   "menu": {
@@ -155,14 +162,14 @@
       "stem": "Day stem: the element of the day's heavenly stem, e.g. 庚 Geng is Metal",
       "branch": "Day branch: the element of the day's earthly branch, e.g. 子 Zi is Water"
     },
-    "topPriority": "Robe colour",
+    "topPriority": "Figure colours",
     "topPriorityOptions": {
-      "xiang": "相 Supported",
-      "wang": "旺 Prosperous"
+      "xiang": "相 Supported first",
+      "wang": "旺 Prosperous first"
     },
     "topPriorityHints": {
-      "xiang": "相: the robe takes the colour the day's element gives birth to; the sash matches the day",
-      "wang": "旺: the robe matches the day's element; the sash takes the colour it gives birth to"
+      "xiang": "Both colours are lucky; this only decides which one covers more of the figure. 相: the colour the day's element gives birth to",
+      "wang": "Both colours are lucky; this only decides which one covers more of the figure. 旺: the colour of the day's own element"
     },
     "dayBoundary": "New day starts at",
     "dayBoundaryOptions": {
@@ -197,10 +204,7 @@
       "caution": "Careful",
       "avoid": "Avoid"
     },
-    "explanation": {
-      "xiang": "Today is {{label}}: {{wang}} gives birth to {{xiang}}, so {{primaryColor}} is nourished by the day",
-      "wang": "Today is {{label}}: {{wang}} is at its peak, so {{primaryColor}} shares the day's energy"
-    },
+    "explanation": "Today is {{label}}: {{wang}} shares the day's energy and gives birth to {{xiang}}, so the {{xiangFamily}} and {{wangFamily}} are both lucky",
     "xiuLuck": {
       "吉": "Favourable",
       "凶": "Take care"
