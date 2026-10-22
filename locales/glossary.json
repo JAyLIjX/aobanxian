@@ -903,459 +903,1029 @@
   "yiji": {
     "塑绘": {
       "en": "Painting & sculpting",
-      "zh-TW": "塑繪"
+      "zh-TW": "塑繪",
+      "desc": {
+        "zh-CN": "塑造或彩绘神像、佛像",
+        "en": "Making or painting statues of deities",
+        "zh-TW": "塑造或彩繪神像、佛像"
+      }
     },
     "斋醮": {
       "en": "Taoist rites",
-      "zh-TW": "齋醮"
+      "zh-TW": "齋醮",
+      "desc": {
+        "zh-CN": "设坛做道场、祈福消灾的宗教仪式",
+        "en": "Taoist altar rites to pray for blessings",
+        "zh-TW": "設壇做道場、祈福消災的宗教儀式"
+      }
     },
     "出行": {
       "en": "Travel",
-      "zh-TW": "出行"
+      "zh-TW": "出行",
+      "desc": {
+        "zh-CN": "出远门、旅行",
+        "en": "Going on a trip or long journey",
+        "zh-TW": "出遠門、旅行"
+      }
     },
     "拆卸": {
       "en": "Demolition",
-      "zh-TW": "拆卸"
+      "zh-TW": "拆卸",
+      "desc": {
+        "zh-CN": "拆除房屋或建筑物",
+        "en": "Demolishing a building",
+        "zh-TW": "拆除房屋或建築物"
+      }
     },
     "解除": {
       "en": "Cleansing",
-      "zh-TW": "解除"
+      "zh-TW": "解除",
+      "desc": {
+        "zh-CN": "清扫房屋、去除不祥，也指化解官非、疾病等",
+        "en": "Cleaning the house and dispelling bad luck",
+        "zh-TW": "清掃房屋、去除不祥，也指化解官非、疾病等"
+      }
     },
     "修造": {
       "en": "Building & repairs",
-      "zh-TW": "修造"
+      "zh-TW": "修造",
+      "desc": {
+        "zh-CN": "修缮、建造房屋",
+        "en": "Building or repairing a house",
+        "zh-TW": "修繕、建造房屋"
+      }
     },
     "移徙": {
       "en": "Moving house",
-      "zh-TW": "移徙"
+      "zh-TW": "移徙",
+      "desc": {
+        "zh-CN": "搬家、迁居",
+        "en": "Moving to a new place",
+        "zh-TW": "搬家、遷居"
+      }
     },
     "造船": {
       "en": "Shipbuilding",
-      "zh-TW": "造船"
+      "zh-TW": "造船",
+      "desc": {
+        "zh-CN": "建造船只",
+        "en": "Building a boat",
+        "zh-TW": "建造船隻"
+      }
     },
     "入殓": {
       "en": "Encoffining",
-      "zh-TW": "入殮"
+      "zh-TW": "入殮",
+      "desc": {
+        "zh-CN": "把遗体放入棺材",
+        "en": "Placing the deceased in the coffin",
+        "zh-TW": "把遺體放入棺材"
+      }
     },
     "除服": {
       "en": "Ending mourning",
-      "zh-TW": "除服"
+      "zh-TW": "除服",
+      "desc": {
+        "zh-CN": "服丧期满，脱下孝服",
+        "en": "Taking off mourning clothes when mourning ends",
+        "zh-TW": "服喪期滿，脫下孝服"
+      }
     },
     "成服": {
       "en": "Putting on mourning",
-      "zh-TW": "成服"
+      "zh-TW": "成服",
+      "desc": {
+        "zh-CN": "丧事中穿上孝服",
+        "en": "Putting on mourning clothes",
+        "zh-TW": "喪事中穿上孝服"
+      }
     },
     "移柩": {
       "en": "Moving a coffin",
-      "zh-TW": "移柩"
+      "zh-TW": "移柩",
+      "desc": {
+        "zh-CN": "移动棺木",
+        "en": "Moving a coffin",
+        "zh-TW": "移動棺木"
+      }
     },
     "启钻": {
       "en": "Exhumation",
-      "zh-TW": "啟鑽"
+      "zh-TW": "啟鑽",
+      "desc": {
+        "zh-CN": "开坟取出遗骨，准备迁葬",
+        "en": "Opening a grave to move the remains",
+        "zh-TW": "開墳取出遺骨，準備遷葬"
+      }
     },
     "修坟": {
       "en": "Tomb repair",
-      "zh-TW": "修墳"
+      "zh-TW": "修墳",
+      "desc": {
+        "zh-CN": "修整坟墓",
+        "en": "Repairing a tomb",
+        "zh-TW": "修整墳墓"
+      }
     },
     "立碑": {
       "en": "Erecting a tombstone",
-      "zh-TW": "立碑"
+      "zh-TW": "立碑",
+      "desc": {
+        "zh-CN": "给坟墓立墓碑",
+        "en": "Erecting a tombstone",
+        "zh-TW": "給墳墓立墓碑"
+      }
     },
     "谢土": {
       "en": "Thanking the earth god",
-      "zh-TW": "謝土"
+      "zh-TW": "謝土",
+      "desc": {
+        "zh-CN": "动土建造完工后，祭谢土地神",
+        "en": "Thanking the earth god after construction",
+        "zh-TW": "動土建造完工後，祭謝土地神"
+      }
     },
     "祭祀": {
       "en": "Ancestral offerings",
-      "zh-TW": "祭祀"
+      "zh-TW": "祭祀",
+      "desc": {
+        "zh-CN": "祭拜祖先或神明",
+        "en": "Making offerings to ancestors or deities",
+        "zh-TW": "祭拜祖先或神明"
+      }
     },
     "沐浴": {
       "en": "Bathing",
-      "zh-TW": "沐浴"
+      "zh-TW": "沐浴",
+      "desc": {
+        "zh-CN": "洗澡净身，多指斋戒前沐浴",
+        "en": "Bathing, especially before a ritual",
+        "zh-TW": "洗澡淨身，多指齋戒前沐浴"
+      }
     },
     "安床": {
       "en": "Placing a bed",
-      "zh-TW": "安床"
+      "zh-TW": "安床",
+      "desc": {
+        "zh-CN": "安放新床或调整床的位置",
+        "en": "Setting up or moving a bed",
+        "zh-TW": "安放新床或調整床的位置"
+      }
     },
     "纳财": {
       "en": "Receiving wealth",
-      "zh-TW": "納財"
+      "zh-TW": "納財",
+      "desc": {
+        "zh-CN": "收取钱财、讨债、进货",
+        "en": "Receiving money or goods",
+        "zh-TW": "收取錢財、討債、進貨"
+      }
     },
     "畋猎": {
       "en": "Hunting",
-      "zh-TW": "畋獵"
+      "zh-TW": "畋獵",
+      "desc": {
+        "zh-CN": "打猎",
+        "en": "Hunting",
+        "zh-TW": "打獵"
+      }
     },
     "捕捉": {
       "en": "Catching pests",
-      "zh-TW": "捕捉"
+      "zh-TW": "捕捉",
+      "desc": {
+        "zh-CN": "捕捉害虫、家畜或鸟兽",
+        "en": "Catching pests or animals",
+        "zh-TW": "捕捉害蟲、家畜或鳥獸"
+      }
     },
     "订盟": {
       "en": "Making agreements",
-      "zh-TW": "訂盟"
+      "zh-TW": "訂盟",
+      "desc": {
+        "zh-CN": "订立盟约，旧时也指订婚",
+        "en": "Making a pact; formerly also an engagement",
+        "zh-TW": "訂立盟約，舊時也指訂婚"
+      }
     },
     "纳采": {
       "en": "Betrothal gifts",
-      "zh-TW": "納采"
+      "zh-TW": "納采",
+      "desc": {
+        "zh-CN": "订婚时男方送礼到女方家",
+        "en": "The groom's family sending betrothal gifts",
+        "zh-TW": "訂婚時男方送禮到女方家"
+      }
     },
     "祈福": {
       "en": "Praying for blessings",
-      "zh-TW": "祈福"
+      "zh-TW": "祈福",
+      "desc": {
+        "zh-CN": "向神明祈求福气",
+        "en": "Praying to the gods for blessings",
+        "zh-TW": "向神明祈求福氣"
+      }
     },
     "动土": {
       "en": "Breaking ground",
-      "zh-TW": "動土"
+      "zh-TW": "動土",
+      "desc": {
+        "zh-CN": "建房时破土开工",
+        "en": "Breaking ground to start building",
+        "zh-TW": "建房時破土開工"
+      }
     },
     "上梁": {
       "en": "Raising the ridgepole",
-      "zh-TW": "上梁"
+      "zh-TW": "上梁",
+      "desc": {
+        "zh-CN": "安装房屋的大梁",
+        "en": "Raising the main roof beam",
+        "zh-TW": "安裝房屋的大梁"
+      }
     },
     "破土": {
       "en": "Breaking ground for burial",
-      "zh-TW": "破土"
+      "zh-TW": "破土",
+      "desc": {
+        "zh-CN": "为安葬挖地破土",
+        "en": "Breaking ground for a burial",
+        "zh-TW": "為安葬挖地破土"
+      }
     },
     "理发": {
       "en": "Haircut",
-      "zh-TW": "理髮"
+      "zh-TW": "理髮",
+      "desc": {
+        "zh-CN": "剪头发，旧时也指给婴儿剃胎发",
+        "en": "Getting a haircut",
+        "zh-TW": "剪頭髮，舊時也指給嬰兒剃胎髮"
+      }
     },
     "补垣": {
       "en": "Mending walls",
-      "zh-TW": "補垣"
+      "zh-TW": "補垣",
+      "desc": {
+        "zh-CN": "修补墙垣",
+        "en": "Mending walls",
+        "zh-TW": "修補牆垣"
+      }
     },
     "塞穴": {
       "en": "Sealing holes",
-      "zh-TW": "塞穴"
+      "zh-TW": "塞穴",
+      "desc": {
+        "zh-CN": "堵塞洞穴、鼠洞、蚁穴",
+        "en": "Sealing up holes and burrows",
+        "zh-TW": "堵塞洞穴、鼠洞、蟻穴"
+      }
     },
     "教牛马": {
       "en": "Training livestock",
-      "zh-TW": "教牛馬"
+      "zh-TW": "教牛馬",
+      "desc": {
+        "zh-CN": "训练牛马等牲畜",
+        "en": "Training cattle and horses",
+        "zh-TW": "訓練牛馬等牲畜"
+      }
     },
     "馀事勿取": {
       "en": "Nothing else advised",
-      "zh-TW": "餘事勿取"
+      "zh-TW": "餘事勿取",
+      "desc": {
+        "zh-CN": "除了列出的事，其他事都不宜做",
+        "en": "Do nothing beyond the listed activities",
+        "zh-TW": "除了列出的事，其他事都不宜做"
+      }
     },
     "造畜稠": {
       "en": "Building animal pens",
-      "zh-TW": "造畜稠"
+      "zh-TW": "造畜稠",
+      "desc": {
+        "zh-CN": "建造牲畜的棚圈",
+        "en": "Building pens for livestock",
+        "zh-TW": "建造牲畜的棚圈"
+      }
     },
     "会亲友": {
       "en": "Visiting family & friends",
-      "zh-TW": "會親友"
+      "zh-TW": "會親友",
+      "desc": {
+        "zh-CN": "拜访或宴请亲戚朋友",
+        "en": "Visiting or hosting family and friends",
+        "zh-TW": "拜訪或宴請親戚朋友"
+      }
     },
     "嫁娶": {
       "en": "Weddings",
-      "zh-TW": "嫁娶"
+      "zh-TW": "嫁娶",
+      "desc": {
+        "zh-CN": "结婚、举行婚礼",
+        "en": "Getting married",
+        "zh-TW": "結婚、舉行婚禮"
+      }
     },
     "开光": {
       "en": "Consecration",
-      "zh-TW": "開光"
+      "zh-TW": "開光",
+      "desc": {
+        "zh-CN": "为新塑的神像举行启用仪式",
+        "en": "Consecrating a new statue of a deity",
+        "zh-TW": "為新塑的神像舉行啟用儀式"
+      }
     },
     "出火": {
       "en": "Moving the hearth",
-      "zh-TW": "出火"
+      "zh-TW": "出火",
+      "desc": {
+        "zh-CN": "暂时把神位、香炉移出，多在修房前",
+        "en": "Temporarily moving the altar out, usually before renovation",
+        "zh-TW": "暫時把神位、香爐移出，多在修房前"
+      }
     },
     "进人口": {
       "en": "Welcoming new members",
-      "zh-TW": "進人口"
+      "zh-TW": "進人口",
+      "desc": {
+        "zh-CN": "家里添人，如收养、雇工",
+        "en": "Taking new people into the household",
+        "zh-TW": "家裡添人，如收養、僱工"
+      }
     },
     "入宅": {
       "en": "Moving into a new home",
-      "zh-TW": "入宅"
+      "zh-TW": "入宅",
+      "desc": {
+        "zh-CN": "搬进新房",
+        "en": "Moving into a new home",
+        "zh-TW": "搬進新房"
+      }
     },
     "栽种": {
       "en": "Planting",
-      "zh-TW": "栽種"
+      "zh-TW": "栽種",
+      "desc": {
+        "zh-CN": "种植作物、花木",
+        "en": "Planting crops or trees",
+        "zh-TW": "種植作物、花木"
+      }
     },
     "起基": {
       "en": "Laying foundations",
-      "zh-TW": "起基"
+      "zh-TW": "起基",
+      "desc": {
+        "zh-CN": "打地基",
+        "en": "Laying the foundation",
+        "zh-TW": "打地基"
+      }
     },
     "交易": {
       "en": "Trading",
-      "zh-TW": "交易"
+      "zh-TW": "交易",
+      "desc": {
+        "zh-CN": "买卖、谈生意",
+        "en": "Buying, selling and doing business",
+        "zh-TW": "買賣、談生意"
+      }
     },
     "立券": {
       "en": "Signing contracts",
-      "zh-TW": "立券"
+      "zh-TW": "立券",
+      "desc": {
+        "zh-CN": "订立契约、签合同",
+        "en": "Signing contracts",
+        "zh-TW": "訂立契約、籤合同"
+      }
     },
     "安葬": {
       "en": "Burial",
-      "zh-TW": "安葬"
+      "zh-TW": "安葬",
+      "desc": {
+        "zh-CN": "埋葬逝者",
+        "en": "Burying the deceased",
+        "zh-TW": "埋葬逝者"
+      }
     },
     "平治道涂": {
       "en": "Repairing roads",
-      "zh-TW": "平治道塗"
+      "zh-TW": "平治道塗",
+      "desc": {
+        "zh-CN": "修路、平整道路",
+        "en": "Repairing and levelling roads",
+        "zh-TW": "修路、平整道路"
+      }
     },
     "安机械": {
       "en": "Installing machinery",
-      "zh-TW": "安機械"
+      "zh-TW": "安機械",
+      "desc": {
+        "zh-CN": "安装机器、织机等器械",
+        "en": "Installing machines",
+        "zh-TW": "安裝機器、織機等器械"
+      }
     },
     "盖屋": {
       "en": "Roofing",
-      "zh-TW": "蓋屋"
+      "zh-TW": "蓋屋",
+      "desc": {
+        "zh-CN": "盖屋顶、建房子",
+        "en": "Roofing or building a house",
+        "zh-TW": "蓋屋頂、建房子"
+      }
     },
     "定磉": {
       "en": "Setting pillar bases",
-      "zh-TW": "定磉"
+      "zh-TW": "定磉",
+      "desc": {
+        "zh-CN": "安放柱子下面的柱础石",
+        "en": "Setting the stone bases for pillars",
+        "zh-TW": "安放柱子下面的柱礎石"
+      }
     },
     "安香": {
       "en": "Setting up an altar",
-      "zh-TW": "安香"
+      "zh-TW": "安香",
+      "desc": {
+        "zh-CN": "安设神位、香炉",
+        "en": "Setting up an altar and incense burner",
+        "zh-TW": "安設神位、香爐"
+      }
     },
     "挂匾": {
       "en": "Hanging a plaque",
-      "zh-TW": "掛匾"
+      "zh-TW": "掛匾",
+      "desc": {
+        "zh-CN": "悬挂牌匾",
+        "en": "Hanging a plaque",
+        "zh-TW": "懸掛牌匾"
+      }
     },
     "置产": {
       "en": "Buying property",
-      "zh-TW": "置產"
+      "zh-TW": "置產",
+      "desc": {
+        "zh-CN": "购置房产、田地",
+        "en": "Buying property or land",
+        "zh-TW": "購置房產、田地"
+      }
     },
     "整手足甲": {
       "en": "Trimming nails",
-      "zh-TW": "整手足甲"
+      "zh-TW": "整手足甲",
+      "desc": {
+        "zh-CN": "修剪手指甲、脚趾甲",
+        "en": "Trimming fingernails and toenails",
+        "zh-TW": "修剪手指甲、腳趾甲"
+      }
     },
     "破屋": {
       "en": "Tearing down houses",
-      "zh-TW": "破屋"
+      "zh-TW": "破屋",
+      "desc": {
+        "zh-CN": "拆毁旧屋",
+        "en": "Tearing down an old house",
+        "zh-TW": "拆毀舊屋"
+      }
     },
     "坏垣": {
       "en": "Pulling down walls",
-      "zh-TW": "壞垣"
+      "zh-TW": "壞垣",
+      "desc": {
+        "zh-CN": "拆除墙垣",
+        "en": "Pulling down walls",
+        "zh-TW": "拆除牆垣"
+      }
     },
     "开仓": {
       "en": "Opening granaries",
-      "zh-TW": "開倉"
+      "zh-TW": "開倉",
+      "desc": {
+        "zh-CN": "打开仓库，取用或发放物资",
+        "en": "Opening the granary or storehouse",
+        "zh-TW": "開啟倉庫，取用或發放物資"
+      }
     },
     "出货财": {
       "en": "Shipping goods",
-      "zh-TW": "出貨財"
+      "zh-TW": "出貨財",
+      "desc": {
+        "zh-CN": "送出货物、钱财",
+        "en": "Sending out goods or money",
+        "zh-TW": "送出貨物、錢財"
+      }
     },
     "开市": {
       "en": "Opening a business",
-      "zh-TW": "開市"
+      "zh-TW": "開市",
+      "desc": {
+        "zh-CN": "开张营业，或新年第一次开门做生意",
+        "en": "Opening a business for the first time",
+        "zh-TW": "開張營業，或新年第一次開門做生意"
+      }
     },
     "纳畜": {
       "en": "Buying livestock",
-      "zh-TW": "納畜"
+      "zh-TW": "納畜",
+      "desc": {
+        "zh-CN": "买进家畜",
+        "en": "Buying livestock",
+        "zh-TW": "買進家畜"
+      }
     },
     "牧养": {
       "en": "Animal husbandry",
-      "zh-TW": "牧養"
+      "zh-TW": "牧養",
+      "desc": {
+        "zh-CN": "放牧、饲养牲畜",
+        "en": "Raising and herding livestock",
+        "zh-TW": "放牧、飼養牲畜"
+      }
     },
     "断蚁": {
       "en": "Termite control",
-      "zh-TW": "斷蟻"
+      "zh-TW": "斷蟻",
+      "desc": {
+        "zh-CN": "驱除白蚁、蚂蚁",
+        "en": "Getting rid of ants and termites",
+        "zh-TW": "驅除白蟻、螞蟻"
+      }
     },
     "问名": {
       "en": "Matchmaking inquiry",
-      "zh-TW": "問名"
+      "zh-TW": "問名",
+      "desc": {
+        "zh-CN": "旧时婚礼的一步，询问女方的名字和生辰八字",
+        "en": "A wedding step: asking the bride's name and birth date",
+        "zh-TW": "舊時婚禮的一步，詢問女方的名字和生辰八字"
+      }
     },
     "冠笄": {
       "en": "Coming-of-age rites",
-      "zh-TW": "冠笄"
+      "zh-TW": "冠笄",
+      "desc": {
+        "zh-CN": "古代的成年礼，男子加冠、女子插笄",
+        "en": "An ancient coming-of-age ceremony",
+        "zh-TW": "古代的成年禮，男子加冠、女子插笄"
+      }
     },
     "裁衣": {
       "en": "Tailoring",
-      "zh-TW": "裁衣"
+      "zh-TW": "裁衣",
+      "desc": {
+        "zh-CN": "裁制新衣服",
+        "en": "Cutting cloth for new clothes",
+        "zh-TW": "裁製新衣服"
+      }
     },
     "作灶": {
       "en": "Building a stove",
-      "zh-TW": "作灶"
+      "zh-TW": "作灶",
+      "desc": {
+        "zh-CN": "修建或修理灶台",
+        "en": "Building or repairing a stove",
+        "zh-TW": "修建或修理灶臺"
+      }
     },
     "竖柱": {
       "en": "Erecting pillars",
-      "zh-TW": "豎柱"
+      "zh-TW": "豎柱",
+      "desc": {
+        "zh-CN": "竖起房屋的柱子",
+        "en": "Erecting the pillars of a house",
+        "zh-TW": "豎起房屋的柱子"
+      }
     },
     "作梁": {
       "en": "Making beams",
-      "zh-TW": "作梁"
+      "zh-TW": "作梁",
+      "desc": {
+        "zh-CN": "制作房梁",
+        "en": "Making roof beams",
+        "zh-TW": "製作房梁"
+      }
     },
     "开柱眼": {
       "en": "Drilling pillar holes",
-      "zh-TW": "開柱眼"
+      "zh-TW": "開柱眼",
+      "desc": {
+        "zh-CN": "在柱子上凿出榫眼",
+        "en": "Cutting mortise holes in pillars",
+        "zh-TW": "在柱子上鑿出榫眼"
+      }
     },
     "伐木": {
       "en": "Felling trees",
-      "zh-TW": "伐木"
+      "zh-TW": "伐木",
+      "desc": {
+        "zh-CN": "砍伐树木",
+        "en": "Felling trees",
+        "zh-TW": "砍伐樹木"
+      }
     },
     "架马": {
       "en": "Setting up sawhorses",
-      "zh-TW": "架馬"
+      "zh-TW": "架馬",
+      "desc": {
+        "zh-CN": "建房时架起木工用的木马",
+        "en": "Setting up carpenters' trestles for building",
+        "zh-TW": "建房時架起木工用的木馬"
+      }
     },
     "安门": {
       "en": "Installing doors",
-      "zh-TW": "安門"
+      "zh-TW": "安門",
+      "desc": {
+        "zh-CN": "安装大门",
+        "en": "Installing the front door",
+        "zh-TW": "安裝大門"
+      }
     },
     "掘井": {
       "en": "Digging a well",
-      "zh-TW": "掘井"
+      "zh-TW": "掘井",
+      "desc": {
+        "zh-CN": "挖井",
+        "en": "Digging a well",
+        "zh-TW": "挖井"
+      }
     },
     "求医": {
       "en": "Seeing a doctor",
-      "zh-TW": "求醫"
+      "zh-TW": "求醫",
+      "desc": {
+        "zh-CN": "看病就医",
+        "en": "Seeing a doctor",
+        "zh-TW": "看病就醫"
+      }
     },
     "治病": {
       "en": "Treating illness",
-      "zh-TW": "治病"
+      "zh-TW": "治病",
+      "desc": {
+        "zh-CN": "治疗疾病",
+        "en": "Treating an illness",
+        "zh-TW": "治療疾病"
+      }
     },
     "入学": {
       "en": "Starting school",
-      "zh-TW": "入學"
+      "zh-TW": "入學",
+      "desc": {
+        "zh-CN": "开始上学、拜师求学",
+        "en": "Starting school or taking a teacher",
+        "zh-TW": "開始上學、拜師求學"
+      }
     },
     "扫舍": {
       "en": "House cleaning",
-      "zh-TW": "掃舍"
+      "zh-TW": "掃舍",
+      "desc": {
+        "zh-CN": "打扫房屋",
+        "en": "Cleaning the house",
+        "zh-TW": "打掃房屋"
+      }
     },
     "开生坟": {
       "en": "Preparing a tomb",
-      "zh-TW": "開生墳"
+      "zh-TW": "開生墳",
+      "desc": {
+        "zh-CN": "生前预先修建自己的坟墓",
+        "en": "Preparing one's own tomb in advance",
+        "zh-TW": "生前預先修建自己的墳墓"
+      }
     },
     "合寿木": {
       "en": "Making a coffin in advance",
-      "zh-TW": "合壽木"
+      "zh-TW": "合壽木",
+      "desc": {
+        "zh-CN": "生前预先制作棺木",
+        "en": "Making one's coffin in advance",
+        "zh-TW": "生前預先製作棺木"
+      }
     },
     "求嗣": {
       "en": "Praying for children",
-      "zh-TW": "求嗣"
+      "zh-TW": "求嗣",
+      "desc": {
+        "zh-CN": "祈求生儿育女",
+        "en": "Praying for children",
+        "zh-TW": "祈求生兒育女"
+      }
     },
     "习艺": {
       "en": "Learning a craft",
-      "zh-TW": "習藝"
+      "zh-TW": "習藝",
+      "desc": {
+        "zh-CN": "学习手艺、技能",
+        "en": "Learning a craft or skill",
+        "zh-TW": "學習手藝、技能"
+      }
     },
     "经络": {
       "en": "Spinning & weaving",
-      "zh-TW": "經絡"
+      "zh-TW": "經絡",
+      "desc": {
+        "zh-CN": "缫丝、纺纱织布",
+        "en": "Reeling silk, spinning and weaving",
+        "zh-TW": "繅絲、紡紗織布"
+      }
     },
     "结网": {
       "en": "Net-making",
-      "zh-TW": "結網"
+      "zh-TW": "結網",
+      "desc": {
+        "zh-CN": "编织渔网",
+        "en": "Making fishing nets",
+        "zh-TW": "編織漁網"
+      }
     },
     "安碓磑": {
       "en": "Installing mills",
-      "zh-TW": "安碓磑"
+      "zh-TW": "安碓磑",
+      "desc": {
+        "zh-CN": "安装舂米的碓和磨面的石磨",
+        "en": "Installing a rice pounder and millstone",
+        "zh-TW": "安裝舂米的碓和磨面的石磨"
+      }
     },
     "放水": {
       "en": "Releasing water",
-      "zh-TW": "放水"
+      "zh-TW": "放水",
+      "desc": {
+        "zh-CN": "引水灌溉，或放干池塘的水",
+        "en": "Releasing water for irrigation or draining a pond",
+        "zh-TW": "引水灌溉，或放乾池塘的水"
+      }
     },
     "造仓": {
       "en": "Building a granary",
-      "zh-TW": "造倉"
+      "zh-TW": "造倉",
+      "desc": {
+        "zh-CN": "建造仓库",
+        "en": "Building a granary or storehouse",
+        "zh-TW": "建造倉庫"
+      }
     },
     "开池": {
       "en": "Digging a pond",
-      "zh-TW": "開池"
+      "zh-TW": "開池",
+      "desc": {
+        "zh-CN": "挖池塘",
+        "en": "Digging a pond",
+        "zh-TW": "挖池塘"
+      }
     },
     "合帐": {
       "en": "Hanging bed curtains",
-      "zh-TW": "合帳"
+      "zh-TW": "合帳",
+      "desc": {
+        "zh-CN": "缝制或挂上蚊帐、床帐",
+        "en": "Making or hanging bed curtains",
+        "zh-TW": "縫製或掛上蚊帳、床帳"
+      }
     },
     "修饰垣墙": {
       "en": "Decorating walls",
-      "zh-TW": "修飾垣牆"
+      "zh-TW": "修飾垣牆",
+      "desc": {
+        "zh-CN": "粉刷、装饰墙壁",
+        "en": "Painting and decorating walls",
+        "zh-TW": "粉刷、裝飾牆壁"
+      }
     },
     "取渔": {
       "en": "Fishing",
-      "zh-TW": "取漁"
+      "zh-TW": "取漁",
+      "desc": {
+        "zh-CN": "捕鱼",
+        "en": "Fishing",
+        "zh-TW": "捕魚"
+      }
     },
     "造庙": {
       "en": "Building a temple",
-      "zh-TW": "造廟"
+      "zh-TW": "造廟",
+      "desc": {
+        "zh-CN": "建造庙宇",
+        "en": "Building a temple",
+        "zh-TW": "建造廟宇"
+      }
     },
     "酬神": {
       "en": "Thanking the gods",
-      "zh-TW": "酬神"
+      "zh-TW": "酬神",
+      "desc": {
+        "zh-CN": "还愿、答谢神明",
+        "en": "Thanking the gods for answered prayers",
+        "zh-TW": "還願、答謝神明"
+      }
     },
     "针灸": {
       "en": "Acupuncture",
-      "zh-TW": "針灸"
+      "zh-TW": "針灸",
+      "desc": {
+        "zh-CN": "针刺、艾灸治疗",
+        "en": "Acupuncture and moxibustion",
+        "zh-TW": "針刺、艾灸治療"
+      }
     },
     "造车器": {
       "en": "Making carts & tools",
-      "zh-TW": "造車器"
+      "zh-TW": "造車器",
+      "desc": {
+        "zh-CN": "制造车辆、农具等器具",
+        "en": "Making carts and tools",
+        "zh-TW": "製造車輛、農具等器具"
+      }
     },
     "合脊": {
       "en": "Finishing the roof ridge",
-      "zh-TW": "合脊"
+      "zh-TW": "合脊",
+      "desc": {
+        "zh-CN": "房屋盖顶，合上屋脊",
+        "en": "Closing up the roof ridge",
+        "zh-TW": "房屋蓋頂，合上屋脊"
+      }
     },
     "纳婿": {
       "en": "Taking in a son-in-law",
-      "zh-TW": "納婿"
+      "zh-TW": "納婿",
+      "desc": {
+        "zh-CN": "招女婿入赘",
+        "en": "Taking in a son-in-law who joins the bride's family",
+        "zh-TW": "招女婿入贅"
+      }
     },
     "赴任": {
       "en": "Taking up a post",
-      "zh-TW": "赴任"
+      "zh-TW": "赴任",
+      "desc": {
+        "zh-CN": "到新的职位上任",
+        "en": "Taking up a new post",
+        "zh-TW": "到新的職位上任"
+      }
     },
     "诸事不宜": {
       "en": "Nothing advised",
-      "zh-TW": "諸事不宜"
+      "zh-TW": "諸事不宜",
+      "desc": {
+        "zh-CN": "这一天什么事都不太合适做",
+        "en": "Not a good day for anything",
+        "zh-TW": "這一天什麼事都不太合適做"
+      }
     },
     "雕刻": {
       "en": "Carving",
-      "zh-TW": "雕刻"
+      "zh-TW": "雕刻",
+      "desc": {
+        "zh-CN": "雕刻器物、神像等",
+        "en": "Carving",
+        "zh-TW": "雕刻器物、神像等"
+      }
     },
     "无": {
       "en": "None",
-      "zh-TW": "無"
+      "zh-TW": "無",
+      "desc": {
+        "zh-CN": "没有特别的事项",
+        "en": "Nothing in particular",
+        "zh-TW": "沒有特別的事項"
+      }
     },
     "开渠": {
       "en": "Digging channels",
-      "zh-TW": "開渠"
+      "zh-TW": "開渠",
+      "desc": {
+        "zh-CN": "挖水渠",
+        "en": "Digging irrigation channels",
+        "zh-TW": "挖水渠"
+      }
     },
     "开厕": {
       "en": "Building a toilet",
-      "zh-TW": "開廁"
+      "zh-TW": "開廁",
+      "desc": {
+        "zh-CN": "修建厕所",
+        "en": "Building a toilet",
+        "zh-TW": "修建廁所"
+      }
     },
     "造桥": {
       "en": "Bridge building",
-      "zh-TW": "造橋"
+      "zh-TW": "造橋",
+      "desc": {
+        "zh-CN": "建造桥梁",
+        "en": "Building a bridge",
+        "zh-TW": "建造橋梁"
+      }
     },
     "归岫": {
       "en": "Returning home",
-      "zh-TW": "歸岫"
+      "zh-TW": "歸岫",
+      "desc": {
+        "zh-CN": "指归隐、回到山中住所",
+        "en": "Returning to one's mountain retreat",
+        "zh-TW": "指歸隱、回到山中住所"
+      }
     },
     "割蜜": {
       "en": "Harvesting honey",
-      "zh-TW": "割蜜"
+      "zh-TW": "割蜜",
+      "desc": {
+        "zh-CN": "从蜂巢里采蜜",
+        "en": "Harvesting honey",
+        "zh-TW": "從蜂巢裡採蜜"
+      }
     },
     "普渡": {
       "en": "Salvation rites",
-      "zh-TW": "普渡"
+      "zh-TW": "普渡",
+      "desc": {
+        "zh-CN": "为孤魂野鬼超度的法事",
+        "en": "Rites to release wandering spirits",
+        "zh-TW": "為孤魂野鬼超度的法事"
+      }
     },
     "筑堤": {
       "en": "Building embankments",
-      "zh-TW": "築堤"
+      "zh-TW": "築堤",
+      "desc": {
+        "zh-CN": "修筑堤坝",
+        "en": "Building embankments",
+        "zh-TW": "修築堤壩"
+      }
     },
     "分居": {
       "en": "Separating households",
-      "zh-TW": "分居"
+      "zh-TW": "分居",
+      "desc": {
+        "zh-CN": "分家，家人分开居住",
+        "en": "Dividing a household",
+        "zh-TW": "分家，家人分開居住"
+      }
     },
     "雇佣": {
       "en": "Hiring",
-      "zh-TW": "僱傭"
+      "zh-TW": "僱傭",
+      "desc": {
+        "zh-CN": "雇用人手",
+        "en": "Hiring workers",
+        "zh-TW": "僱用人手"
+      }
     },
     "归宁": {
       "en": "Visiting the bride's parents",
-      "zh-TW": "歸寧"
+      "zh-TW": "歸寧",
+      "desc": {
+        "zh-CN": "新娘婚后回娘家探亲",
+        "en": "A bride visiting her parents after the wedding",
+        "zh-TW": "新娘婚後回孃家探親"
+      }
     },
     "修门": {
       "en": "Repairing doors",
-      "zh-TW": "修門"
+      "zh-TW": "修門",
+      "desc": {
+        "zh-CN": "修理门户",
+        "en": "Repairing doors",
+        "zh-TW": "修理門戶"
+      }
     },
     "行丧": {
       "en": "Funeral procession",
-      "zh-TW": "行喪"
+      "zh-TW": "行喪",
+      "desc": {
+        "zh-CN": "举行丧礼、出殡",
+        "en": "Holding a funeral procession",
+        "zh-TW": "舉行喪禮、出殯"
+      }
     },
     "探病": {
       "en": "Visiting the sick",
-      "zh-TW": "探病"
+      "zh-TW": "探病",
+      "desc": {
+        "zh-CN": "探望病人",
+        "en": "Visiting the sick",
+        "zh-TW": "探望病人"
+      }
     },
     "词讼": {
       "en": "Lawsuits",
-      "zh-TW": "詞訟"
+      "zh-TW": "詞訟",
+      "desc": {
+        "zh-CN": "打官司",
+        "en": "Going to court",
+        "zh-TW": "打官司"
+      }
     },
     "乘船": {
       "en": "Boat trips",
-      "zh-TW": "乘船"
+      "zh-TW": "乘船",
+      "desc": {
+        "zh-CN": "坐船出行",
+        "en": "Travelling by boat",
+        "zh-TW": "坐船出行"
+      }
     }
   }
 }

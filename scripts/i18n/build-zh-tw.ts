@@ -103,11 +103,13 @@ for (const s of [...terms].sort()) {
 }
 write("locales/zh-TW.terms.json", { $comment: "由 scripts/i18n/build-zh-tw.ts 生成：简体词条 → 繁体（台湾）。不要手改，修正写进脚本的 TERM_FIXES。", ...termMap });
 
-// 3. 术语表补 zh-TW
+// 3. 术语表补 zh-TW（词条逐条转换；宜忌的白话解释按界面文字转换）
 for (const [cat, entries] of Object.entries(glossary)) {
   if (cat.startsWith("$")) continue;
-  for (const [zh, tr] of Object.entries(entries as Record<string, Record<string, string>>)) {
+  for (const [zh, tr] of Object.entries(entries as Record<string, Record<string, unknown>>)) {
     tr["zh-TW"] ??= term(zh);
+    const desc = tr.desc as Record<string, string> | undefined;
+    if (desc?.["zh-CN"]) desc["zh-TW"] ??= ui(desc["zh-CN"]);
   }
 }
 write("locales/glossary.json", glossary);

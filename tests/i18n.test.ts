@@ -8,7 +8,7 @@ import { getDayDetail } from "../src/calendar/day";
 import { getAlmanac } from "../src/calendar/special";
 import { defaultRules } from "../src/core/rules";
 import { resolveSystemLang } from "../src/i18n";
-import { ganzhi, term, toTW } from "../src/i18n/terms";
+import { ganzhi, term, toTW, yijiExplain } from "../src/i18n/terms";
 
 function keys(obj: unknown, prefix = ""): string[] {
   if (obj && typeof obj === "object" && !Array.isArray(obj)) {
@@ -142,6 +142,20 @@ describe("术语表", () => {
         expect(tr["zh-TW"], `${cat} ${zh}`).toBeTruthy();
       }
     }
+  });
+
+  it("每个宜忌词都有三种语言的白话解释", () => {
+    const yiji = (glossary as unknown as { yiji: Record<string, { desc?: Record<string, string> }> }).yiji;
+    expect(Object.keys(yiji).length).toBeGreaterThanOrEqual(114);
+    for (const [word, entry] of Object.entries(yiji)) {
+      for (const lang of ["zh-CN", "zh-TW", "en"]) expect(entry.desc?.[lang], `${word} ${lang}`).toBeTruthy();
+    }
+  });
+
+  it("宜忌悬停提示的格式", () => {
+    expect(yijiExplain("纳采", "zh-CN")).toBe("纳采：订婚时男方送礼到女方家");
+    expect(yijiExplain("理发", "zh-TW")).toBe("理髮：剪頭髮，舊時也指給嬰兒剃胎髮");
+    expect(yijiExplain("冠笄", "en")).toBe("冠笄 · Coming-of-age rites — An ancient coming-of-age ceremony");
   });
 
   it("英文格式：中文原词 + 英文解释", () => {

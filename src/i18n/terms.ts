@@ -27,7 +27,7 @@ export type Category =
   | "traditionalColor"
   | "yiji";
 
-type Entry = Partial<Record<Lang, string>>;
+type Entry = Partial<Record<Lang, string>> & { desc?: Partial<Record<Lang, string>> };
 const glossary = glossaryJson as unknown as Record<Category, Record<string, Entry>>;
 const tw = twTerms as Record<string, string>;
 
@@ -66,4 +66,17 @@ export function ganzhi(gz: string, lang: Lang): string {
 /** 术语表里收录了哪些词（测试用） */
 export function glossaryKeys(cat: Category): string[] {
   return Object.keys(glossary[cat] ?? {});
+}
+
+/**
+ * 宜忌词的白话解释（悬停提示）：
+ *   简体 / 繁体：「冠笄：古代的成年礼」
+ *   英文：「冠笄 · Coming-of-age rites — An ancient coming-of-age ceremony」
+ */
+export function yijiExplain(word: string, lang: Lang): string | undefined {
+  const entry = glossary.yiji?.[word];
+  const desc = entry?.desc?.[lang];
+  if (!desc) return undefined;
+  if (lang === "en") return `${term("yiji", word, lang)} — ${desc}`;
+  return `${translate("yiji", word, lang)}：${desc}`;
 }

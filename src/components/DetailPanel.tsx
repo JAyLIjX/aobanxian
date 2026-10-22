@@ -18,7 +18,7 @@ import {
   xiuLuck,
   xiuName,
 } from "../i18n/format";
-import { ganzhi, term } from "../i18n/terms";
+import { ganzhi, term, yijiExplain } from "../i18n/terms";
 import { ColorChip } from "./ColorChip";
 
 interface Props {
@@ -137,7 +137,7 @@ export function DetailPanel({ ymd, rules, onChange, onClose }: Props) {
             <span className={`yiji__label yiji__label--${key}`}>{t(`detail.${key}`)}</span>
             <div className="words">
               {list.map((x) => (
-                <span key={x} className="word">
+                <span key={x} className="word" title={yijiExplain(x, lang)}>
                   {term("yiji", x, lang)}
                 </span>
               ))}
