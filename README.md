@@ -4,15 +4,37 @@
 
 > 本工具的五行穿衣、宜忌、生肖等内容都来自传统民俗说法，仅作趣味参考，图个好心情。
 
+<p>
+  <img src="preview/collapsed.png" alt="收起状态：小人和黄历签" height="160">
+  <img src="preview/card-A.png" alt="展开状态：今日卡片" height="160">
+</p>
+
 ## 功能
 
-- **桌面小窗**：无边框、透明背景，默认待在其他窗口下面，像桌面小组件。按住空白处可拖动，位置重启后保持。不占任务栏和 Dock。
-- **托盘 / 菜单栏图标**：显示/隐藏、置顶（切换）、开机启动、退出。
-- **今日卡片**：公历日期、星期、农历、年月日干支、节气或节日，以及一条按当日五行轮换的小贴士。
-- **小人**：上衣是当日主色，围巾是点缀色。点它弹出当天详情。
-- **月历**：前后翻月、跳转年月、回到今天。每格显示公历日和农历日；初一显示月份名，节气和节日优先显示。点任意一天看详情。
+- **桌面小窗**：无边框、透明背景，默认待在其他窗口下面，像桌面小组件。不占任务栏和 Dock，位置重启后保持。
+- **小人和黄历签**：平时只有一个小人，旁边挂着一张朱砂色黄历签，写着今天的公历日和农历日。小人的上衣是当日主色，围巾是点缀色。
+- **今日卡片**：公历日期、星期、农历、年月日干支、节气或节日、今日穿搭，以及一条按当日五行轮换的小贴士。
+- **月历**：前后翻月、跳转年月、回到今天。每格显示公历日和农历日；初一显示月份名，节气和节日优先显示。
 - **详情**：日期与当日五行（纳音）、穿衣四档（大吉 / 平 / 慎穿 / 不宜）、今日宜忌、吉生肖 / 冲煞 / 值日星宿。
+- **托盘 / 菜单栏图标**：显示/隐藏、置顶（切换）、开机启动、退出。
 - 过了午夜自动换到新的一天，电脑从睡眠唤醒后也会刷新。
+
+### 怎么用
+
+| 操作 | 结果 |
+| --- | --- |
+| 点黄历签 | 展开 / 收起今日卡片 |
+| 点卡片 | 看当天详情 |
+| 点卡片上的「月历」 | 展开月历，点任意一天看那天的详情 |
+| 点小人 | 小人轻轻跳一下 |
+| 按住小人或黄历签拖动 | 移动整个小窗 |
+| Esc / 点桌面其他地方 | 收起 |
+
+### 外观
+
+- 卡片只用宣纸底、朱砂红、墨色三种基调，色块做成带纸纹的印泥色签，色值取自中国传统色。
+- 正文用[霞鹜文楷](https://github.com/lxgw/LxgwWenKai)。日期数字、农历标题、黄历签这些大字有两版，在 `config/appearance.json` 里切换：`"displayFont": "A"` 是[马善政毛笔楷书](https://github.com/googlefonts/mashanzheng)，`"B"` 是[志莽行书](https://github.com/googlefonts/zhimangxing)。效果见 `preview/card-A.png` 和 `preview/card-B.png`。
+- 三套字体都是 OFL 协议，仓库里只放按实际用到的字做的子集（合计约 230KB）。改了界面文字后运行 `npm run fonts` 重新子集化，详见 CLAUDE.md。
 
 ## 本机运行开发版
 
@@ -33,7 +55,8 @@ npm run tauri dev
 | --- | --- |
 | `npm test` | 运行规则模块和历法数据的单元测试 |
 | `npm run day` | 在终端打印今天的完整结果（可加日期：`npm run day 2026-10-21`） |
-| `npm run dev` | 只在浏览器里打开界面（http://localhost:1420），方便调样式 |
+| `npm run dev` | 只在浏览器里打开界面（http://localhost:1420，加 `?font=B` 看 B 版字体），方便调样式 |
+| `npm run fonts` | 重新收集字表并给字体做子集（需要 python3） |
 | `npm run tauri build` | 打包安装包 |
 
 小窗默认在其他窗口下面，第一次启动时如果被挡住，把前面的窗口挪开就能看到；拖到喜欢的位置后会自动记住。
@@ -64,18 +87,20 @@ npm run tauri dev
 | `dayBoundary` | `midnight`（默认） | 午夜 0:00 换日 |
 | | `zi` | 23:00 子时换日（23 点以后按次日算） |
 | `tierLabels` | 字符串 | 四档的显示文字：`best` 大吉、`neutral` 平、`caution` 慎穿、`avoid` 不宜 |
-| `palettes` | 每个五行一组 `{ name, hex }` | 色系，列表里**第一个颜色是代表色**，小人穿的就是它 |
+| `palettes` | 每个五行一组 `{ name, traditional, hex }` | 色系，列表里**第一个颜色是代表色**，小人穿的就是它。`traditional` 是对应的中国传统色名（可省略） |
 | `explanation` | 按 `xiang` / `wang` 各一条模板 | 穿衣解释句。可用占位符：`{label}`（如「松柏木」「庚金」）、`{D}`、`{wang}`、`{xiang}`、`{xiu}`、`{qiu}`、`{si}`、`{primaryColor}`、`{accentColor}` |
 | `xiuLuckLabels` | `{ "吉": "...", "凶": "..." }` | 值日星宿吉凶的显示文字 |
 | `tips` | 每个五行一组字符串 | 今日卡片上的小贴士，按日期轮换 |
 
-默认色系：
+默认色系（括号里是取色用的中国传统色）：
 
-- 木：绿 青 翠 浅绿 墨绿
-- 火：红 紫 粉 橙
-- 土：黄 棕 卡其 米 咖啡
-- 金：白 金 银 香槟
-- 水：黑 蓝 藏青 灰
+- 木：绿（松柏绿） 青（青碧） 翠（葱青） 浅绿（艾绿） 墨绿（松花绿）
+- 火：红（银朱） 紫（紫色） 粉（粉红） 橙（橙色）
+- 土：黄（缃色） 棕（棕色） 卡其（驼色） 米（牙色） 咖啡（褐色）
+- 金：白（象牙白） 金（赤金） 银（银白） 香槟（缟）
+- 水：黑（漆黑） 蓝（靛蓝） 藏青（藏青） 灰（苍色）
+
+传统色的色值各家资料略有出入，这里取的是常见的一种，欢迎指正。
 
 ### 欢迎补充你的流派
 
@@ -95,6 +120,14 @@ npm run tauri dev
 
 Tauri 2 · React 19 · TypeScript · Vite · vitest · lunar-javascript
 
+## 字体许可
+
+- 霞鹜文楷 LXGW WenKai — SIL OFL 1.1，© LXGW
+- 马善政毛笔楷书 Ma Shan Zheng — SIL OFL 1.1，© The Ma Shan Zheng Project Authors
+- 志莽行书 Zhi Mang Xing — SIL OFL 1.1，© The Zhi Mang Xing Project Authors
+
+许可全文见 `src/assets/fonts/OFL-*.txt`。仓库中的字体文件是按本项目用字做的子集。
+
 ## 许可
 
 [MIT](LICENSE)
@@ -113,4 +146,4 @@ npm run tauri dev   # run the desktop app
 npm test            # unit tests
 ```
 
-License: MIT.
+License: MIT (code). Bundled fonts (LXGW WenKai, Ma Shan Zheng, Zhi Mang Xing) are subsets under the SIL Open Font License 1.1.
