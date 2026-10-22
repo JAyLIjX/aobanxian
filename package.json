@@ -1,5 +1,5 @@
 {
-  "name": "wuxing-calendar",
+  "name": "aobanxian",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -31,6 +31,6 @@
     "vite": "^8.0.16",
     "vitest": "^5.0.5"
   },
-  "description": "五行小历：桌面万年历 + 每天穿当日吉色衣服的小人",
+  "description": "奥半仙 Ao Banxian：桌面像素道士黄历",
   "license": "MIT"
 }

@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "五行小历",
+  "productName": "奥半仙",
   "version": "0.1.0",
-  "identifier": "io.github.jaylijx.wuxingcalendar",
+  "identifier": "com.onana.aobanxian",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -13,7 +13,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "五行小历",
+        "title": "奥半仙",
         "width": 420,
         "height": 210,
         "resizable": false,
@@ -44,7 +44,15 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "shortDescription": "桌面万年历与五行穿衣小人",
-    "copyright": "MIT License"
-  }
+    "shortDescription": "像素道士黄历桌面小组件",
+    "copyright": "© 2026 JAyLIjX · MIT License",
+    "windows": {
+      "wix": {
+        "language": [
+          "zh-CN"
+        ]
+      }
+    }
+  },
+  "mainBinaryName": "aobanxian"
 }

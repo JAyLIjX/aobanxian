@@ -69,7 +69,7 @@ fn build_tray(app: &App) -> tauri::Result<()> {
     )?;
 
     let mut tray = TrayIconBuilder::with_id("main-tray")
-        .tooltip("五行小历")
+        .tooltip("奥半仙")
         .menu(&menu)
         .show_menu_on_left_click(true)
         .on_menu_event(move |app, event| match event.id().as_ref() {
@@ -143,5 +143,5 @@ pub fn run() {
             Ok(())
         })
         .run(tauri::generate_context!())
-        .expect("启动五行小历失败");
+        .expect("启动奥半仙失败");
 }

@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    wuxing_calendar_lib::run()
+    aobanxian_lib::run()
 }
