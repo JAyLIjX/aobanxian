@@ -55,6 +55,14 @@ describe("幡面换字循环", () => {
     for (const item of items) expect([...item.text].length).toBeLessThanOrEqual(4);
   });
 
+  it("我的生肖：相合加「合你」，相冲加「冲你」，平常、相害、未设置都跳过", () => {
+    expect(buildBannerItems({ ...base, personal: "harmony" }, branding).at(-1)).toMatchObject({ kind: "personal", text: "合你" });
+    expect(buildBannerItems({ ...base, personal: "clash" }, branding).at(-1)).toMatchObject({ kind: "personal", text: "冲你" });
+    for (const p of ["neutral", "harm", null, undefined] as const) {
+      expect(buildBannerItems({ ...base, personal: p }, branding)).toHaveLength(5);
+    }
+  });
+
   it("8 秒没操作回到第一项", () => {
     expect(bannerIndexAt(3, 1000, 1000 + BANNER_RESET_MS - 1)).toBe(3);
     expect(bannerIndexAt(3, 1000, 1000 + BANNER_RESET_MS)).toBe(0);

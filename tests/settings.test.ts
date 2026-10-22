@@ -40,6 +40,7 @@ describe("设置", () => {
       language: "zh-TW",
       expandOnLaunch: true,
       collapseOnBlur: false,
+      myZodiac: "申",
       displayFont: "B",
       bannerFont: "brush",
       bannerText: "宜静",
@@ -59,6 +60,12 @@ describe("设置", () => {
     // 只存改过的项，所以没改过取法的用户存盘里没有 elementSource
     expect(mergeSettings({ size: "large" }).elementSource).toBe("branch");
     expect(mergeSettings({ elementSource: "nayin" }).elementSource).toBe("nayin");
+  });
+
+  it("我的生肖默认未设置，只接受十二地支", () => {
+    expect(DEFAULT_SETTINGS.myZodiac).toBe("none");
+    expect(mergeSettings({ myZodiac: "猴" }).myZodiac).toBe("none");
+    expect(mergeSettings({ myZodiac: "申" }).myZodiac).toBe("申");
   });
 
   it("非法值用默认值", () => {

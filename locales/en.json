@@ -25,9 +25,16 @@
     "todayElement": "Today: {{label}}",
     "lucky": "Lucky colors:",
     "familySep": " · ",
+    "withYou": "Today and you: {{relation}}",
     "hint": "Click the paper for today's details",
     "month": "Month",
     "closeMonth": "Hide month"
+  },
+  "relation": {
+    "harmony": "Harmony",
+    "clash": "Clash",
+    "harm": "Harm",
+    "neutral": "Neutral"
   },
   "month": {
     "prev": "Previous month",
@@ -56,6 +63,7 @@
     "clash": "{{animal}}",
     "sha": "Sha: {{direction}}",
     "xiu": "Lunar mansion",
+    "you": "You ({{animal}})",
     "tianShen": "{{type}} · {{shen}}",
     "foot": "Folk tradition, just for fun"
   },
@@ -72,7 +80,9 @@
     "tianshe": "Day of Heavenly Pardon — no taboos today!",
     "yanggong": "Keep things simple today.",
     "festival": "Happy {{name}}!",
-    "jieqi": "It's {{name}} — go with the season."
+    "jieqi": "It's {{name}} — go with the season.",
+    "personalClash": "Dear {{animal}}, today clashes with you — keep a low profile.",
+    "personalHarmony": "Dear {{animal}}, today is in harmony with you."
   },
   "specialTag": {
     "tianshe": "天赦日 · Day of Heavenly Pardon",
@@ -88,7 +98,9 @@
     "noYi": "Nothing advised today",
     "noJi": "No taboos today",
     "colors": "Lucky colors: {{first}} & {{second}}",
-    "zodiac": "Lucky signs: {{animals}}"
+    "zodiac": "Lucky signs: {{animals}}",
+    "withYou": "In harmony with you",
+    "clashYou": "Clashes with you"
   },
   "menu": {
     "divine": "Divine",
@@ -131,6 +143,9 @@
       "zh-TW": "繁體中文",
       "en": "English"
     },
+    "myZodiac": "My zodiac sign",
+    "myZodiacHint": "Stored only on this computer; used to see how today suits you",
+    "myZodiacNone": "Not set",
     "expandOnLaunch": "Open the calendar at launch",
     "collapseOnBlur": "Close the calendar when clicking elsewhere",
     "displayFont": "Display font",

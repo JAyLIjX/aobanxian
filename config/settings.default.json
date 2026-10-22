@@ -6,6 +6,7 @@
   "language": "system",
   "expandOnLaunch": false,
   "collapseOnBlur": true,
+  "myZodiac": "none",
   "displayFont": "A",
   "bannerFont": "pixel",
   "openingEnabled": true,

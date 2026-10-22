@@ -1,7 +1,7 @@
 /**
  * 幡上的字：点一下幡换下一项。纯函数，不依赖界面。
  *
- * 循环：第一项 → 宜事 → 忌事 → 大吉色 → 吉生肖 → 回到第一项
+ * 循环：第一项 → 宜事 → 忌事 → 大吉色 → 吉生肖 →（设置了我的生肖时）合你 / 冲你 → 回到第一项
  * 第一项平时是 bannerText（默认「奥半仙」），特殊日子换成特殊文字。
  * 每一项竖排，最多 4 个字。
  */
@@ -10,7 +10,7 @@ export const MAX_BANNER_CHARS = 4;
 /** 停这么久没操作就回到第一项 */
 export const BANNER_RESET_MS = 8000;
 
-export type BannerKind = "brand" | "special" | "yi" | "ji" | "colors" | "zodiac";
+export type BannerKind = "brand" | "special" | "yi" | "ji" | "colors" | "zodiac" | "personal";
 
 export interface BannerItem {
   kind: BannerKind;
@@ -29,6 +29,8 @@ export interface BannerConfig {
     noJi: string;
     luckyColors: string;
     zodiac: string;
+    withYou: string;
+    clashYou: string;
     skipWords: string[];
   };
 }
@@ -42,6 +44,8 @@ export interface BannerInput {
   luckyAnimals: string[];
   /** 特殊日子的幡面文字（没有则为 null） */
   specialText: string | null;
+  /** 今天和我的生肖的关系；没设置生肖时为 null */
+  personal?: "harmony" | "clash" | "harm" | "neutral" | null;
 }
 
 const chars = (s: string) => [...s];
@@ -85,13 +89,17 @@ export function buildBannerItems(input: BannerInput, config: BannerConfig): Bann
   const animals = input.luckyAnimals.join("");
   const zodiac = clampBannerText(fill(b.zodiac, { animals }));
 
-  return [
+  const items: BannerItem[] = [
     first,
     { kind: "yi", text: yi.text, terms: yi.term ? [yi.term] : [] },
     { kind: "ji", text: ji.text, terms: ji.term ? [ji.term] : [] },
     { kind: "colors", text: colors, terms: [c1, c2] },
     { kind: "zodiac", text: zodiac, terms: input.luckyAnimals },
   ];
+  // 相合显示「合你」，相冲显示「冲你」，其他（平常、相害）跳过这一项
+  if (input.personal === "harmony") items.push({ kind: "personal", text: clampBannerText(b.withYou), terms: ["harmony"] });
+  if (input.personal === "clash") items.push({ kind: "personal", text: clampBannerText(b.clashYou), terms: ["clash"] });
+  return items;
 }
 
 /** 点幡后的下一项序号 */

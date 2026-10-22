@@ -8,6 +8,9 @@ import { MAX_BANNER_CHARS, clampBannerText } from "../core/banner";
 
 export type Language = "system" | "zh-CN" | "zh-TW" | "en";
 export type FigureSize = "small" | "medium" | "large";
+/** 我的生肖：未设置，或用地支表示（子 = 鼠 … 亥 = 猪） */
+export type MyZodiac = "none" | "子" | "丑" | "寅" | "卯" | "辰" | "巳" | "午" | "未" | "申" | "酉" | "戌" | "亥";
+export const MY_ZODIAC_OPTIONS: MyZodiac[] = ["none", "子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"];
 
 export interface Settings {
   // 通用
@@ -17,6 +20,8 @@ export interface Settings {
   language: Language;
   expandOnLaunch: boolean;
   collapseOnBlur: boolean;
+  /** 我的生肖，只存在本机 */
+  myZodiac: MyZodiac;
   // 外观
   displayFont: "A" | "B";
   bannerFont: "pixel" | "brush";
@@ -35,7 +40,7 @@ export type SettingsPage = "general" | "appearance" | "rules" | "reminders";
 
 /** 每一页有哪些设置项（「恢复默认」按页恢复） */
 export const SETTINGS_PAGES: Record<SettingsPage, (keyof Settings)[]> = {
-  general: ["autostart", "onTop", "size", "language", "expandOnLaunch", "collapseOnBlur"],
+  general: ["autostart", "onTop", "size", "language", "myZodiac", "expandOnLaunch", "collapseOnBlur"],
   appearance: ["displayFont", "bannerFont", "bannerText"],
   rules: ["elementSource", "topPriority", "dayBoundary"],
   reminders: ["openingEnabled", "effectsEnabled", "bubbleSeconds"],
@@ -65,6 +70,7 @@ const CHOICES: Partial<Record<keyof Settings, readonly unknown[]>> = {
   topPriority: ["xiang", "wang"],
   dayBoundary: ["midnight", "zi"],
   bubbleSeconds: [3, 5, 8],
+  myZodiac: MY_ZODIAC_OPTIONS,
 };
 
 /** 校验单个值；不合法时返回 undefined（用默认值） */

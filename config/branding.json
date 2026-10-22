@@ -8,6 +8,8 @@
     "noJi": "百无禁忌",
     "luckyColors": "宜{first}宜{second}",
     "zodiac": "喜{animals}",
+    "withYou": "合你",
+    "clashYou": "冲你",
     "skipWords": ["馀事勿取", "余事勿取", "诸事不宜", "诸事不忌", "无"]
   },
   "special": {

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { Solar } from "lunar-javascript";
-import { BRANCHES, sixClash, sixHarmony, threeHarmony, zodiacRelations } from "../src/core/zodiac";
+import { BRANCHES, branchOfAnimal, personalRelation, sixClash, sixHarm, sixHarmony, threeHarmony, zodiacRelations } from "../src/core/zodiac";
 
 describe("生肖对照表", () => {
   it("六合", () => {
@@ -38,5 +38,31 @@ describe("生肖对照表", () => {
       expect(clash.branch).toBe(lunar.getDayChong());
       expect(clash.animal).toBe(lunar.getDayChongShengXiao());
     }
+  });
+});
+
+describe("我的生肖与今天的关系", () => {
+  it("六害表", () => {
+    expect(BRANCHES.map((b) => b + sixHarm(b)).join(" ")).toBe("子未 丑午 寅巳 卯辰 辰卯 巳寅 午丑 未子 申亥 酉戌 戌酉 亥申");
+  });
+  it("六合 → 相合（巳日，属猴）", () => {
+    expect(personalRelation("巳", branchOfAnimal("猴")!)).toBe("harmony");
+  });
+  it("三合 → 相合（巳日，属鸡、属牛）", () => {
+    expect(personalRelation("巳", "酉")).toBe("harmony");
+    expect(personalRelation("巳", "丑")).toBe("harmony");
+  });
+  it("六冲 → 相冲（巳日，属猪）", () => {
+    expect(personalRelation("巳", branchOfAnimal("猪")!)).toBe("clash");
+  });
+  it("六害 → 相害（巳日，属虎）", () => {
+    expect(personalRelation("巳", "寅")).toBe("harm");
+  });
+  it("其他 → 平常（巳日，属鼠、属蛇）", () => {
+    expect(personalRelation("巳", "子")).toBe("neutral");
+    expect(personalRelation("巳", "巳")).toBe("neutral");
+  });
+  it("十二地支两两之间只有一种关系", () => {
+    for (const a of BRANCHES) for (const b of BRANCHES) expect(["harmony", "clash", "harm", "neutral"]).toContain(personalRelation(a, b));
   });
 });

@@ -2,6 +2,7 @@ import type { KeyboardEvent, MouseEvent } from "react";
 import { useTranslation } from "react-i18next";
 import type { DayDetail } from "../calendar/day";
 import type { Rules } from "../core/rules";
+import type { PersonalRelation } from "../core/zodiac";
 import type { Lang } from "../i18n";
 import { dayLabel, familyName, fmtYearMonth, ganzhiLine, lunarText, tip as tipText, weekday } from "../i18n/format";
 import { term } from "../i18n/terms";
@@ -10,13 +11,15 @@ import { ColorChip } from "./ColorChip";
 interface Props {
   detail: DayDetail;
   rules: Rules;
+  /** 今天和我的生肖的关系；没设置生肖时为 null */
+  personal: PersonalRelation | null;
   monthOpen: boolean;
   onOpenDetail: () => void;
   onToggleMonth: () => void;
 }
 
 /** 卷轴上的今日卡片：点纸面看当天详情，点「月历」展开月历 */
-export function TodayCard({ detail, rules, monthOpen, onOpenDetail, onToggleMonth }: Props) {
+export function TodayCard({ detail, rules, personal, monthOpen, onOpenDetail, onToggleMonth }: Props) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as Lang;
   const { ymd, outfit } = detail;
@@ -75,6 +78,11 @@ export function TodayCard({ detail, rules, monthOpen, onOpenDetail, onToggleMont
           </span>
         ))}
       </div>
+      {personal && (
+        <div className={`today__personal today__personal--${personal}`}>
+          {t("card.withYou", { relation: t(`relation.${personal}`) })}
+        </div>
+      )}
       {tip && <div className="today__tip">{tip}</div>}
 
       <div className="today__foot">

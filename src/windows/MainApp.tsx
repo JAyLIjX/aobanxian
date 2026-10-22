@@ -16,7 +16,7 @@ import { ymdKey, type Ymd } from "../core/dayBoundary";
 import type { Element } from "../core/elements";
 import { placePanel, toLocal, union, windowRect, type Chrome, type Rect } from "../core/layout";
 import { openingFor, specialBannerText } from "../core/opening";
-import { zodiacRelations } from "../core/zodiac";
+import { personalRelation, ZODIAC, zodiacRelations, type Branch } from "../core/zodiac";
 import { setLanguage, type Lang } from "../i18n";
 import { term, translate } from "../i18n/terms";
 import { useToday } from "../hooks/useToday";
@@ -120,6 +120,15 @@ export function MainApp() {
   const translationCtl = useMemo(() => createBubble(setTranslationText), []);
   useEffect(() => () => (bubbleCtl.dispose(), translationCtl.dispose()), [bubbleCtl, translationCtl]);
 
+  // ── 我的生肖：今天和我的关系（没设置时为 null） ──
+  const personal = useMemo(() => {
+    if (settings.myZodiac === "none") return null;
+    return {
+      relation: personalRelation(detail.pillar.branch, settings.myZodiac),
+      animal: ZODIAC[settings.myZodiac as Branch],
+    };
+  }, [settings.myZodiac, detail]);
+
   // ── 幡上的字 ──
   const bannerItems = useMemo<BannerItem[]>(() => {
     const rel = zodiacRelations(detail.pillar.branch);
@@ -134,10 +143,11 @@ export function MainApp() {
         ],
         luckyAnimals: [rel.sixHarmony.animal, ...rel.threeHarmony.map((r) => r.animal)],
         specialText: specialBannerText(almanac.special, branding.special),
+        personal: personal?.relation ?? null,
       },
       { ...branding, bannerText: settings.bannerText },
     );
-  }, [detail, almanac, settings.bannerText, rules]);
+  }, [detail, almanac, settings.bannerText, rules, personal]);
   const [bannerIndex, setBannerIndex] = useState(0);
   // 停 8 秒没操作回到第一项
   useEffect(() => {
@@ -161,6 +171,8 @@ export function MainApp() {
           return item.terms[0] ? t("bannerTranslation.ji", { term: en("yiji", item.terms[0]) }) : t("bannerTranslation.noJi");
         case "colors":
           return t("bannerTranslation.colors", { first: en("color", item.terms[0]).toLowerCase(), second: en("color", item.terms[1]).toLowerCase() });
+        case "personal":
+          return item.terms[0] === "clash" ? t("bannerTranslation.clashYou") : t("bannerTranslation.withYou");
         case "zodiac":
           return t("bannerTranslation.zodiac", { animals: item.terms.map((a) => en("zodiac", a)).join(", ") });
       }
@@ -170,10 +182,13 @@ export function MainApp() {
 
   // ── 开场白 ──
   const openingText = useMemo(() => {
-    const o = openingFor(almanac);
+    const o = openingFor(almanac, personal);
     const name = o.name ? term(o.key === "festival" ? "festival" : "jieqi", o.name, lang) : undefined;
-    return t(`opening.${o.key}`, { name: lang === "en" && name ? translate(o.key === "festival" ? "festival" : "jieqi", o.name!, lang) : name });
-  }, [almanac, lang, t]);
+    return t(`opening.${o.key}`, {
+      name: lang === "en" && name ? translate(o.key === "festival" ? "festival" : "jieqi", o.name!, lang) : name,
+      animal: o.animal ? translate("zodiac", o.animal, lang) : undefined,
+    });
+  }, [almanac, lang, t, personal]);
 
   const sayOpening = useCallback(() => {
     bubbleCtl.show(openingText, settings.bubbleSeconds);
@@ -477,6 +492,7 @@ export function MainApp() {
             <TodayCard
               detail={detail}
               rules={rules}
+              personal={personal?.relation ?? null}
               monthOpen={monthOpen}
               onOpenDetail={() => setDetailDay(today)}
               onToggleMonth={() => setMonthOpen((v) => !v)}
@@ -493,7 +509,13 @@ export function MainApp() {
           style={{ left: layout.detail?.x ?? 0, top: layout.detail?.y ?? 0, visibility: layout.detail ? "visible" : "hidden" }}
           onContextMenu={(e) => (e.preventDefault(), onContextMenu())}
         >
-          <DetailPanel ymd={detailDay} rules={rules} onChange={setDetailDay} onClose={() => setDetailDay(null)} />
+          <DetailPanel
+            ymd={detailDay}
+            rules={rules}
+            myZodiac={settings.myZodiac}
+            onChange={setDetailDay}
+            onClose={() => setDetailDay(null)}
+          />
         </div>
       )}
 

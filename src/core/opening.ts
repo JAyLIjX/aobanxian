@@ -3,19 +3,35 @@
  * 和当天第一次说的是同一句。
  */
 import type { DayAlmanac, SpecialDay } from "../calendar/special";
+import type { PersonalRelation } from "./zodiac";
 
-export type OpeningKey = "huangdao" | "heidao" | "tianshe" | "yanggong" | "festival" | "jieqi";
+export type OpeningKey =
+  | "huangdao"
+  | "heidao"
+  | "tianshe"
+  | "yanggong"
+  | "festival"
+  | "jieqi"
+  | "personalClash"
+  | "personalHarmony";
 
 export interface Opening {
   key: OpeningKey;
   /** 节日 / 节气名（文案里的 {{name}}） */
   name?: string;
+  /** 我的生肖（文案里的 {{animal}}） */
+  animal?: string;
 }
 
-/** 特殊日子用对应的开场白；否则按黄道 / 黑道 */
-export function openingFor(almanac: DayAlmanac): Opening {
+/**
+ * 优先级（从高到低）：特殊日子（天赦日、传统节日、节气、杨公忌日）> 生肖相冲、相合 > 黄道日、黑道日。
+ * （纪念日比这些都高，在 anniversary.ts 里处理。）
+ */
+export function openingFor(almanac: DayAlmanac, personal?: { relation: PersonalRelation; animal: string } | null): Opening {
   const s = almanac.special;
   if (s) return s.name ? { key: s.kind, name: s.name } : { key: s.kind };
+  if (personal?.relation === "clash") return { key: "personalClash", animal: personal.animal };
+  if (personal?.relation === "harmony") return { key: "personalHarmony", animal: personal.animal };
   return { key: almanac.tianShenType === "黄道" ? "huangdao" : "heidao" };
 }
 

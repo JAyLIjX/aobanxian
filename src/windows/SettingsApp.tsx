@@ -4,7 +4,10 @@ import { useEffect, useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { setLanguage } from "../i18n";
 import { inTauri } from "../platform/window";
-import { MAX_BANNER_CHARS, resetPage, sanitize, type Settings, type SettingsPage } from "../settings/settings";
+import { MAX_BANNER_CHARS, MY_ZODIAC_OPTIONS, resetPage, sanitize, type Settings, type SettingsPage } from "../settings/settings";
+import { ZODIAC, type Branch } from "../core/zodiac";
+import { term } from "../i18n/terms";
+import type { Lang } from "../i18n";
 import { useSettings } from "../settings/useSettings";
 
 const PAGES: SettingsPage[] = ["general", "appearance", "rules", "reminders"];
@@ -42,7 +45,8 @@ function Segmented<T extends string | number>({ value, options, onChange }: { va
 }
 
 export function SettingsApp() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language as Lang;
   const { settings, loaded, update } = useSettings();
   const [page, setPage] = useState<SettingsPage>("general");
   const [bannerDraft, setBannerDraft] = useState(settings.bannerText);
@@ -112,6 +116,15 @@ export function SettingsApp() {
                 {(["system", "zh-CN", "zh-TW", "en"] as const).map((l) => (
                   <option key={l} value={l}>
                     {t(`settings.languageOptions.${l}`)}
+                  </option>
+                ))}
+              </select>
+            </Row>
+            <Row label={t("settings.myZodiac")} hint={t("settings.myZodiacHint")}>
+              <select value={settings.myZodiac} onChange={(e) => set("myZodiac", sanitize("myZodiac", e.target.value) ?? "none")}>
+                {MY_ZODIAC_OPTIONS.map((z) => (
+                  <option key={z} value={z}>
+                    {z === "none" ? t("settings.myZodiacNone") : term("zodiac", ZODIAC[z as Branch], lang)}
                   </option>
                 ))}
               </select>

@@ -48,6 +48,16 @@ const SIX_CLASH_PAIRS: [Branch, Branch][] = [
   ["巳", "亥"],
 ];
 
+/** 六害：子未、丑午、寅巳、卯辰、申亥、酉戌 */
+const SIX_HARM_PAIRS: [Branch, Branch][] = [
+  ["子", "未"],
+  ["丑", "午"],
+  ["寅", "巳"],
+  ["卯", "辰"],
+  ["申", "亥"],
+  ["酉", "戌"],
+];
+
 function asBranch(b: string): Branch {
   if (!(BRANCHES as readonly string[]).includes(b)) throw new Error(`未知地支「${b}」`);
   return b as Branch;
@@ -88,4 +98,25 @@ export function zodiacRelations(dayBranch: string) {
     threeHarmony: threeHarmony(b).map(rel) as [ZodiacRelation, ZodiacRelation],
     clash: rel(sixClash(b)),
   };
+}
+
+export function sixHarm(branch: string): Branch {
+  return partner(SIX_HARM_PAIRS, asBranch(branch));
+}
+
+/** 今天和「我的生肖」的关系：六合、三合 → 相合；六冲 → 相冲；六害 → 相害；其他 → 平常 */
+export type PersonalRelation = "harmony" | "clash" | "harm" | "neutral";
+
+export function personalRelation(dayBranch: string, myBranch: string): PersonalRelation {
+  const d = asBranch(dayBranch);
+  const me = asBranch(myBranch);
+  if (sixHarmony(d) === me || threeHarmony(d).includes(me)) return "harmony";
+  if (sixClash(d) === me) return "clash";
+  if (sixHarm(d) === me) return "harm";
+  return "neutral";
+}
+
+/** 生肖 → 地支（「猴」→「申」） */
+export function branchOfAnimal(animal: string): Branch | undefined {
+  return BRANCHES.find((b) => ZODIAC[b] === animal);
 }

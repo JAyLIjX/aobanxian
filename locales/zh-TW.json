@@ -25,9 +25,16 @@
     "todayElement": "今日{{label}}",
     "lucky": "大吉",
     "familySep": " ",
+    "withYou": "今日與你：{{relation}}",
     "hint": "點紙面看今日詳情",
     "month": "月曆",
     "closeMonth": "收起月曆"
+  },
+  "relation": {
+    "harmony": "相合",
+    "clash": "相沖",
+    "harm": "相害",
+    "neutral": "平常"
   },
   "month": {
     "prev": "上個月",
@@ -56,6 +63,7 @@
     "clash": "沖{{animal}}",
     "sha": "煞{{direction}}",
     "xiu": "值日星宿",
+    "you": "你（屬{{animal}}）",
     "tianShen": "{{type}} · {{shen}}",
     "foot": "傳統民俗趣味參考，圖個好心情"
   },
@@ -72,7 +80,9 @@
     "tianshe": "今日天赦，百無禁忌",
     "yanggong": "今日諸事從簡",
     "festival": "掐指一算，今日{{name}}",
-    "jieqi": "今日{{name}}，順時而行"
+    "jieqi": "今日{{name}}，順時而行",
+    "personalClash": "屬{{animal}}的施主，今日沖你，凡事低調些",
+    "personalHarmony": "屬{{animal}}的施主，今日與你相合"
   },
   "specialTag": {
     "tianshe": "天赦日",
@@ -88,7 +98,9 @@
     "noYi": "",
     "noJi": "",
     "colors": "",
-    "zodiac": ""
+    "zodiac": "",
+    "withYou": "",
+    "clashYou": ""
   },
   "menu": {
     "divine": "掐指一算",
@@ -131,6 +143,9 @@
       "zh-TW": "繁體中文",
       "en": "English"
     },
+    "myZodiac": "我的生肖",
+    "myZodiacHint": "只存在這臺電腦上，用來看今天和你合不合",
+    "myZodiacNone": "未設定",
     "expandOnLaunch": "啟動時展開日曆",
     "collapseOnBlur": "點選桌面其他地方時收起日曆",
     "displayFont": "大字字型",

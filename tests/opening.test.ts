@@ -32,6 +32,18 @@ describe("每日开场白", () => {
     expect(openingFor(getAlmanac(ymd("2026-10-23")))).toEqual({ key: "jieqi", name: "霜降" });
   });
 
+  it("优先级：特殊日子 > 生肖相冲、相合 > 黄道、黑道", () => {
+    // 2026-10-22 己巳（明堂黄道，没有特殊日子）
+    const plain = getAlmanac(ymd("2026-10-22"));
+    expect(openingFor(plain, { relation: "clash", animal: "猪" })).toEqual({ key: "personalClash", animal: "猪" });
+    expect(openingFor(plain, { relation: "harmony", animal: "猴" })).toEqual({ key: "personalHarmony", animal: "猴" });
+    expect(openingFor(plain, { relation: "harm", animal: "虎" })).toEqual({ key: "huangdao" });
+    expect(openingFor(plain, { relation: "neutral", animal: "鼠" })).toEqual({ key: "huangdao" });
+    expect(openingFor(plain, null)).toEqual({ key: "huangdao" });
+    // 2026-10-23 霜降：节气压过生肖
+    expect(openingFor(getAlmanac(ymd("2026-10-23")), { relation: "clash", animal: "鼠" })).toEqual({ key: "jieqi", name: "霜降" });
+  });
+
   it("「掐指一算」重播的和当天第一次的一致", () => {
     for (const day of ["2026-10-22", "2026-10-1", "2026-9-25", "2026-3-5"]) {
       expect(openingFor(getAlmanac(ymd(day)))).toEqual(openingFor(getAlmanac(ymd(day))));

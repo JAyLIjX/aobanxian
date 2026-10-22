@@ -4,6 +4,8 @@ import { getDayDetail } from "../calendar/day";
 import { getAlmanac } from "../calendar/special";
 import type { Ymd } from "../core/dayBoundary";
 import type { Rules } from "../core/rules";
+import { personalRelation, ZODIAC, type Branch } from "../core/zodiac";
+import type { MyZodiac } from "../settings/settings";
 import type { Lang } from "../i18n";
 import {
   dayLabel,
@@ -24,6 +26,7 @@ import { ColorChip } from "./ColorChip";
 interface Props {
   ymd: Ymd;
   rules: Rules;
+  myZodiac: MyZodiac;
   onChange: (ymd: Ymd) => void;
   onClose: () => void;
 }
@@ -33,7 +36,7 @@ function addDays(ymd: Ymd, delta: number): Ymd {
   return { year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate() };
 }
 
-export function DetailPanel({ ymd, rules, onChange, onClose }: Props) {
+export function DetailPanel({ ymd, rules, myZodiac, onChange, onClose }: Props) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as Lang;
   const d = useMemo(() => getDayDetail(ymd, rules), [ymd, rules]);
@@ -161,6 +164,12 @@ export function DetailPanel({ ymd, rules, onChange, onClose }: Props) {
             <span className="muted">（{ganzhi(zodiac.clash.ganzhi, lang)}）</span>
             {t("detail.sha", { direction: term("direction", zodiac.sha, lang) })}
           </dd>
+          {myZodiac !== "none" && (
+            <>
+              <dt>{t("detail.you", { animal: term("zodiac", ZODIAC[myZodiac as Branch], lang) })}</dt>
+              <dd>{t(`relation.${personalRelation(d.pillar.branch, myZodiac)}`)}</dd>
+            </>
+          )}
           <dt>{t("detail.xiu")}</dt>
           <dd>
             {xiuName(d, lang)}　<span className="mark">{xiuLuck(d, rules, lang, t)}</span>
