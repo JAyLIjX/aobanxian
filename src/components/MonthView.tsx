@@ -27,7 +27,7 @@ export function MonthView({ today, onPick }: Props) {
   const isCurrentMonth = view.year === today.year && view.month === today.month;
 
   return (
-    <section className="card month" data-no-drag>
+    <section className="card paper month">
       <header className="month__bar">
         <button type="button" className="icon-btn" onClick={() => shift(-1)} aria-label="上个月">
           ‹
@@ -59,7 +59,7 @@ export function MonthView({ today, onPick }: Props) {
         </button>
         <button
           type="button"
-          className="link-btn month__today"
+          className="text-btn month__today"
           disabled={isCurrentMonth}
           onClick={() => setView({ year: today.year, month: today.month })}
         >

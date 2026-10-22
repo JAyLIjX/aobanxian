@@ -3,6 +3,7 @@ import { getDayDetail } from "../calendar/day";
 import type { Ymd } from "../core/dayBoundary";
 import type { Rules } from "../core/rules";
 import { PHASE_NAMES } from "../core/wuxing";
+import { ColorChip } from "./ColorChip";
 
 interface Props {
   ymd: Ymd;
@@ -24,30 +25,29 @@ export function DetailPanel({ ymd, rules, onChange, onClose }: Props) {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
       if (e.key === "ArrowLeft") onChange(addDays(ymd, -1));
       if (e.key === "ArrowRight") onChange(addDays(ymd, 1));
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [ymd, onChange, onClose]);
+  }, [ymd, onChange]);
 
   return (
-    <div className="overlay" data-no-drag onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
-      <article className="card detail" role="dialog" aria-label="当日详情">
+    <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
+      <article className="card paper detail" role="dialog" aria-label="当日详情">
         {/* 1. 日期与当日五行 */}
         <header className="detail__head">
           <button type="button" className="icon-btn" onClick={() => onChange(addDays(ymd, -1))} aria-label="前一天">
             ‹
           </button>
           <div className="detail__title">
-            <h2>
-              {d.ymd.year}年{d.ymd.month}月{d.ymd.day}日 <small>{d.weekday}</small>
+            <h2 className="display">
+              {d.ymd.year}年{d.ymd.month}月{d.ymd.day}日
             </h2>
             <p>
-              {d.lunar.text}
+              {d.weekday}　{d.lunar.text}
               {[d.jieqi, ...d.festivals].filter(Boolean).map((m) => (
-                <span key={m} className="tag tag--mark">
+                <span key={m} className="mark">
                   {m}
                 </span>
               ))}
@@ -88,10 +88,7 @@ export function DetailPanel({ ymd, rules, onChange, onClose }: Props) {
                         {entry.phase === outfit.accent.phase && <small>围巾</small>}
                       </span>
                       {entry.colors.map((c) => (
-                        <span key={c.name} className="swatch">
-                          <i className="dot" style={{ background: c.hex }} />
-                          {c.name}
-                        </span>
+                        <ColorChip key={c.name} color={c} />
                       ))}
                     </div>
                   ))}
@@ -107,9 +104,9 @@ export function DetailPanel({ ymd, rules, onChange, onClose }: Props) {
           <h3>宜忌</h3>
           <div className="yiji">
             <span className="yiji__label yiji__label--yi">宜</span>
-            <div className="chips">
+            <div className="words">
               {d.yi.map((x) => (
-                <span key={x} className="chip">
+                <span key={x} className="word">
                   {x}
                 </span>
               ))}
@@ -117,9 +114,9 @@ export function DetailPanel({ ymd, rules, onChange, onClose }: Props) {
           </div>
           <div className="yiji">
             <span className="yiji__label yiji__label--ji">忌</span>
-            <div className="chips">
+            <div className="words">
               {d.ji.map((x) => (
-                <span key={x} className="chip">
+                <span key={x} className="word">
                   {x}
                 </span>
               ))}
@@ -145,7 +142,7 @@ export function DetailPanel({ ymd, rules, onChange, onClose }: Props) {
             </dd>
             <dt>值日星宿</dt>
             <dd>
-              {xiu.fullName}　<span className="tag">{xiu.luckLabel}</span>
+              {xiu.fullName}　<span className="mark">{xiu.luckLabel}</span>
             </dd>
           </dl>
         </section>

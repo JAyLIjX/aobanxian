@@ -19,3 +19,14 @@ export function startWindowDrag(): void {
     .startDragging()
     .catch((err) => console.error("拖动窗口失败", err));
 }
+
+/**
+ * 让窗口成为焦点窗口。窗口开了 acceptFirstMouse，点击时不会自动获得焦点，
+ * 不主动拿焦点的话收不到 Esc，点别处时也不会触发失焦收起。
+ */
+export function focusWindow(): void {
+  if (!inTauri || document.hasFocus()) return;
+  getCurrentWindow()
+    .setFocus()
+    .catch((err) => console.error("窗口获取焦点失败", err));
+}

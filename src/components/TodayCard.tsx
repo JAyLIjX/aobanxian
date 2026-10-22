@@ -1,17 +1,39 @@
+import type { KeyboardEvent, MouseEvent } from "react";
 import type { DayDetail } from "../calendar/day";
+import { ColorChip } from "./ColorChip";
 
 interface Props {
   detail: DayDetail;
   monthOpen: boolean;
+  onOpenDetail: () => void;
   onToggleMonth: () => void;
 }
 
-export function TodayCard({ detail, monthOpen, onToggleMonth }: Props) {
+/** 今日卡片：点卡片主体看当天详情，点「月历」展开月历 */
+export function TodayCard({ detail, monthOpen, onOpenDetail, onToggleMonth }: Props) {
   const { ymd, ganzhi, outfit } = detail;
   const marks = [detail.jieqi, ...detail.festivals].filter((x): x is string => !!x);
 
+  const onKeyDown = (e: KeyboardEvent) => {
+    if (e.target === e.currentTarget && (e.key === "Enter" || e.key === " ")) {
+      e.preventDefault();
+      onOpenDetail();
+    }
+  };
+  const toggleMonth = (e: MouseEvent) => {
+    e.stopPropagation();
+    onToggleMonth();
+  };
+
   return (
-    <section className="card today">
+    <section
+      className="card paper today"
+      role="button"
+      tabIndex={0}
+      aria-label="查看今日详情"
+      onClick={onOpenDetail}
+      onKeyDown={onKeyDown}
+    >
       <div className="today__head">
         <span>
           {ymd.year}年{ymd.month}月
@@ -20,16 +42,16 @@ export function TodayCard({ detail, monthOpen, onToggleMonth }: Props) {
       </div>
 
       <div className="today__main">
-        <div className="today__day">{ymd.day}</div>
+        <div className="today__day display">{ymd.day}</div>
         <div className="today__lunar">
-          <div className="today__lunar-date">{detail.lunar.text}</div>
+          <div className="today__lunar-date display">{detail.lunar.text}</div>
           <div className="today__ganzhi">
             {ganzhi.year}年 {ganzhi.month}月 {ganzhi.day}日
           </div>
           {marks.length > 0 && (
             <div className="today__marks">
               {marks.map((m) => (
-                <span key={m} className="tag tag--mark">
+                <span key={m} className="mark">
                   {m}
                 </span>
               ))}
@@ -39,17 +61,19 @@ export function TodayCard({ detail, monthOpen, onToggleMonth }: Props) {
       </div>
 
       <div className="today__outfit">
-        今日{outfit.day.label} · 穿
-        <i className="dot" style={{ background: outfit.primary.hex }} />
-        {outfit.primary.name}配
-        <i className="dot" style={{ background: outfit.accent.hex }} />
-        {outfit.accent.name}
+        今日{outfit.day.label}　穿
+        <ColorChip color={outfit.primary} />
+        配
+        <ColorChip color={outfit.accent} />
       </div>
       {detail.tip && <div className="today__tip">{detail.tip}</div>}
 
-      <button type="button" className="link-btn today__toggle" onClick={onToggleMonth}>
-        {monthOpen ? "收起月历 ▴" : "月历 ▾"}
-      </button>
+      <div className="today__foot">
+        <span className="today__hint">点此看今日详情</span>
+        <button type="button" className="text-btn" onClick={toggleMonth} aria-expanded={monthOpen}>
+          {monthOpen ? "收起月历" : "月历"}
+        </button>
+      </div>
     </section>
   );
 }
