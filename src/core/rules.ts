@@ -17,6 +17,8 @@ export const TIER_KEYS: readonly TierKey[] = ["best", "neutral", "caution", "avo
 export interface ColorSwatch {
   name: string;
   hex: string;
+  /** 对应的中国传统色名，如「银朱」，可省略 */
+  traditional?: string;
 }
 
 export interface Rules {
@@ -77,7 +79,9 @@ export function parseRules(input: unknown): Rules {
         fail(`palettes.${e}[${i}] 应为 { name, hex }`);
       }
       if (!/^#[0-9a-fA-F]{6}$/.test(c.hex)) fail(`palettes.${e}[${i}].hex 应为 #RRGGBB`);
-      return { name: c.name, hex: c.hex };
+      const swatch: ColorSwatch = { name: c.name, hex: c.hex };
+      if (typeof c.traditional === "string") swatch.traditional = c.traditional;
+      return swatch;
     });
   }
 

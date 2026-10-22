@@ -1,5 +1,5 @@
 {
-  "$comment": "五行小历默认规则（流派：纳音取五行 + 旺相为吉）。各字段含义见 README「规则配置」一节。",
+  "$comment": "五行小历默认规则（流派：纳音取五行 + 旺相为吉）。色值取自常见的中国传统色名，traditional 是对应的传统色名。各字段含义见 README「规则配置」一节。",
   "name": "默认流派",
   "elementSource": "nayin",
   "topPriority": "xiang",
@@ -12,36 +12,36 @@
   },
   "palettes": {
     "木": [
-      { "name": "绿", "hex": "#3E9B5A" },
-      { "name": "青", "hex": "#2A8C82" },
-      { "name": "翠", "hex": "#1FA67A" },
-      { "name": "浅绿", "hex": "#9ED9A0" },
-      { "name": "墨绿", "hex": "#2F4F3A" }
+      { "name": "绿", "traditional": "松柏绿", "hex": "#21A675" },
+      { "name": "青", "traditional": "青碧", "hex": "#48C0A3" },
+      { "name": "翠", "traditional": "葱青", "hex": "#0EB83A" },
+      { "name": "浅绿", "traditional": "艾绿", "hex": "#A4E2C6" },
+      { "name": "墨绿", "traditional": "松花绿", "hex": "#057748" }
     ],
     "火": [
-      { "name": "红", "hex": "#D93A3A" },
-      { "name": "紫", "hex": "#8E44AD" },
-      { "name": "粉", "hex": "#F4A6C1" },
-      { "name": "橙", "hex": "#F08A24" }
+      { "name": "红", "traditional": "银朱", "hex": "#BF242A" },
+      { "name": "紫", "traditional": "紫色", "hex": "#8D4BBB" },
+      { "name": "粉", "traditional": "粉红", "hex": "#FFB3A7" },
+      { "name": "橙", "traditional": "橙色", "hex": "#FA8C35" }
     ],
     "土": [
-      { "name": "黄", "hex": "#E8B931" },
-      { "name": "棕", "hex": "#8B5A2B" },
-      { "name": "卡其", "hex": "#C3B091" },
-      { "name": "米", "hex": "#EFE3C8" },
-      { "name": "咖啡", "hex": "#6F4E37" }
+      { "name": "黄", "traditional": "缃色", "hex": "#F0C239" },
+      { "name": "棕", "traditional": "棕色", "hex": "#B25D25" },
+      { "name": "卡其", "traditional": "驼色", "hex": "#A88462" },
+      { "name": "米", "traditional": "牙色", "hex": "#EEDEB0" },
+      { "name": "咖啡", "traditional": "褐色", "hex": "#6E511E" }
     ],
     "金": [
-      { "name": "白", "hex": "#F7F7F2" },
-      { "name": "金", "hex": "#D4AF37" },
-      { "name": "银", "hex": "#C0C0C8" },
-      { "name": "香槟", "hex": "#E8D5A9" }
+      { "name": "白", "traditional": "象牙白", "hex": "#FFFBF0" },
+      { "name": "金", "traditional": "赤金", "hex": "#F2BE45" },
+      { "name": "银", "traditional": "银白", "hex": "#E9E7EF" },
+      { "name": "香槟", "traditional": "缟", "hex": "#F2ECDE" }
     ],
     "水": [
-      { "name": "黑", "hex": "#2B2B2B" },
-      { "name": "蓝", "hex": "#2F6FD0" },
-      { "name": "藏青", "hex": "#1F2F5A" },
-      { "name": "灰", "hex": "#8A8F98" }
+      { "name": "黑", "traditional": "漆黑", "hex": "#161823" },
+      { "name": "蓝", "traditional": "靛蓝", "hex": "#065279" },
+      { "name": "藏青", "traditional": "藏青", "hex": "#2E4E7E" },
+      { "name": "灰", "traditional": "苍色", "hex": "#75878A" }
     ]
   },
   "explanation": {
