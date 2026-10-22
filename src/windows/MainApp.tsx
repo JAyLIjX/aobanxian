@@ -43,7 +43,7 @@ import { useAnniversaries } from "../settings/anniversaries";
 import { getState, setState } from "../settings/store";
 import { useSettings } from "../settings/useSettings";
 import { Daoshi } from "../sprite/Daoshi";
-import { getCharacter } from "../sprite/characters";
+import { getCharacter, voiceLine } from "../sprite/characters";
 import { inBanner, isOpaque, type Outfit, type Ramp } from "../sprite/sprite";
 
 /** 道士四周留给气泡、闪光、翻译小气泡的空白（逻辑像素） */
@@ -223,16 +223,14 @@ export function MainApp() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loaded, today, anniversaries, settings.annivNotify, settings.annivNotifyDays]);
 
-  // ── 开场白 ──
+  // ── 开场白：按当前角色的口吻 ──
   const openingText = useMemo(() => {
     const o = openingFor(almanac, personal, todayAnniversary);
-    if (o.key === "anniversary") return t("opening.anniversary", { name: o.name });
-    const name = o.name ? term(o.key === "festival" ? "festival" : "jieqi", o.name, lang) : undefined;
-    return t(`opening.${o.key}`, {
-      name: lang === "en" && name ? translate(o.key === "festival" ? "festival" : "jieqi", o.name!, lang) : name,
-      animal: o.animal ? translate("zodiac", o.animal, lang) : undefined,
-    });
-  }, [almanac, lang, t, personal, todayAnniversary]);
+    if (o.key === "anniversary") return voiceLine(character, lang, "anniversary", { name: o.name });
+    const cat = o.key === "festival" ? "festival" : "jieqi";
+    const name = o.name ? (lang === "en" ? translate(cat, o.name, lang) : term(cat, o.name, lang)) : undefined;
+    return voiceLine(character, lang, o.key, { name, animal: o.animal ? translate("zodiac", o.animal, lang) : undefined });
+  }, [almanac, lang, personal, todayAnniversary, character]);
 
   const sayOpening = useCallback(() => {
     bubbleCtl.show(openingText, settings.bubbleSeconds);
@@ -285,7 +283,7 @@ export function MainApp() {
   const menuModel: MenuModel = useMemo(
     () => ({
       labels: {
-        divine: t("menu.divine"),
+        divine: voiceLine(character, lang, "divine"),
         lots: t("menu.lots"),
         gua: t("menu.gua"),
         detail: t("menu.detail"),
@@ -328,7 +326,7 @@ export function MainApp() {
         quit: quitApp,
       },
     }),
-    [t, expanded, settings.size, settings.onTop, settings.bubbleSeconds, sayOpening, today, toggleCalendar, update, bubbleCtl],
+    [t, lang, character, expanded, settings.size, settings.onTop, settings.bubbleSeconds, sayOpening, today, toggleCalendar, update, bubbleCtl],
   );
   const menuRef = useRef(menuModel);
   menuRef.current = menuModel;

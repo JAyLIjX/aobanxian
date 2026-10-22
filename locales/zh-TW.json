@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "奧半仙",
-    "tagline": "像素道士農民曆"
+    "tagline": "像素小人農民曆"
   },
   "date": {
     "full": "{{year}}年{{month}}月{{day}}日",
@@ -76,17 +76,6 @@
     "qiu": "囚",
     "si": "死"
   },
-  "opening": {
-    "huangdao": "掐指一算，今日黃道吉日",
-    "heidao": "今日宜穩不宜急",
-    "tianshe": "今日天赦，百無禁忌",
-    "yanggong": "今日諸事從簡",
-    "festival": "掐指一算，今日{{name}}",
-    "jieqi": "今日{{name}}，順時而行",
-    "personalClash": "屬{{animal}}的施主，今日沖你，凡事低調些",
-    "personalHarmony": "屬{{animal}}的施主，今日與你相合",
-    "anniversary": "今日是{{name}}"
-  },
   "specialTag": {
     "tianshe": "天赦日",
     "yanggong": "楊公忌",
@@ -106,7 +95,6 @@
     "clashYou": ""
   },
   "menu": {
-    "divine": "掐指一算",
     "lots": "求籤",
     "gua": "每日一卦",
     "detail": "今日詳情",
@@ -136,7 +124,7 @@
     "autostart": "開機啟動",
     "autostartHint": "登入電腦後自動出現在桌面上",
     "onTop": "置頂",
-    "onTopHint": "關閉時道士待在其他視窗下面，像桌面小元件",
+    "onTopHint": "關閉時小人待在其他視窗下面，像桌面小元件",
     "size": "小人尺寸",
     "sizeHint": "按整數倍放大像素，保持銳利",
     "sizeOptions": {
@@ -199,9 +187,9 @@
       "zi": "子時：傳統算法，23 點起就算第二天"
     },
     "openingEnabled": "每日開場白",
-    "openingEnabledHint": "每天第一次見面時，道士頭頂冒一句話",
+    "openingEnabledHint": "每天第一次見面時，小人頭頂冒一句話",
     "effectsEnabled": "特殊日子特效",
-    "effectsEnabledHint": "天赦日和春節，道士周圍閃光",
+    "effectsEnabledHint": "天赦日和春節，小人周圍閃光",
     "bubbleSeconds": "氣泡停留時間",
     "seconds": "{{n}} 秒",
     "annivNotify": "紀念日系統通知",
@@ -221,7 +209,7 @@
     "imported": "已匯入 {{n}} 條",
     "importFailed": "檔案讀不出來，沒有匯入",
     "character": "角色",
-    "characterHint": "現在只有道士，以後會來書生（搖扇）和青天大老爺（舉告示）"
+    "characterHint": "點一下就換，位置不變；開場白和右鍵選單第一項跟著換口吻"
   },
   "about": {
     "title": "關於奧半仙",

@@ -1,5 +1,5 @@
 {
-  "$comment": "角色说明。key.png 是色键版（换色区域：洋红 = 大面积主色，青色 = 小面积配色），ref.png 是原配色参考。写字的地方是扇面，writing 是排法：vertical（竖排）或 horizontal（横排）。 writingFrame：扇面外只多算 2 格（扇骨、扇边），再往外是衣服的轮廓线。 unroll：点人展开日历时，writing = 书写物收起、卡片在人物上下展开（幡），inPlace = 书写物原地展开成卡片（告示），body = 书写物不动、卡片从人物下方展开（扇面、木牌）。",
+  "$comment": "角色说明。key.png 是色键版（换色区域：洋红 = 大面积主色，青色 = 小面积配色），ref.png 是原配色参考。写字的地方是扇面，writing 是排法：vertical（竖排）或 horizontal（横排）。 writingFrame：扇面外只多算 2 格（扇骨、扇边），再往外是衣服的轮廓线。 unroll：点人展开日历时，writing = 书写物收起、卡片在人物上下展开（幡），inPlace = 书写物原地展开成卡片（告示），body = 书写物不动、卡片从人物下方展开（扇面、木牌）。 voice：这个角色的口吻（右键菜单第一项的名字 divine，和开场白），简体、英文手写，繁体由 scripts/i18n/build-zh-tw.ts 生成。",
   "id": "shusheng",
   "name": {
     "zh-CN": "书生",
@@ -8,5 +8,43 @@
   },
   "writing": "horizontal",
   "unroll": "body",
-  "writingFrame": 2
+  "writingFrame": 2,
+  "voice": {
+    "zh-CN": {
+      "divine": "翻翻黄历",
+      "huangdao": "翻了翻黄历，今日黄道吉日",
+      "heidao": "书上说，今日宜稳不宜急",
+      "tianshe": "今日天赦，正好放下书本",
+      "yanggong": "书上说，今日诸事从简",
+      "festival": "翻了翻黄历，今日{{name}}，读书人也歇歇",
+      "jieqi": "今日{{name}}，窗外换了时节",
+      "personalClash": "属{{animal}}的兄台，今日冲你，凡事低调些",
+      "personalHarmony": "属{{animal}}的兄台，今日与你相合",
+      "anniversary": "今日是{{name}}，莫忘了"
+    },
+    "zh-TW": {
+      "divine": "翻翻農民曆",
+      "huangdao": "翻了翻農民曆，今日黃道吉日",
+      "heidao": "書上說，今日宜穩不宜急",
+      "tianshe": "今日天赦，正好放下書本",
+      "yanggong": "書上說，今日諸事從簡",
+      "festival": "翻了翻農民曆，今日{{name}}，讀書人也歇歇",
+      "jieqi": "今日{{name}}，窗外換了時節",
+      "personalClash": "屬{{animal}}的兄臺，今日沖你，凡事低調些",
+      "personalHarmony": "屬{{animal}}的兄臺，今日與你相合",
+      "anniversary": "今日是{{name}}，莫忘了"
+    },
+    "en": {
+      "divine": "Check the Almanac",
+      "huangdao": "I leafed through the almanac, my friend — an auspicious Yellow Path day!",
+      "heidao": "The books say, my friend: steady wins today — no need to rush.",
+      "tianshe": "Day of Heavenly Pardon, my friend — a fine day to set the books aside.",
+      "yanggong": "The books say, my friend: keep things simple today.",
+      "festival": "Happy {{name}}, my friend — even scholars rest today.",
+      "jieqi": "It's {{name}}, my friend — the season is turning outside the window.",
+      "personalClash": "My friend, born in the Year of the {{animal}}: today clashes with you — keep a low profile.",
+      "personalHarmony": "My friend, born in the Year of the {{animal}}: today is in harmony with you.",
+      "anniversary": "Today is {{name}}, my friend — don't forget!"
+    }
+  }
 }

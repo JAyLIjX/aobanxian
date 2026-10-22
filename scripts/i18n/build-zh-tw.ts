@@ -11,7 +11,7 @@
  *
  * 人工检查后要改的词写进 UI_FIXES / TERM_FIXES，重新运行即可。
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import * as OpenCC from "opencc-js";
 import { getDayDetail } from "../../src/calendar/day";
@@ -114,5 +114,15 @@ for (const [cat, entries] of Object.entries(glossary)) {
   }
 }
 write("locales/glossary.json", glossary);
+
+// 4. 各角色的口吻（assets/character/<id>/character.json 的 voice）：按界面文字转换
+for (const id of readdirSync(join(ROOT, "assets/character"))) {
+  const file = `assets/character/${id}/character.json`;
+  if (!existsSync(join(ROOT, file))) continue;
+  const meta = read(file);
+  if (!meta.voice?.["zh-CN"]) continue;
+  meta.voice["zh-TW"] = mapStrings(meta.voice["zh-CN"], ui);
+  write(file, meta);
+}
 
 console.log(`zh-TW.json 已生成；历法词条 ${terms.size} 个，其中 ${Object.keys(termMap).length} 个字形不同`);

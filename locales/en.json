@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "Ao Banxian",
-    "tagline": "A pixel Taoist almanac"
+    "tagline": "A pixel almanac companion"
   },
   "date": {
     "full": "{{monthName}} {{day}}, {{year}}",
@@ -76,17 +76,6 @@
     "qiu": "囚 Confined",
     "si": "死 Dormant"
   },
-  "opening": {
-    "huangdao": "My fingers tell me: an auspicious Yellow Path day!",
-    "heidao": "Steady wins today — no need to rush.",
-    "tianshe": "Day of Heavenly Pardon — no taboos today!",
-    "yanggong": "Keep things simple today.",
-    "festival": "Happy {{name}}!",
-    "jieqi": "It's {{name}} — go with the season.",
-    "personalClash": "Dear {{animal}}, today clashes with you — keep a low profile.",
-    "personalHarmony": "Dear {{animal}}, today is in harmony with you.",
-    "anniversary": "Today is {{name}}!"
-  },
   "specialTag": {
     "tianshe": "天赦日 · Day of Heavenly Pardon",
     "yanggong": "杨公忌 · Yang Gong taboo day",
@@ -106,7 +95,6 @@
     "clashYou": "Clashes with you"
   },
   "menu": {
-    "divine": "Divine",
     "lots": "Draw a Lot",
     "gua": "Daily Hexagram",
     "detail": "Today's details",
@@ -136,7 +124,7 @@
     "autostart": "Launch at login",
     "autostartHint": "Show up on your desktop after you log in",
     "onTop": "Always on top",
-    "onTopHint": "When off, he stays below other windows like a desktop widget",
+    "onTopHint": "When off, the character stays below other windows like a desktop widget",
     "size": "Size",
     "sizeHint": "Pixels are scaled by whole numbers to stay sharp",
     "sizeOptions": {
@@ -221,7 +209,7 @@
     "imported": "Imported {{n}}",
     "importFailed": "Couldn't read that file — nothing imported",
     "character": "Character",
-    "characterHint": "Only the Taoist for now — a scholar with a fan and a magistrate with a notice board are on the way"
+    "characterHint": "Click to switch — the position stays; greetings and the first menu item change voice"
   },
   "about": {
     "title": "About Ao Banxian",

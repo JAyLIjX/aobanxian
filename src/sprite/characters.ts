@@ -7,6 +7,22 @@
 import type { Lang } from "../i18n";
 import type { SpriteData } from "./sprite";
 
+/** 角色的口吻：右键菜单第一项的名字（divine）和每种日子的开场白 */
+export const VOICE_KEYS = [
+  "divine",
+  "huangdao",
+  "heidao",
+  "tianshe",
+  "yanggong",
+  "festival",
+  "jieqi",
+  "personalClash",
+  "personalHarmony",
+  "anniversary",
+] as const;
+export type VoiceKey = (typeof VOICE_KEYS)[number];
+export type Voice = Record<VoiceKey, string>;
+
 export interface CharacterMeta {
   id: string;
   name: Record<Lang, string>;
@@ -16,6 +32,8 @@ export interface CharacterMeta {
    * inPlace = 书写物原地展开成卡片、把它盖住（青天大老爷的告示）；body = 书写物不动，卡片从人物下方展开（扇面、木牌）
    */
   unroll: "writing" | "inPlace" | "body";
+  /** 三种语言的口吻（繁体由 scripts/i18n/build-zh-tw.ts 生成） */
+  voice: Record<Lang, Voice>;
 }
 
 export interface CharacterDef extends CharacterMeta {
@@ -40,4 +58,10 @@ export const CHARACTER_IDS = CHARACTERS.map((c) => c.id);
 
 export function getCharacter(id: string): CharacterDef {
   return CHARACTERS.find((c) => c.id === id) ?? CHARACTERS.find((c) => c.id === DEFAULT_CHARACTER)!;
+}
+
+/** 取角色口吻里的一句，{{name}}、{{animal}} 换成实际的词 */
+export function voiceLine(character: CharacterMeta, lang: Lang, key: VoiceKey, vars: Record<string, string | undefined> = {}): string {
+  const template = character.voice[lang]?.[key] ?? character.voice["zh-CN"][key];
+  return template.replace(/\{\{(\w+)\}\}/g, (_, k: string) => vars[k] ?? "");
 }

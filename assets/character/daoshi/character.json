@@ -1,5 +1,5 @@
 {
-  "$comment": "角色说明。key.png 是色键版（换色区域：洋红 = 大面积主色，青色 = 小面积配色），ref.png 是原配色参考。writing 是印字区域的排法：vertical（竖幡）或 horizontal（扇面、告示）。 unroll：点人展开日历时，writing = 书写物收起、卡片在人物上下展开（幡），inPlace = 书写物原地展开成卡片（告示），body = 书写物不动、卡片从人物下方展开（扇面、木牌）。",
+  "$comment": "角色说明。key.png 是色键版（换色区域：洋红 = 大面积主色，青色 = 小面积配色），ref.png 是原配色参考。writing 是印字区域的排法：vertical（竖幡）或 horizontal（扇面、告示）。 unroll：点人展开日历时，writing = 书写物收起、卡片在人物上下展开（幡），inPlace = 书写物原地展开成卡片（告示），body = 书写物不动、卡片从人物下方展开（扇面、木牌）。 voice：这个角色的口吻（右键菜单第一项的名字 divine，和开场白），简体、英文手写，繁体由 scripts/i18n/build-zh-tw.ts 生成。",
   "id": "daoshi",
   "name": {
     "zh-CN": "道士",
@@ -7,5 +7,43 @@
     "en": "Taoist"
   },
   "writing": "vertical",
-  "unroll": "writing"
+  "unroll": "writing",
+  "voice": {
+    "zh-CN": {
+      "divine": "掐指一算",
+      "huangdao": "掐指一算，今日黄道吉日",
+      "heidao": "今日宜稳不宜急",
+      "tianshe": "今日天赦，百无禁忌",
+      "yanggong": "今日诸事从简",
+      "festival": "掐指一算，今日{{name}}",
+      "jieqi": "今日{{name}}，顺时而行",
+      "personalClash": "属{{animal}}的善信，今日冲你，凡事低调些",
+      "personalHarmony": "属{{animal}}的善信，今日与你相合",
+      "anniversary": "今日是{{name}}"
+    },
+    "zh-TW": {
+      "divine": "掐指一算",
+      "huangdao": "掐指一算，今日黃道吉日",
+      "heidao": "今日宜穩不宜急",
+      "tianshe": "今日天赦，百無禁忌",
+      "yanggong": "今日諸事從簡",
+      "festival": "掐指一算，今日{{name}}",
+      "jieqi": "今日{{name}}，順時而行",
+      "personalClash": "屬{{animal}}的善信，今日沖你，凡事低調些",
+      "personalHarmony": "屬{{animal}}的善信，今日與你相合",
+      "anniversary": "今日是{{name}}"
+    },
+    "en": {
+      "divine": "Divine",
+      "huangdao": "My fingers tell me: an auspicious Yellow Path day!",
+      "heidao": "Steady wins today — no need to rush.",
+      "tianshe": "Day of Heavenly Pardon — no taboos today!",
+      "yanggong": "Keep things simple today.",
+      "festival": "Happy {{name}}!",
+      "jieqi": "It's {{name}} — go with the season.",
+      "personalClash": "Friend born in the Year of the {{animal}}, today clashes with you — keep a low profile.",
+      "personalHarmony": "Friend born in the Year of the {{animal}}, today is in harmony with you.",
+      "anniversary": "Today is {{name}}!"
+    }
+  }
 }
