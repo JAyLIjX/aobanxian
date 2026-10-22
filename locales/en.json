@@ -104,9 +104,14 @@
   },
   "menu": {
     "divine": "Divine",
+    "lots": "Draw a Lot",
+    "gua": "Daily Hexagram",
     "detail": "Today's details",
     "expand": "Open calendar",
     "collapse": "Close calendar",
+    "zeri": "Pick a Day…",
+    "anniversaries": "Anniversaries…",
+    "share": "Share Today",
     "size": "Size",
     "sizeSmall": "Small",
     "sizeMedium": "Medium",
@@ -250,6 +255,29 @@
         "Listen to music or soak your feet to calm down.",
         "Reflect on things — a few lines of journal would be nice."
       ]
+    }
+  },
+  "zeri": {
+    "title": "Pick a Day",
+    "event": "What to do",
+    "range": "Range",
+    "rangeDays": "Next {{n}} days",
+    "count": "{{n}} suitable days",
+    "none": "No especially good days in this period",
+    "hint": "Click a day for details",
+    "huangdao": "Yellow Path",
+    "tianshe": "Heavenly Pardon",
+    "clashYou": "Clashes with you",
+    "matched": "Good for: {{words}}",
+    "events": {
+      "move": "Moving house",
+      "travel": "Travel",
+      "business": "Opening a business",
+      "wedding": "Wedding",
+      "contract": "Signing contracts",
+      "renovation": "Renovation",
+      "bed": "Placing a bed",
+      "worship": "Ancestral offerings"
     }
   }
 }

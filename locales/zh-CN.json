@@ -104,9 +104,14 @@
   },
   "menu": {
     "divine": "掐指一算",
+    "lots": "求签",
+    "gua": "每日一卦",
     "detail": "今日详情",
     "expand": "展开日历",
     "collapse": "收起日历",
+    "zeri": "择日…",
+    "anniversaries": "纪念日…",
+    "share": "分享今日",
     "size": "小人尺寸",
     "sizeSmall": "小",
     "sizeMedium": "中",
@@ -206,5 +211,28 @@
     "thanks": "致谢",
     "thanksList": "历法数据：lunar-javascript（6tail）\n字体：霞鹜文楷、马善政毛笔楷书、志莽行书、Fusion Pixel 像素字体、EB Garamond",
     "disclaimer": "黄历、宜忌、五行穿衣均为传统民俗说法，仅作趣味参考。"
+  },
+  "zeri": {
+    "title": "择日",
+    "event": "想做的事",
+    "range": "范围",
+    "rangeDays": "未来 {{n}} 天",
+    "count": "共 {{n}} 天合适",
+    "none": "这段时间没有特别适合的日子",
+    "hint": "点某一天看详情",
+    "huangdao": "黄道",
+    "tianshe": "天赦",
+    "clashYou": "冲你",
+    "matched": "宜{{words}}",
+    "events": {
+      "move": "搬家",
+      "travel": "出行",
+      "business": "开业",
+      "wedding": "结婚",
+      "contract": "签约",
+      "renovation": "装修",
+      "bed": "安床",
+      "worship": "祭祀"
+    }
   }
 }

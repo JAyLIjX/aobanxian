@@ -9,30 +9,15 @@ import { TrayIcon } from "@tauri-apps/api/tray";
 import type { FigureSize } from "../settings/settings";
 import { inTauri } from "./window";
 
+type Action = "divine" | "lots" | "gua" | "detail" | "toggleCalendar" | "zeri" | "anniversaries" | "share" | "settings" | "about" | "quit";
+
 export interface MenuModel {
-  labels: {
-    divine: string;
-    detail: string;
-    toggleCalendar: string;
-    size: string;
-    sizes: Record<FigureSize, string>;
-    onTop: string;
-    settings: string;
-    about: string;
-    quit: string;
-    tooltip: string;
-  };
+  labels: Record<Action | "size" | "onTop" | "tooltip", string> & { sizes: Record<FigureSize, string> };
   size: FigureSize;
   onTop: boolean;
-  actions: {
-    divine: () => void;
-    detail: () => void;
-    toggleCalendar: () => void;
+  actions: Record<Action, () => void> & {
     setSize: (s: FigureSize) => void;
     toggleOnTop: () => void;
-    settings: () => void;
-    about: () => void;
-    quit: () => void;
   };
 }
 
@@ -43,18 +28,28 @@ async function buildMenu(m: MenuModel): Promise<Menu> {
       CheckMenuItem.new({ text: m.labels.sizes[s], checked: m.size === s, action: () => m.actions.setSize(s) }),
     ),
   );
+  const item = (a: Action) => MenuItem.new({ text: m.labels[a], action: m.actions[a] });
+  // 顺序：掐指一算、求签、每日一卦 ／ 今日详情、展开或收起日历 ／ 择日、纪念日、分享今日 ／
+  //       小人尺寸、置顶、设置 ／ 关于、退出
   return Menu.new({
     items: [
-      await MenuItem.new({ text: m.labels.divine, action: m.actions.divine }),
-      await MenuItem.new({ text: m.labels.detail, action: m.actions.detail }),
-      await MenuItem.new({ text: m.labels.toggleCalendar, action: m.actions.toggleCalendar }),
+      await item("divine"),
+      await item("lots"),
+      await item("gua"),
+      await sep(),
+      await item("detail"),
+      await item("toggleCalendar"),
+      await sep(),
+      await item("zeri"),
+      await item("anniversaries"),
+      await item("share"),
       await sep(),
       await Submenu.new({ text: m.labels.size, items: sizes }),
       await CheckMenuItem.new({ text: m.labels.onTop, checked: m.onTop, action: m.actions.toggleOnTop }),
-      await MenuItem.new({ text: m.labels.settings, action: m.actions.settings }),
+      await item("settings"),
       await sep(),
-      await MenuItem.new({ text: m.labels.about, action: m.actions.about }),
-      await MenuItem.new({ text: m.labels.quit, action: m.actions.quit }),
+      await item("about"),
+      await item("quit"),
     ],
   });
 }

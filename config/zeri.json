@@ -1,0 +1,14 @@
+{
+  "$comment": "择日：大白话事项 → 黄历用词。某一天「宜」里有其中任何一个词、并且「忌」里一个都没有，就算适合。显示文字在 locales 的 zeri.events.<id>。加新事项时在这里加一行，再在三种语言文件里加名字。",
+  "events": [
+    { "id": "move", "words": ["移徙", "入宅"] },
+    { "id": "travel", "words": ["出行"] },
+    { "id": "business", "words": ["开市", "开业"] },
+    { "id": "wedding", "words": ["嫁娶"] },
+    { "id": "contract", "words": ["订盟", "交易", "立券"] },
+    { "id": "renovation", "words": ["修造", "动土"] },
+    { "id": "bed", "words": ["安床"] },
+    { "id": "worship", "words": ["祭祀"] }
+  ],
+  "ranges": [30, 60, 90]
+}

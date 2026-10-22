@@ -104,9 +104,14 @@
   },
   "menu": {
     "divine": "掐指一算",
+    "lots": "求籤",
+    "gua": "每日一卦",
     "detail": "今日詳情",
     "expand": "展開日曆",
     "collapse": "收起日曆",
+    "zeri": "擇日…",
+    "anniversaries": "紀念日…",
+    "share": "分享今日",
     "size": "小人尺寸",
     "sizeSmall": "小",
     "sizeMedium": "中",
@@ -206,6 +211,29 @@
     "thanks": "致謝",
     "thanksList": "曆法資料：lunar-javascript（6tail）\n字型：霞鶩文楷、馬善政毛筆楷書、志莽行書、Fusion Pixel 像素字型、EB Garamond",
     "disclaimer": "農民曆、宜忌、五行穿衣均為傳統民俗說法，僅作趣味參考。"
+  },
+  "zeri": {
+    "title": "擇日",
+    "event": "想做的事",
+    "range": "範圍",
+    "rangeDays": "未來 {{n}} 天",
+    "count": "共 {{n}} 天合適",
+    "none": "這段時間沒有特別適合的日子",
+    "hint": "點某一天看詳情",
+    "huangdao": "黃道",
+    "tianshe": "天赦",
+    "clashYou": "沖你",
+    "matched": "宜{{words}}",
+    "events": {
+      "move": "搬家",
+      "travel": "出行",
+      "business": "開業",
+      "wedding": "結婚",
+      "contract": "簽約",
+      "renovation": "裝修",
+      "bed": "安床",
+      "worship": "祭祀"
+    }
   },
   "rulesText": {
     "tiers": {

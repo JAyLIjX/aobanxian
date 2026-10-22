@@ -5,7 +5,12 @@
   "windows": [
     "main",
     "settings",
-    "about"
+    "about",
+    "zeri",
+    "anniversaries",
+    "lots",
+    "gua",
+    "share"
   ],
   "permissions": [
     "core:default",

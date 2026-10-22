@@ -1,4 +1,3 @@
-import { WebviewWindow } from "@tauri-apps/api/webviewWindow";
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 import branding from "../../config/branding.json";
@@ -21,9 +20,9 @@ import { setLanguage, type Lang } from "../i18n";
 import { term, translate } from "../i18n/terms";
 import { useToday } from "../hooks/useToday";
 import { popupContextMenu, syncTray, type MenuModel } from "../platform/menu";
+import { onOpenDetailRequest, openView } from "../platform/windows";
 import {
   focusWindow,
-  inTauri,
   onWindowMoved,
   quitApp,
   setHitRegions,
@@ -57,19 +56,6 @@ interface Layout {
   sprite: Rect;
   scroll: (Rect & { direction: "down" | "up" }) | null;
   detail: Rect | null;
-}
-
-function openWindow(label: "settings" | "about", title: string, size: { width: number; height: number }) {
-  if (!inTauri) return;
-  void (async () => {
-    const existing = await WebviewWindow.getByLabel(label);
-    if (existing) {
-      await existing.show();
-      await existing.setFocus();
-      return;
-    }
-    new WebviewWindow(label, { url: `index.html?view=${label}`, title, ...size, center: true, focus: true, resizable: label === "settings" });
-  })();
 }
 
 export function MainApp() {
@@ -242,8 +228,13 @@ export function MainApp() {
     () => ({
       labels: {
         divine: t("menu.divine"),
+        lots: t("menu.lots"),
+        gua: t("menu.gua"),
         detail: t("menu.detail"),
         toggleCalendar: expanded ? t("menu.collapse") : t("menu.expand"),
+        zeri: t("menu.zeri"),
+        anniversaries: t("menu.anniversaries"),
+        share: t("menu.share"),
         size: t("menu.size"),
         sizes: { small: t("menu.sizeSmall"), medium: t("menu.sizeMedium"), large: t("menu.sizeLarge") },
         onTop: t("menu.onTop"),
@@ -259,12 +250,17 @@ export function MainApp() {
           setJump((n) => n + 1);
           sayOpening();
         },
+        lots: () => openView("lots", t("lots.title")),
+        gua: () => openView("gua", t("gua.title")),
         detail: () => setDetailDay(today),
         toggleCalendar,
+        zeri: () => openView("zeri", t("zeri.title")),
+        anniversaries: () => openView("anniversaries", t("anniv.title")),
+        share: () => openView("share", t("share.title")),
         setSize: (size) => void update((s) => ({ ...s, size })),
         toggleOnTop: () => void update((s) => ({ ...s, onTop: !s.onTop })),
-        settings: () => openWindow("settings", t("settings.title"), { width: 560, height: 560 }),
-        about: () => openWindow("about", t("about.title"), { width: 420, height: 440 }),
+        settings: () => openView("settings", t("settings.title")),
+        about: () => openView("about", t("about.title")),
         quit: quitApp,
       },
     }),
@@ -276,6 +272,9 @@ export function MainApp() {
     if (loaded) void syncTray(menuModel);
   }, [loaded, menuModel]);
   const onContextMenu = useCallback(() => void popupContextMenu(menuRef.current), []);
+
+  // 择日、纪念日窗口里点某一天：在主窗口打开那天的详情
+  useEffect(() => onOpenDetailRequest((ymd) => setDetailDay(ymd)), []);
 
   // 正式版里关掉 WebView 默认的右键菜单
   useEffect(() => {
