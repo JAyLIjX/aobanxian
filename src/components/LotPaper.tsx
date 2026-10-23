@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import type { Lot } from "../data/lots";
 import { LOT_ASPECTS, LOT_CLASSIC, LOT_SOURCE } from "../data/lots";
 import type { Lang } from "../i18n";
+import { displayClass } from "../i18n/displayFont";
 
 const CN_NUM = "〇一二三四五六七八九";
 /** 1–100 → 一 … 一百 */
@@ -22,7 +23,7 @@ export function LotPaper({ lot, date }: { lot: Lot; date?: string }) {
     <article className="lot-paper">
       <header className="lot-paper__head">
         <div>
-          <div className="lot-paper__number display">{number}</div>
+          <div className={`lot-paper__number ${displayClass(number)}`}>{number}</div>
           {date && <div className="lot-paper__date muted">{date}</div>}
         </div>
         <div className={`lot-paper__grade grade-${lot.grade.length === 2 ? lot.grade === "上上" ? "best" : "worst" : lot.grade === "上" ? "good" : lot.grade === "中" ? "mid" : "low"}`}>

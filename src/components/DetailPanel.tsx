@@ -28,6 +28,7 @@ import {
 } from "../i18n/format";
 import { ganzhi, term, termDesc, translate, yijiExplain } from "../i18n/terms";
 import { loadOpenSections, saveOpenSections } from "./detailSections";
+import { displayClass } from "../i18n/displayFont";
 import { ColorChip } from "./ColorChip";
 
 interface Props {
@@ -145,7 +146,7 @@ export function DetailPanel({ ymd, rules, myZodiac, anniversaries, onChange, onC
             ))}
             {specialTag && <span className="tag tag--red">{specialTag}</span>}
           </div>
-          <h2 className="display">{fmtDate(d.ymd, lang, t)}</h2>
+          <h2 className={displayClass(fmtDate(d.ymd, lang, t))}>{fmtDate(d.ymd, lang, t)}</h2>
           <p>
             {weekday(d.ymd, lang)}　{lunarText(d, lang, t)}
             {marks.map((m) => (

@@ -3,8 +3,10 @@
  * 不用任何系统壁纸、苹果标志或品牌标志。
  */
 import type { ReactNode } from "react";
+import { clockText, MENU_TITLE } from "./text";
+import { DAY } from "./data";
 
-export function Desktop({ children, clock = "10月22日 周四 14:05" }: { children?: ReactNode; clock?: string }) {
+export function Desktop({ children, clock = clockText(DAY) }: { children?: ReactNode; clock?: string }) {
   return (
     <div style={{ position: "absolute", inset: 0, overflow: "hidden", background: "linear-gradient(180deg, #e9e1d0 0%, #efe6d6 45%, #dfe3dc 100%)" }}>
       <svg width="1920" height="1080" viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0 }}>
@@ -33,13 +35,13 @@ export function Desktop({ children, clock = "10月22日 周四 14:05" }: { child
           alignItems: "center",
           justifyContent: "space-between",
           padding: "0 22px",
-          font: "15px 'Promo Kai', 'WX WenKai', sans-serif",
+          font: "15px 'Promo Kai'",
           color: "#4a423b",
         }}
       >
         <span style={{ display: "flex", gap: 22, alignItems: "center" }}>
           <span style={{ width: 12, height: 12, borderRadius: 6, background: "#4a423b", opacity: 0.55 }} />
-          <span>桌面</span>
+          <span>{MENU_TITLE}</span>
         </span>
         <span>{clock}</span>
       </div>

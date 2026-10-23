@@ -32,6 +32,10 @@ interface Props {
   /** 呼吸：每秒浮动一格（和软件一样） */
   breathing?: boolean;
   style?: React.CSSProperties;
+  /** 改身体层的像素（如求签时双手捧签筒的姿势） */
+  edit?: (px: Uint8ClampedArray, width: number, height: number, outfit: Outfit) => Uint8ClampedArray;
+  /** 画在角色前面、跟着呼吸和跳一起动的东西（坐标按角色左上角） */
+  children?: React.ReactNode;
 }
 
 function stepAt(frames: number[] | undefined, frame: number, table: number[], ms: number): number {
@@ -42,7 +46,7 @@ function stepAt(frames: number[] | undefined, frame: number, table: number[], ms
   return 0;
 }
 
-export function PixelSprite({ id, outfit, cell, text, from, changeAt, hideBanner, jumps, sways, breathing = true, style }: Props) {
+export function PixelSprite({ id, outfit, cell, text, from, changeAt, hideBanner, jumps, sways, breathing = true, style, edit, children }: Props) {
   const frame = useCurrentFrame();
   const sprite = getCharacter(id).data;
   const area = useMemo(() => writingArea(sprite), [sprite]);
@@ -50,7 +54,10 @@ export function PixelSprite({ id, outfit, cell, text, from, changeAt, hideBanner
   const b = sprite.banner;
   const bodyRef = useRef<HTMLCanvasElement>(null);
   const bannerRef = useRef<HTMLCanvasElement>(null);
-  const body = useMemo(() => renderSprite(sprite, outfit, { hideBanner: true }), [sprite, outfit]);
+  const body = useMemo(() => {
+    const px = renderSprite(sprite, outfit, { hideBanner: true });
+    return edit ? edit(px, sprite.width, sprite.height, outfit) : px;
+  }, [sprite, outfit, edit]);
   const bannerPixels = useMemo(() => {
     const only = renderSprite(sprite, outfit, { onlyBanner: true });
     const out = new Uint8ClampedArray(b.w * b.h * 4);
@@ -99,6 +106,7 @@ export function PixelSprite({ id, outfit, cell, text, from, changeAt, hideBanner
         {!hideBanner && (
           <canvas ref={bannerRef} style={{ position: "absolute", left: b.x * cell + sway * cell, top: b.y * cell, imageRendering: "pixelated" }} />
         )}
+        {children}
       </div>
     </div>
   );

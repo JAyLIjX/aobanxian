@@ -34,3 +34,18 @@ export function useScrollStops(ref: RefObject<HTMLElement | null>, container: st
     box.scrollTop = y;
   });
 }
+
+/**
+ * 组件版：放在 <Camera> 里面、内容之后（最后一个子元素）。React 按树的顺序挂 ref、跑 useLayoutEffect，父组件最后跑，
+ * 所以这里滚动时 ref 已经挂上，又在镜头量目标位置之前。
+ */
+export function ScrollStops(props: { target: RefObject<HTMLElement | null>; container: string; targets: string[]; stops: { frame: number; target: number }[]; moveFrames?: number; offset?: number }) {
+  useScrollStops(props.target, props.container, props.targets, props.stops, props.moveFrames, props.offset);
+  return null;
+}
+
+/** 每帧在镜头量位置之前跑一段代码（放在 <Camera> 里面） */
+export function BeforeCamera({ run }: { run: () => void }) {
+  useLayoutEffect(run);
+  return null;
+}

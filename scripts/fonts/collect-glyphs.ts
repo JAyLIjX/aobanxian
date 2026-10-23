@@ -73,6 +73,8 @@ for (const w of bannerWords) addAll(banner, w);
 addAll(banner, branding.banner.yiPrefix + branding.banner.jiPrefix + "穿配喜");
 for (const list of Object.values(defaultRules.palettes)) for (const c of list) addAll(banner, c.name);
 addAll(banner, "鼠牛虎兔龙蛇马羊猴鸡狗猪");
+// 签筒小牌子上的字（src/sprite/lotCylinder.ts 的 CYLINDER_LABEL）
+addAll(banner, "签籤");
 const bannerWordsOnly = new Set(banner);
 
 // 4. GB2312 一级常用字（3755 字）：幡上文字可自定义

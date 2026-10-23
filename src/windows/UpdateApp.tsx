@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { checkForUpdate, installUpdate, type UpdateInfo } from "../platform/updater";
 import { inTauri } from "../platform/window";
 import { useWindowSetup } from "./useWindowSetup";
+import { displayClass } from "../i18n/displayFont";
 
 type Stage = "checking" | "available" | "none" | "installing" | "error";
 
@@ -48,7 +49,7 @@ export function UpdateApp() {
         {stage === "error" && <p className="tool__summary">{t("update.failed")}</p>}
         {info && (stage === "available" || stage === "installing") && (
           <>
-            <h2 className="display update__title">{t("update.newVersion", { version: info.version })}</h2>
+            <h2 className={`update__title ${displayClass(t("update.newVersion", { version: info.version }))}`}>{t("update.newVersion", { version: info.version })}</h2>
             <p className="muted">{t("update.current", { version: info.currentVersion })}</p>
             {info.notes && (
               <section className="update__notes">

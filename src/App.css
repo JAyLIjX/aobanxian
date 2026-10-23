@@ -1982,3 +1982,7 @@ html[data-view="textfit"] body {
   border-color: var(--cinnabar);
   color: var(--cinnabar);
 }
+/* 大字字体缺字的文字（「農曆」「奧」等）整行用正文字体，见 src/i18n/displayFont.ts */
+.display--plain {
+  font-family: var(--font-body);
+}

@@ -23,7 +23,7 @@ export function Characters() {
   const frame = useCurrentFrame();
   const cell = 4;
   const enter = IDS.map((_, i) => localBeat("characters", i * 2));
-  const talk = IDS.map((_, i) => localBeat("characters", 8 + i));
+  const talk = IDS.map((_, i) => localBeat("characters", 7 + i));
   const knock = talk[3];
   const slots = [210, 640, 1070, 1500];
   return (
@@ -41,7 +41,7 @@ export function Characters() {
               <div style={{ position: "absolute", left: x, top: y + rise }}>
                 <PixelSprite id={id} outfit={outfitOf(DETAIL)} cell={cell} text="奥半仙" jumps={[enter[i], talk[i]]} />
               </div>
-              <div style={{ position: "absolute", left: slots[i] - 20, top: 990, width: 240, textAlign: "center", font: "30px 'WX MaShanZheng'", color: "#2a2420" }}>{c.name["zh-CN"]}</div>
+              <div style={{ position: "absolute", left: slots[i] - 20, top: 990, width: 240, textAlign: "center", font: "30px 'Promo Brush'", color: "#2a2420" }}>{c.name["zh-CN"]}</div>
               {id !== "heshang" && frame >= talk[i] && <BigBubble text={text} x={x + c.data.width * cell * 0.62} y={y + c.data.headTop * cell - 6} />}
             </div>
           );
@@ -64,7 +64,7 @@ export function Characters() {
               left: slots[3] + 40,
               top: 560 - interpolate(frame, [knock, knock + 30], [0, 70], { extrapolateRight: "clamp" }),
               opacity: interpolate(frame, [knock, knock + 6, knock + 40, knock + 55], [0, 1, 1, 0], { extrapolateRight: "clamp" }),
-              font: "40px 'WX MaShanZheng'",
+              font: "40px 'Promo Brush'",
               color: "#b83a2c",
             }}
           >

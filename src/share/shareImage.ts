@@ -3,6 +3,7 @@
  * 只负责画图；文字由调用方按界面语言准备好。二维码离线生成（qrcode-generator）。
  */
 import qrcode from "qrcode-generator";
+import { displayCovers } from "../i18n/displayFont";
 
 export const SHARE_W = 1080;
 export const SHARE_H = 1440;
@@ -121,7 +122,9 @@ export function renderShareImage(canvas: HTMLCanvasElement, c: ShareContent): vo
   canvas.height = SHARE_H;
   const ctx = canvas.getContext("2d")!;
   const L = shareLayout(!!c.lot, c.sprite.w, c.sprite.h);
-  const { display, body } = c.fonts;
+  const { display: displayFont, body } = c.fonts;
+  // 大字字体缺字（「農曆」「奧」等繁体字）时整行用正文字体，不要一行里夹楷体字
+  const display = (text: string) => (displayCovers(text) ? displayFont : body);
 
   // 纸
   ctx.fillStyle = PAPER;
@@ -138,13 +141,13 @@ export function renderShareImage(canvas: HTMLCanvasElement, c: ShareContent): vo
   // 日期、农历、干支、当日五行
   const t = L.text;
   ctx.fillStyle = INK;
-  fitText(ctx, c.dateBig, display, 120, t.w);
+  fitText(ctx, c.dateBig, display(c.dateBig), 120, t.w);
   ctx.fillText(c.dateBig, t.x, t.y + 130);
   ctx.fillStyle = INK_2;
   fitText(ctx, c.dateLine, body, 34, t.w);
   ctx.fillText(c.dateLine, t.x, t.y + 195);
   ctx.fillStyle = INK;
-  fitText(ctx, c.lunar, display, 56, t.w);
+  fitText(ctx, c.lunar, display(c.lunar), 56, t.w);
   ctx.fillText(c.lunar, t.x, t.y + 290);
   ctx.fillStyle = INK_2;
   fitText(ctx, c.ganzhi, body, 32, t.w);
@@ -176,7 +179,7 @@ export function renderShareImage(canvas: HTMLCanvasElement, c: ShareContent): vo
 
   // 大吉的两个色系，相在前
   const lk = L.lucky;
-  stamp(ctx, c.luckyLabel.slice(0, 2), lk.x, lk.y, 76, true, display);
+  stamp(ctx, c.luckyLabel.slice(0, 2), lk.x, lk.y, 76, true, display(c.luckyLabel));
   let x = lk.x + 104;
   for (const f of c.families) {
     ctx.fillStyle = INK;
@@ -210,7 +213,7 @@ export function renderShareImage(canvas: HTMLCanvasElement, c: ShareContent): vo
     [c.jiLabel, c.ji, false],
   ] as const).forEach(([label, items], col) => {
     const cx = yj.x + col * colW;
-    stamp(ctx, label, cx, yj.y + 10, 64, col === 0, display);
+    stamp(ctx, label, cx, yj.y + 10, 64, col === 0, display(label));
     items.slice(0, 4).forEach((item, i) => {
       ctx.fillStyle = INK;
       fitText(ctx, item, body, 36, colW - 110);
@@ -239,7 +242,7 @@ export function renderShareImage(canvas: HTMLCanvasElement, c: ShareContent): vo
   // 落款与二维码
   const ft = L.footer;
   ctx.fillStyle = CINNABAR;
-  fitText(ctx, c.brand, display, 64, ft.w);
+  fitText(ctx, c.brand, display(c.brand), 64, ft.w);
   ctx.fillText(c.brand, ft.x, ft.y + 60);
   ctx.fillStyle = INK_2;
   fitText(ctx, c.url, body, 26, ft.w);

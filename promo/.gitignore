@@ -5,3 +5,5 @@ out/stills/
 out/frames/
 out/test*.png
 out/bgm-mono.wav
+out/promo-text.json
+out/render.log

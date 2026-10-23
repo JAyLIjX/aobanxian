@@ -11,6 +11,7 @@ import { PixelSprite } from "../lib/PixelSprite";
 import { i18nFor } from "../lib/setup";
 import { Sfx } from "../lib/Sfx";
 import { localBeat } from "../lib/timing";
+import { clockText, COLORS_SEP } from "../lib/text";
 import { dayLabel, explanation, fmtDate, weekday } from "../../../src/i18n/format";
 
 const t = i18nFor("zh-CN").t;
@@ -25,7 +26,7 @@ export function Colors() {
   const day = COLOR_DAYS[idx];
   const d = detailOf(day);
   const colors = bannerItemsOf(d, null).find((x) => x.kind === "colors")!.text;
-  const explainAt = localBeat("colors", 10);
+  const explainAt = localBeat("colors", 9);
   const explainOpacity = interpolate(frame, [explainAt, explainAt + 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   // 翻页：新日期从上方落下
   const since = frame - flips[idx];
@@ -33,7 +34,7 @@ export function Colors() {
   const cell = 6;
   return (
     <AbsoluteFill>
-      <Desktop clock={`${day.month}月${day.day}日 ${weekday(day, "zh-CN").replace("星期", "周")} 09:00`}>
+      <Desktop clock={clockText(day, "09:00")}>
         <div style={{ position: "absolute", left: 1210, top: 300 }}>
           <PixelSprite id="daoshi" outfit={outfitOf(d)} cell={cell} text={colors} jumps={flips.slice(1)} />
         </div>
@@ -51,11 +52,13 @@ export function Colors() {
           }}
           className="paper"
         >
-          <div style={{ font: "30px 'WX WenKai'", color: "rgba(42,36,32,0.7)" }}>
+          <div style={{ font: "30px 'Promo Kai'", color: "rgba(42,36,32,0.7)" }}>
             {fmtDate(day, "zh-CN", t)} {weekday(day, "zh-CN")}
           </div>
-          <div style={{ font: "46px 'WX MaShanZheng', 'WX WenKai'", color: "#2a2420", marginTop: 10 }}>
-            {t("card.todayElement", { label: dayLabel(d.outfit, "zh-CN") })} · <span style={{ color: "#b83a2c" }}>{colors}</span>
+          <div style={{ font: "50px 'Promo Brush'", color: "#2a2420", marginTop: 10 }}>
+            {t("card.todayElement", { label: dayLabel(d.outfit, "zh-CN") })}
+            <span style={{ font: "40px 'Promo Kai'" }}>{COLORS_SEP}</span>
+            <span style={{ color: "#b83a2c" }}>{colors}</span>
           </div>
           <div style={{ display: "flex", gap: 10, marginTop: 18 }}>
             {d.outfit.tiers[0].entries.flatMap((e) => e.colors.slice(0, 3)).map((c) => (
@@ -73,7 +76,7 @@ export function Colors() {
             padding: "18px 26px",
             background: "rgba(232, 214, 200, 0.92)",
             borderLeft: "6px solid #b83a2c",
-            font: "34px 'WX WenKai'",
+            font: "34px 'Promo Kai'",
             color: "#2a2420",
             lineHeight: 1.5,
           }}

@@ -8,7 +8,7 @@ import type { Lang } from "../i18n";
 import { fmtDate } from "../i18n/format";
 import { requestSay } from "../platform/windows";
 import { drawToday, loadBook } from "../settings/lotBook";
-import { CYLINDER_H, CYLINDER_W, cylinderGrid, drawGrid, stickGrid } from "../sprite/lotCylinder";
+import { CYLINDER_H, CYLINDER_LABEL, CYLINDER_W, cylinderGrid, drawCylinderLabel, drawGrid, stickGrid } from "../sprite/lotCylinder";
 import { useWindowSetup } from "./useWindowSetup";
 
 type Stage = "loading" | "idle" | "shaking" | "drawn";
@@ -47,9 +47,15 @@ export function LotsApp() {
   }, [loaded]);
 
   useEffect(() => {
-    if (cylRef.current) drawGrid(cylRef.current, cylinderGrid(), CELL);
+    const cyl = cylRef.current;
+    if (cyl) {
+      drawGrid(cyl, cylinderGrid(), CELL);
+      // 小牌子上的「签」字用像素字画，等字体加载好
+      const label = CYLINDER_LABEL[lang];
+      void document.fonts.load('12px "WX FusionPixel12"', label).then(() => drawCylinderLabel(cyl, CELL, label));
+    }
     if (stickRef.current) drawGrid(stickRef.current, stickGrid(), CELL);
-  }, [stage, tab]);
+  }, [stage, tab, lang]);
 
   const shake = async () => {
     if (stage === "shaking") return;

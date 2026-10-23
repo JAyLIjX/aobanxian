@@ -32,7 +32,7 @@ export function Languages() {
             <span
               key={l.lang}
               style={{
-                font: "30px 'WX WenKai', 'WX Garamond'",
+                font: l.lang === "en" ? "30px 'Promo Garamond'" : "30px 'Promo Kai'",
                 padding: "6px 20px",
                 borderRadius: 999,
                 border: "2px solid #2a2420",

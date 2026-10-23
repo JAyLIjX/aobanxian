@@ -11,7 +11,7 @@ export const CAPTIONS = {
   detail: { title: "今日详情", desc: "时辰、方位、物候、一首诗，一页看全", en: "Hours, directions, seasons and a poem — all on one page" },
   lots: { title: "求签", desc: "每天一签，签诗原文配白话和典故", en: "A fortune lot a day, with plain-language notes and its story" },
   gua: { title: "每日一卦", desc: "梅花易数起卦，体用、互卦、变卦讲清楚", en: "A daily I Ching reading, line by line" },
-  zeri: { title: "择日 · 纪念日", desc: "挑个好日子，记住农历生日", en: "Pick good days and remember lunar birthdays" },
+  zeri: { title: "择日与纪念日", desc: "挑个好日子，记住农历生日", en: "Pick good days and remember lunar birthdays" },
   characters: { title: "四个角色", desc: "道士、书生、青天大老爷、小和尚，各有口吻", en: "Four characters, each with their own voice" },
   share: { title: "分享今日", desc: "一键生成今日黄历图", en: "Make a shareable almanac card in one click" },
   languages: { title: "三种语言", desc: "简体中文 · 繁體中文 · English", en: "Simplified Chinese, Traditional Chinese and English" },

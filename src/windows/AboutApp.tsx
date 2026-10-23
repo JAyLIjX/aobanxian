@@ -3,6 +3,7 @@ import { getCurrentWindow } from "@tauri-apps/api/window";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { displayClass } from "../i18n/displayFont";
 import branding from "../../config/branding.json";
 import { setLanguage } from "../i18n";
 import { inTauri } from "../platform/window";
@@ -26,7 +27,7 @@ export function AboutApp() {
 
   return (
     <main className="about paper">
-      <h1 className="display">{t("app.name")}</h1>
+      <h1 className={displayClass(t("app.name"))}>{t("app.name")}</h1>
       <p className="about__tagline">{t("app.tagline")}</p>
       {version && <p className="muted">{t("about.version", { version })}</p>}
       <dl className="facts about__facts">

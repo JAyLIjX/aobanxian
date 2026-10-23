@@ -6,6 +6,7 @@ import type { PersonalRelation } from "../core/zodiac";
 import type { Lang } from "../i18n";
 import { dayLabel, familyName, fmtYearMonth, ganzhiLine, lunarText, tip as tipText, weekday } from "../i18n/format";
 import { term } from "../i18n/terms";
+import { displayClass } from "../i18n/displayFont";
 import { ColorChip } from "./ColorChip";
 
 interface Props {
@@ -55,7 +56,7 @@ export function TodayCard({ detail, rules, personal, countdown, monthOpen, onOpe
       <div className="today__main">
         <div className="today__day display">{ymd.day}</div>
         <div className="today__lunar">
-          <div className="today__lunar-date display">{lunarText(detail, lang, t)}</div>
+          <div className={`today__lunar-date ${displayClass(lunarText(detail, lang, t))}`}>{lunarText(detail, lang, t)}</div>
           <div className="today__ganzhi">{ganzhiLine(detail, lang, t)}</div>
           {marks.length > 0 && (
             <div className="today__marks">

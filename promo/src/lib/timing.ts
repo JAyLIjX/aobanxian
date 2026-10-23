@@ -16,17 +16,17 @@ export function beatFrame(i: number): number {
 /** 分镜：每段多少拍（4 拍一小节） */
 export const PLAN = [
   { id: "opening", beats: 8 },
-  { id: "colors", beats: 16 },
-  { id: "banner", beats: 12 },
-  { id: "scroll", beats: 12 },
-  { id: "detail", beats: 14 },
-  { id: "lots", beats: 12 },
-  { id: "gua", beats: 10 },
-  { id: "zeri", beats: 10 },
-  { id: "characters", beats: 13 },
+  { id: "colors", beats: 12 },
+  { id: "banner", beats: 10 },
+  { id: "scroll", beats: 10 },
+  { id: "detail", beats: 17 },
+  { id: "lots", beats: 13 },
+  { id: "gua", beats: 12 },
+  { id: "zeri", beats: 13 },
+  { id: "characters", beats: 11 },
   { id: "share", beats: 7 },
   { id: "languages", beats: 6 },
-  { id: "ending", beats: 10 },
+  { id: "ending", beats: 9 },
 ] as const;
 export type SceneId = (typeof PLAN)[number]["id"];
 
@@ -59,4 +59,12 @@ export function scene(id: SceneId): SceneTiming {
 export function localBeat(id: SceneId, k: number): number {
   const s = scene(id);
   return beatFrame(s.beat + k) - s.from;
+}
+
+/** 段内第 k 拍（可以是小数，两拍之间按时间线性插值），相对这一段的开头 */
+export function localBeatF(id: SceneId, k: number): number {
+  const lo = Math.floor(k);
+  const a = localBeat(id, lo);
+  const b = localBeat(id, lo + 1);
+  return Math.round(a + (b - a) * (k - lo));
 }
