@@ -82,6 +82,12 @@ export function GuaApp() {
   useEffect(() => {
     if (g) setOpenLines(new Set([g.cast.moving - 1]));
   }, [g]);
+  // 开发版截图（VITE_TEST_SHOT=windows）：4 秒后滚到动爻那一条
+  useEffect(() => {
+    if (!g || !import.meta.env.DEV || import.meta.env.VITE_TEST_SHOT !== "windows") return;
+    const timer = window.setTimeout(() => document.querySelector(".gua__yao-item.is-moving")?.scrollIntoView({ block: "center" }), 4000);
+    return () => window.clearTimeout(timer);
+  }, [g]);
   if (!g) return <main className="tool paper" />;
 
   const { main, hu, changed, cast: c, input, tiYong: ty } = g;

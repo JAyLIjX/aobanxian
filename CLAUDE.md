@@ -40,7 +40,7 @@ src/core/                  纯 TS，不依赖 React / Tauri / lunar-javascript
   bubble.ts                气泡计时
   zodiac.ts                六合、三合、六冲、六害；我的生肖和今天的关系
   lots.ts                  求签：每日签号（日期 + 本机种子）、签册
-  gua.ts                   梅花易数时间起卦（纯函数）
+  gua.ts                   梅花易数时间起卦、互卦、体用（纯函数）
   poemPick.ts              每日一诗的选诗规则（节日 > 节气 > 满月 > 当季，一年内不重复）
   luckyNumbers.ts          幸运数字（河图数配五行）
 src/calendar/
@@ -203,7 +203,7 @@ JSON 结构：`id`、`writing`（`vertical` 竖排 / `horizontal` 横排）、`b
 
 - 作者的 GitHub 用户名和仓库地址**只写在 `config/branding.json` 的 `author`、`repository`**：关于窗口（作者链接、仓库链接）、分享图上的仓库地址和二维码都从这里读。README 用相对链接（`../../releases`）并指向这个文件，`Cargo.toml` 不写 `authors`。
 - GitHub 改名后：改这两项；`git remote set-url origin https://github.com/<新用户名>/aobanxian.git`；本项目的 `git config user.email` 改成 `<id>+<新用户名>@users.noreply.github.com`（id 用 `gh api user --jq .id` 查，不变）。**不要改写已有提交**，旧提交的带 id 隐私邮箱 GitHub 仍算在同一个账号名下。
-- `tests/username.test.ts` 检查项目文件里不再出现旧用户名（git 历史除外），并检查分享图二维码扫出来就是 `repository`。
+- `tests/username.test.ts` 检查项目文件里不再出现旧用户名（git 历史除外）。分享图的二维码指向 `repository` 的 `/releases/latest`（最新版下载页，`latestReleaseUrl`），下面写「扫码下载」；落款那行仍写仓库地址。`tests/share.test.ts` 从画好的图里截出二维码解码核对。
 
 ## 设置
 
@@ -289,7 +289,15 @@ GitHub Actions（`.github/workflows/release.yml`）推送 `v*` 标签时用 taur
 - **每日一诗**：诗文来自 chinese-poetry（MIT），`scripts/poems/curated.json` 是精选清单（id、季节、标签、名句、英文题名、赏析，自撰），`npx tsx scripts/poems/build-poems.ts <chinese-poetry 目录>` 生成 `src/data/poems.json` 和 `config/poem-days.json`。**诗文不手写**；确认的数据错字写进 `TEXT_FIXES`（如千家诗本「慾斷魂」→「欲斷魂」）。唐诗、宋诗、千家诗原数据是繁体，宋词是简体，另一种字形用 OpenCC 转；简体界面显示简体，繁体界面显示繁体，英文界面保留中文原诗 + 英文大意。宋词题目自动加首句作小题（「水调歌头·明月几时有」）。
   - 选诗（`core/poemPick.ts`）：节日专属诗 > 节气专属诗 > 满月前后两天（农历十三到十七）从当季写月亮的诗里选 > 当季的诗。一年按日期顺序分配，所有诗池共用「已用过」，同一年平常日子不重复；专属诗只在当天出现。季节按节气（立春至谷雨为春……）。测试查一年 365 天季节都对、霜降《山行》、中秋《水调歌头》、清明杜牧《清明》。
   - 卡片底部一行名句（`famous`），点击打开今天的详情并跳到「物候与诗」。
-- **开发用截图**：`VITE_TEST_SHOT=card|detail npm run tauri dev` 启动后自动展开卷轴 / 打开详情并每 4 秒跳一栏，外面用 `screencapture -l <窗口号>` 截图，不用点鼠标。截图在 `preview/v0.4/`。
+  - 满月前后只从当季写月亮的诗里选（用完一轮才重复）；诗题或诗句里明写「中秋」的诗（`onlyMidAutumn`，build-poems.ts 按原文判断）只在中秋当天用。
+  - 诗题统一用短标题（`shortTitle`：组诗只留最后一层，「秋日田园杂兴十二绝·其七」），完整标题放在悬停提示里。
+- **每日一卦**（窗口从上到下）：卦象（上下经卦、经卦象征和五行、画面白话）→ 卦辞与彖传、大象传（原文 + 白话）→ 六爻逐爻（爻题、爻辞、小象传、白话；动爻高亮展开，其余收起）→ 体用 → 互卦 → 变卦（加一句「从本卦经互卦到变卦」的走向）。
+  - 彖传、大象传、小象传原文取自维基文库《周易》各卦页面（`source.revisions` 记了页面版本），解析时 `{{另|庸|墉}}` 这类异文模板取第一个（正文）。
+  - 动爻称呼：初爻、二爻……五爻、上爻，后面加爻题，如「动爻：初爻（初六）」。
+  - 体用（`core/gua.ts` 的 `tiYong`）：动爻所在的经卦为用、另一个为体；用生体、体克用、比和为「顺」，体生用、用克体为「有阻力」，**不写「凶」**。经卦五行：乾兌金、離火、震巽木、坎水、艮坤土。
+  - 互卦（`huGua`）：二至四爻为下卦、三至五爻为上卦。
+- **择日**：设置了我的生肖时，相冲的日子标灰并标「冲你」；相害的只加浅色标签「害你」，不标灰。
+- **开发用截图**：`VITE_TEST_SHOT=card|detail|windows npm run tauri dev`：card 展开卷轴；detail 再打开详情、展开四栏、每 4 秒跳一栏；windows 打开每日一卦（4 秒后滚到动爻）和分享今日窗口。外面用 `screencapture -l <窗口号>` 截图，不用点鼠标。截图在 `preview/v0.4/`。
 - 繁体：签文和诗的大意由 `build-zh-tw.ts` 用 OpenCC（`cn→twp`）生成，**不套** `UI_FIXES`（「衝→沖」只适用于黄历沖煞，散文里的「衝突」要保留）。地支「丑」在繁体里仍是「丑」（OpenCC 会转成「醜」，`TERM_FIXES` 改回）。
 
 ## 测试
