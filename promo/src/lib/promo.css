@@ -1,0 +1,59 @@
+/* 宣传片：所有 CSS 动画、过渡都关掉，动作全由帧号驱动（Remotion 逐帧渲染，CSS 动画会不确定、闪烁） */
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+}
+html,
+body {
+  margin: 0;
+  background: transparent;
+}
+
+/* 字幕字体（scripts/fonts.sh 按字幕文字做的子集；SIL OFL 1.1，许可在 src/fonts/） */
+@font-face {
+  font-family: "Promo Brush";
+  src: url("../fonts/promo-brush.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Promo Kai";
+  src: url("../fonts/promo-kai.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Promo Garamond";
+  src: url("../fonts/promo-garamond.woff2") format("woff2");
+}
+
+/* 详情面板、签纸：量 offsetTop 用 */
+.promo-detail .detail,
+.promo-window .tool__body {
+  position: relative;
+}
+.promo-detail {
+  display: flex;
+  flex-direction: column;
+}
+.promo-detail .detail {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.promo-window .tool__body {
+  overflow: hidden;
+}
+
+/* 窗口外框里的软件窗口：高度跟着外框走，里面的列表才能滚动 */
+.promo-window > div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+.promo-window .tool {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+}
+.promo-window .zeri__list {
+  position: relative;
+  overflow: hidden;
+}

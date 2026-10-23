@@ -10,6 +10,8 @@ interface Props {
   today: Ymd;
   anniversaries: Anniversary[];
   onPick: (ymd: Ymd) => void;
+  /** 指定显示哪个月（离线展示用）；不传就由翻月按钮控制 */
+  view?: { year: number; month: number };
 }
 
 const MIN_YEAR = 1901;
@@ -17,10 +19,11 @@ const MAX_YEAR = 2099;
 const YEARS = Array.from({ length: MAX_YEAR - MIN_YEAR + 1 }, (_, i) => MIN_YEAR + i);
 const MONTHS = Array.from({ length: 12 }, (_, i) => i + 1);
 
-export function MonthView({ today, anniversaries, onPick }: Props) {
+export function MonthView({ today, anniversaries, onPick, view: fixedView }: Props) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as Lang;
-  const [view, setView] = useState({ year: today.year, month: today.month });
+  const [viewState, setView] = useState({ year: today.year, month: today.month });
+  const view = fixedView ?? viewState;
   const grid = useMemo(() => getMonthGrid(view.year, view.month), [view]);
   // 有纪念日的格子右上角一个小红点；前后月份露出来的格子也要算
   const marked = useMemo(() => {

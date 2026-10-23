@@ -315,6 +315,19 @@ GitHub Actions（`.github/workflows/release.yml`）推送 `v*` 标签时用 taur
   - 自动更新的签名（`TAURI_SIGNING_*`）和 Apple 签名是两回事，加了 Apple 签名以后更新签名照旧。
   - Windows 代码签名另需证书（`bundle.windows.certificateThumbprint` 或 Azure Trusted Signing），目前也没有做，SmartScreen 会提示。
 
+## 宣传片（promo/）
+
+- 用 Remotion 做，`promo/` 是单独的 npm 包（`cd promo && npm install`）。画面**直接复用 `src` 里的真实组件**（卡片、月历、详情、签纸、每日一卦、择日、纪念日窗口、分享图、气泡）和真实的精灵图、历法计算，所以和软件完全一致。
+  - 为了能离线、确定地渲染，这些组件有可选的固定输入：`DetailPanel` 的 `now`、`openAll`；`MonthView` 的 `view`；`GuaApp` / `ZeriApp` / `AnniversariesApp` 的 `demo`；分享图内容抽成了 `buildShareContent`（ShareApp 也用它）。不传时行为不变。
+  - `promo/remotion.config.ts`：React 只用仓库根目录那一份；`src/sprite/characters.ts` 的 `import.meta.glob` 换成 `promo/src/shims/characters.ts`（**加了新角色要在 shim 里补上**）；`import.meta.env` 换成常量。
+  - 像素角色用 `promo/src/lib/PixelSprite.tsx`：和 `Daoshi.tsx` 同样的 `renderSprite` / `renderBannerText` / `dissolve`，动作由帧号驱动，只按整数倍放大。CSS 动画在宣传片里全部关掉（`promo.css`），所有动作按帧算。
+  - 数据都在 `promo/src/lib/data.ts`，主日期 2026-10-22（农历九月十三）、「现在」14:05（未时）、我的生肖猴、求签种子固定。
+- **命令**（都在 `promo/` 下）：`npm run studio`（预览）；`npx remotion render src/index.ts Promo out/aobanxian-promo.mp4 --codec=h264 --crf=20 --audio-codec=aac`；`npx remotion still src/index.ts Cover out/cover.png`（B 站封面 1920×1200）。README 用的循环片段：从「每日吉色」那段截 8 秒（`ffmpeg -ss 5.1 -t 8 -an …` 出 `readme-loop.mp4`，再 palettegen / paletteuse 出 `readme-loop.gif`，控制在 5MB 以内）。检查：`python3 scripts/contact-sheet.py`（每 2 秒一帧的联系表，先用 ffmpeg 抽帧到 `out/frames/`）。
+- **换音乐**：把新音乐放到 `promo/audio/bgm.m4a`，`ffmpeg -i audio/bgm.m4a -ac 1 -ar 22050 out/bgm-mono.wav`，`.venv-tools/bin/python scripts/beats.py out/bgm-mono.wav > src/beats.json` 重新检测拍点；各段按拍数排（`src/lib/timing.ts` 的 `PLAN`），段内动作用 `localBeat(段, 第几拍)`，换了音乐不用改分镜代码。片长 = 所有段的拍数之和，音乐自动剪到片长、最后 2 秒淡出；拍子快慢变了要调 `PLAN` 里的拍数让总长回到约 75 秒。
+- **改日期**：改 `data.ts` 的 `DAY`、`NOW`（以及每日吉色那段的 `COLOR_DAYS`：五行各一天、最后一天是 `DAY`；连续五天凑不齐五行）。择日的「冲你」、幡上的「合你」取决于 `MY_ZODIAC` 和当天地支，换日期后看一眼。
+- **加一个功能的一段**：在 `src/scenes/` 写一个场景组件（用 `Desktop`、`Caption`、`Cursor`、`Sfx`、`Place`、`WindowFrame` 这些积木），字幕写进 `src/captions.ts`（标题、一句说明、英文），在 `timing.ts` 的 `PLAN` 里按拍数插一段，在 `Root.tsx` 的 `COMPONENTS` 里登记；改了字幕文字要运行 `bash scripts/fonts.sh` 重新做字幕字体子集。画面里只放软件里真实存在的功能和真实计算出来的数据。
+- **音效**都是代码合成的（`scripts/sfx.py` → `audio/sfx/*.wav`），木鱼的参数和软件里的一样；音量在 `Sfx` 里压在背景音乐下面。
+
 ## 测试
 
 `tests/`：v0.2 新增 生肖关系（六合、三合、六冲、六害）、择日（结果里没有一个在忌里）、纪念日（闰月、小月、跨年、提醒、导入）、开场白优先级、求签（同日同签、一百签齐全）、起卦（观梅占等固定例子、64 卦 384 爻用九用六齐全）、分享图（尺寸、二维码解码）、角色框架（道士搬家后数据不变、横排排版）；以及第一、二轮的 规则、历法、精灵图（五种日子不残留色键色、底层不变、两层叠加、点击分区、幡外的手和肩膀算点人、透明处点穿）、幡面循环与宜忌取值、特殊日子（真实日期、优先级）、开场白与气泡计时、卷轴布局（四个角不超出屏幕、道士不动）、设置（每项改动读回、只存改过的项、恢复默认）、多语言（键一致、繁体无简体字、术语表覆盖十年内所有历法词）。

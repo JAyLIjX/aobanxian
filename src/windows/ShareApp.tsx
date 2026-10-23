@@ -5,18 +5,20 @@ import { mkdir, writeFile } from "@tauri-apps/plugin-fs";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import branding from "../../config/branding.json";
-import { getDayDetail } from "../calendar/day";
+import { getDayDetail, type DayDetail } from "../calendar/day";
 import { chineseNumber } from "../components/LotPaper";
-import { effectiveDate, ymdKey } from "../core/dayBoundary";
+import { effectiveDate, ymdKey, type Ymd } from "../core/dayBoundary";
 import type { Element } from "../core/elements";
 import type { LotRecord } from "../core/lots";
-import { getLot } from "../data/lots";
+import { getLot, type Lot } from "../data/lots";
 import type { Lang } from "../i18n";
 import { dayLabel, familyName, ganzhiLine, lunarText, monthName, weekday } from "../i18n/format";
 import { term } from "../i18n/terms";
 import { inTauri } from "../platform/window";
 import { requestSay } from "../platform/windows";
-import { rulesWith } from "../settings/settings";
+import { rulesWith, type Settings } from "../settings/settings";
+import type { Rules } from "../core/rules";
+import type { TFunction } from "i18next";
 import { todaysLot } from "../settings/lotBook";
 import { ensureBannerFonts, renderBannerText } from "../sprite/bannerText";
 import { writingArea } from "../sprite/writingArea";
@@ -54,47 +56,11 @@ export function ShareApp() {
     if (!loaded) return;
     let cancelled = false;
     void (async () => {
-      const ramp = (e: Element) => rules.pixelRamps[e].map((l) => l.hex) as Ramp;
-      const outfit = { robe: ramp(detail.outfit.primary.element), sash: ramp(detail.outfit.accent.element) };
       const display = cssVar("--font-display");
       const body = cssVar("--font-body");
       await ensureBannerFonts(settings.bannerText, settings.bannerFont);
       await Promise.all([document.fonts.load(`40px ${display}`, "奥半仙0"), document.fonts.load(`40px ${body}`, "宜忌")]).catch(() => {});
-      const sprite = getCharacter(settings.character).data;
-      const area = writingArea(sprite);
-      const face = area.box;
-      const sep = lang === "en" ? " · " : " · ";
-      const l = lot ? getLot(lot.n) : null;
-      const content: ShareContent = {
-        dateBig: t("share.dateBig", { month: today.month, day: today.day, monthName: monthName(today.month, lang) }),
-        dateLine: `${t("date.year", { year: today.year })}${sep}${weekday(today, lang)}`,
-        lunar: lunarText(detail, lang, t),
-        ganzhi: ganzhiLine(detail, lang, t),
-        element: t("card.todayElement", { label: dayLabel(detail.outfit, lang) }),
-        luckyLabel: t("share.lucky"),
-        families: detail.outfit.tiers[0].entries.map((e) => ({
-          name: familyName(e.element, rules, lang, true),
-          colors: e.colors.slice(0, 3).map((c) => c.hex),
-        })),
-        yiLabel: t("detail.yi"),
-        jiLabel: t("detail.ji"),
-        yi: detail.yi.length ? detail.yi.slice(0, 4).map((w) => term("yiji", w, lang)) : [lang === "en" ? t("share.noYi") : branding.banner.noYi],
-        ji: detail.ji.length ? detail.ji.slice(0, 4).map((w) => term("yiji", w, lang)) : [lang === "en" ? t("share.noJi") : branding.banner.noJi],
-        brand: t("app.name"),
-        url: branding.repository,
-        qrUrl: latestReleaseUrl(branding.repository),
-        scanHint: t("share.scan"),
-        lot:
-          withLot && l
-            ? {
-                title: t("share.lotTitle", { number: t("lots.number", { n: lang === "en" ? l.n : chineseNumber(l.n) }), grade: l.grade }),
-                poem: l.poem,
-              }
-            : undefined,
-        sprite: { pixels: renderSprite(sprite, outfit), w: sprite.width, h: sprite.height },
-        banner: { x: face.x, y: face.y, w: face.w, h: face.h, mask: renderBannerText(settings.bannerText, settings.bannerFont, area, SPRITE_CELL, SPRITE_CELL).mask },
-        fonts: { display, body },
-      };
+      const content = buildShareContent({ t, lang, today, detail, rules, settings, lot: withLot && lot ? getLot(lot.n) : null, fonts: { display, body } });
       if (!cancelled && canvasRef.current) renderShareImage(canvasRef.current, content);
     })();
     return () => {
@@ -163,4 +129,63 @@ export function ShareApp() {
       </div>
     </main>
   );
+}
+
+/**
+ * 分享图的内容（文字按界面语言、精灵按当天配色、幡上文字按设置）。ShareApp 和宣传片共用。
+ */
+export function buildShareContent({
+  t,
+  lang,
+  today,
+  detail,
+  rules,
+  settings,
+  lot,
+  fonts,
+}: {
+  t: TFunction;
+  lang: Lang;
+  today: Ymd;
+  detail: DayDetail;
+  rules: Rules;
+  settings: Pick<Settings, "character" | "bannerText" | "bannerFont">;
+  lot: Lot | null;
+  fonts: { display: string; body: string };
+}): ShareContent {
+  const ramp = (e: Element) => rules.pixelRamps[e].map((l) => l.hex) as Ramp;
+  const outfit = { robe: ramp(detail.outfit.primary.element), sash: ramp(detail.outfit.accent.element) };
+  const sprite = getCharacter(settings.character).data;
+  const area = writingArea(sprite);
+  const face = area.box;
+  const sep = " · ";
+  return {
+    dateBig: t("share.dateBig", { month: today.month, day: today.day, monthName: monthName(today.month, lang) }),
+    dateLine: `${t("date.year", { year: today.year })}${sep}${weekday(today, lang)}`,
+    lunar: lunarText(detail, lang, t),
+    ganzhi: ganzhiLine(detail, lang, t),
+    element: t("card.todayElement", { label: dayLabel(detail.outfit, lang) }),
+    luckyLabel: t("share.lucky"),
+    families: detail.outfit.tiers[0].entries.map((e) => ({
+      name: familyName(e.element, rules, lang, true),
+      colors: e.colors.slice(0, 3).map((c) => c.hex),
+    })),
+    yiLabel: t("detail.yi"),
+    jiLabel: t("detail.ji"),
+    yi: detail.yi.length ? detail.yi.slice(0, 4).map((w) => term("yiji", w, lang)) : [lang === "en" ? t("share.noYi") : branding.banner.noYi],
+    ji: detail.ji.length ? detail.ji.slice(0, 4).map((w) => term("yiji", w, lang)) : [lang === "en" ? t("share.noJi") : branding.banner.noJi],
+    brand: t("app.name"),
+    url: branding.repository,
+    qrUrl: latestReleaseUrl(branding.repository),
+    scanHint: t("share.scan"),
+    lot: lot
+      ? {
+          title: t("share.lotTitle", { number: t("lots.number", { n: lang === "en" ? lot.n : chineseNumber(lot.n) }), grade: lot.grade }),
+          poem: lot.poem,
+        }
+      : undefined,
+    sprite: { pixels: renderSprite(sprite, outfit), w: sprite.width, h: sprite.height },
+    banner: { x: face.x, y: face.y, w: face.w, h: face.h, mask: renderBannerText(settings.bannerText, settings.bannerFont, area, SPRITE_CELL, SPRITE_CELL).mask },
+    fonts,
+  };
 }

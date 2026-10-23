@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { pickDays, ZERI_EVENTS, ZERI_RANGES } from "../calendar/zeri";
-import { effectiveDate } from "../core/dayBoundary";
+import { effectiveDate, type Ymd } from "../core/dayBoundary";
 import type { Lang } from "../i18n";
 import { dayLabel, fmtDate, ganzhiLine, lunarText, weekday } from "../i18n/format";
 import { term } from "../i18n/terms";
@@ -10,16 +10,17 @@ import { rulesWith } from "../settings/settings";
 import { useWindowSetup } from "./useWindowSetup";
 
 /** 择日：选一件事和范围，列出宜做且不忌的日子 */
-export function ZeriApp() {
+/** demo：宣传片等离线展示用，固定「今天」、我的生肖和选中的事 */
+export function ZeriApp({ demo }: { demo?: { today: Ymd; myBranch: string | null; eventId: string } } = {}) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as Lang;
   const { settings } = useWindowSetup("zeri.title");
   const rules = useMemo(() => rulesWith(settings), [settings]);
-  const [eventId, setEventId] = useState(ZERI_EVENTS[0].id);
+  const [eventId, setEventId] = useState(demo?.eventId ?? ZERI_EVENTS[0].id);
   const [range, setRange] = useState(ZERI_RANGES[0]);
   const event = ZERI_EVENTS.find((e) => e.id === eventId)!;
-  const today = effectiveDate(new Date(), rules.dayBoundary);
-  const myBranch = settings.myZodiac === "none" ? null : settings.myZodiac;
+  const today = demo?.today ?? effectiveDate(new Date(), rules.dayBoundary);
+  const myBranch = demo ? demo.myBranch : settings.myZodiac === "none" ? null : settings.myZodiac;
   const days = useMemo(
     () => pickDays(event, today, range, rules, myBranch),
     // eslint-disable-next-line react-hooks/exhaustive-deps

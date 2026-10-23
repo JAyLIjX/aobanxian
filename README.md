@@ -1,5 +1,9 @@
 # 奥半仙 Ao Banxian
 
+<p>
+  <img src="promo/out/readme-loop.gif" alt="每日吉色：日期翻过五天，道袍随五行换色" width="720">
+</p>
+
 一个住在桌面上的像素道士。他每天按五行换一身吉色道袍，举着的幡上会写今天宜什么、忌什么；点一下他，幡就展开成一幅挂轴日历。支持 macOS 和 Windows。
 
 <p>
@@ -10,6 +14,8 @@
 </p>
 
 > 黄历、宜忌、五行穿衣都是传统民俗说法，仅作趣味参考，图个好心情。
+
+宣传片（75 秒，只有字幕和音乐）：[promo/out/aobanxian-promo.mp4](promo/out/aobanxian-promo.mp4)
 
 ## 功能
 

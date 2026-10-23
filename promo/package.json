@@ -1,0 +1,16 @@
+{
+  "name": "aobanxian-promo",
+  "private": true,
+  "description": "奥半仙宣传片（Remotion）。复用 ../src 里真实的组件、精灵图和历法计算。",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts Promo out/aobanxian-promo.mp4",
+    "still": "remotion still src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.538",
+    "remotion": "4.0.538",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  }
+}

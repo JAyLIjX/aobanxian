@@ -6,7 +6,7 @@ import {
   type Anniversary,
   type AnniversaryType,
 } from "../calendar/anniversary";
-import { effectiveDate } from "../core/dayBoundary";
+import { effectiveDate, type Ymd } from "../core/dayBoundary";
 import type { Lang } from "../i18n";
 import {
   anniversaryDate,
@@ -44,12 +44,15 @@ function blank(today: { year: number }): Anniversary {
 }
 
 /** 纪念日管理：列表（下次的公历日期、还有几天）+ 添加 / 编辑表单 */
-export function AnniversariesApp() {
+/** demo：宣传片等离线展示用，固定「今天」和纪念日列表（不读写本机数据） */
+export function AnniversariesApp({ demo }: { demo?: { today: Ymd; list: Anniversary[] } } = {}) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as Lang;
   const { settings } = useWindowSetup("anniv.title");
-  const { list, save } = useAnniversaries();
-  const today = effectiveDate(new Date(), settings.dayBoundary);
+  const stored = useAnniversaries();
+  const list = demo?.list ?? stored.list;
+  const save = stored.save;
+  const today = demo?.today ?? effectiveDate(new Date(), settings.dayBoundary);
   const [editing, setEditing] = useState<Anniversary | null>(null);
   // 名称输入框里当前的字是否合法（超字数或空白时不能保存）
   const [nameValid, setNameValid] = useState(true);

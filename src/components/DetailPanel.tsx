@@ -39,6 +39,10 @@ interface Props {
   onClose: () => void;
   /** 跳到哪一栏（卡片上点名句时跳到「物候与诗」）；seq 每次请求加一，同一栏也能再跳 */
   focus?: { id: SectionId; seq: number } | null;
+  /** 固定「现在」（宣传片等离线展示用，决定高亮哪个时辰）；不传就用真实时间 */
+  now?: Date;
+  /** 四个折叠栏全部展开（离线展示用） */
+  openAll?: boolean;
 }
 
 /** 详情的各栏，顺序同顶部小目录 */
@@ -52,16 +56,17 @@ function addDays(ymd: Ymd, delta: number): Ymd {
   return { year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate() };
 }
 
-export function DetailPanel({ ymd, rules, myZodiac, anniversaries, onChange, onClose, focus }: Props) {
+export function DetailPanel({ ymd, rules, myZodiac, anniversaries, onChange, onClose, focus, now: fixedNow, openAll }: Props) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as Lang;
   const d = useMemo(() => getDayDetail(ymd, rules), [ymd, rules]);
   const almanac = useMemo(() => getAlmanac(ymd), [ymd]);
   const extras = useMemo(() => getDayExtras(ymd), [ymd]);
   const picked = useMemo(() => poemForDay(ymd), [ymd]);
-  const [open, setOpen] = useState<Record<string, boolean>>(loadOpenSections);
+  const [open, setOpen] = useState<Record<string, boolean>>(() => (openAll ? { hours: true, positions: true, nature: true, more: true } : loadOpenSections()));
   const refs = useRef<Partial<Record<SectionId, HTMLElement | null>>>({});
-  const now = useNow();
+  const liveNow = useNow();
+  const now = fixedNow ?? liveNow;
   const isToday = now.getFullYear() === ymd.year && now.getMonth() + 1 === ymd.month && now.getDate() === ymd.day;
   const currentHour = isToday ? hourIndex(now.getHours()) : null;
 

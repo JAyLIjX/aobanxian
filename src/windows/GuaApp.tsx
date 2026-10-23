@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { dailyGua } from "../calendar/guaDay";
-import { effectiveDate } from "../core/dayBoundary";
+import { effectiveDate, type Ymd } from "../core/dayBoundary";
 import { BRANCHES, TRIGRAM_ELEMENT, type Trigram } from "../core/gua";
 import { fullName, ZHOUYI_SOURCE, type Hexagram } from "../data/zhouyi";
 import type { Lang } from "../i18n";
@@ -66,14 +66,15 @@ function Classic({ label, text, plain, plainLabel }: { label?: string; text: str
  * 每日一卦：梅花易数时间起卦。从上到下：卦象、卦辞与彖传和大象传、六爻逐爻、体用、互卦、变卦。
  * 原文（卦辞、彖传、象传、爻辞）保持维基文库繁体；白话为自撰，三种语言。
  */
-export function GuaApp() {
+/** demo：宣传片等离线展示用，固定日期和起卦的钟点 */
+export function GuaApp({ demo }: { demo?: { today: Ymd; hour: number } } = {}) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as Lang;
   const { settings, loaded } = useWindowSetup("gua.title");
-  const today = effectiveDate(new Date(), settings.dayBoundary);
-  const [hour, setHour] = useState<number | null>(null);
+  const today = demo?.today ?? effectiveDate(new Date(), settings.dayBoundary);
+  const [hour, setHour] = useState<number | null>(demo?.hour ?? null);
   useEffect(() => {
-    if (loaded) void castHourFor(today).then(setHour);
+    if (loaded && !demo) void castHourFor(today).then(setHour);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loaded]);
   const g = useMemo(() => (hour === null ? null : dailyGua(today, hour)), [hour, today.year, today.month, today.day]); // eslint-disable-line react-hooks/exhaustive-deps
