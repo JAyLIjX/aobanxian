@@ -439,10 +439,108 @@
     "hourRange": "{{from}}:00–{{to}}:00",
     "note": "Based on the hour you first cast today — one hexagram per day",
     "main": "Hexagram",
-    "movingLine": "Moving line: line {{n}}",
     "changed": "Changed hexagram",
     "extraNote": "{{tag}} applies only when all six lines move; included for reference",
-    "source": "Judgments and line texts from the “{{title}}” (Book of Changes), via Chinese Wikisource, in the original text. The English readings are our own."
+    "source": "Judgments, line texts, Tuan and Image commentaries are from the “{{title}}” on Chinese Wikisource, in the original text. The plain-language notes are our own.",
+    "sectionImage": "The image",
+    "sectionText": "Judgment, Tuan and Great Image",
+    "sectionLines": "The six lines",
+    "sectionTiYong": "Ti and Yong",
+    "sectionHu": "Nuclear hexagram",
+    "sectionChanged": "Changed hexagram",
+    "composition": "{{upper}} above, {{lower}} below — {{full}}",
+    "trigramLine": "{{name}} is {{image}}, element {{element}}: {{meaning}}",
+    "trigram": {
+      "qian": {
+        "name": "乾 Qian",
+        "image": "Heaven",
+        "meaning": "strength and initiative — heaven, the father, the one who leads"
+      },
+      "dui": {
+        "name": "兌 Dui",
+        "image": "Lake",
+        "meaning": "joy and ease — the lake, the youngest daughter, speech"
+      },
+      "li": {
+        "name": "離 Li",
+        "image": "Fire",
+        "meaning": "brightness and clinging — fire and the sun, the middle daughter, culture"
+      },
+      "zhen": {
+        "name": "震 Zhen",
+        "image": "Thunder",
+        "meaning": "arousal and action — thunder, the eldest son, getting moving"
+      },
+      "xun": {
+        "name": "巽 Xun",
+        "image": "Wind",
+        "meaning": "gentleness and penetration — wind and plants, the eldest daughter, communication"
+      },
+      "kan": {
+        "name": "坎 Kan",
+        "image": "Water",
+        "meaning": "danger and flow — water, the middle son, wisdom in difficulty"
+      },
+      "gen": {
+        "name": "艮 Gen",
+        "image": "Mountain",
+        "meaning": "stillness and steadiness — the mountain, the youngest son, knowing when to stop"
+      },
+      "kun": {
+        "name": "坤 Kun",
+        "image": "Earth",
+        "meaning": "yielding and bearing — the earth, the mother, acceptance"
+      }
+    },
+    "element": {
+      "木": "Wood",
+      "火": "Fire",
+      "土": "Earth",
+      "金": "Metal",
+      "水": "Water"
+    },
+    "tuanLabel": "Tuan (彖曰)",
+    "daxiangLabel": "Great Image (象曰)",
+    "plain": "In plain words",
+    "linePosition": [
+      "Line 1",
+      "Line 2",
+      "Line 3",
+      "Line 4",
+      "Line 5",
+      "Top line"
+    ],
+    "movingLine": "Moving line: {{position}} ({{tag}})",
+    "xiaoxiangLabel": "Small Image",
+    "movingTag": "Moving",
+    "tiYongIntro": "The moving line is in the {{where}}, so {{yong}} is Yong (the matter, the outside world) and {{ti}} is Ti (yourself).",
+    "where": {
+      "lower": "lower trigram",
+      "upper": "upper trigram"
+    },
+    "tiYongPair": "Ti {{ti}} is {{tiElement}}, Yong {{yong}} is {{yongElement}}: {{relation}}.",
+    "relation": {
+      "yongShengTi": "Yong nourishes Ti",
+      "tiKeYong": "Ti governs Yong",
+      "biHe": "in harmony",
+      "tiShengYong": "Ti feeds Yong",
+      "yongKeTi": "Yong presses on Ti"
+    },
+    "tone": {
+      "smooth": "Smooth",
+      "resistance": "Some resistance"
+    },
+    "relationMeaning": {
+      "yongShengTi": "People and circumstances are on your side today. Things go smoothly — go ahead and push forward.",
+      "tiKeYong": "The matter is within your control; with some effort it gets done. A good day to take the initiative.",
+      "biHe": "Inside and outside are in tune. Take things step by step and go with the flow.",
+      "tiShengYong": "The matter asks you to give your energy. It moves forward, but it takes effort — pace yourself.",
+      "yongKeTi": "There is outside pressure and some resistance. Keep steady today, avoid head-on clashes and wait for your moment."
+    },
+    "huNote": "The main hexagram shows the beginning, the nuclear hexagram the process, the changed hexagram the outcome.",
+    "trajectory": "The whole matter starts from {{main}}, passes through {{hu}}, and ends in {{changed}}.",
+    "expand": "Show",
+    "collapse": "Hide"
   },
   "share": {
     "title": "Share Today",

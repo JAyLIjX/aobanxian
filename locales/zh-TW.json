@@ -394,10 +394,108 @@
     "hourRange": "{{from}}–{{to}} 點",
     "note": "以你今天第一次起卦的時辰為準，一天一卦",
     "main": "本卦",
-    "movingLine": "動爻：第 {{n}} 爻",
     "changed": "變卦",
     "extraNote": "六爻全動時才用{{tag}}，這裡附上原文",
-    "source": "卦辭、爻辭出自《{{title}}》，錄自維基文庫，保持原文。白話為奧半仙自撰。"
+    "source": "卦辭、爻辭、彖傳、象傳出自《{{title}}》，錄自維基文庫，保持原文。白話為奧半仙自撰。",
+    "sectionImage": "卦象",
+    "sectionText": "卦辭與彖傳、大象傳",
+    "sectionLines": "六爻",
+    "sectionTiYong": "體用",
+    "sectionHu": "互卦",
+    "sectionChanged": "變卦",
+    "composition": "上{{upper}}下{{lower}}，{{full}}",
+    "trigramLine": "{{name}}為{{image}}，五行屬{{element}}：{{meaning}}",
+    "trigram": {
+      "qian": {
+        "name": "乾",
+        "image": "天",
+        "meaning": "剛健、主動，象徵天、父親、領頭的人"
+      },
+      "dui": {
+        "name": "兌",
+        "image": "澤",
+        "meaning": "喜悅、和悅，象徵湖澤、少女、言談"
+      },
+      "li": {
+        "name": "離",
+        "image": "火",
+        "meaning": "光明、依附，象徵火與太陽、中女、文采"
+      },
+      "zhen": {
+        "name": "震",
+        "image": "雷",
+        "meaning": "震動、奮起，象徵雷、長男、行動"
+      },
+      "xun": {
+        "name": "巽",
+        "image": "風",
+        "meaning": "柔順、滲入，象徵風與草木、長女、溝通"
+      },
+      "kan": {
+        "name": "坎",
+        "image": "水",
+        "meaning": "險陷、流動，象徵水、中男、困難中的智慧"
+      },
+      "gen": {
+        "name": "艮",
+        "image": "山",
+        "meaning": "靜止、穩重，象徵山、少男、適可而止"
+      },
+      "kun": {
+        "name": "坤",
+        "image": "地",
+        "meaning": "柔順、承載，象徵大地、母親、包容"
+      }
+    },
+    "element": {
+      "木": "木",
+      "火": "火",
+      "土": "土",
+      "金": "金",
+      "水": "水"
+    },
+    "tuanLabel": "彖曰",
+    "daxiangLabel": "象曰",
+    "plain": "白話",
+    "linePosition": [
+      "初爻",
+      "二爻",
+      "三爻",
+      "四爻",
+      "五爻",
+      "上爻"
+    ],
+    "movingLine": "動爻：{{position}}（{{tag}}）",
+    "xiaoxiangLabel": "小象",
+    "movingTag": "動爻",
+    "tiYongIntro": "動爻在{{where}}，所以{{yongWhere}}{{yong}}為「用」（事情、外界），{{tiWhere}}{{ti}}為「體」（自己）。",
+    "where": {
+      "lower": "下卦",
+      "upper": "上卦"
+    },
+    "tiYongPair": "體卦{{ti}}屬{{tiElement}}，用卦{{yong}}屬{{yongElement}}：{{relation}}。",
+    "relation": {
+      "yongShengTi": "用生體",
+      "tiKeYong": "體克用",
+      "biHe": "比和",
+      "tiShengYong": "體生用",
+      "yongKeTi": "用克體"
+    },
+    "tone": {
+      "smooth": "順",
+      "resistance": "有阻力"
+    },
+    "relationMeaning": {
+      "yongShengTi": "外界的人和事在幫你、給你助力。今天做事比較順，可以放手推進。",
+      "tiKeYong": "事情在你的掌控之中，花些力氣就能辦成。今天適合主動去做。",
+      "biHe": "體用同氣，內外一致。今天按部就班、順勢而為就好。",
+      "tiShengYong": "事情要你付出精力去成全，會有進展，但比較費力。今天量力而行，別透支。",
+      "yongKeTi": "外部的壓力比較大，事情推進有阻力。今天宜穩一點，少硬碰，等時機。"
+    },
+    "huNote": "本卦看開始，互卦看過程，變卦看結果。",
+    "trajectory": "整件事從「{{main}}」開始，經過「{{hu}}」，最後走向「{{changed}}」。",
+    "expand": "展開",
+    "collapse": "收起"
   },
   "share": {
     "title": "分享今日",

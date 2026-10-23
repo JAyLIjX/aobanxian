@@ -4,8 +4,10 @@
  *   上卦 = (年支数 + 农历月 + 农历日) mod 8（0 作 8）
  *   下卦 = (年支数 + 农历月 + 农历日 + 时支数) mod 8（0 作 8）
  *   动爻 = (年支数 + 农历月 + 农历日 + 时支数) mod 6（0 作 6）
- * 本卦动爻阴阳互换得变卦。
+ * 本卦动爻阴阳互换得变卦；二至四爻、三至五爻组成互卦；动爻所在的经卦为用、另一个为体。
  */
+import { controlledBy, generatedBy, type Element } from "./elements";
+
 export type Trigram = "乾" | "兌" | "離" | "震" | "巽" | "坎" | "艮" | "坤";
 
 /** 先天八卦数 1–8 对应的卦 */
@@ -83,4 +85,64 @@ export function cast(input: CastInput): Cast {
     changedLower: trigramOf(changedLines.slice(0, 3)),
     changedLines,
   };
+}
+
+/** 爻位的传统称呼：初爻、二爻 …… 五爻、上爻 */
+export const LINE_POSITIONS = ["初爻", "二爻", "三爻", "四爻", "五爻", "上爻"] as const;
+
+/** 经卦的五行：乾兌金、離火、震巽木、坎水、艮坤土 */
+export const TRIGRAM_ELEMENT: Record<Trigram, Element> = {
+  乾: "金",
+  兌: "金",
+  離: "火",
+  震: "木",
+  巽: "木",
+  坎: "水",
+  艮: "土",
+  坤: "土",
+};
+
+/** 互卦：本卦二至四爻为下卦、三至五爻为上卦 */
+export function huGua(lines: number[]): { upper: Trigram; lower: Trigram; lines: number[] } {
+  const lower = trigramOf(lines.slice(1, 4));
+  const upper = trigramOf(lines.slice(2, 5));
+  return { upper, lower, lines: [...lines.slice(1, 4), ...lines.slice(2, 5)] };
+}
+
+/**
+ * 体用的五行关系：
+ *   用生体、体克用、比和 → 顺；体生用、用克体 → 有阻力
+ * （界面只用「顺」「有阻力」这类说法，不写「凶」）
+ */
+export type TiYongRelation = "yongShengTi" | "tiKeYong" | "biHe" | "tiShengYong" | "yongKeTi";
+
+export interface TiYong {
+  /** 体卦：没有动爻的那个经卦 */
+  ti: Trigram;
+  /** 用卦：动爻所在的经卦 */
+  yong: Trigram;
+  /** 用卦是下卦（动爻在一至三爻）还是上卦 */
+  yongIs: "lower" | "upper";
+  tiElement: Element;
+  yongElement: Element;
+  relation: TiYongRelation;
+  tone: "smooth" | "resistance";
+}
+
+export function tiYongRelation(ti: Element, yong: Element): TiYongRelation {
+  if (ti === yong) return "biHe";
+  if (generatedBy(yong) === ti) return "yongShengTi";
+  if (controlledBy(ti) === yong) return "tiKeYong";
+  if (generatedBy(ti) === yong) return "tiShengYong";
+  return "yongKeTi";
+}
+
+/** 梅花易数的体用：动爻所在的经卦为用，另一个为体 */
+export function tiYong(c: Pick<Cast, "upper" | "lower" | "moving">): TiYong {
+  const yongIs = c.moving <= 3 ? "lower" : "upper";
+  const yong = yongIs === "lower" ? c.lower : c.upper;
+  const ti = yongIs === "lower" ? c.upper : c.lower;
+  const relation = tiYongRelation(TRIGRAM_ELEMENT[ti], TRIGRAM_ELEMENT[yong]);
+  const tone = relation === "tiShengYong" || relation === "yongKeTi" ? "resistance" : "smooth";
+  return { ti, yong, yongIs, tiElement: TRIGRAM_ELEMENT[ti], yongElement: TRIGRAM_ELEMENT[yong], relation, tone };
 }

@@ -11,6 +11,7 @@
  *   assets/character/<id>/character.json   各角色口吻的 voice["zh-TW"]
  *   src/data/lots.json        签的白话总解、典故故事、分事项的 zh-TW（签诗原文不动）
  *   src/data/poems.json       每日一诗赏析的 zh-TW（诗文不动）
+ *   src/data/zhouyi.json      每日一卦自撰白话的 zh-TW（卦辞、爻辞、彖传、象传原文不动）
  *
  * 人工检查后要改的词写进 UI_FIXES / TERM_FIXES，重新运行即可。
  */
@@ -147,6 +148,16 @@ for (const lot of lotsFile.lots as { reading: Tri; tale?: Tri; aspects?: Record<
   for (const a of Object.values(lot.aspects ?? {})) tw(a);
 }
 write("src/data/lots.json", lotsFile);
+
+// 7. 每日一卦的自撰白话（卦象画面、彖传和大象传白话、一句话、主题短语）
+const zhouyiFile = read("src/data/zhouyi.json");
+for (const h of zhouyiFile.hexagrams as Record<string, unknown>[]) {
+  for (const k of ["image", "tuanPlain", "daxiangPlain", "brief", "theme"]) {
+    const x = h[k] as Tri | undefined;
+    if (x?.["zh-CN"]) x["zh-TW"] = prose(x["zh-CN"]);
+  }
+}
+write("src/data/zhouyi.json", zhouyiFile);
 
 // 6. 每日一诗的赏析（诗文本身的简繁由 scripts/poems/build-poems.ts 生成）
 const poemsFile = read("src/data/poems.json");

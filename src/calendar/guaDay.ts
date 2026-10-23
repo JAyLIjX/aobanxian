@@ -3,14 +3,18 @@
  */
 import { Solar } from "lunar-javascript";
 import type { Ymd } from "../core/dayBoundary";
-import { cast, hourBranch, type Cast, type CastInput } from "../core/gua";
+import { cast, hourBranch, huGua, tiYong, type Cast, type CastInput, type TiYong } from "../core/gua";
 import { hexagramOf, type Hexagram } from "../data/zhouyi";
 
 export interface DailyGua {
   input: CastInput;
   cast: Cast;
   main: Hexagram;
+  /** 互卦：本卦二至四爻、三至五爻 */
+  hu: Hexagram;
+  huLines: number[];
   changed: Hexagram;
+  tiYong: TiYong;
 }
 
 /** 年支按农历年（正月初一换年），闰月按本月数 */
@@ -27,5 +31,14 @@ export function castInputFor(day: Ymd, hour: number): CastInput {
 export function dailyGua(day: Ymd, hour: number): DailyGua {
   const input = castInputFor(day, hour);
   const c = cast(input);
-  return { input, cast: c, main: hexagramOf(c.upper, c.lower), changed: hexagramOf(c.changedUpper, c.changedLower) };
+  const hu = huGua(c.lines);
+  return {
+    input,
+    cast: c,
+    main: hexagramOf(c.upper, c.lower),
+    hu: hexagramOf(hu.upper, hu.lower),
+    huLines: hu.lines,
+    changed: hexagramOf(c.changedUpper, c.changedLower),
+    tiYong: tiYong(c),
+  };
 }

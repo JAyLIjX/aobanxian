@@ -414,12 +414,19 @@ export function MainApp() {
   }, [loaded]);
 
   // 开发版截图：VITE_TEST_SHOT=card npm run tauri dev 启动后展开卷轴（看卡片底部的名句）；
+  // VITE_TEST_SHOT=windows 打开每日一卦和分享今日窗口；
   // VITE_TEST_SHOT=detail 再打开今天的详情，把四个折叠栏都展开，每 4 秒跳到下一栏（穿衣 → … → 更多），
   // 外面用 screencapture -l <窗口号> 按时截图，不用点鼠标
   useEffect(() => {
     const shot = import.meta.env.DEV ? (import.meta.env.VITE_TEST_SHOT as string | undefined) : undefined;
     if (!shot || !loaded) return;
     const timers: number[] = [];
+    if (shot === "windows") {
+      // 打开每日一卦、分享今日两个窗口
+      timers.push(window.setTimeout(() => menuRef.current.actions.gua(), 1500));
+      timers.push(window.setTimeout(() => menuRef.current.actions.share(), 3000));
+      return () => timers.forEach((t) => window.clearTimeout(t));
+    }
     timers.push(window.setTimeout(expand, 1500));
     if (shot === "detail") {
       try {

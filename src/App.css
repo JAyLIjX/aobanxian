@@ -1842,3 +1842,99 @@ html[data-view="textfit"] body {
   font-size: 11px;
   color: var(--ink-3);
 }
+
+/* ── 每日一卦：卦象、原文与白话、六爻逐爻、体用、互卦、变卦 ── */
+.gua__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.gua__moving {
+  font-size: 12px;
+  color: var(--ink-2);
+  font-weight: normal;
+}
+.gua__composition {
+  margin: 6px 0 2px;
+  font-weight: bold;
+}
+.gua__trigrams {
+  margin: 0 0 6px;
+  padding-left: 1.2em;
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.7;
+}
+.gua__pair {
+  margin-bottom: 8px;
+}
+.gua__pair .gua__classic {
+  margin-bottom: 2px;
+}
+.gua__plain-label {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 0 4px;
+  font-size: 11px;
+  color: var(--cinnabar);
+  border: 1px solid var(--cinnabar);
+  border-radius: 2px;
+  line-height: 1.5;
+}
+.gua__yao {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+.gua__yao-item {
+  border: 1px solid var(--line);
+}
+.gua__yao-item.is-moving {
+  border: 2px solid var(--cinnabar);
+  background: var(--cinnabar-wash);
+}
+.gua__yao-head {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 5px 8px;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.gua__yao-pos {
+  flex: none;
+  width: 3em;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+.gua__yao-text {
+  flex: 1;
+}
+.gua__yao-arrow {
+  flex: none;
+  font-size: 11px;
+  color: var(--ink-3);
+}
+.gua__yao-body {
+  padding: 0 8px 6px calc(3em + 16px);
+}
+.gua__yao-body p {
+  margin: 2px 0;
+}
+.gua__note {
+  font-size: 12px;
+}
+.gua__trajectory {
+  margin-top: 6px;
+  padding: 6px 10px;
+  background: var(--cinnabar-wash);
+  border-left: 3px solid var(--cinnabar);
+}
