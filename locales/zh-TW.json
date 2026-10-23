@@ -266,7 +266,12 @@
     "characterHint": "點一下就換，位置不變；開場白和右鍵選單第一項跟著換口吻",
     "muyuSound": "木魚聲音",
     "muyuSoundHint": "小和尚敲木魚時「篤」一聲",
-    "meritTotal": "累計功德：{{n}}"
+    "meritTotal": "累計功德：{{n}}",
+    "autoUpdate": "自動檢查更新",
+    "autoUpdateHint": "每天第一次啟動時檢查一次。只訪問 GitHub，不收集任何資料",
+    "checkNow": "檢查更新",
+    "checkNowButton": "立即檢查更新",
+    "checking": "檢查中……"
   },
   "about": {
     "title": "關於奧半仙",
@@ -519,6 +524,20 @@
   },
   "textField": {
     "tooLong": "最多 {{max}} 個字"
+  },
+  "update": {
+    "title": "有新版了",
+    "checking": "正在檢查更新……",
+    "upToDate": "已是最新版本（{{version}}）",
+    "failed": "檢查更新失敗，請檢查網路後稍後再試",
+    "found": "發現新版 {{version}}",
+    "newVersion": "新版本 {{version}}",
+    "current": "當前版本 {{version}}",
+    "notes": "更新說明",
+    "now": "現在更新",
+    "later": "稍後",
+    "close": "關閉",
+    "installing": "正在下載並安裝，完成後會自動重啟……"
   },
   "rulesText": {
     "tiers": {

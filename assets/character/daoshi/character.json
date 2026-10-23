@@ -19,7 +19,8 @@
       "jieqi": "今日{{name}}，顺时而行",
       "personalClash": "属{{animal}}的善信，今日冲你，凡事低调些",
       "personalHarmony": "属{{animal}}的善信，今日与你相合",
-      "anniversary": "今日是{{name}}"
+      "anniversary": "今日是{{name}}",
+      "update": "善信，贫道这里有新版了，点我看看"
     },
     "zh-TW": {
       "divine": "掐指一算",
@@ -31,7 +32,8 @@
       "jieqi": "今日{{name}}，順時而行",
       "personalClash": "屬{{animal}}的善信，今日沖你，凡事低調些",
       "personalHarmony": "屬{{animal}}的善信，今日與你相合",
-      "anniversary": "今日是{{name}}"
+      "anniversary": "今日是{{name}}",
+      "update": "善信，貧道這裡有新版了，點我看看"
     },
     "en": {
       "divine": "Divine",
@@ -43,7 +45,8 @@
       "jieqi": "It's {{name}} — go with the season.",
       "personalClash": "Friend born in the Year of the {{animal}}, today clashes with you — keep a low profile.",
       "personalHarmony": "Friend born in the Year of the {{animal}}, today is in harmony with you.",
-      "anniversary": "Today is {{name}}!"
+      "anniversary": "Today is {{name}}!",
+      "update": "A new version is ready — click me to take a look"
     }
   }
 }

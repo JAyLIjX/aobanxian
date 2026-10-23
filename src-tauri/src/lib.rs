@@ -146,6 +146,9 @@ pub fn run() {
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_clipboard_manager::init())
+        // 自动更新：从 GitHub Releases 的 latest.json 检查新版（只访问 GitHub，不上传任何数据）
+        .plugin(tauri_plugin_updater::Builder::new().build())
+        .plugin(tauri_plugin_process::init())
         .manage(HitState::default())
         .manage(GeomState::default())
         .invoke_handler(tauri::generate_handler![set_hit_regions, set_window_rect, play_woodblock, quit_app])

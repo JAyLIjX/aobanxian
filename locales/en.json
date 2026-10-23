@@ -266,7 +266,12 @@
     "characterHint": "Click to switch — the position stays; greetings and the first menu item change voice",
     "muyuSound": "Wooden fish sound",
     "muyuSoundHint": "A soft “tok” when the little monk taps the wooden fish",
-    "meritTotal": "Total merit: {{n}}"
+    "meritTotal": "Total merit: {{n}}",
+    "autoUpdate": "Check for updates automatically",
+    "autoUpdateHint": "Once a day at first launch. Only contacts GitHub; no data is collected",
+    "checkNow": "Updates",
+    "checkNowButton": "Check now",
+    "checking": "Checking…"
   },
   "about": {
     "title": "About Ao Banxian",
@@ -564,5 +569,19 @@
   },
   "textField": {
     "tooLong": "Up to {{max}} characters"
+  },
+  "update": {
+    "title": "Update available",
+    "checking": "Checking for updates…",
+    "upToDate": "You're on the latest version ({{version}})",
+    "failed": "Couldn't check for updates. Please check your connection and try again later.",
+    "found": "Version {{version}} is available",
+    "newVersion": "Version {{version}}",
+    "current": "You have {{version}}",
+    "notes": "What's new",
+    "now": "Update now",
+    "later": "Later",
+    "close": "Close",
+    "installing": "Downloading and installing — the app will restart when done…"
   }
 }

@@ -19,6 +19,8 @@ export const VOICE_KEYS = [
   "personalClash",
   "personalHarmony",
   "anniversary",
+  /** 有新版了（自动更新） */
+  "update",
 ] as const;
 export type VoiceKey = (typeof VOICE_KEYS)[number];
 export type Voice = Record<VoiceKey, string>;

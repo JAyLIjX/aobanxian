@@ -22,12 +22,15 @@
 - **我的生肖**：在设置里选自己的生肖（只存在本机），卡片上显示「今日与你：相合 / 相冲 / 相害 / 平常」，相合、相冲的日子幡上和开场白也会说。
 - **择日**：选一件事（搬家、出行、开业、结婚、签约、装修、安床、祭祀）和范围（30 / 60 / 90 天），列出宜做且不忌的日子，标出黄道、天赦，和你生肖相冲的日子变灰。
 - **纪念日**：生日、纪念日，公历或农历都行；农历会处理闰月和小月（没有三十按廿九）。列表里显示下次是哪天、还有几天；当天道士会说「今日是妈妈的农历生日」，月历上那一天有小红点，还能用系统通知提前提醒。卡片底部是最近的纪念日、传统节日或节气的倒计时。可以导出 / 导入 JSON。
-- **求签**：摇像素签筒，掉出一根签，展开签纸：签号、签等、签诗（《關聖帝君靈籤》原文）和白话解读。每天一签，签册里按日期翻看。
-- **每日一卦**：梅花易数按时间起卦（以你今天第一次起卦的时辰为准），显示本卦、动爻、变卦的《周易》原文和白话解读。
-- **分享今日**：生成一张 1080×1440 的图（日期、农历、五行、大吉色、宜忌、像素道士、仓库二维码，可附上今日签），复制到剪贴板并存到「图片/奥半仙」。
+- **求签**：摇像素签筒，掉出一根签，展开签纸：签号、签等、签诗（《關聖帝君靈籤》原文）、白话总解、事业 / 求财 / 感情 / 出行 / 考试 / 失物 / 健康七项分事项、典故故事，以及可展开的「古人怎么解」（聖意、東坡解、碧仙註、解曰、釋義原文）。每天一签，签册里按日期翻看。
+- **每日一卦**：梅花易数按时间起卦（以你今天第一次起卦的时辰为准）：卦象、卦辞与彖传和大象传、六爻逐爻（动爻展开）、体用、互卦、变卦，《周易》原文配白话。
+- **今日详情**：顶部小目录；穿衣、宜忌、生肖之外，还有十二时辰吉凶时间轴、喜神财神福神方位罗盘和幸运数字、七十二候和月相、建除十二神、彭祖百忌、胎神、九星。
+- **每日一诗**：约 400 首唐诗宋词，按季节、节气、节日、满月挑一首，卡片底部是名句，点开看全诗和赏析。
+- **分享今日**：生成一张 1080×1440 的图（日期、农历、五行、大吉色、宜忌、像素道士、下载二维码，可附上今日签），复制到剪贴板并存到「图片/奥半仙」。
 - **右键菜单**：在道士或卷轴上右键（Mac 双指轻点、Control+点击）：掐指一算、求签、每日一卦 ／ 今日详情、展开 / 收起日历 ／ 择日、纪念日、分享今日 ／ 小人尺寸、置顶、设置 ／ 关于、退出。托盘 / 菜单栏图标里也是同样的菜单。
 - **四个角色**：道士（举幡）、书生（摇扇）、青天大老爷（举告示）、小和尚（举木牌）。在设置「外观」里点缩略图就换，站的位置不变；每个角色有自己的口吻（道士称「善信」、书生称「兄台」、青天大老爷「本官宣判」、小和尚称「施主」），右键菜单第一项也跟着变：掐指一算 / 翻翻黄历 / 升堂 / 敲木鱼。青天大老爷的告示会原地展开成日历卡片。
 - **敲木鱼**：小和尚的「敲木鱼」会在他身边放一个像素木鱼，「笃」一声，头顶飘「功德 +1」；几秒内点木鱼还能接着敲，累计功德记在本机。
+- **自动更新**：每天第一次启动时检查一次新版，角色冒气泡提醒，点一下就能更新；设置里可以关掉或立即检查。只访问 GitHub，不收集任何数据。
 - **设置**：通用、外观、规则、提醒四页，改动即时生效。
 - **三种语言**：简体中文、繁體中文、English。英文界面里，宜忌、纳音、干支这些词写成「中文原词 + 英文解释」。
 
@@ -52,20 +55,27 @@
 - macOS：`AoBanxian_x.y.z_universal.dmg`（Intel 和 Apple 芯片通用）
 - Windows：`AoBanxian_x.y.z_x64-setup.exe`（推荐）或 `AoBanxian_x.y.z_x64.msi`
 
-目前还没有做代码签名，第一次打开时系统会拦一下：
+macOS 版目前只做了 ad-hoc 签名，**还没有做 Apple 的开发者签名和公证**，所以第一次打开时系统会拦一下。这只是因为项目还没有付费加入 Apple 开发者计划，代码完全开源，可以自行查看。按下面的方法打开一次之后，以后就能正常使用。
 
-**macOS 提示「无法验证开发者」**
-1. 先双击打开一次，在弹窗里点「完成」
-2. 打开「系统设置 → 隐私与安全性」，往下找到「已阻止使用"奥半仙"」，点「仍要打开」，再输入密码确认
+**macOS 提示「无法验证开发者」（或「Apple 无法检查其是否包含恶意软件」）**
+1. 先把 `奥半仙.app` 拖进「应用程序」文件夹，双击打开一次，在弹窗里点「完成」
+2. 打开「系统设置 → 隐私与安全性」，往下翻，找到「已阻止使用"奥半仙"」，点「仍要打开」，再输入密码确认
 
-如果提示「已损坏，无法打开」，在终端运行一次下面的命令再打开：
+**macOS 提示「已损坏，无法打开」**
+在「终端」里运行下面的命令（去掉下载时系统加的隔离标记），再打开：
 
 ```bash
-xattr -dr com.apple.quarantine /Applications/奥半仙.app
+xattr -cr /Applications/奥半仙.app
 ```
 
 **Windows 提示「Windows 已保护你的电脑」（SmartScreen）**
 点「更多信息」→「仍要运行」。Windows 10 如果没有 WebView2，安装程序会自动下载。
+
+### 自动更新
+
+装好以后不用再手动下载新版：软件每天第一次启动时检查一次 GitHub Releases，有新版时角色会冒气泡说「有新版了」，点气泡可以看新版本号和更新说明，选「现在更新」或「稍后」。更新包有签名校验，替换后直接重启成新版，macOS 上不需要再按上面的步骤放行。也可以在「设置 → 通用」里关掉自动检查，或者点「立即检查更新」。
+
+**隐私**：检查更新只访问 GitHub（读取 Release 里的 `latest.json`、下载安装包），不上传、不收集任何用户数据；你的设置、纪念日、签册都只存在本机。
 
 ## 本机运行开发版
 
@@ -229,7 +239,9 @@ npm run tauri dev   # run the desktop app
 npm test            # unit tests
 ```
 
-Builds are unsigned for now: on macOS, allow it under System Settings → Privacy & Security → "Open Anyway"; on Windows, click "More info" → "Run anyway" in SmartScreen.
+The macOS build is only ad-hoc signed for now (no Apple Developer ID signature or notarization yet — the code is fully open source). The first time you open it, go to System Settings → Privacy & Security, scroll down and click "Open Anyway"; if macOS says the app "is damaged", run `xattr -cr /Applications/奥半仙.app` in Terminal and open it again. On Windows, click "More info" → "Run anyway" in SmartScreen.
+
+After that, the app updates itself: once a day at first launch it checks GitHub Releases, and the character tells you when a new version is ready. Update checks only contact GitHub and collect no data.
 
 The poem of the day comes from the open-source [chinese-poetry](https://github.com/chinese-poetry/chinese-poetry) collection (MIT licence); the season tags, notes and English gists are our own.
 

@@ -47,4 +47,13 @@ describe("改 GitHub 用户名", () => {
       expect(src, f).not.toContain(branding.author);
     }
   });
+
+  it("自动更新的地址跟着仓库走：tauri.conf.json 的 endpoints = repository/releases/latest/download/latest.json", () => {
+    const conf = JSON.parse(readFileSync("src-tauri/tauri.conf.json", "utf8"));
+    expect(conf.plugins.updater.endpoints).toEqual([`${branding.repository}/releases/latest/download/latest.json`]);
+    expect(conf.plugins.updater.pubkey.length).toBeGreaterThan(40);
+    expect(conf.bundle.createUpdaterArtifacts).toBe(true);
+    // macOS 至少 ad-hoc 签名（Apple 芯片上完全不签名的 app 打不开）
+    expect(conf.bundle.macOS.signingIdentity).toBe("-");
+  });
 });

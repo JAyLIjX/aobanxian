@@ -1,6 +1,6 @@
 [package]
 name = "aobanxian"
-version = "0.4.0"
+version = "0.4.1"
 description = "Ao Banxian 奥半仙 — pixel Taoist almanac desktop widget"
 license = "MIT"
 edition = "2024"
@@ -28,6 +28,9 @@ tauri-plugin-fs = "2"
 tauri-plugin-clipboard-manager = "2"
 serde = { version = "1", features = ["derive"] }
 cpal = "0.18"
+tauri-plugin-updater = "2"
+tauri-plugin-process = "2"
+serde_json = "1"
 
 
 # Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration

@@ -21,6 +21,8 @@ export interface Settings {
   language: Language;
   expandOnLaunch: boolean;
   collapseOnBlur: boolean;
+  /** 每天第一次启动时检查一次新版（只访问 GitHub） */
+  autoUpdate: boolean;
   /** 我的生肖，只存在本机 */
   myZodiac: MyZodiac;
   // 外观
@@ -49,7 +51,7 @@ export type SettingsPage = "general" | "appearance" | "rules" | "reminders";
 
 /** 每一页有哪些设置项（「恢复默认」按页恢复） */
 export const SETTINGS_PAGES: Record<SettingsPage, (keyof Settings)[]> = {
-  general: ["autostart", "onTop", "size", "language", "myZodiac", "expandOnLaunch", "collapseOnBlur"],
+  general: ["autostart", "onTop", "size", "language", "myZodiac", "expandOnLaunch", "collapseOnBlur", "autoUpdate"],
   appearance: ["character", "displayFont", "bannerFont", "bannerText"],
   rules: ["elementSource", "topPriority", "dayBoundary"],
   reminders: ["openingEnabled", "effectsEnabled", "bubbleSeconds", "annivNotify", "annivNotifyDays", "muyuSound"],

@@ -10,7 +10,8 @@
     "anniversaries",
     "lots",
     "gua",
-    "share"
+    "share",
+    "update"
   ],
   "permissions": [
     "core:default",
@@ -64,6 +65,8 @@
     },
     "clipboard-manager:allow-write-image",
     "clipboard-manager:allow-write-text",
-    "core:image:default"
+    "core:image:default",
+    "updater:default",
+    "process:allow-restart"
   ]
 }

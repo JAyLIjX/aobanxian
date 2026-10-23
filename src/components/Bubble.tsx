@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties, Ref } from "react";
 
 interface Props {
   text: string;
@@ -12,13 +12,24 @@ interface Props {
   side: "above-left" | "right";
   maxWidth: number;
   small?: boolean;
+  /** 可以点（如「有新版了」）：气泡接收鼠标，主窗口把它的范围加进点穿区域 */
+  onClick?: () => void;
+  ref?: Ref<HTMLDivElement>;
 }
 
 /** 像素风对话气泡：宣纸底、墨色边、一个小尾巴 */
-export function Bubble({ text, x, y, side, maxWidth, small }: Props) {
+export function Bubble({ text, x, y, side, maxWidth, small, onClick, ref }: Props) {
   const style = { left: x, top: y, maxWidth } as CSSProperties;
   return (
-    <div className={`bubble bubble--${side} ${small ? "bubble--small" : ""}`} style={style} role="status">
+    <div
+      ref={ref}
+      className={`bubble bubble--${side} ${small ? "bubble--small" : ""} ${onClick ? "bubble--clickable" : ""}`}
+      style={style}
+      role={onClick ? "button" : "status"}
+      tabIndex={onClick ? 0 : undefined}
+      onClick={onClick}
+      onPointerDown={onClick ? (e) => e.stopPropagation() : undefined}
+    >
       {text}
     </div>
   );

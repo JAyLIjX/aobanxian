@@ -7,7 +7,7 @@ import { WebviewWindow } from "@tauri-apps/api/webviewWindow";
 import type { Ymd } from "../core/dayBoundary";
 import { inTauri } from "./window";
 
-export type ViewName = "settings" | "about" | "zeri" | "anniversaries" | "lots" | "gua" | "share";
+export type ViewName = "settings" | "about" | "zeri" | "anniversaries" | "lots" | "gua" | "share" | "update";
 
 export const WINDOW_SIZES: Record<ViewName, { width: number; height: number; resizable: boolean }> = {
   settings: { width: 560, height: 600, resizable: true },
@@ -17,6 +17,7 @@ export const WINDOW_SIZES: Record<ViewName, { width: number; height: number; res
   lots: { width: 440, height: 620, resizable: true },
   gua: { width: 520, height: 680, resizable: true },
   share: { width: 520, height: 760, resizable: true },
+  update: { width: 460, height: 420, resizable: true },
 };
 
 export function openView(view: ViewName, title: string): void {

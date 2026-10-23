@@ -9,10 +9,13 @@ import {
   save as saveDialog,
 } from "@tauri-apps/plugin-dialog";
 import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs";
+import { getVersion } from "@tauri-apps/api/app";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { setLanguage } from "../i18n";
 import { inTauri } from "../platform/window";
+import { checkForUpdate } from "../platform/updater";
+import { openView } from "../platform/windows";
 import {
   MAX_BANNER_CHARS,
   MY_ZODIAC_OPTIONS,
@@ -116,6 +119,26 @@ export function SettingsApp() {
   const merit = useMerit();
   const rules = useMemo(() => rulesWith(settings), [settings]);
   const [dataMsg, setDataMsg] = useState<string | null>(null);
+  // 立即检查更新：有新版就打开更新窗口，没有就显示「已是最新版本」
+  const [checking, setChecking] = useState(false);
+  const [updateMsg, setUpdateMsg] = useState<string | null>(null);
+  const checkNow = async () => {
+    setChecking(true);
+    setUpdateMsg(null);
+    try {
+      const u = await checkForUpdate();
+      if (u) {
+        setUpdateMsg(t("update.found", { version: u.version }));
+        openView("update", t("update.title"));
+      } else {
+        setUpdateMsg(t("update.upToDate", { version: inTauri ? await getVersion() : "dev" }));
+      }
+    } catch {
+      setUpdateMsg(t("update.failed"));
+    } finally {
+      setChecking(false);
+    }
+  };
 
   useEffect(() => setLanguage(settings.language), [settings.language]);
   useEffect(() => {
@@ -314,6 +337,14 @@ export function SettingsApp() {
                 onChange={(v) => set("collapseOnBlur", v)}
                 label={t("settings.collapseOnBlur")}
               />
+            </Row>
+            <Row label={t("settings.autoUpdate")} hint={t("settings.autoUpdateHint")}>
+              <Toggle checked={settings.autoUpdate} onChange={(v) => set("autoUpdate", v)} label={t("settings.autoUpdate")} />
+            </Row>
+            <Row label={t("settings.checkNow")} hint={updateMsg ?? undefined}>
+              <button type="button" className="btn" disabled={checking} onClick={() => void checkNow()}>
+                {checking ? t("settings.checking") : t("settings.checkNowButton")}
+              </button>
             </Row>
           </>
         )}

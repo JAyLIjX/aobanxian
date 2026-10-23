@@ -21,7 +21,8 @@
       "jieqi": "施主，今日{{name}}，顺其自然",
       "personalClash": "属{{animal}}的施主，今日冲你，凡事随缘",
       "personalHarmony": "属{{animal}}的施主，今日与你有缘",
-      "anniversary": "施主，今日是{{name}}，莫忘了"
+      "anniversary": "施主，今日是{{name}}，莫忘了",
+      "update": "施主，小僧这里有新版了，点我看看"
     },
     "zh-TW": {
       "divine": "敲木魚",
@@ -33,7 +34,8 @@
       "jieqi": "施主，今日{{name}}，順其自然",
       "personalClash": "屬{{animal}}的施主，今日沖你，凡事隨緣",
       "personalHarmony": "屬{{animal}}的施主，今日與你有緣",
-      "anniversary": "施主，今日是{{name}}，莫忘了"
+      "anniversary": "施主，今日是{{name}}，莫忘了",
+      "update": "施主，小僧這裡有新版了，點我看看"
     },
     "en": {
       "divine": "Tap the Wooden Fish",
@@ -45,7 +47,8 @@
       "jieqi": "Amituofo — it's {{name}}; go with the season.",
       "personalClash": "Amituofo — friend born in the Year of the {{animal}}, today clashes with you; let things take their course.",
       "personalHarmony": "Amituofo — friend born in the Year of the {{animal}}, today you share a good affinity.",
-      "anniversary": "Amituofo — today is {{name}}, don't forget!"
+      "anniversary": "Amituofo — today is {{name}}, don't forget!",
+      "update": "Amituofo — a new version has arrived. Click me to see"
     }
   }
 }

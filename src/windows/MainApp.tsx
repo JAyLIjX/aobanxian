@@ -27,6 +27,7 @@ import { useToday } from "../hooks/useToday";
 import { isContextMenuOpen, popupContextMenu, syncTray, type MenuModel } from "../platform/menu";
 import { notify } from "../platform/notify";
 import { onOpenDetailRequest, onSayRequest, openView } from "../platform/windows";
+import { checkForUpdate, installUpdate } from "../platform/updater";
 import { todaysLot } from "../settings/lotBook";
 import {
   focusWindow,
@@ -137,6 +138,10 @@ export function MainApp() {
   const expanded = scrollState !== "closed";
 
   const bubbleCtl = useMemo(() => createBubble(setBubbleText), []);
+  // 「有新版了」气泡的文字：气泡显示的正好是它时，气泡可以点、点了打开更新窗口
+  const [updateText, setUpdateText] = useState<string | null>(null);
+  const bubbleRef = useRef<HTMLDivElement>(null);
+  const bubbleIsUpdate = bubble !== null && bubble === updateText;
   const translationCtl = useMemo(() => createBubble(setTranslationText), []);
   useEffect(() => () => (bubbleCtl.dispose(), translationCtl.dispose()), [bubbleCtl, translationCtl]);
 
@@ -413,6 +418,35 @@ export function MainApp() {
     return () => clearTimeout(timer);
   }, [loaded]);
 
+  // 自动检查更新：每天第一次启动（或跨天）检查一次，只访问 GitHub；有新版时角色按自己的口吻冒气泡
+  useEffect(() => {
+    if (!loaded || !settings.autoUpdate) return;
+    const key = ymdKey(today);
+    let cancelled = false;
+    void (async () => {
+      if ((await getState<string>("updateCheckedOn")) === key) return;
+      await setState("updateCheckedOn", key);
+      try {
+        const u = await checkForUpdate();
+        if (!u || cancelled) return;
+        // 本机验证自动更新用（只在构建时设了 VITE_TEST_UPDATE 的测试包里生效）：不等点击，直接安装
+        if (import.meta.env.VITE_TEST_UPDATE) {
+          await installUpdate(() => {});
+          return;
+        }
+        const text = voiceLine(character, lang, "update", { version: u.version });
+        setUpdateText(text);
+        bubbleCtl.show(text, Math.max(settings.bubbleSeconds, 20));
+      } catch {
+        // 没网或 GitHub 访问不了：明天再试，不打扰
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaded, settings.autoUpdate, today.year, today.month, today.day]);
+
   // 开发版截图：VITE_TEST_SHOT=card npm run tauri dev 启动后展开卷轴（看卡片底部的名句）；
   // VITE_TEST_SHOT=windows 打开每日一卦和分享今日窗口；
   // VITE_TEST_SHOT=detail 再打开今天的详情，把四个折叠栏都展开，每 4 秒跳到下一栏（穿衣 → … → 更多），
@@ -634,8 +668,16 @@ export function MainApp() {
       const m = muyuRect(layout.sprite, sprite.height, cell);
       rects.push([m.x, m.y, m.w, m.h]);
     }
-    setHitRegions({ rects, masks: [mask] });
-  }, [layout, sprite, unrollWriting, expanded, cell, scrollSize, detailSize, muyuVisible]);
+    // 「有新版了」气泡可以点：它的范围也要接收鼠标（气泡弹出有 160ms 的缩放动画，动画结束后再量一次）
+    const apply = () => {
+      const b = bubbleIsUpdate ? bubbleRef.current?.getBoundingClientRect() : null;
+      setHitRegions({ rects: b ? [...rects, [b.x, b.y, b.width, b.height]] : rects, masks: [mask] });
+    };
+    apply();
+    if (!bubbleIsUpdate) return;
+    const timer = window.setTimeout(apply, 250);
+    return () => window.clearTimeout(timer);
+  }, [layout, sprite, unrollWriting, expanded, cell, scrollSize, detailSize, muyuVisible, bubbleIsUpdate]);
 
   const onScrollResize = useCallback((w: number, h: number) => setScrollSize({ w, h }), []);
   const detailRef = useRef<HTMLDivElement>(null);
@@ -739,7 +781,24 @@ export function MainApp() {
         </div>
       )}
 
-      {bubble && <Bubble text={bubble} x={headX} y={headTop - 4} side="above-left" maxWidth={220} />}
+      {bubble && (
+        <Bubble
+          text={bubble}
+          x={headX}
+          y={headTop - 4}
+          side="above-left"
+          maxWidth={220}
+          ref={bubbleRef}
+          onClick={
+            bubbleIsUpdate
+              ? () => {
+                  bubbleCtl.hide();
+                  openView("update", t("update.title"));
+                }
+              : undefined
+          }
+        />
+      )}
       {translation && <Bubble text={translation} x={bannerRight + 4} y={faceTop + 8} side="right" maxWidth={160} small />}
 
       {muyuVisible && (() => {

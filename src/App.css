@@ -1938,3 +1938,47 @@ html[data-view="textfit"] body {
   background: var(--cinnabar-wash);
   border-left: 3px solid var(--cinnabar);
 }
+
+/* ── 更新窗口、可点的气泡 ── */
+.update {
+  display: flex;
+  flex-direction: column;
+}
+.update__title {
+  margin: 4px 0 2px;
+  font-size: 26px;
+  color: var(--cinnabar);
+}
+.update__notes h3 {
+  margin: 12px 0 4px;
+  font-size: 13px;
+  color: var(--cinnabar);
+}
+.update__notes pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.7;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.update__progress {
+  margin-top: 12px;
+}
+.update__actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px 14px;
+  border-top: 1px dashed var(--line);
+}
+.bubble--clickable {
+  pointer-events: auto;
+  cursor: pointer;
+}
+.bubble--clickable:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}

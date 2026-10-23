@@ -21,7 +21,8 @@
       "jieqi": "本官告示：今日{{name}}，顺时而行",
       "personalClash": "属{{animal}}者听令：今日冲你，凡事低调",
       "personalHarmony": "属{{animal}}者听令：今日与你相合",
-      "anniversary": "本官提醒：今日是{{name}}"
+      "anniversary": "本官提醒：今日是{{name}}",
+      "update": "本官宣布：有新版了！速速点来查看"
     },
     "zh-TW": {
       "divine": "升堂",
@@ -33,7 +34,8 @@
       "jieqi": "本官告示：今日{{name}}，順時而行",
       "personalClash": "屬{{animal}}者聽令：今日沖你，凡事低調",
       "personalHarmony": "屬{{animal}}者聽令：今日與你相合",
-      "anniversary": "本官提醒：今日是{{name}}"
+      "anniversary": "本官提醒：今日是{{name}}",
+      "update": "本官宣佈：有新版了！速速點來檢視"
     },
     "en": {
       "divine": "Open Court",
@@ -45,7 +47,8 @@
       "jieqi": "Notice from the court: it is {{name}} — act with the season.",
       "personalClash": "All born in the Year of the {{animal}}, hear this: today clashes with you — keep a low profile.",
       "personalHarmony": "All born in the Year of the {{animal}}, hear this: today is in harmony with you.",
-      "anniversary": "The court reminds you: today is {{name}}!"
+      "anniversary": "The court reminds you: today is {{name}}!",
+      "update": "Hear ye: a new version is out! Click to inspect it"
     }
   }
 }

@@ -40,6 +40,7 @@ describe("设置", () => {
       language: "zh-TW",
       expandOnLaunch: true,
       collapseOnBlur: false,
+      autoUpdate: false,
       myZodiac: "申",
       character: "daoshi",
       displayFont: "B",

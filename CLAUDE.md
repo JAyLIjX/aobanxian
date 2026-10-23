@@ -202,7 +202,7 @@ JSON 结构：`id`、`writing`（`vertical` 竖排 / `horizontal` 横排）、`b
 ## 作者和仓库地址（改 GitHub 用户名时看这里）
 
 - 作者的 GitHub 用户名和仓库地址**只写在 `config/branding.json` 的 `author`、`repository`**：关于窗口（作者链接、仓库链接）、分享图上的仓库地址和二维码都从这里读。README 用相对链接（`../../releases`）并指向这个文件，`Cargo.toml` 不写 `authors`。
-- GitHub 改名后：改这两项；`git remote set-url origin https://github.com/<新用户名>/aobanxian.git`；本项目的 `git config user.email` 改成 `<id>+<新用户名>@users.noreply.github.com`（id 用 `gh api user --jq .id` 查，不变）。**不要改写已有提交**，旧提交的带 id 隐私邮箱 GitHub 仍算在同一个账号名下。
+- GitHub 改名后：改这两项；`src-tauri/tauri.conf.json` 的 `plugins.updater.endpoints`（自动更新地址，测试会核对它等于 `repository/releases/latest/download/latest.json`）；`git remote set-url origin https://github.com/<新用户名>/aobanxian.git`；本项目的 `git config user.email` 改成 `<id>+<新用户名>@users.noreply.github.com`（id 用 `gh api user --jq .id` 查，不变）。**不要改写已有提交**，旧提交的带 id 隐私邮箱 GitHub 仍算在同一个账号名下。
 - `tests/username.test.ts` 检查项目文件里不再出现旧用户名（git 历史除外）。分享图的二维码指向 `repository` 的 `/releases/latest`（最新版下载页，`latestReleaseUrl`），下面写「扫码下载」；落款那行仍写仓库地址。`tests/share.test.ts` 从画好的图里截出二维码解码核对。
 
 ## 设置
@@ -299,6 +299,21 @@ GitHub Actions（`.github/workflows/release.yml`）推送 `v*` 标签时用 taur
 - **择日**：设置了我的生肖时，相冲的日子标灰并标「冲你」；相害的只加浅色标签「害你」，不标灰。
 - **开发用截图**：`VITE_TEST_SHOT=card|detail|windows npm run tauri dev`：card 展开卷轴；detail 再打开详情、展开四栏、每 4 秒跳一栏；windows 打开每日一卦（4 秒后滚到动爻）和分享今日窗口。外面用 `screencapture -l <窗口号>` 截图，不用点鼠标。截图在 `preview/v0.4/`。
 - 繁体：签文和诗的大意由 `build-zh-tw.ts` 用 OpenCC（`cn→twp`）生成，**不套** `UI_FIXES`（「衝→沖」只适用于黄历沖煞，散文里的「衝突」要保留）。地支「丑」在繁体里仍是「丑」（OpenCC 会转成「醜」，`TERM_FIXES` 改回）。
+
+## 发布、签名与自动更新
+
+- **macOS 只做 ad-hoc 签名**：`tauri.conf.json` 的 `bundle.macOS.signingIdentity: "-"`，整个 .app 都签上（`codesign -dv` 显示 `Signature=adhoc`、`Info.plist entries=…`）。Apple 芯片上完全不签名的 app 打不开。没有 Developer ID 签名和公证，所以用户第一次打开要在「隐私与安全性」点「仍要打开」，提示「已损坏」时运行 `xattr -cr /Applications/奥半仙.app`（README「安装」写了）。
+- **自动更新**：`tauri-plugin-updater` + `tauri-plugin-process`。地址是 `plugins.updater.endpoints`（GitHub Releases 的 `latest.json`），`pubkey` 是更新签名公钥。`bundle.createUpdaterArtifacts: true` 让构建产出 `.app.tar.gz`、`.exe` 等更新包和 `.sig` 签名，`release.yml` 里 tauri-action 用仓库 Secrets 签名并生成、上传 `latest.json`（`includeUpdaterJson`，Windows 用 NSIS 包）。
+  - **更新签名私钥**：`~/.tauri/aobanxian-updater.key`（本机仓库以外，权限 600），密码在 macOS 钥匙串里（服务名 `aobanxian-updater-key-password`，「钥匙串访问」里搜「奥半仙 更新签名私钥密码」）。GitHub Secrets：`TAURI_SIGNING_PRIVATE_KEY`（私钥文件内容）、`TAURI_SIGNING_PRIVATE_KEY_PASSWORD`。**私钥丢了就没法再给已安装的用户推更新**（只能让用户手动下载装一次带新公钥的版本）。换密钥：`npx tauri signer generate -w <新路径>`，更新两个 Secrets 和 `pubkey`。
+  - **流程**：主窗口每天第一次启动（或跨天）检查一次（store 的 `updateCheckedOn`），设置 `autoUpdate` 可关；有新版时角色按自己的口吻冒气泡（`voice.update`），气泡可点（点穿区域会加上气泡的范围），点了打开更新窗口（`?view=update`，`UpdateApp.tsx`）：新版本号、更新说明（Release 正文）、「现在更新」「稍后」。设置 → 通用有「立即检查更新」。检查更新只访问 GitHub，不收集任何数据。
+  - **未签名版自动更新已在本机验证过**：用临时 identifier 打一个 0.4.0（更新地址指向本机 `python3 -m http.server`，构建时设 `VITE_TEST_UPDATE=1` 让它找到新版就直接装）和一个 0.4.1 的更新包，启动 0.4.0 后 2 秒内被替换成 0.4.1 并自动重启；新的包没有 `com.apple.quarantine`（是 app 自己下载解压的），`codesign --verify --deep --strict` 通过，不会被 Gatekeeper 拦。复测时给测试包用别的 `identifier`（不碰正式版数据），`tauri build --config <覆盖 json> --bundles app`，签名用 `TAURI_SIGNING_PRIVATE_KEY=~/.tauri/aobanxian-updater.key TAURI_SIGNING_PRIVATE_KEY_PASSWORD="$(security find-generic-password -s aobanxian-updater-key-password -w)"`（不要把密码打出来）。
+  - `tauri.conf.json` 里有 `plugins` 段时，Rust 侧要直接依赖 `serde_json`（`generate_context!` 生成的代码会用到）。
+- **以后加 Developer ID 签名和公证（macOS）**：
+  - 需要 Apple 开发者计划会员。证书用「Developer ID Application」。
+  - GitHub Secrets（tauri-action / Tauri CLI 会读这些环境变量）：`APPLE_CERTIFICATE`（导出的 .p12 证书的 base64）、`APPLE_CERTIFICATE_PASSWORD`（.p12 的密码）、`KEYCHAIN_PASSWORD`（CI 里临时钥匙串的密码，随便设一个）、`APPLE_SIGNING_IDENTITY`（如 `Developer ID Application: 名字 (TEAMID)`）；公证二选一：`APPLE_ID` + `APPLE_PASSWORD`（App 专用密码）+ `APPLE_TEAM_ID`，或 App Store Connect API 密钥 `APPLE_API_ISSUER` + `APPLE_API_KEY` + `APPLE_API_KEY_PATH`（.p8 文件内容另存一个 Secret，CI 里写成文件）。
+  - 配置：`release.yml` 的 tauri-action `env` 里加上面这些；`tauri.conf.json` 把 `bundle.macOS.signingIdentity` 从 `"-"` 去掉（改由 `APPLE_SIGNING_IDENTITY` 提供），硬化运行时保持默认开启，需要额外权限时加 `bundle.macOS.entitlements`。`tests/username.test.ts` 里检查 `signingIdentity` 为 `"-"` 的那一句要跟着改。
+  - 自动更新的签名（`TAURI_SIGNING_*`）和 Apple 签名是两回事，加了 Apple 签名以后更新签名照旧。
+  - Windows 代码签名另需证书（`bundle.windows.certificateThumbprint` 或 Azure Trusted Signing），目前也没有做，SmartScreen 会提示。
 
 ## 测试
 

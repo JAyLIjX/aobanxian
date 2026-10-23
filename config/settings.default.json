@@ -15,5 +15,6 @@
   "bubbleSeconds": 5,
   "annivNotify": true,
   "annivNotifyDays": 1,
-  "muyuSound": true
+  "muyuSound": true,
+  "autoUpdate": true
 }

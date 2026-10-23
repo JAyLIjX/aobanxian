@@ -20,7 +20,8 @@
       "jieqi": "今日{{name}}，窗外换了时节",
       "personalClash": "属{{animal}}的兄台，今日冲你，凡事低调些",
       "personalHarmony": "属{{animal}}的兄台，今日与你相合",
-      "anniversary": "今日是{{name}}，莫忘了"
+      "anniversary": "今日是{{name}}，莫忘了",
+      "update": "兄台，小生这里有新版了，点此一观"
     },
     "zh-TW": {
       "divine": "翻翻農民曆",
@@ -32,7 +33,8 @@
       "jieqi": "今日{{name}}，窗外換了時節",
       "personalClash": "屬{{animal}}的兄臺，今日沖你，凡事低調些",
       "personalHarmony": "屬{{animal}}的兄臺，今日與你相合",
-      "anniversary": "今日是{{name}}，莫忘了"
+      "anniversary": "今日是{{name}}，莫忘了",
+      "update": "兄臺，小生這裡有新版了，點此一觀"
     },
     "en": {
       "divine": "Check the Almanac",
@@ -44,7 +46,8 @@
       "jieqi": "It's {{name}}, my friend — the season is turning outside the window.",
       "personalClash": "My friend, born in the Year of the {{animal}}: today clashes with you — keep a low profile.",
       "personalHarmony": "My friend, born in the Year of the {{animal}}: today is in harmony with you.",
-      "anniversary": "Today is {{name}}, my friend — don't forget!"
+      "anniversary": "Today is {{name}}, my friend — don't forget!",
+      "update": "A new edition has arrived, my friend — click to have a look"
     }
   },
   "writingShape": "fan"

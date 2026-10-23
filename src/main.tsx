@@ -14,6 +14,7 @@ import { TextFitApp } from "./windows/TextFitApp";
 import { SettingsApp } from "./windows/SettingsApp";
 import { ShareApp } from "./windows/ShareApp";
 import { ZeriApp } from "./windows/ZeriApp";
+import { UpdateApp } from "./windows/UpdateApp";
 
 // 所有窗口共用同一个页面，用地址参数区分：主窗口（道士）、设置、关于、择日、纪念日……
 const view = new URLSearchParams(location.search).get("view");
@@ -26,6 +27,7 @@ const VIEWS: Record<string, () => React.JSX.Element> = {
   lots: LotsApp,
   gua: GuaApp,
   share: ShareApp,
+  update: UpdateApp,
 };
 const DEV_VIEWS: Record<string, () => React.JSX.Element> = import.meta.env.DEV ? { preview: PreviewApp, textfit: TextFitApp, detail: DetailPreviewApp } : {};
 const App = (view && (VIEWS[view] ?? DEV_VIEWS[view])) || MainApp;
