@@ -1,5 +1,32 @@
 # 奥半仙 v0.4 报告
 
+## v0.4.1：自动更新与正式发布
+
+- **macOS 签名**：整个 .app 做了 ad-hoc 签名（`signingIdentity: "-"`），没有 Developer ID 签名和公证。README 和 Release 说明写了第一次打开的方法：在「隐私与安全性」里点「仍要打开」；提示「已损坏」时运行 `xattr -cr`。以后要加 Apple 签名需要哪些 Secrets、改哪些配置，记在 CLAUDE.md「发布、签名与自动更新」。
+- **自动更新**：
+  - 每天第一次启动检查一次。有新版时角色按自己的口吻冒气泡，点气泡打开更新窗口（新版本号、更新说明、「现在更新」「稍后」）。
+  - 设置 → 通用有「自动检查更新」开关（默认开）和「立即检查更新」按钮。
+  - 只访问 GitHub，不收集数据，README 写明了。
+- **更新签名私钥**：
+  - 位置：`~/.tauri/aobanxian-updater.key`，在仓库外，权限 600。
+  - 密码：在 macOS 钥匙串里，名称「奥半仙 更新签名私钥密码」。
+  - GitHub Secrets：已设好 `TAURI_SIGNING_PRIVATE_KEY`、`TAURI_SIGNING_PRIVATE_KEY_PASSWORD`。
+  - **请另外备份私钥文件和密码**（例如存到密码管理器或加密的 U 盘）。丢了以后就没法给已安装的用户推更新。
+- **未签名版自动更新的验证**：
+  - 在本机用临时 identifier 做了一次端到端测试：0.4.0 测试包通过本机更新源，2 秒内被替换成 0.4.1 并自动重启。
+  - 新的包没有隔离标记，`codesign --verify --deep --strict` 通过，没有被系统拦截。
+  - 发布后又核对了两点：
+    - `latest.json` 里每个平台的下载地址和签名都对。
+    - 用 app 里的公钥对 macOS 更新包做了密码学签名校验，通过。
+- **发布**：
+  - 版本号 0.4.1。CI 构建齐全：universal dmg、`.app.tar.gz` 及签名、Windows `.exe`、`.msi` 及签名、`latest.json`。
+  - 删除了 v0.1.0、v0.2.0、v0.3.0 的旧草稿和标签。v0.4.0 从来没有建过草稿和标签。
+  - v0.4.1 已正式发布并设为 Latest，`releases/latest/download/latest.json` 能访问。
+- **本机**：/Applications 换成了 v0.4.1 正式版（从发布的 dmg 安装）。设置数据没变，开机启动仍指向它。
+- **顺手修的**：`tauri.conf.json` 里加了 `plugins` 段以后，Rust 侧要直接依赖 `serde_json`，否则构建失败。已加上。
+
+---
+
 ## 第三轮：小修正（每日一诗、诗题、分享图、动爻称呼、择日、每日一卦详细解读）
 
 版本号仍是 0.4.0，**没有打标签、没有发布**。正式版已重新构建并替换 /Applications。
